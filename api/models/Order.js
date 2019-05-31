@@ -7,4 +7,4 @@ const OrderSchema = new Schema({
   completed: Boolean,
 });
 
-module.exports = mongoose.Model('Order', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema);

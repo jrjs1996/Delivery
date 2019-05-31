@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { apiResponse: '' };
+
+    this.postData = this.postData.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +20,14 @@ class App extends Component {
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }))
       .catch(err => err);
+  }
+
+  postData() {
+    axios.post('http://localhost:9000/testAPI')
+      .then((res) => {
+        const msg = res.data;
+        this.setState({ apiResponse: msg });
+      });
   }
 
   render() {
@@ -36,6 +47,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <button type="button" onClick={this.postData}>Hello</button>
         </header>
       </div>
     );
