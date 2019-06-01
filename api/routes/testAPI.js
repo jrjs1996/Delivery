@@ -4,9 +4,9 @@ const router = express.Router();
 const Customer = require('../models/Customer');
 
 router.get('/', (req, res) => {
-  Customer.findOne(null, (err, person) => {
+  Customer.find(null, (err, people) => {
     if (err) res.send(err);
-    else res.send(person);
+    else res.send(people);
   });
 });
 

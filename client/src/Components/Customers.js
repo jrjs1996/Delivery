@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchCustomers } from '../actions/customerActions';
 
-export default class Customers extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { customers: '' };
-  }
-
-  componentDidMount() {
-    this.getCustomers();
-  }
-
-  getCustomers() {
-    axios.get('http://localhost:9000/testAPI')
-      .then((res) => {
-        console.log(res)
-        this.setState({ customers: res.data.firstName });
-      });
+class Customers extends Component {
+  componentWillMount() {
+    const { fetchCustomers } = this.props;
+    fetchCustomers();
   }
 
   render() {
-    const { customers } = this.state;
+    const { customers } = this.props;
+    const customerTags = customers.map(customer => <p>{ customer.firstName }</p>);
     return (
       <div>
-        <p>{ customers }</p>
+        { customerTags }
       </div>
     );
   }
 }
+
+Customers.propTypes = {
+  fetchCustomers: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  customers: state.customers.items,
+});
+
+export default connect(mapStateToProps, { fetchCustomers })(Customers);
