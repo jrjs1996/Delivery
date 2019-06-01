@@ -11,10 +11,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const customer = new Customer({ firstName: 'James', lastname: 'Scarrow', address: '1234 Rat St.' });
-  customer.save(((err, doc, rows) => {
+  const customer = new Customer({
+    firstName: req.body.firstName,
+    lastname: req.body.lastname,
+    address: req.body.address,
+  });
+  customer.save(((err, doc) => {
     if (err) res.send(err);
-    else res.send(`Rows affected: ${rows}`);
+    else res.send(doc);
   }));
 });
 
