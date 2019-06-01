@@ -8,6 +8,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import SideMenuItem from './SideMenuItem';
 
 const drawerWidth = 240;
 
@@ -49,12 +54,8 @@ function SideMenu() {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <SideMenuItem to="/" text="Home"><HomeIcon /></SideMenuItem>
+        <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
       </List>
       <Divider />
       <List>
