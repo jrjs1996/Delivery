@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addCustomer } from '../actions/customerActions';
+import { addCustomer } from '../../actions/customerActions';
 
 class AddCustomerForm extends Component {
   constructor(props) {
@@ -21,7 +21,6 @@ class AddCustomerForm extends Component {
   }
 
   onSubmit(e) {
-    console.log('hello')
     e.preventDefault();
     const { addCustomer } = this.props;
     addCustomer(this.state);

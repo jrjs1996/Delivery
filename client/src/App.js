@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import logo from './logo.svg';
 import SideMenu from './components/SideMenu/SideMenu';
-import Customers from './components/Customers';
-import Home from './components/Home';
+import Customers from './components/Customers/index';
+import Home from './components/Home/index';
 import store from './store';
 
 
