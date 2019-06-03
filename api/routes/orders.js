@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   const order = new Order({
     customer: req.body.customer,
   });
@@ -19,6 +18,19 @@ router.post('/', (req, res) => {
     if (err) res.status(400).send(err);
     else res.send(doc);
   }));
+});
+
+router.put('/:orderId', (req, res) => {
+  Order.findOneAndUpdate({ _id: req.params.orderId },
+    { completed: true },
+    (err, doc) => {
+      if (err) res.status(400).send(err);
+      else {
+        const updatedOrder = doc;
+        updatedOrder.completed = true;
+        res.send(updatedOrder);
+      }
+    });
 });
 
 module.exports = router;

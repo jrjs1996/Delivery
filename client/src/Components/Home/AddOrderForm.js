@@ -25,7 +25,6 @@ class AddOrderForm extends Component {
   }
 
   onSubmit(e) {
-    console.log(this.state)
     e.preventDefault();
     const { addOrder } = this.props;
     addOrder(this.state);
@@ -50,6 +49,7 @@ class AddOrderForm extends Component {
 
 AddOrderForm.propTypes = {
   addOrder: PropTypes.func.isRequired,
+  customers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = state => ({

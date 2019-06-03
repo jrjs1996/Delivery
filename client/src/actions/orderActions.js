@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_ORDER, FETCH_ORDERS } from './types';
+import { ADD_ORDER, FETCH_ORDERS, COMPLETE_ORDER } from './types';
 
 export const fetchOrders = () => (dispatch) => {
   axios.get('http://localhost:9000/orders/')
@@ -16,6 +16,16 @@ export const addOrder = postData => (dispatch) => {
     .then((res) => {
       dispatch({
         type: ADD_ORDER,
+        payload: res.data,
+      });
+    });
+};
+
+export const completeOrder = putData => (dispatch) => {
+  axios.put(`http://localhost:9000/orders/${putData}`)
+    .then((res) => {
+      dispatch({
+        type: COMPLETE_ORDER,
         payload: res.data,
       });
     });
