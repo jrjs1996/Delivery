@@ -15,10 +15,18 @@ router.post('/', (req, res) => {
     firstName: req.body.firstName,
     lastname: req.body.lastname,
     address: req.body.address,
+    email: req.body.email,
+    password: req.body.password,
   });
+
+  // Make sure everything is good here
+
   customer.save(((err, doc) => {
-    if (err) res.send(err);
-    else res.send(doc);
+    if (err) return res.stauts(500).send(err);
+    return res.send({
+      success: true,
+      message: 'User Created',
+    });
   }));
 });
 

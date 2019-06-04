@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addCustomer } from '../../actions/customerActions';
+import { getFromStorage } from '../../utils'
 
 class AddCustomerForm extends Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class AddCustomerForm extends Component {
       firstName: '',
       lastName: '',
       address: '',
+      email: '',
+      password: '',
     };
 
     this.onChange = this.onChange.bind(this);
@@ -30,6 +33,8 @@ class AddCustomerForm extends Component {
     const { firstName } = this.state;
     const { lastName } = this.state;
     const { address } = this.state;
+    const { email } = this.state;
+    const { password } = this.state;
     return (
       <div>
         <h1>Add Customer</h1>
@@ -37,6 +42,8 @@ class AddCustomerForm extends Component {
           <input type="text" placeholder="First Name" name="firstName" onChange={this.onChange} value={firstName} />
           <input type="text" placeholder="Last Name" name="lastName" onChange={this.onChange} value={lastName} />
           <input type="text" placeholder="Address" name="address" onChange={this.onChange} value={address} />
+          <input type="text" placeholder="Email" name="email" onChange={this.onChange} value={email} />
+          <input type="text" placeholder="Password" name="password" onChange={this.onChange} value={password} />
           <button type="submit">Submit</button>
         </form>
       </div>
