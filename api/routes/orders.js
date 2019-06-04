@@ -4,10 +4,12 @@ const router = express.Router();
 const Order = require('../models/Order');
 
 router.get('/', (req, res) => {
-  Order.find(null, (err, orders) => {
-    if (err) res.send(err);
-    else res.send(orders);
-  });
+  Order.find()
+    .populate('customer')
+    .exec((err, orders) => {
+      if (err) res.send(err);
+      else res.send(orders);
+    });
 });
 
 router.post('/', (req, res) => {

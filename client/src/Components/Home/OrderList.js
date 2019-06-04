@@ -23,7 +23,9 @@ class OrderList extends Component {
     // Will have to get customer name address etc.
     const orderTags = orders.map(order => (
       <p key={order._id}>
-        { order.customer }
+        { order.customer.firstName }
+        { order.customer.lastName }
+        { order.customer.address }
         { order.completed ? <CheckIcon /> : <CloseIcon />}
         <button type="button" key={order._id} id ={order._id} onClick={this.onCompleteOrderClicked}>
           Complete
