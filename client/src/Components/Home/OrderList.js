@@ -19,7 +19,10 @@ class OrderList extends Component {
   }
 
   render() {
-    const { orders } = this.props;
+    let { orders } = this.props;
+    const { excludeCompleted } = this.props;
+
+    if (excludeCompleted) orders = orders.filter(order => !order.completed);
     // Will have to get customer name address etc.
     const orderTags = orders.map(order => (
       <p key={order._id}>
@@ -44,6 +47,11 @@ OrderList.propTypes = {
   fetchOrders: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
   orders: PropTypes.arrayOf(PropTypes.object).isRequired,
+  excludeCompleted: PropTypes.bool,
+};
+
+OrderList.defaultProps = {
+  excludeCompleted: false,
 };
 
 const mapStateToProps = state => ({
