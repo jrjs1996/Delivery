@@ -1,4 +1,4 @@
-import { FETCH_CUSTOMERS, ADD_CUSTOMER } from '../actions/types';
+import { FETCH_CUSTOMERS, ADD_CUSTOMER, GET_CUSTOMER } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -16,6 +16,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: [action.payload, ...state.items],
+      };
+    case GET_CUSTOMER:
+      return {
+        ...state,
+        item: action.payload,
       };
     default:
       return state;

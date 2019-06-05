@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCustomers } from '../../actions/customerActions';
 import AddCustomerForm from './AddCustomerForm';
+import SignInForm from './SignInForm';
+import Customer from './Customer';
 
 class Customers extends Component {
   componentWillMount() {
@@ -18,6 +20,8 @@ class Customers extends Component {
     return (
       <div>
         <AddCustomerForm />
+        <SignInForm />
+        <Customer />
         { customerTags }
       </div>
     );

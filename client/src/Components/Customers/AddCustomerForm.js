@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addCustomer } from '../../actions/customerActions';
-import { getFromStorage } from '../../utils'
 
 class AddCustomerForm extends Component {
   constructor(props) {
@@ -30,11 +29,13 @@ class AddCustomerForm extends Component {
   }
 
   render() {
-    const { firstName } = this.state;
-    const { lastName } = this.state;
-    const { address } = this.state;
-    const { email } = this.state;
-    const { password } = this.state;
+    const {
+      firstName,
+      lastName,
+      address,
+      email,
+      password,
+    } = this.state;
     return (
       <div>
         <h1>Add Customer</h1>
