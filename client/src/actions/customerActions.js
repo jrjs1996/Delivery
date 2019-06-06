@@ -3,7 +3,7 @@ import { FETCH_CUSTOMERS, ADD_CUSTOMER, GET_CUSTOMER } from './types';
 import { saveToken, setAuthHeader } from '../utils/token';
 
 export const fetchCustomers = () => (dispatch) => {
-  axios.get('http://localhost:9000/customers/')
+  axios.get('http://localhost:9000/customers/', setAuthHeader())
     .then((res) => {
       dispatch({
         type: FETCH_CUSTOMERS,

@@ -4,6 +4,7 @@ const router = express.Router();
 const Customer = require('../models/Customer');
 
 router.get('/', (req, res) => {
+  console.log(req.admin);
   if (req.admin == null) return res.sendStatus(401);
 
   Customer.find(null, (err, people) => {
@@ -14,14 +15,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log('here')
-  console.log(req.body)
+  console.log(req.body);
   if (!(req.body.firstName
     && req.body.lastName
     && req.body.address
     && req.body.email
     && req.body.password)) return res.sendStatus(400);
-  console.log('here');
   try {
     const user = await Customer.create(req.body);
     const token = user.newToken();
