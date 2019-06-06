@@ -2,12 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 const Customer = require('../models/Customer');
-const protect = require('../middleware/protect');
 
 router.get('/', (req, res) => {
+  if (req.admin == null) return res.sendStatus(401);
+  
   Customer.find(null, (err, people) => {
     if (err) res.send(err);
-    else res.send(people);
+    
+    else console.log(people);res.send(people);
   });
 });
 
@@ -45,7 +47,7 @@ router.post('/signin/', async (req, res) => {
   return res.status(200).send(token);
 });
 
-router.get('/info/', protect, async (req, res) => {
+router.get('/info/', async (req, res) => {
   return res.status(200).send(req.customer);
 });
 
