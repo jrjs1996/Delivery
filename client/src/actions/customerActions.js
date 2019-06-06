@@ -13,6 +13,7 @@ export const fetchCustomers = () => (dispatch) => {
 };
 
 export const addCustomer = postData => (dispatch) => {
+  console.log(JSON.stringify(postData))
   axios.post('http://localhost:9000/customers/', postData)
     .then((res) => {
       saveToken(res.data);

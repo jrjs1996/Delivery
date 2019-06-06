@@ -5,15 +5,16 @@ const Customer = require('../models/Customer');
 
 router.get('/', (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
-  
+
   Customer.find(null, (err, people) => {
     if (err) res.send(err);
-    
+
     else console.log(people);res.send(people);
   });
 });
 
 router.post('/', async (req, res) => {
+  console.log('here')
   console.log(req.body)
   if (!(req.body.firstName
     && req.body.lastName
