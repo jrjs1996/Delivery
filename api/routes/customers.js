@@ -103,6 +103,21 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Deletes the specified customer
+ * Muse be specified customer or admin
+ */
+router.delete('/:id', async (req, res) => {
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
+
+  try {
+    await Customer.findOneAndDelete({ _id: req.params.id });
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
 router.post('/signin/', async (req, res) => {
   if (!req.body.email || !req.body.password) return res.status(400).send();
 
