@@ -11,12 +11,14 @@ const Customer = require('../models/Customer');
 // e.g. They specified a from or to that was out of range
 // If to is out of range it should just return less values
 
+// TODO: Test all authentication
+
 /**
  * Retreives all customers.
  * Must be an admin.
  */
 router.get('/', async (req, res) => {
-  //if (req.admin == null) return res.sendStatus(401);
+  if (req.admin == null) return res.sendStatus(401);
 
   try {
     const customers = await Customer.find(null);
@@ -58,7 +60,25 @@ router.delete('/', async (req, res) => {
   try {
     await Customer.deleteMany(null);
     return res.sendStatus(200);
-  } catch(error) {
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
+/**
+ * Gets the customer with the given id
+ * Must be specified customer or admin
+ */
+router.get('/:id', async (req, res) => {
+  if (req.admin == null
+    && (req.customer == null || req.customer.id !== req.params.id)) {
+    return res.sendStatus(401);
+  }
+
+  try {
+    const customer = await Customer.findOne({ _id: req.params.id });
+    return res.send(customer);
+  } catch (error) {
     return res.sendStatus(500);
   }
 });
