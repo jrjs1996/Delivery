@@ -14,6 +14,14 @@ const Customer = require('../models/Customer');
 // TODO: Test all authentication
 
 /**
+ * Checks if the user is admin or the user is the customer
+ * with the specified id.
+ * @param {*} req The request to check.
+ */
+const adminOrSpecifiedCustomer = req => (req.admin != null
+    || (req.customer != null && req.customer.id === req.params.id));
+
+/**
  * Retreives all customers.
  * Must be an admin.
  */
@@ -70,14 +78,26 @@ router.delete('/', async (req, res) => {
  * Must be specified customer or admin
  */
 router.get('/:id', async (req, res) => {
-  if (req.admin == null
-    && (req.customer == null || req.customer.id !== req.params.id)) {
-    return res.sendStatus(401);
-  }
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
 
   try {
     const customer = await Customer.findOne({ _id: req.params.id });
     return res.send(customer);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
+/**
+ * Updates the specified user
+ * Must be specified customer or admin
+ */
+router.put('/:id', async (req, res) => {
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
+
+  try {
+    await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
+    return res.sendStatus(200);
   } catch (error) {
     return res.sendStatus(500);
   }
