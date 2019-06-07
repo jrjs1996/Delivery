@@ -3,28 +3,35 @@ const express = require('express');
 const router = express.Router();
 const Customer = require('../models/Customer');
 
-router.get('/', (req, res) => {
-  console.log(req.admin);
+/**
+ * Retreives all customers.
+ * Must be an admin.
+ */
+router.get('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
-  Customer.find(null, (err, people) => {
-    if (err) res.send(err);
-
-    else console.log(people);res.send(people);
-  });
+  try {
+    const temp = await Customer.find(null);
+    return res.send(temp);
+  } catch (err) {
+    return res.sendStatus(500);
+  }
 });
 
+/**
+ * Creates a new customer.
+ */
 router.post('/', async (req, res) => {
-  console.log(req.body);
+
   if (!(req.body.firstName
     && req.body.lastName
     && req.body.address
     && req.body.email
     && req.body.password)) return res.sendStatus(400);
+
   try {
     const user = await Customer.create(req.body);
     const token = user.newToken();
-    console.log('token', token)
     return res.status(200).send(token).end();
   } catch (error) {
     if (error.code === 11000) {
@@ -33,6 +40,7 @@ router.post('/', async (req, res) => {
     return res.sendStatus(500);
   }
 });
+
 
 router.post('/signin/', async (req, res) => {
   if (!req.body.email || !req.body.password) return res.status(400).send();
