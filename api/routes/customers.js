@@ -3,17 +3,25 @@ const express = require('express');
 const router = express.Router();
 const Customer = require('../models/Customer');
 
+// TODO: List API points should have the ability to
+// specify 'from' and 'to' in query strings.
+
+// TODO: Check if the errors were from user specifiction
+// or server.
+// e.g. They specified a from or to that was out of range
+// If to is out of range it should just return less values
+
 /**
  * Retreives all customers.
  * Must be an admin.
  */
 router.get('/', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
+  //if (req.admin == null) return res.sendStatus(401);
 
   try {
-    const temp = await Customer.find(null);
-    return res.send(temp);
-  } catch (err) {
+    const customers = await Customer.find(null);
+    return res.send(customers);
+  } catch (error) {
     return res.sendStatus(500);
   }
 });
@@ -22,7 +30,6 @@ router.get('/', async (req, res) => {
  * Creates a new customer.
  */
 router.post('/', async (req, res) => {
-
   if (!(req.body.firstName
     && req.body.lastName
     && req.body.address
@@ -32,7 +39,7 @@ router.post('/', async (req, res) => {
   try {
     const user = await Customer.create(req.body);
     const token = user.newToken();
-    return res.status(200).send(token).end();
+    return res.status(201).send(token).end();
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).send({ email: 'Address is already in use!' }).end();
@@ -41,6 +48,20 @@ router.post('/', async (req, res) => {
   }
 });
 
+/**
+ * Deletes all customers
+ * Must be admin.
+ */
+router.delete('/', async (req, res) => {
+  if (req.admin == null) return res.sendStatus(401);
+
+  try {
+    await Customer.deleteMany(null);
+    return res.sendStatus(200);
+  } catch(error) {
+    return res.sendStatus(500);
+  }
+});
 
 router.post('/signin/', async (req, res) => {
   if (!req.body.email || !req.body.password) return res.status(400).send();
