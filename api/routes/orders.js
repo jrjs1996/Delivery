@@ -3,23 +3,58 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
 
-router.get('/', (req, res) => {
-  Order.find()
-    .populate('customer')
-    .exec((err, orders) => {
-      if (err) res.send(err);
-      else res.send(orders);
-    });
+// TODO: List API points should have the ability to
+// specify 'from' and 'to' in query strings.
+
+// TODO: Check if the errors were from user specifiction
+// or server.
+// e.g. They specified a from or to that was out of range
+// If to is out of range it should just return less values
+
+// TODO: Test all authentication
+
+/**
+ * Gets list of all orders.
+ */
+router.get('/', async (req, res) => {
+  // if (req.admin == null) return res.sendStatus(401);
+
+  try {
+    const orders = await Order.find().populate('customer').exec();
+    return res.send(orders);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
 });
 
-router.post('/', (req, res) => {
-  const order = new Order({
-    customer: req.body.customer,
-  });
-  order.save(((err, doc) => {
-    if (err) res.status(400).send(err);
-    else res.send(doc);
-  }));
+// TODO: Allow admins to make orders for
+// customers or without customers.
+
+/**
+ * Adds the specified order.
+ * Must be customer
+ */
+router.post('/', async (req, res) => {
+  const orderParams = req.body;
+  orderParams.customer = req.customer._id;
+  try {
+    const order = new Order(orderParams);
+    const result = order.save();
+    res.send(result);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+router.delete('/', async (req, res) => {
+  if (req.admin == null) return res.sendStatus(401);
+
+  try {
+    await Order.deleteMany(null);
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
 });
 
 router.put('/:orderId', (req, res) => {

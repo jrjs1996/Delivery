@@ -118,6 +118,10 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Creates a JWT for the specified user
+ * and returns it.
+ */
 router.post('/login/', async (req, res) => {
   if (!req.body.email || !req.body.password) return res.status(400).send();
 

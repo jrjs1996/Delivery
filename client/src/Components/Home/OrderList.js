@@ -21,8 +21,9 @@ class OrderList extends Component {
   render() {
     let { orders } = this.props;
     const { excludeCompleted } = this.props;
-
+    
     if (excludeCompleted) orders = orders.filter(order => !order.completed);
+
     // Will have to get customer name address etc.
     const orderTags = orders.map((order) => {
       if (order.customer == null) return;
