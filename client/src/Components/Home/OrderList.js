@@ -24,8 +24,10 @@ class OrderList extends Component {
 
     if (excludeCompleted) orders = orders.filter(order => !order.completed);
     // Will have to get customer name address etc.
-    const orderTags = orders.map(order => (
-      <p key={order._id}>
+    const orderTags = orders.map((order) => {
+      if (order.customer == null) return;
+      return (
+        <p key={order._id}>
         { order.customer.firstName }
         { order.customer.lastName }
         { order.customer.address }
@@ -34,7 +36,9 @@ class OrderList extends Component {
           Complete
         </button>
       </p>
-    ));
+      )
+    });
+ 
     return (
       <div>
         { orderTags }
