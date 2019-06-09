@@ -46,6 +46,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+/**
+ * Deletes all orders.
+ * Must be admin.
+ */
 router.delete('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
@@ -53,6 +57,28 @@ router.delete('/', async (req, res) => {
     await Order.deleteMany(null);
     return res.sendStatus(200);
   } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
+/**
+ * Gets the specified order
+ * Must be admin or customer that
+ * made the order.
+ */
+router.get('/:orderId', async (req, res) => {
+  try {
+    const order = await Order.findOne({ _id: req.params.orderId });
+
+    // If the user is an admin or the customer who has made the order
+    if (res.admin
+      || (req.customer && order.customer
+        && order.customer._id.toString() === req.customer._id.toString())) {
+      return res.send(order);
+    }
+    return res.sendStatus(401);
+  } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 });
