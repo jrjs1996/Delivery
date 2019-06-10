@@ -1,5 +1,0 @@
-1. Set up orders api
-2. Set up orders Page
-- Add order form
-- List orders
-- Add order completed buttons
