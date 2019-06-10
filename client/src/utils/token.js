@@ -1,14 +1,24 @@
-export const getToken = () => localStorage.getItem("jwt-token");
+export const getToken = () => localStorage.getItem('jwt-token');
+export const getIsAdmin = () => localStorage.getItem('isAdmin');
+// TODO: Add docs for these functions
 
-export const saveToken = token => localStorage.setItem("jwt-token", token);
+export const saveToken = (token, isAdmin) => {
+  if (!token || !isAdmin) throw new Error('Token and isAdmin Required');
 
-export const removeToken = () => localStorage.removeItem("jwt-token");
+  localStorage.setItem('jwt-token', token);
+  localStorage.setItem('isAdmin', isAdmin);
+};
+
+export const removeToken = () => {
+  localStorage.removeItem('jwt-token');
+  localStorage.removeItem('isAdmin');
+};
 
 export const getTokenInfo = () => {
   try {
     const token = getToken();
     if (token) {
-      const payload = window.atob(token.split(".")[1]);
+      const payload = window.atob(token.split('.')[1]);
       return JSON.parse(payload);
     }
   } catch (error) {
@@ -17,12 +27,15 @@ export const getTokenInfo = () => {
 };
 
 export const isAuthed = () => {
-  const token_info = getTokenInfo();
-  if (token_info && token_info.exp > Math.round(new Date() / 1000)) {
-    return token_info._id;
-  } else {
-    return false;
+  const tokenInfo = getTokenInfo();
+  const isAdmin = getIsAdmin();
+  if (tokenInfo && tokenInfo.exp > Math.round(new Date() / 1000)) {
+    return {
+      tokenInfo,
+      isAdmin,
+    };
   }
+  return false;
 };
 
 export const setAuthHeader = () => ({

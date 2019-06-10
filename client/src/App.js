@@ -1,49 +1,24 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Login from './components/Login/Login';
+import React from 'react';
 
-import logo from './logo.svg';
-import SideMenu from './components/SideMenu/SideMenu';
-import Customers from './components/Customers/index';
-import Home from './components/Home/index';
+import './App.css';
+
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Admin from './components/Admin/Admin';
+import AdminRoute from './components/Admin/AdminRoute';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = { hello: "" };
-  }
-
-  render() {
-    return (
-      <Router>
-        <Provider store={store}>        
-          <div className="App">
-            {/*
-            <AppBar position="static">
-              <Toolbar>
-                <Typography variant="title" color="inherit">
-                  asdfasdf asdfasdf asdfasdf
-                </Typography>
-              </Toolbar>
-            </AppBar>
-            <SideMenu />
-            <Route path="/" exact component={Home} />
-            <Route path="/customers/" component={Customers} />
-             */}
-            <Login />
-          </div>
-        </Provider>
-      </Router>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Provider store={store}>
+        <div className="App">
+          <AdminRoute path="/admin/" exact component={Admin} />
+          <Route path="/login/" component={Login} />
+        </div>
+      </Provider>
+    </Router>
+  );
 }
-
-export default App;
