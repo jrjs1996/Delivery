@@ -7,8 +7,8 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const customersRouter = require('./routes/customers');
+const adminsRouter = require('./routes/admins');
 const ordersRouter = require('./routes/orders');
 const auth = require('./middleware/auth');
 
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(auth);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admins', adminsRouter);
 app.use('/customers', customersRouter);
 app.use('/orders', ordersRouter);
 

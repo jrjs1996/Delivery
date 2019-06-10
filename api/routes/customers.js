@@ -135,8 +135,4 @@ router.post('/login/', async (req, res) => {
   return res.status(200).send(token);
 });
 
-router.get('/info/', async (req, res) => {
-  return res.status(200).send(req.customer);
-});
-
 module.exports = router;
