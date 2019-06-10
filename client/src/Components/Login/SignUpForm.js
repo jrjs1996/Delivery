@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
 import { login } from '../../actions/adminActions';
+import { isAuthed } from '../../utils/token';
+
+// TODO: Add error handling
 
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
+
+    const authInfo = isAuthed();
+    if (authInfo.tokenInfo && authInfo.isAdmin) {
+      const { history } = props;
+      history.push('/admin/');
+    }
 
     this.state = {
       username: '',
@@ -22,11 +32,12 @@ class SignUpForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
-    const { login: action } = this.props;
+    const { login: action, history } = this.props;
 
-    action(this.state);
+    const success = await action(this.state);
+    if (success) history.push('/admin/');
   }
 
   render() {
@@ -48,4 +59,4 @@ SignUpForm.propTypes = {
   login: PropTypes.func.isRequired,
 };
 
-export default connect(null, { login })(SignUpForm);
+export default withRouter(connect(null, { login })(SignUpForm));
