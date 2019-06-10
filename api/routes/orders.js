@@ -78,22 +78,18 @@ router.get('/:orderId', async (req, res) => {
     }
     return res.sendStatus(401);
   } catch (error) {
-    console.log(error)
     return res.sendStatus(500);
   }
 });
 
-router.put('/:orderId', (req, res) => {
-  Order.findOneAndUpdate({ _id: req.params.orderId },
-    { completed: true },
-    (err, doc) => {
-      if (err) res.status(400).send(err);
-      else {
-        const updatedOrder = doc;
-        updatedOrder.completed = true;
-        res.send(updatedOrder);
-      }
-    });
+router.put('/:orderId', async (req, res) => {
+  if (req.admin == null) return res.sendStatus(401);
+  try {
+    await Order.findOneAndUpdate({ _id: req.params.orderId }, req.body);
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
 });
 
 module.exports = router;
