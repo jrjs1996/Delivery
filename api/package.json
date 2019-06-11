@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "createadmin": "node ./scripts/createadmin"
+    "createadmin": "node ./scripts/createadmin",
+    "test": "mocha --recursive --exit"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
+    "chai": "^4.2.0",
     "clean-css": ">=4.1.11",
     "compass": "^0.1.1",
     "cookie-parser": "~1.4.4",
@@ -18,9 +20,12 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.1.4",
+    "mockgoose": "^8.0.2",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.14",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
