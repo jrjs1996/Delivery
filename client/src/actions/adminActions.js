@@ -1,6 +1,5 @@
-/* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import { saveToken } from '../utils/token';
+import { saveToken, removeToken } from '../utils/token';
 import { LOGIN_ADMIN } from './types';
 
 export const login = postData => async (dispatch) => {
@@ -17,4 +16,8 @@ export const login = postData => async (dispatch) => {
   } catch (error) {
     return false;
   }
+};
+
+export const logout = () => (dispatch) => {
+  removeToken();
 };
