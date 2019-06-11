@@ -28,15 +28,15 @@ router.get('/', async (req, res) => {
 });
 
 // TODO: Allow admins to make orders for
-// customers or without customers.
+// customers or without customers. Admins
+// Should be able to specify a customer but not
+// Customers. Their id should come from auth.
 
 /**
  * Adds the specified order.
- * Must be customer
  */
 router.post('/', async (req, res) => {
   const orderParams = req.body;
-  orderParams.customer = req.customer._id;
   try {
     const order = new Order(orderParams);
     const result = order.save();

@@ -1,9 +1,13 @@
+/* eslint-disable func-names */
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const Customer = require('./Customer');
+// TODO: Customers will be able to create an order
+// with order completed, this not be able to happen
 
 const OrderSchema = new Schema({
-  customer: { type: Schema.Types.ObjectId, ref: 'Customer', required: true },
+  customer: { type: Schema.Types.ObjectId, ref: 'Customer', required: false },
   stage: {
     type: Number,
     default: 0,
@@ -19,6 +23,18 @@ const OrderSchema = new Schema({
   },
   orderCompleted: { type: Date },
   delivery: { type: Boolean, required: true },
+  customerName: { type: String, required: true },
+});
+
+OrderSchema.pre('validate', async function (next) {
+  if (!this.customer) return next();
+  if (this.customerName) {
+    throw Error('cannot create order with both customer and customer name.'
+    + 'If a customer is provided their current name will be used.');
+  }
+  const customer = await Customer.findOne(this.customer);
+  this.customerName = `${customer.firstName} ${customer.lastName}`;
+  return next();
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
