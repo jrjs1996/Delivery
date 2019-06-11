@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SideMenu from '../SideMenu/SideMenu';
 import LogoutButton from './LogoutButton';
+import CreateOrder from './CreateOrder';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -22,10 +24,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Admin() {
-
+export default function Admin(props) {
   const classes = useStyles();
-
+  console.log(props);
   return (
     <div className="adminPanel">
       <SideMenu />
@@ -38,7 +39,7 @@ export default function Admin() {
             <LogoutButton color="inherit" />
           </Toolbar>
         </AppBar>
-        <h1>Admin panel</h1>
+        <Route path="/admin/createorder/" component={CreateOrder} />
       </div>
     </div>
   );

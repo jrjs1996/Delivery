@@ -15,7 +15,7 @@ export default function App() {
     <Router>
       <Provider store={store}>
         <div className="App">
-          <AdminRoute path="/admin/" exact component={Admin} />
+          <AdminRoute path="/admin" component={Admin} />
           <Route path="/login/" component={Login} />
         </div>
       </Provider>

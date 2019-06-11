@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
+import BookIcon from '@material-ui/icons/Book';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import SideMenuItem from './SideMenuItem';
@@ -51,6 +52,7 @@ function SideMenu() {
       <List>
         <SideMenuItem to="/" text="Home"><HomeIcon /></SideMenuItem>
         <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/createorder/" text="Create Order"><BookIcon /></SideMenuItem>
       </List>
       <Divider />
     </Drawer>
