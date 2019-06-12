@@ -50,7 +50,7 @@ function SideMenu() {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <SideMenuItem to="/" text="Home"><HomeIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/" text="Home"><HomeIcon /></SideMenuItem>
         <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
         <SideMenuItem to="/admin/createorder/" text="Create Order"><BookIcon /></SideMenuItem>
       </List>

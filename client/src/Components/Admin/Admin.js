@@ -8,6 +8,9 @@ import SideMenu from '../SideMenu/SideMenu';
 import LogoutButton from './LogoutButton';
 import CreateOrder from './CreateOrder/CreateOrder';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Home from './Home/Home';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +42,7 @@ export default function Admin(props) {
             <LogoutButton color="inherit" />
           </Toolbar>
         </AppBar>
+        <Route path="/admin/" exact component={Home} />
         <Route path="/admin/createorder/" component={CreateOrder} />
       </div>
     </div>

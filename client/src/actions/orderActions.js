@@ -11,6 +11,16 @@ export const fetchOrders = () => (dispatch) => {
     });
 };
 
+export const fetchOpenOrders = () => (dispatch) => {
+  axios.get('http://localhost:9000/orders/?toStage=3')
+    .then((res) => {
+      dispatch({
+        type: FETCH_ORDERS,
+        payload: res.data,
+      });
+    });
+};
+
 export const createOrder = postData => (dispatch) => {
   axios.post('http://localhost:9000/orders/', postData)
     .then((res) => {
