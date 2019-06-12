@@ -18,9 +18,18 @@ const Order = require('../models/Order');
  */
 router.get('/', async (req, res) => {
   // if (req.admin == null) return res.sendStatus(401);
-
+  let dateQuery = null;
+  const { query } = req;
+  if (query.fromDate || query.toDate) {
+    dateQuery = {};
+    if (query.fromDate) dateQuery.$gte = new Date(parseInt(query.fromDate, 10));
+    if (query.toDate) dateQuery.$lte = new Date(parseInt(query.toDate, 10));
+  }
+  console.log(dateQuery);
   try {
-    const orders = await Order.find().populate('customer').exec();
+    const orders = await Order.find({
+      orderCreated: {},
+    }).populate('customer').exec();
     return res.send(orders);
   } catch (error) {
     return res.sendStatus(500);
