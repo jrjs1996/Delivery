@@ -5,6 +5,8 @@ import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import { fetchOrders, completeOrder } from '../../actions/orderActions';
 
+
+// TODO: This class is obsolete go over and delete.
 class OrderList extends Component {
   componentWillMount() {
     const { fetchOrders } = this.props;
