@@ -11,7 +11,7 @@ export const fetchOrders = () => (dispatch) => {
     });
 };
 
-export const addOrder = postData => (dispatch) => {
+export const createOrder = postData => (dispatch) => {
   axios.post('http://localhost:9000/orders/', postData)
     .then((res) => {
       dispatch({

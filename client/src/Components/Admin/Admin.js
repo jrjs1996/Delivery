@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SideMenu from '../SideMenu/SideMenu';
 import LogoutButton from './LogoutButton';
-import CreateOrder from './CreateOrder';
+import CreateOrder from './CreateOrder/CreateOrder';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 const drawerWidth = 240;
 
