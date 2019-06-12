@@ -20,7 +20,7 @@ class CreateOrderForm extends Component {
     this.state = {
       customerName: '',
       address: '',
-      delivery: false,
+      delivery: true,
       stage: 1,
       message: '',
     };
@@ -49,7 +49,13 @@ class CreateOrderForm extends Component {
     try {
       const { createOrder: action } = this.props;
       await action(this.state);
-      this.setState({ message: 'Order Created!' });
+      this.setState({
+        message: 'Order Created!',
+        customerName: '',
+        address: '',
+        delivery: true,
+        stage: 1,
+      });
     } catch (error) {
       this.setState({ message: 'Error!' });
     }
@@ -112,7 +118,7 @@ class CreateOrderForm extends Component {
             </Grid>
             <Grid item xs={12} md={6}>
               <FormControlLabel
-                control={<Checkbox onChange={(e) => { this.onChange(e); }} color="secondary" name="delivery" />}
+                control={<Checkbox onChange={(e) => { this.onChange(e); }} checked={delivery} color="secondary" name="delivery" />}
                 label="Delivery"
               />
             </Grid>
