@@ -10,6 +10,7 @@ import CreateOrder from './CreateOrder/CreateOrder';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './Home/Home';
+import Settings from './Settings/Settings';
 
 const drawerWidth = 240;
 
@@ -44,6 +45,7 @@ export default function Admin(props) {
         </AppBar>
         <Route path="/admin/" exact component={Home} />
         <Route path="/admin/createorder/" component={CreateOrder} />
+        <Route path="/admin/settings/" component={Settings} />
       </div>
     </div>
   );

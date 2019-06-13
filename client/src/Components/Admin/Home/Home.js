@@ -5,7 +5,7 @@ import { fetchOpenOrders } from '../../../actions/orderActions';
 
 class Home extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     const { fetchOpenOrders: action } = this.props;
     action();
   }
