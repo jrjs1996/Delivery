@@ -10,17 +10,23 @@ class Home extends Component {
     action();
   }
 
+  getDate(date) {
+    const d = new Date(date);
+    return d.toLocaleTimeString("en-CA", { hour: 'numeric', minute: 'numeric' });
+  }
+
   render() {
     const { orders } = this.props;
-    console.log(orders[orders.length-1]);
     const orderCards = orders.map((o) => {
       return (
         <Order
           address={o.address}
           customerName={o.customerName}
           delivery={o.delivery}
-          orderCreated={o.orderCreated}
+          orderCreated={this.getDate(o.orderCreated)}
           stage={o.stage}
+          id={o._id}
+          key={o._id}
         />
       );
     });

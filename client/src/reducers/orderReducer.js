@@ -23,8 +23,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: state.items.map((item) => {
-          console.log(item)
-          if (item._id === action.payload._id) return action.payload;
+          if (item._id === action.payload._id) return Object.assign(item, action.payload);
           return item;
         }),
       };
