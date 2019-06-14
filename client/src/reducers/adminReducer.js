@@ -1,7 +1,7 @@
 import { LOGIN_ADMIN } from '../actions/types';
 
 const initialState = {
-  items: [],
+  currentAdmin: [],
   item: {},
 };
 
@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
     case LOGIN_ADMIN:
       return {
         ...state,
-        item: action.payload,
+        currentAdmin: action.payload,
       };
     default:
       return state;

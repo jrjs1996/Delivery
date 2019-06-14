@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropType from 'prop-types';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import SideMenu from '../SideMenu/SideMenu';
 import LogoutButton from './LogoutButton';
 import CreateOrder from './CreateOrder/CreateOrder';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { getCurrentAdminInfo } from '../../actions/adminActions';
 
 import Home from './Home/Home';
 import Settings from './Settings/Settings';
@@ -28,9 +31,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Admin(props) {
+function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
   const classes = useStyles();
-  console.log(props);
+
+  useEffect(() => {
+    getInfo();
+  }, [getInfo]);
+  const { username } = currentAdmin;
   return (
     <div className="adminPanel">
       <SideMenu />
@@ -38,7 +45,7 @@ export default function Admin(props) {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              News
+              {username}
             </Typography>
             <LogoutButton color="inherit" />
           </Toolbar>
@@ -50,3 +57,13 @@ export default function Admin(props) {
     </div>
   );
 }
+
+Admin.propTypes = {
+  getCurrentAdminInfo: PropType.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  currentAdmin: state.admins.currentAdmin,
+});
+
+export default connect(mapStateToProps, { getCurrentAdminInfo })(Admin);

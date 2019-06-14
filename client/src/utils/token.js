@@ -26,6 +26,12 @@ export const getTokenInfo = () => {
   }
 };
 
+/**
+ * Returns an object containing the token info and a boolean
+ * that is true if the user is an admin, false otherwise.
+ * { tokenInfo: *token* , isAdmin *true/false* }
+ * Returns false if the user is not authenticated.
+ */
 export const isAuthed = () => {
   const tokenInfo = getTokenInfo();
   const isAdmin = getIsAdmin();
@@ -37,6 +43,7 @@ export const isAuthed = () => {
   }
   return false;
 };
+
 
 export const setAuthHeader = () => ({
   headers: { authorization: `Bearer ${getToken()}` },

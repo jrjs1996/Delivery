@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import SettingsMenu from './SettingsMenu';
+import ChangeUsername from './ChangeUsername';
+import ChangePassword from './ChangePassword';
 
 export default function Settings() {
   const [page, setPage] = useState(0);
 
   switch (page) {
-    case 1: return <h1>Username</h1>;
-    case 2: return <h1>Password</h1>;
+    case 1: return <ChangeUsername back={() => setPage(0)} />;
+    case 2: return <ChangePassword back={() => setPage(0)} />;
     default: return (
       <SettingsMenu
-        onChangeUsername={() => setPage(1)} 
+        onChangeUsername={() => setPage(1)}
         onChangePassword={() => setPage(2)}
       />
     );

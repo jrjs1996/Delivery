@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
     const admins = await Admin.find(null);
     return res.send(admins);
   } catch (error) {
+    console.log(error);
     return res.sendStatus(500);
   }
 });
@@ -64,6 +65,31 @@ router.delete('/', async (req, res) => {
   } catch (error) {
     return res.sendStatus(500);
   }
+});
+
+/**
+ * Returns the logged in admins info.
+ */
+router.get('/login/', (req, res) => {
+  if (req.admin == null) return res.sendStatus(401);
+  return res.send(req.admin);
+});
+
+/**
+ * Creates a JWT for the specified admin
+ * and returns it.
+ */
+router.post('/login/', async (req, res) => {
+  if (!req.body.username || !req.body.password) return res.status(400).send();
+
+  const admin = await Admin.findOne({ username: req.body.username });
+  if (!admin) return res.status(401).send({ username: 'Username not found!' });
+
+  const match = await admin.checkPassword(req.body.password);
+  if (!match) return res.status(401).send({ password: 'Password wrong!'});
+
+  const token = admin.newToken();
+  return res.status(200).send(token);
 });
 
 /**
@@ -111,21 +137,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-/**
- * Creates a JWT for the specified admin
- * and returns it.
- */
-router.post('/login/', async (req, res) => {
-  if (!req.body.username || !req.body.password) return res.status(400).send();
-
-  const admin = await Admin.findOne({ username: req.body.username });
-  if (!admin) return res.status(401).send({ username: 'Username not found!' });
-
-  const match = await admin.checkPassword(req.body.password);
-  if (!match) return res.status(401).send({ password: 'Password wrong!'});
-
-  const token = admin.newToken();
-  return res.status(200).send(token);
-});
 
 module.exports = router;
