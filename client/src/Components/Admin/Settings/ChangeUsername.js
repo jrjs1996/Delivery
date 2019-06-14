@@ -46,7 +46,7 @@ function ChangeUsername({ back, currentAdmin, changeCurrentAdminUsername: action
         </Grid>
         <Grid item xs={3} />
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={() => changeCurrentAdminUsername(currentAdmin._id, newUsername)}>Change username</Button>
+          <Button variant="contained" color="primary" onClick={() => action(currentAdmin._id, newUsername)}>Change username</Button>
         </Grid>
       </Grid>
     </Paper>

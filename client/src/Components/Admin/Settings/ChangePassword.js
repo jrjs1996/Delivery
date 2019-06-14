@@ -5,13 +5,24 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { changeCurrentAdminPassword } from '../../../actions/adminActions';
 
-export default function ChangePassword(props) {
-  const [currentPassword, setCurrentPassword] = useState('');
+const onClick = async (newPassword, confirmPassword, id, setMessage, action) => {
+  changeCurrentAdminPassword(id, newPassword);
+  if (newPassword !== confirmPassword) {
+    setMessage("Passwords don't match!");
+    return;
+  }
+  await action(id, newPassword);
+  setMessage('New password created!');
+};
+
+function ChangePassword({ back, currentAdmin, changeCurrentAdminPassword: action }) {
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  const { back } = props;
+  const [message, setMessage] = useState('');
   return (
     <Paper style={{
       marginTop: '5%',
@@ -31,20 +42,6 @@ export default function ChangePassword(props) {
             Change Password
           </Typography>
         </Grid>
-        <Grid item xs={3} />
-        <Grid item xs={6}>
-          <TextField
-            required
-            id="currentPassword"
-            name="currentPassword"
-            label="Current Password"
-            fullWidth
-            type="password"
-            onChange={e => setCurrentPassword(e.target.value)}
-            value={currentPassword}
-          />
-        </Grid>
-        <Grid item xs={3} />
         <Grid item xs={3} />
         <Grid item xs={6}>
           <TextField
@@ -74,13 +71,34 @@ export default function ChangePassword(props) {
         </Grid>
         <Grid item xs={3} />
         <Grid item xs={12}>
-          <Button variant="contained" color="primary">Change username</Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => onClick(newPassword,
+              confirmNewPassword,
+              currentAdmin._id,
+              setMessage,
+              action)}
+          >
+            Change password
+          </Button>
         </Grid>
       </Grid>
+      <Typography variant="h4" gutterBottom>
+        {message}
+      </Typography>
     </Paper>
   );
 }
 
 ChangePassword.propTypes = {
   back: PropTypes.func.isRequired,
+  changeCurrentAdminPassword: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  currentAdmin: state.admins.currentAdmin,
+});
+
+
+export default connect(mapStateToProps, { changeCurrentAdminPassword })(ChangePassword);

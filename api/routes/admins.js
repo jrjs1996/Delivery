@@ -114,10 +114,14 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
   try {
-    const newAdmin = await Admin.findOneAndUpdate({ _id: req.params.id }, {$set: req.body }, { new: true });
+    const newAdmin = await Admin.findOne({ _id: req.params.id });
+    Object.assign(newAdmin, req.body);
+    newAdmin.save();
+    delete newAdmin.password;
+    delete newAdmin.__v;
     return res.send(newAdmin);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.sendStatus(500);
   }
 });
