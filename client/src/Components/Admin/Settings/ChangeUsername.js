@@ -5,12 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const submit = () => {
-  window.confirm('are you sure?');
-};
+import { changeCurrentAdminUsername } from '../../../actions/adminActions';
 
-export default function ChangeUsername({ back }) {
+
+function ChangeUsername({ back, currentAdmin, changeCurrentAdminUsername: action }) {
   const [newUsername, setNewUserName] = useState('');
 
   return (
@@ -46,7 +46,7 @@ export default function ChangeUsername({ back }) {
         </Grid>
         <Grid item xs={3} />
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={submit}>Change username</Button>
+          <Button variant="contained" color="primary" onClick={() => changeCurrentAdminUsername(currentAdmin._id, newUsername)}>Change username</Button>
         </Grid>
       </Grid>
     </Paper>
@@ -55,4 +55,11 @@ export default function ChangeUsername({ back }) {
 
 ChangeUsername.propTypes = {
   back: PropTypes.func.isRequired,
+  changeCurrentAdminUsername: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  currentAdmin: state.admins.currentAdmin,
+});
+
+export default connect(mapStateToProps, { changeCurrentAdminUsername })(ChangeUsername);

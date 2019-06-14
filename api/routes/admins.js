@@ -113,11 +113,11 @@ router.get('/:id', async (req, res) => {
  */
 router.put('/:id', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
-
   try {
-    await Admin.findOneAndUpdate({ _id: req.params.id }, req.body);
-    return res.sendStatus(200);
+    const newAdmin = await Admin.findOneAndUpdate({ _id: req.params.id }, {$set: req.body }, { new: true });
+    return res.send(newAdmin);
   } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 });

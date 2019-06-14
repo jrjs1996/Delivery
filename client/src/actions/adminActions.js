@@ -18,6 +18,20 @@ export const login = postData => async (dispatch) => {
   }
 };
 
+export const changeCurrentAdminUsername = (id, newUsername) => async (dispatch) => {
+  try {
+    const res = await axios.put(`http://localhost:9000/admins/${id}`,
+      { username: newUsername }, setAuthHeader());
+    dispatch({
+      type: LOGIN_ADMIN,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
 export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
     const res = await axios.get('http://localhost:9000/admins/login/', setAuthHeader());
