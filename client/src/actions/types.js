@@ -5,3 +5,4 @@ export const FETCH_ORDERS = 'FETCH_ORDER';
 export const COMPLETE_ORDER = 'COMPLETE_ORDER';
 export const GET_CUSTOMER = 'GET_CUSTOMER';
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
+export const FETCH_MENU = 'FETCH_MENU';

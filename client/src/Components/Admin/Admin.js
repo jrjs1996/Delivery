@@ -14,6 +14,7 @@ import { getCurrentAdminInfo } from '../../actions/adminActions';
 
 import Home from './Home/Home';
 import Settings from './Settings/Settings';
+import Menu from './Menu/Menu';
 
 const drawerWidth = 240;
 
@@ -52,6 +53,7 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
         </AppBar>
         <Route path="/admin/" exact component={Home} />
         <Route path="/admin/createorder/" component={CreateOrder} />
+        <Route path="/admin/menu/" component={Menu} />
         <Route path="/admin/settings/" component={Settings} />
       </div>
     </div>

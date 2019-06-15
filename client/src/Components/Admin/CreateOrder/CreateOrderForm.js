@@ -137,6 +137,6 @@ class CreateOrderForm extends Component {
 
 CreateOrderForm.propTypes = {
   createOrder: PropTypes.func.isRequired,
-}
+};
 
 export default connect(null, { createOrder })(CreateOrderForm);
