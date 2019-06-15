@@ -6,3 +6,5 @@ export const COMPLETE_ORDER = 'COMPLETE_ORDER';
 export const GET_CUSTOMER = 'GET_CUSTOMER';
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
 export const FETCH_MENU = 'FETCH_MENU';
+export const ADD_MENU_ITEM = 'ADD_MENU_ITEM';
+export const UPDATE_MENU_ITEM = 'UPDATE_MENU_ITEM';

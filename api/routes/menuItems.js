@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
 
 const findLowestAvailableMenuNum = async () => {
   const orderNums = await MenuItems.find({ archived: false },
-    { menuNumber: 1 }, { menuNumber: 1 }).exec();
-
+    { menuNumber: 1 }, { sort: { menuNumber: 1 } }).exec();
+  console.log(orderNums);
   // Give a number automatically
   for (let i = 0; i < orderNums.length - 1; i += 1) {
     if ((orderNums[i + 1].menuNumber - orderNums[i].menuNumber) > 1) {
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
     if (!params.menuNumber) params.menuNumber = await findLowestAvailableMenuNum();
 
     const item = new MenuItems(params);
-    const result = item.save();
+    const result = await item.save();
     return res.send(result);
   } catch (error) {
     return res.sendStatus(500);

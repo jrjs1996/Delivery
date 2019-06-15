@@ -1,27 +1,18 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import PropType from 'prop-types';
+
 import MenuItem from './MenuItem';
-import { fetchMenu } from '../../../actions/menuActions';
-import { Typography, Button } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import AddIcon from '@material-ui/icons/Add';
 
-function MenuItemList({ menu, fetchMenu }) {
-
-  useEffect(() => {
-    fetchMenu();
-  }, [fetchMenu]);
-
-  const menuItems = menu.map((i) => {
-    return (
-      <MenuItem
-        title={i.title}
-        price={i.price}
-        description={i.description}
-        number={i.menuNumber}
-      />
-    );
-  });
+export default function MenuItemList({ menu, onSelect }) {
+  const menuItems = menu.map(i => (
+    <MenuItem
+      title={i.title}
+      price={i.price}
+      description={i.description}
+      number={i.menuNumber}
+      onSelect={onSelect}
+    />
+  ));
 
   return (
     <div>
@@ -30,8 +21,11 @@ function MenuItemList({ menu, fetchMenu }) {
   );
 }
 
-const mapStateToProps = state => ({
-  menu: state.menu.items,
-});
+MenuItemList.propTypes = {
+  menu: PropType.arrayOf(Object).isRequired,
+  onSelect: PropType.func,
+};
 
-export default connect(mapStateToProps, { fetchMenu })(MenuItemList);
+MenuItemList.defaultProps = {
+  onSelect: null,
+};

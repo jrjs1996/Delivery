@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import { StepLabel } from '@material-ui/core';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import { connect } from 'react-redux';
-import { updateOrder } from '../../../actions/orderActions';
+import PropType from 'prop-types';
 
-export default function MenuItem({ title, price, description, number }) {
+export default function MenuItem({
+  title,
+  description,
+  number,
+  price,
+  onSelect,
+}) {
   return (
-    <Paper style={{marginTop: '2%', marginLeft: '10%', marginRight: '10%', paddingLeft: '2%', paddingRight: '2%' }}>
+    <Paper
+      style={{
+        marginTop: '2%',
+        marginLeft: '10%',
+        marginRight: '10%',
+        paddingLeft: '2%',
+        paddingRight: '2%',
+      }}
+      onClick={() => onSelect({
+        title,
+        description,
+        menuNumber: number,
+        price,
+      })}
+    >
       <Grid container spacing={3}>
         <Grid item xs={4}>
           <Grid item xs={12}>
@@ -32,7 +46,8 @@ export default function MenuItem({ title, price, description, number }) {
           <Grid item xs={12}>
             <Paper>
               <Typography variant="h6" gutterBottom>
-                ${price}
+                $
+                {price}
               </Typography>
             </Paper>
           </Grid>
@@ -48,3 +63,15 @@ export default function MenuItem({ title, price, description, number }) {
     </Paper>
   );
 }
+
+MenuItem.propTypes = {
+  description: PropType.string.isRequired,
+  number: PropType.string.isRequired,
+  price: PropType.string.isRequired,
+  title: PropType.string.isRequired,
+  onSelect: PropType.func,
+};
+
+MenuItem.defaultProps = {
+  onSelect: null,
+};
