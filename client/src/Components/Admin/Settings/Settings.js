@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SettingsMenu from './SettingsMenu';
+import SettingsMenu from './SettingsMenu/SettingsMenu';
 import ChangeUsername from './ChangeUsername';
 import ChangePassword from './ChangePassword';
 

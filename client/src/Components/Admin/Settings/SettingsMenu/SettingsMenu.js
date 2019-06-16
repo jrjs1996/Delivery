@@ -4,9 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import SettingsMenuItem from './SettingsMenuItem';
 
 export default function SettingsMenu(props) {
-  const { onChangeUsername, onChangePassword } = props;
+  const { onChangeUsername, onChangePassword, onEditAdmins } = props;
   return (
     <Paper style={{
       marginTop: '5%',
@@ -20,12 +21,9 @@ export default function SettingsMenu(props) {
           Settings
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={onChangeUsername}>Change Username</Button>
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" color="primary" onClick={onChangePassword}>Change Password</Button>
-        </Grid>
+        <SettingsMenuItem onClick={onChangeUsername} text="Change Username" />
+        <SettingsMenuItem onClick={onChangePassword} text="Change Password" />
+        <SettingsMenuItem onClick={onEditAdmins} text="Edit Admins" />
       </Grid>
     </Paper>
   );
@@ -34,4 +32,5 @@ export default function SettingsMenu(props) {
 SettingsMenu.propTypes = {
   onChangeUsername: PropTypes.func.isRequired,
   onChangePassword: PropTypes.func.isRequired,
+  onEditAdmins: PropTypes.func.isRequired,
 };
