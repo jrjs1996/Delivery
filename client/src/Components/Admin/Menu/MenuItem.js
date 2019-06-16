@@ -14,6 +14,7 @@ export default function MenuItem({
   price,
   onSelect,
   onDelete,
+  _id,
 }) {
   return (
     <Paper
@@ -29,6 +30,7 @@ export default function MenuItem({
         description,
         menuNumber: number,
         price,
+        _id,
       })}
     >
       <Grid container spacing={3}>
@@ -55,15 +57,17 @@ export default function MenuItem({
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12}>
-            <Button variant="contained" color="secondary" onClick={(e) => {
-              onDelete(number);
-              e.stopPropagation();
-            }}
-            >
+          { onDelete ? (
+            <Grid item xs={12}>
+              <Button variant="contained" color="secondary" onClick={(e) => {
+                onDelete(number);
+                e.stopPropagation();
+              }}
+              >
               Delete
-            </Button>
-          </Grid>
+              </Button>
+            </Grid>
+          ) : null }
         </Grid>
         <Grid item xs={8}>
           <Paper>

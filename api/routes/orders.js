@@ -63,6 +63,7 @@ router.get('/', async (req, res) => {
  */
 router.post('/', async (req, res) => {
   const orderParams = req.body;
+  console.log(orderParams);
   try {
     const order = new Order(orderParams);
     const result = order.save();

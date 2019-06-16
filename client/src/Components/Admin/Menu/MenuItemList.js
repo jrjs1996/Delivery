@@ -4,6 +4,7 @@ import PropType from 'prop-types';
 import MenuItem from './MenuItem';
 
 export default function MenuItemList({ menu, onSelect, onDelete }) {
+  console.log(menu);
   const menuItems = menu.map(i => (
     <MenuItem
       title={i.title}
@@ -12,6 +13,7 @@ export default function MenuItemList({ menu, onSelect, onDelete }) {
       number={i.menuNumber}
       onSelect={onSelect}
       onDelete={onDelete}
+      _id={i._id}
     />
   ));
 
