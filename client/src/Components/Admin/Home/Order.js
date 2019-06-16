@@ -19,7 +19,7 @@ function getSteps(delivery) {
   return steps;
 }
 
-function Order(props) {
+export function Order(props) {
   const {
     address,
     customerName,
