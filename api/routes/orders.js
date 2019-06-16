@@ -46,7 +46,8 @@ router.get('/', async (req, res) => {
   if (dateQuery) query.orderCreated = dateQuery;
   if (stageQuery) query.stage = stageQuery;
   try {
-    const orders = await Order.find(query, null, { sort: { orderCreated: -1 } }).populate('customer').exec();
+    const orders = await Order.find(query, null, { sort: { orderCreated: -1 } })
+      .populate('customer').populate('items').exec();
     return res.send(orders);
   } catch (error) {
     return res.sendStatus(500);

@@ -27,6 +27,7 @@ class Home extends Component {
           stage={o.stage}
           id={o._id}
           key={o._id}
+          items={o.items}
         />
       );
     });
