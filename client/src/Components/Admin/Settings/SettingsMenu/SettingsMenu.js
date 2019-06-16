@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import SettingsMenuItem from './SettingsMenuItem';
 
 export default function SettingsMenu(props) {
-  const { onChangeUsername, onChangePassword, onEditAdmins } = props;
   return (
     <Paper style={{
       marginTop: '5%',
@@ -21,16 +20,8 @@ export default function SettingsMenu(props) {
           Settings
       </Typography>
       <Grid container spacing={3}>
-        <SettingsMenuItem onClick={onChangeUsername} text="Change Username" />
-        <SettingsMenuItem onClick={onChangePassword} text="Change Password" />
-        <SettingsMenuItem onClick={onEditAdmins} text="Edit Admins" />
+        {props.children}
       </Grid>
     </Paper>
   );
 }
-
-SettingsMenu.propTypes = {
-  onChangeUsername: PropTypes.func.isRequired,
-  onChangePassword: PropTypes.func.isRequired,
-  onEditAdmins: PropTypes.func.isRequired,
-};
