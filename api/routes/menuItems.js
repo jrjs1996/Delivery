@@ -114,11 +114,14 @@ router.put('/:menuNumber', async (req, res) => {
  * Deletes the specified menu item.
  * Must be admin.
  */
-router.delete('/:itemId', async (req, res) => {
+router.delete('/:menuNumber', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
   try {
-    await MenuItems.updateOne({ _id: req.params.itemId }, { archived: true });
+    await MenuItems.updateOne({
+      archived: false,
+      menuNumber: req.params.menuNumber,
+    }, { archived: true });
     return res.sendStatus(200);
   } catch (error) {
     return res.sendStatus(500);

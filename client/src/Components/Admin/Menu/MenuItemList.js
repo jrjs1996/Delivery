@@ -3,7 +3,7 @@ import PropType from 'prop-types';
 
 import MenuItem from './MenuItem';
 
-export default function MenuItemList({ menu, onSelect }) {
+export default function MenuItemList({ menu, onSelect, onDelete }) {
   const menuItems = menu.map(i => (
     <MenuItem
       title={i.title}
@@ -11,6 +11,7 @@ export default function MenuItemList({ menu, onSelect }) {
       description={i.description}
       number={i.menuNumber}
       onSelect={onSelect}
+      onDelete={onDelete}
     />
   ));
 
@@ -24,8 +25,10 @@ export default function MenuItemList({ menu, onSelect }) {
 MenuItemList.propTypes = {
   menu: PropType.arrayOf(Object).isRequired,
   onSelect: PropType.func,
+  onDelete: PropType.func,
 };
 
 MenuItemList.defaultProps = {
   onSelect: null,
+  onDelete: null,
 };

@@ -1,4 +1,4 @@
-import { FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM } from '../actions/types';
+import { FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -13,10 +13,8 @@ const insertMenuItem = (items, newItem) => {
   if (newItems.length === 0) return [newItem];
 
   for (let i = 0; i < newItems.length; i += 1) {
-    console.log(newItems[i].menuNumber, newItem.menuNumber);
     if (newItems[i].menuNumber > newItem.menuNumber) {
       newItems.splice(i, 0, newItem);
-      console.log(newItems);
       return newItems;
     }
     if (newItems[i].count === (newItems.length - 1)) {
@@ -24,6 +22,18 @@ const insertMenuItem = (items, newItem) => {
       return newItems;
     }
   }
+};
+
+const removeMenuItem = (items, itemNumber) => {
+  const newItems = items.slice();
+
+  for (let i = 0; i < newItems.length; i += 1) {
+    if (newItems[i].menuNumber === itemNumber) {
+      newItems.splice(i, 1);
+      return newItems;
+    }
+  }
+  return newItems;
 };
 
 export default function (state = initialState, action) {
@@ -45,6 +55,11 @@ export default function (state = initialState, action) {
           if (i.menuNumber !== action.payload.menuNumber) return i;
           return action.payload;
         }),
+      };
+    case DELETE_MENU_ITEM:
+      return {
+        ...state,
+        items: removeMenuItem(state.items, action.payload),
       };
     default:
       return state;

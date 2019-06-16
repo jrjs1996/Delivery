@@ -9,7 +9,12 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import MenuItemList from './MenuItemList';
 import AddMenuItem from './AddMenuItem';
-import { fetchMenu, addMenuItem, updateMenuItem } from '../../../actions/menuActions';
+import {
+  fetchMenu,
+  addMenuItem,
+  updateMenuItem,
+  deleteMenuItem,
+} from '../../../actions/menuActions';
 
 const getButton = (page, setPage, setSelectedItem, setUpdate) => {
   switch (page) {
@@ -45,6 +50,7 @@ function Menu({
   addMenuItem:
   addAction,
   updateMenuItem: updateAction,
+  deleteMenuItem: deleteAction,
 }) {
   const [page, setPage] = useState(0);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -89,6 +95,7 @@ function Menu({
                 setUpdate(true);
                 setPage(1);
               }}
+              onDelete={deleteAction}
             />
           );
         }
@@ -102,10 +109,16 @@ Menu.propTypes = {
   fetchMenu: PropType.func.isRequired,
   menu: PropType.arrayOf(Object).isRequired,
   updateMenuItem: PropType.func.isRequired,
+  deleteMenuItem: PropType.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   menu: state.menu.items,
 });
 
-export default connect(mapStateToProps, { fetchMenu, addMenuItem, updateMenuItem })(Menu);
+export default connect(mapStateToProps, {
+  fetchMenu,
+  addMenuItem,
+  updateMenuItem,
+  deleteMenuItem,
+})(Menu);
