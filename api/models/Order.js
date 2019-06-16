@@ -6,6 +6,8 @@ const Customer = require('./Customer');
 // TODO: Customers will be able to create an order
 // with order completed, this not be able to happen
 
+const minItems = val => val.length >= 1;
+
 const OrderSchema = new Schema({
   customer: { type: Schema.Types.ObjectId, ref: 'Customer', required: false },
   stage: {
@@ -24,6 +26,13 @@ const OrderSchema = new Schema({
   orderCompleted: { type: Date },
   delivery: { type: Boolean, required: true },
   customerName: { type: String, required: true },
+  items: {
+    type: [{
+      type: Schema.Types.ObjectId,
+      ref: 'MenuItem',
+    }],
+    validate: [minItems, 'Orders must have at least one item'],
+  },
 });
 
 OrderSchema.pre('validate', async function (next) {
