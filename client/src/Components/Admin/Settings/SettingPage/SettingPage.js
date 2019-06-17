@@ -68,6 +68,6 @@ SettingPage.propTypes = {
 };
 
 SettingPage.defaultProps = {
-  submitText: '',
+  submitText: 'Submit',
   title: '',
 };

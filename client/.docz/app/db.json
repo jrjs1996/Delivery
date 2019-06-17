@@ -317,26 +317,6 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormButton.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FormButton",
-          "methods": [],
-          "actualName": "FormButton",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Login\\FormCheckBox.js",
       "value": [
         {
@@ -469,6 +449,26 @@
       ]
     },
     {
+      "key": "src\\components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\SideMenu\\SideMenu.js",
       "value": [
         {
@@ -521,6 +521,17 @@
           "displayName": "CreateOrder",
           "methods": [],
           "actualName": "CreateOrder"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem"
         }
       ]
     },
@@ -609,17 +620,6 @@
               "description": ""
             }
           }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "OrderItem",
-          "methods": [],
-          "actualName": "OrderItem"
         }
       ]
     },
@@ -721,6 +721,58 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\Menu\\Menu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Menu",
+          "methods": [],
+          "actualName": "Menu",
+          "props": {
+            "addMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "deleteMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\Menu\\AddMenuItem.js",
       "value": [
         {
@@ -779,58 +831,6 @@
                 "value": "''",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\Menu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Menu",
-          "methods": [],
-          "actualName": "Menu",
-          "props": {
-            "addMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "fetchMenu": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "Object"
-                }
-              },
-              "required": true,
-              "description": ""
-            },
-            "updateMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "deleteMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
             }
           }
         }
@@ -1009,129 +1009,13 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingPage",
+          "displayName": "SettingsMenu",
           "methods": [],
-          "actualName": "SettingPage",
-          "props": {
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": true,
-              "description": ""
-            },
-            "onSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "submitText": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageInput.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPageInput",
-          "methods": [],
-          "actualName": "SettingPageInput",
-          "props": {
-            "fullWidth": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "label": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "'text'",
-                "computed": false
-              }
-            },
-            "value": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
+          "actualName": "SettingsMenu"
         }
       ]
     },
@@ -1163,16 +1047,152 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageInput\\SettingPageInput.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingsMenu",
+          "displayName": "SettingPageInput",
           "methods": [],
-          "actualName": "SettingsMenu"
+          "actualName": "SettingPageInput",
+          "props": {
+            "fullWidth": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true, the input will take up the full width of its container.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "label": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "Label content to be displayed on the input.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name used to reference the inputs value in onSubmit of the parent\r\nSettingPage component. All SettingPageInput children of a\r\nSettingPage must have a unique name."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Receives this prop from parent SettingPage component. Don't set manually."
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true the label is displayed as required.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The type of the input element.",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "value": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Received this prop from parent SettingPage component. Don't set manually."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPage",
+          "methods": [],
+          "actualName": "SettingPage",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "submitText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'Submit'",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
         }
       ]
     }
   ],
-  "entries": []
+  "entries": [
+    {
+      "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+      "value": {
+        "name": "SettingPageInput",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
+        "id": "9c0dd32d5055494e4ae3ce334147511c",
+        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-page-setting-page-input-setting-page-input",
+        "headings": [
+          {
+            "slug": "setting-page-input",
+            "depth": 1,
+            "value": "Setting Page Input"
+          }
+        ]
+      }
+    }
+  ]
 }

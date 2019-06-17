@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { AdminPropType } from '../../../propTypes';
 import { changeCurrentAdminPassword } from '../../../actions/adminActions';
 import SettingPage from './SettingPage/SettingPage';
-import SettingPageInput from './SettingPage/SettingPageInput';
+import SettingPageInput from './SettingPage/SettingPageInput/SettingPageInput';
 
 const onClick = (submitData, currentAdmin, action) => {
   const { newPassword, confirmNewPassword } = submitData;

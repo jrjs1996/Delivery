@@ -8,6 +8,8 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "compass": "^0.1.1",
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.7.1",
     "prop-types": "^15.7.2",

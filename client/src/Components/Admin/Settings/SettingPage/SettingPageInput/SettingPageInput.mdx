@@ -1,0 +1,33 @@
+
+---
+name: SettingPageInput
+menu: Components
+route: /components/Admin/Settings/SettingPage/SettingPageInput
+---
+import { Playground, Props } from 'docz';
+import SettingPageInput from './SettingPageInput';
+import SettingPage from '../SettingPage';
+
+# Setting Page Input
+
+Updated: 16/6/2019
+
+This component should be used as a child of SettingPage. Displays an input
+on the settings page. The value of the input will be accessable from the
+onSubmit function of the settings page.
+
+<Props of={SettingPageInput} />
+
+<Playground>
+  <span id="showData"></span>
+  <SettingPage
+    title="Example"
+    onSubmit={submitData => {document.getElementById("showData").innerHTML = JSON.stringify(submitData)}}
+  >
+    <SettingPageInput
+      fullWidth
+      label="Example Input"
+      name="exampleInput"
+    />
+  </SettingPage>
+</Playground>

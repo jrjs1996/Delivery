@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { AdminPropType } from '../../../propTypes';
 import { changeCurrentAdminUsername } from '../../../actions/adminActions';
 import SettingPage from './SettingPage/SettingPage';
-import SettingPageInput from './SettingPage/SettingPageInput';
+import SettingPageInput from './SettingPage/SettingPageInput/SettingPageInput';
 
 const onSubmit = (submitData, currentAdmin, action) => {
   action(currentAdmin._id, submitData.newUsername);
