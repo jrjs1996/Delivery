@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { ChildrenPropType } from '../../../../propTypes';
 
-export default function SettingsMenu(props) {
+export default function SettingsMenu({ children, title }) {
   return (
     <Paper style={{
       marginTop: '5%',
@@ -14,11 +16,20 @@ export default function SettingsMenu(props) {
     }}
     >
       <Typography variant="h4" gutterBottom>
-          Settings
+        {title}
       </Typography>
       <Grid container spacing={3}>
-        {props.children}
+        {children}
       </Grid>
     </Paper>
   );
 }
+
+SettingsMenu.propTypes = {
+  children: ChildrenPropType.isRequired,
+  title: PropTypes.string,
+};
+
+SettingsMenu.defaultProps = {
+  title: '',
+};

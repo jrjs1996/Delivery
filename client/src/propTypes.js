@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import PropTypes from 'prop-types';
 
 export const AdminPropType = PropTypes.shape({
@@ -6,3 +5,8 @@ export const AdminPropType = PropTypes.shape({
   __v: PropTypes.number,
   _id: PropTypes.string,
 });
+
+export const ChildrenPropType = PropTypes.oneOfType([
+  PropTypes.arrayOf(PropTypes.node),
+  PropTypes.node,
+]);

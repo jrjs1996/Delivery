@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import SettingPageInput from './SettingPageInput/SettingPageInput';
+import { ChildrenPropType } from '../../../../propTypes';
 
 
 const onChange = (e, submitData, setSubmitData) => {
@@ -69,10 +69,7 @@ export default function SettingPage({
 
 SettingPage.propTypes = {
   /** SettingPageInputs for this setting page. */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: ChildrenPropType.isRequired,
   /** Function to be called when the submit button is pressed.
    * This function will be given an object containing a property
    * and value for each input in children.
