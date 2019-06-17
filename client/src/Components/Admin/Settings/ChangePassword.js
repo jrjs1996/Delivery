@@ -1,104 +1,42 @@
-import React, { useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { AdminPropType } from '../../../propTypes';
 import { changeCurrentAdminPassword } from '../../../actions/adminActions';
+import SettingPage from './SettingPage/SettingPage';
+import SettingPageInput from './SettingPage/SettingPageInput';
 
-const onClick = async (newPassword, confirmPassword, id, setMessage, action) => {
-  changeCurrentAdminPassword(id, newPassword);
-  if (newPassword !== confirmPassword) {
-    setMessage("Passwords don't match!");
-    return;
+const onClick = (submitData, currentAdmin, action) => {
+  const { newPassword, confirmNewPassword } = submitData;
+  const { _id } = currentAdmin;
+  if (newPassword !== confirmNewPassword) {
+    return 'Error: Passwords don\'t match!';
   }
-  await action(id, newPassword);
-  setMessage('New password created!');
+  action(_id, newPassword);
+  return 'Password Changed!';
 };
 
-function ChangePassword({ back, currentAdmin, changeCurrentAdminPassword: action }) {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  const [message, setMessage] = useState('');
+function ChangePassword({ currentAdmin, changeCurrentAdminPassword: action }) {
   return (
-    <Paper style={{
-      marginTop: '5%',
-      marginLeft: '30%',
-      marginRight: '30%',
-      paddingLeft: '2%',
-      paddingRight: '2%',
-    }}
+    <SettingPage
+      title="Change Password"
+      submitText="Change Password"
+      onSubmit={submitData => onClick(submitData, currentAdmin, action)}
     >
-
-      <Grid container spacing={3}>
-        <Grid item xs={1}>
-          <Button variant="contained" color="primary" onClick={back}>Back</Button>
-        </Grid>
-        <Grid item xs={10}>
-          <Typography variant="h4" gutterBottom>
-            Change Password
-          </Typography>
-        </Grid>
-        <Grid item xs={3} />
-        <Grid item xs={6}>
-          <TextField
-            required
-            id="newPassword"
-            name="newPassword"
-            label="New Password"
-            fullWidth
-            type="password"
-            onChange={e => setNewPassword(e.target.value)}
-            value={newPassword}
-          />
-        </Grid>
-        <Grid item xs={3} />
-        <Grid item xs={3} />
-        <Grid item xs={6}>
-          <TextField
-            required
-            id="confirmNewPassword"
-            name="confirmNewPassword"
-            label="Confrim New Password"
-            fullWidth
-            type="password"
-            onChange={e => setConfirmNewPassword(e.target.value)}
-            value={confirmNewPassword}
-          />
-        </Grid>
-        <Grid item xs={3} />
-        <Grid item xs={12}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => onClick(newPassword,
-              confirmNewPassword,
-              currentAdmin._id,
-              setMessage,
-              action)}
-          >
-            Change password
-          </Button>
-        </Grid>
-      </Grid>
-      <Typography variant="h4" gutterBottom>
-        {message}
-      </Typography>
-    </Paper>
+      <SettingPageInput required fullWidth name="newPassword" type="password" label="New Password" />
+      <SettingPageInput required fullWidth name="confirmNewPassword" type="password" label="Confirm New Password" />
+    </SettingPage>
   );
 }
 
 ChangePassword.propTypes = {
-  back: PropTypes.func.isRequired,
   changeCurrentAdminPassword: PropTypes.func.isRequired,
+  currentAdmin: AdminPropType.isRequired,
 };
 
 const mapStateToProps = state => ({
   currentAdmin: state.admins.currentAdmin,
 });
-
 
 export default connect(mapStateToProps, { changeCurrentAdminPassword })(ChangePassword);

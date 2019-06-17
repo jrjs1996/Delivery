@@ -1,0 +1,1178 @@
+{
+  "config": {
+    "title": "Client",
+    "description": "My awesome app using docz",
+    "menu": [],
+    "version": "0.1.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "props": [
+    {
+      "key": "src\\App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Admin.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Admin",
+          "methods": [],
+          "actualName": "Admin",
+          "props": {
+            "getCurrentAdminInfo": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\AdminRoute.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminRoute",
+          "methods": [],
+          "actualName": "AdminRoute",
+          "props": {
+            "component": {
+              "type": {
+                "name": "node"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\LogoutButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LogoutButton",
+          "methods": [
+            {
+              "name": "onClick",
+              "docblock": null,
+              "modifiers": [],
+              "params": [],
+              "returns": null
+            }
+          ],
+          "actualName": "LogoutButton",
+          "props": {
+            "logout": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\AddCustomerForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AddCustomerForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "AddCustomerForm",
+          "props": {
+            "addCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\Customer.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Customer",
+          "methods": [],
+          "actualName": "Customer",
+          "props": {
+            "getCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\SignInForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignInForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "SignInForm",
+          "props": {
+            "signIn": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Home\\AddOrderForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AddOrderForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "AddOrderForm",
+          "props": {
+            "addOrder": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "customers": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Home\\OrderList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderList",
+          "methods": [
+            {
+              "name": "onCompleteOrderClicked",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "OrderList",
+          "props": {
+            "fetchOrders": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "completeOrder": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "orders": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "excludeCompleted": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormCheckBox.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormCheckBox",
+          "methods": [],
+          "actualName": "FormCheckBox",
+          "props": {
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormInput",
+          "methods": [],
+          "actualName": "FormInput",
+          "props": {
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\Login.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Login",
+          "methods": [],
+          "actualName": "Login"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\SignUpForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [
+                "async"
+              ],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "SignUpForm",
+          "props": {
+            "login": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\SignUpHeader.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpHeader",
+          "methods": [],
+          "actualName": "SignUpHeader",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\SideMenu\\SideMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SideMenu",
+          "methods": [],
+          "actualName": "SideMenu"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\SideMenu\\SideMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SideMenuItem",
+          "methods": [],
+          "actualName": "SideMenuItem",
+          "props": {
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrder",
+          "methods": [],
+          "actualName": "CreateOrder"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrderForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [
+                "async"
+              ],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "addItem",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "item",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "removeItem",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "index",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "CreateOrderForm",
+          "props": {
+            "createOrder": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Home.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Home",
+          "methods": [
+            {
+              "name": "getDate",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "date",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "Home"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Item.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Item",
+          "methods": [],
+          "actualName": "Item"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Order.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Order",
+          "methods": [],
+          "actualName": "Order",
+          "props": {
+            "address": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "customerName": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "delivery": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": ""
+            },
+            "orderCreated": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "stage": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": ""
+            },
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateOrder": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AddMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AddMenuItem",
+          "methods": [],
+          "actualName": "AddMenuItem",
+          "props": {
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "initTitle": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "initPrice": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "initDescription": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "initMenuNumber": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\Menu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Menu",
+          "methods": [],
+          "actualName": "Menu",
+          "props": {
+            "addMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "deleteMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItem",
+          "methods": [],
+          "actualName": "MenuItem",
+          "props": {
+            "description": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "number": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "price": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItemList",
+          "methods": [],
+          "actualName": "MenuItemList",
+          "props": {
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangePassword",
+          "methods": [],
+          "actualName": "ChangePassword",
+          "props": {
+            "changeCurrentAdminPassword": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\ChangeUsername.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangeUsername",
+          "methods": [],
+          "actualName": "ChangeUsername",
+          "props": {
+            "changeCurrentAdminUsername": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\Settings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Settings",
+          "methods": [],
+          "actualName": "Settings"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPage",
+          "methods": [],
+          "actualName": "SettingPage",
+          "props": {
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "submitText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPageInput",
+          "methods": [],
+          "actualName": "SettingPageInput",
+          "props": {
+            "fullWidth": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "label": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "value": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenuItem",
+          "methods": [],
+          "actualName": "SettingsMenuItem",
+          "props": {
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenu",
+          "methods": [],
+          "actualName": "SettingsMenu"
+        }
+      ]
+    }
+  ],
+  "entries": []
+}
