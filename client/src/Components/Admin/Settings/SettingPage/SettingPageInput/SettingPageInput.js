@@ -33,20 +33,20 @@ SettingPageInput.propTypes = {
   /** If true, the input will take up the full width of its container. */
   fullWidth: PropTypes.bool,
   /** Label content to be displayed on the input. */
-  label: PropTypes.bool,
+  label: PropTypes.string,
   /** Name used to reference the inputs value in onSubmit of the parent
    * SettingPage component. All SettingPageInput children of a
    * SettingPage must have a unique name.
    */
   name: PropTypes.string.isRequired,
   /** Receives this prop from parent SettingPage component. Don't set manually. */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   /** If true the label is displayed as required. */
   required: PropTypes.bool,
   /** The type of the input element. */
   type: PropTypes.string,
   /** Received this prop from parent SettingPage component. Don't set manually. */
-  value: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 SettingPageInput.defaultProps = {
@@ -54,4 +54,6 @@ SettingPageInput.defaultProps = {
   label: '',
   required: false,
   type: 'text',
+  onChange: undefined,
+  value: undefined,
 };
