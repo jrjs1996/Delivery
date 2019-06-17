@@ -29,14 +29,7 @@ export default function SettingPage({
   const [message, setMessage] = useState('');
 
   return (
-    <Paper style={{
-      marginTop: '5%',
-      marginLeft: '30%',
-      marginRight: '30%',
-      paddingLeft: '2%',
-      paddingRight: '2%',
-    }}
-    >
+    <Paper>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom id="title">

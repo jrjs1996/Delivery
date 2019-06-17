@@ -8,9 +8,6 @@ import { ChildrenPropType } from '../../../../propTypes';
 export default function SettingsMenu({ children, title }) {
   return (
     <Paper style={{
-      marginTop: '5%',
-      marginLeft: '30%',
-      marginRight: '30%',
       paddingLeft: '10%',
       paddingRight: '10%',
     }}
