@@ -58,7 +58,7 @@ export default function SettingPage({
           </Button>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" id="message" gutterBottom>
             {message}
           </Typography>
         </Grid>
