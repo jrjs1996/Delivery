@@ -68,12 +68,21 @@ export default function SettingPage({
 }
 
 SettingPage.propTypes = {
+  /** SettingPageInputs for this setting page. */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  /** Function to be called when the submit button is pressed.
+   * This function will be given an object containing a property
+   * and value for each input in children.
+   */
   onSubmit: PropTypes.func.isRequired,
+  /**
+   * The text that will appear on the submit button.
+   */
   submitText: PropTypes.string,
+  /** Title that will appear on top of page. */
   title: PropTypes.string,
 };
 

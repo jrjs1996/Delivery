@@ -23,26 +23,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Admin.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Admin",
-          "methods": [],
-          "actualName": "Admin",
-          "props": {
-            "getCurrentAdminInfo": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\AdminRoute.js",
       "value": [
         {
@@ -54,6 +34,26 @@
             "component": {
               "type": {
                 "name": "node"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Admin.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Admin",
+          "methods": [],
+          "actualName": "Admin",
+          "props": {
+            "getCurrentAdminInfo": {
+              "type": {
+                "name": "func"
               },
               "required": true,
               "description": ""
@@ -344,6 +344,26 @@
       ]
     },
     {
+      "key": "src\\components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Login\\FormInput.js",
       "value": [
         {
@@ -378,6 +398,26 @@
           "displayName": "Login",
           "methods": [],
           "actualName": "Login"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\SignUpHeader.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpHeader",
+          "methods": [],
+          "actualName": "SignUpHeader",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -420,46 +460,6 @@
             "login": {
               "type": {
                 "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Login\\SignUpHeader.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignUpHeader",
-          "methods": [],
-          "actualName": "SignUpHeader",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Login\\FormButton.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FormButton",
-          "methods": [],
-          "actualName": "FormButton",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
               },
               "required": true,
               "description": ""
@@ -521,17 +521,6 @@
           "displayName": "CreateOrder",
           "methods": [],
           "actualName": "CreateOrder"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "OrderItem",
-          "methods": [],
-          "actualName": "OrderItem"
         }
       ]
     },
@@ -620,6 +609,17 @@
               "description": ""
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem"
         }
       ]
     },
@@ -714,6 +714,73 @@
                 "name": "func"
               },
               "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangePassword",
+          "methods": [],
+          "actualName": "ChangePassword",
+          "props": {
+            "changeCurrentAdminPassword": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\Settings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Settings",
+          "methods": [],
+          "actualName": "Settings"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\ChangeUsername.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangeUsername",
+          "methods": [],
+          "actualName": "ChangeUsername",
+          "props": {
+            "changeCurrentAdminUsername": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
               "description": ""
             }
           }
@@ -942,73 +1009,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangePassword",
-          "methods": [],
-          "actualName": "ChangePassword",
-          "props": {
-            "changeCurrentAdminPassword": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "currentAdmin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\ChangeUsername.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangeUsername",
-          "methods": [],
-          "actualName": "ChangeUsername",
-          "props": {
-            "changeCurrentAdminUsername": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "currentAdmin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\Settings.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Settings",
-          "methods": [],
-          "actualName": "Settings"
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
       "value": [
         {
@@ -1068,7 +1068,7 @@
             },
             "label": {
               "type": {
-                "name": "bool"
+                "name": "string"
               },
               "required": false,
               "description": "Label content to be displayed on the input.",
@@ -1088,8 +1088,12 @@
               "type": {
                 "name": "func"
               },
-              "required": true,
-              "description": "Receives this prop from parent SettingPage component. Don't set manually."
+              "required": false,
+              "description": "Receives this prop from parent SettingPage component. Don't set manually.",
+              "defaultValue": {
+                "value": "undefined",
+                "computed": true
+              }
             },
             "required": {
               "type": {
@@ -1115,10 +1119,14 @@
             },
             "value": {
               "type": {
-                "name": "func"
+                "name": "string"
               },
-              "required": true,
-              "description": "Received this prop from parent SettingPage component. Don't set manually."
+              "required": false,
+              "description": "Received this prop from parent SettingPage component. Don't set manually.",
+              "defaultValue": {
+                "value": "undefined",
+                "computed": true
+              }
             }
           }
         }
@@ -1135,24 +1143,35 @@
           "props": {
             "children": {
               "type": {
-                "name": "node"
+                "name": "union",
+                "value": [
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "node"
+                    }
+                  },
+                  {
+                    "name": "node"
+                  }
+                ]
               },
               "required": true,
-              "description": ""
+              "description": "SettingPageInputs for this setting page."
             },
             "onSubmit": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": ""
+              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
             },
             "submitText": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": "",
+              "description": "The text that will appear on the submit button.",
               "defaultValue": {
                 "value": "'Submit'",
                 "computed": false
@@ -1163,7 +1182,7 @@
                 "name": "string"
               },
               "required": false,
-              "description": "",
+              "description": "Title that will appear on top of page.",
               "defaultValue": {
                 "value": "''",
                 "computed": false
@@ -1175,6 +1194,26 @@
     }
   ],
   "entries": [
+    {
+      "key": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
+      "value": {
+        "name": "SettingPage",
+        "menu": "Components",
+        "rout": "/components/Admin/Settings/SettingPage",
+        "id": "e6214c5adf7e95ddbf1e6748b3820d1c",
+        "filepath": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-page-setting-page",
+        "route": "/src-components-admin-settings-setting-page-setting-page",
+        "headings": [
+          {
+            "slug": "setting-page",
+            "depth": 1,
+            "value": "Setting Page"
+          }
+        ]
+      }
+    },
     {
       "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
       "value": {
