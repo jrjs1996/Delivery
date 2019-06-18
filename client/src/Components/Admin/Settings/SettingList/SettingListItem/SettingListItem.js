@@ -17,6 +17,7 @@ SettingListItem.propTypes = {
   onClick: PropType.func.isRequired,
   /**
    * Text representing the object this item represents.
+   * Given by the SettingList this item belongs to.
    */
   text: PropType.string.isRequired,
 };
