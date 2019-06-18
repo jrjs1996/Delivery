@@ -1,42 +1,47 @@
-import React, { useState } from 'react';
-import SettingsMenu from './SettingsMenu/SettingsMenu';
-import SettingsMenuItem from './SettingsMenu/SettingsMenuItem';
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import { Button, Grid } from '@material-ui/core';
 import ChangeUsername from './ChangeUsername';
 import ChangePassword from './ChangePassword';
-import { Button, Grid } from '@material-ui/core';
+import AdminSettings from './AdminSettings';
+import { locationPropType } from '../../../propTypes';
 
-const getPage = (page, setPage) => {
-  console.log(page)
-  switch (page) {
-    case 0: return <ChangeUsername />;
-    case 1: return <ChangePassword />;
-    default: return (
-      <div>
-        <SettingsMenu title="Settings" onClick={setPage}>
-          <SettingsMenuItem text="Change Username" />
-          <SettingsMenuItem text="Change Password" />
-          <SettingsMenuItem text="Edit Admins" />
-        </SettingsMenu>
-      </div>
+const renderBackButton = (pathname) => {
+  if (pathname !== '/admin/settings') {
+    return (
+      <Link to="/admin/settings">
+        <Button variant="contained" color="secondary">
+          Back
+        </Button>
+      </Link>
     );
   }
+  return null;
 };
 
-export default function Settings() {
-  const [page, setPage] = useState(-1);
-
+export default function Settings(props) {
+  const { location } = props;
   return (
     <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          {page !== -1 ? <Button variant="contained" color="secondary" onClick={() => setPage(-1)}>Back</Button> : null }
+          {renderBackButton(location.pathname)}
         </Grid>
         <Grid item xs={6}>
-          {getPage(page, setPage)}
+          <Route
+            path="/admin/settings/"
+            exact
+            component={AdminSettings}
+          />
+          <Route path="/admin/settings/username/" component={ChangeUsername} />
+          <Route path="/admin/settings/password/" component={ChangePassword} />
         </Grid>
         <Grid item xs={3} />
       </Grid>
     </div>
-    //style={{ marginTop: '5%', marginLeft: '30%', marginRight: '30%' }}
   );
 }
+
+Settings.propTypes = {
+  location: locationPropType.isRequired,
+};
