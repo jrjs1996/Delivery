@@ -1095,50 +1095,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingList",
-          "methods": [],
-          "actualName": "SettingList",
-          "props": {
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list."
-            },
-            "itemString": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Title to appear at top of list."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
       "value": [
         {
@@ -1373,6 +1329,50 @@
                 "value": "undefined",
                 "computed": true
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingList",
+          "methods": [],
+          "actualName": "SettingList",
+          "props": {
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list."
+            },
+            "itemString": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Title to appear at top of list."
             }
           }
         }

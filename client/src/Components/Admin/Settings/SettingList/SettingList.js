@@ -4,24 +4,28 @@ import { Card, Grid, Typography } from '@material-ui/core';
 import SettingListItem from './SettingListItem/SettingListItem';
 
 export default function SettingList({
-  title,
   items,
-  onClick,
   itemString,
+  onClick,
+  title,
 }) {
   return (
     <Card style={{ paddingTop: '1%', paddingBottom: '2%' }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" id="title" gutterBottom>
         {title}
       </Typography>
       <Grid container spacing={1}>
-        { items.map(item => (
-          <SettingListItem
-            item={item}
-            onClick={() => onClick(item)}
-            text={itemString(item)}
-          />
-        ))}
+        { items.map((item) => {
+          const text = itemString(item);
+          return (
+            <SettingListItem
+              item={item}
+              onClick={() => onClick(item)}
+              text={text}
+              key={text}
+            />
+          );
+        })}
       </Grid>
     </Card>
   );
