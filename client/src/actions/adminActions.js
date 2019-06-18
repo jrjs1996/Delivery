@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../utils/token';
-import { LOGIN_ADMIN } from './types';
+import { LOGIN_ADMIN, FETCH_ADMINS } from './types';
 
 export const login = postData => async (dispatch) => {
   try {
@@ -51,6 +51,18 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
     const res = await axios.get('http://localhost:9000/admins/login/', setAuthHeader());
     dispatch({
       type: LOGIN_ADMIN,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchAdmins = () => async (dispatch) => {
+  const res = await axios.get('http://localhost:9000/admins/', setAuthHeader());
+  try {
+    dispatch({
+      type: FETCH_ADMINS,
       payload: res.data,
     });
   } catch (error) {

@@ -1,8 +1,8 @@
-import { LOGIN_ADMIN } from '../actions/types';
+import { LOGIN_ADMIN, FETCH_ADMINS } from '../actions/types';
 
 const initialState = {
-  currentAdmin: [],
-  item: {},
+  currentAdmin: {},
+  admins: [],
 };
 
 export default function (state = initialState, action) {
@@ -11,6 +11,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         currentAdmin: action.payload,
+      };
+    case FETCH_ADMINS:
+      return {
+        ...state,
+        admins: action.payload,
       };
     default:
       return state;

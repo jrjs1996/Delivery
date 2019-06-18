@@ -20,10 +20,16 @@ describe('Setting Page', () => {
         <SettingPageInput name="testName" />
       </SettingPage>,
     );
-    const { root: componentRoot } = component;
-    root = componentRoot;
+    ({ root } = component);
     onSubmitResult = null;
   });
+
+  afterEach(() => {
+    component = null;
+    root = null;
+    onSubmitResult = null;
+  });
+
   it('Displays title', () => {
     const title = root.find(c => c.props.id === 'title');
     expect(title.props.children).toBe('Test Title');

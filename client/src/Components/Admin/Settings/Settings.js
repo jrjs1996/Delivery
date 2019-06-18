@@ -5,6 +5,7 @@ import ChangeUsername from './ChangeUsername';
 import ChangePassword from './ChangePassword';
 import AdminSettings from './AdminSettings';
 import { locationPropType } from '../../../propTypes';
+import AdminList from './AdminList/AdminList';
 
 const renderBackButton = (pathname) => {
   if (pathname !== '/admin/settings') {
@@ -35,6 +36,7 @@ export default function Settings(props) {
           />
           <Route path="/admin/settings/username/" component={ChangeUsername} />
           <Route path="/admin/settings/password/" component={ChangePassword} />
+          <Route path="/admin/settings/admins/" component={AdminList} />
         </Grid>
         <Grid item xs={3} />
       </Grid>

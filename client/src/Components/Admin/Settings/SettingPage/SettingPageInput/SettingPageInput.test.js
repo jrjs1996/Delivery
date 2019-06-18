@@ -26,11 +26,18 @@ describe('Setting Page Input', () => {
         value="Test Value"
       />,
     );
-    const { root: componentRoot } = component;
-    root = componentRoot;
+    ({ root } = component);
     textField = root.findByType(TextField);
     onChangeResult = null;
   });
+
+  afterEach(() => {
+    component = null;
+    root = null;
+    textField = null;
+    onChangeResult = null;
+  });
+
   it('Is fulll width', () => {
     expect(textField.props.fullWidth).toBe(true);
   });

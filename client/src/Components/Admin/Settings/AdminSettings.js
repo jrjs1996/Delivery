@@ -8,7 +8,7 @@ export default function AdminSettings({ onClick }) {
     <SettingsMenu title="Settings" onClick={onClick}>
       <SettingsMenuItem text="Change Username" to="/admin/settings/username/" />
       <SettingsMenuItem text="Change Password" to="/admin/settings/password/" />
-      <SettingsMenuItem text="Edit Admins" />
+      <SettingsMenuItem text="Edit Admins" to="/admin/settings/admins/" />
     </SettingsMenu>
   );
 }
