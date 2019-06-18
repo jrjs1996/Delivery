@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import { AdminListComponent } from './AdminList';
 
@@ -29,6 +29,7 @@ describe('AdminList', () => {
 
   afterEach(() => {
     admins = [];
+    cleanup();
   });
 
   it('Updates admins', () => {

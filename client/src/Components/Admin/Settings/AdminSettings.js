@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SettingsMenu from './SettingsMenu/SettingsMenu';
-import SettingsMenuItem from './SettingsMenu/SettingsMenuItem';
+import SettingsMenuItem from './SettingsMenu/SettingsMenuItem/SettingsMenuItem';
 
 export default function AdminSettings({ onClick }) {
   return (
