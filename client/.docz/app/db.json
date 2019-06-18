@@ -1043,58 +1043,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminList",
-          "methods": [],
-          "actualName": "AdminList",
-          "props": {
-            "admins": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "AdminPropType"
-                }
-              },
-              "required": true,
-              "description": ""
-            },
-            "fetchAdmins": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminListItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminListItem",
-          "methods": [],
-          "actualName": "AdminListItem",
-          "props": {
-            "admin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
       "value": [
         {
@@ -1373,6 +1321,37 @@
               },
               "required": true,
               "description": "Title to appear at top of list."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminList",
+          "methods": [],
+          "actualName": "AdminList",
+          "props": {
+            "admins": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "AdminPropType"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchAdmins": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }

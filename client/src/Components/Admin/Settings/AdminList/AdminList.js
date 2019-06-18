@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import { Card, Grid, Typography } from '@material-ui/core';
 import { AdminPropType } from '../../../../propTypes';
 import { fetchAdmins } from '../../../../actions/adminActions';
-import AdminListItem from './AdminListItem';
+import SettingList from '../SettingList/SettingList';
 
 
 function AdminList({ admins, fetchAdmins: fetchAction }) {
@@ -13,19 +12,18 @@ function AdminList({ admins, fetchAdmins: fetchAction }) {
   }, [fetchAction]);
 
   return (
-    <Card style={{ paddingTop: '1%', paddingBottom: '2%' }}>
-      <Typography variant="h4" gutterBottom>
-        Edit admins
-      </Typography>
-      <Grid container spacing={1}>
-        { admins.map(a => <AdminListItem admin={a} />) }
-      </Grid>
-    </Card>
+    <SettingList
+      items={admins}
+      itemString={a => a.username}
+      title="Edit Admins"
+    />
   );
 }
 
 AdminList.propTypes = {
+  /** Admin objects to populate the list with. */
   admins: PropType.arrayOf(AdminPropType).isRequired,
+  /** Action to call which fetches admins. */
   fetchAdmins: PropType.func.isRequired,
 };
 
@@ -33,4 +31,5 @@ const mapStateToProps = state => ({
   admins: state.admins.admins,
 });
 
+export { AdminList as AdminListComponent };
 export default connect(mapStateToProps, { fetchAdmins })(AdminList);
