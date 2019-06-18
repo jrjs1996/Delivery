@@ -1,0 +1,39 @@
+
+---
+name: SettingsMenuItem
+menu: Components
+route: /components/Admin/Settings/SettingsMenu/SettingsMenuItem
+---
+import { Playground, Props } from 'docz';
+import SettingsMenuItem from './SettingsMenuItem';
+import SettingsMenu from '../SettingsMenu';
+
+# Settings Menu Item
+
+Updated 18/6/2019
+
+Used as a child of SettingsMenu. Represents a single
+item in the menu.
+
+<Props of={SettingsMenuItem} />
+
+<Playground>
+  <span id="showData"></span>
+  <SettingsMenu
+    title="Choose your language"
+    onClick={i => {
+      let message = `You chose item at index ${i}. `;
+      switch (i) {
+        case 0:
+          message += "Hello!";
+          break;
+        case 1:
+          message += "Bonjour!";
+          break;
+      }
+      document.getElementById("showData").innerHTML = message;
+    }}>
+    <SettingsMenuItem text="English" />
+    <SettingsMenuItem text="Français" />
+  </SettingsMenu>
+</Playground>
