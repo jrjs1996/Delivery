@@ -1381,6 +1381,25 @@
   ],
   "entries": [
     {
+      "key": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+      "value": {
+        "name": "Setting List",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingList",
+        "id": "6ccfb92c20a5a4c7d8ee7db779a8a88e",
+        "filepath": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-list-setting-list",
+        "headings": [
+          {
+            "slug": "setting-list",
+            "depth": 1,
+            "value": "Setting List"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
       "value": {
         "name": "SettingPage",

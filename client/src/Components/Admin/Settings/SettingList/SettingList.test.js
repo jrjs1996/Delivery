@@ -21,7 +21,7 @@ describe('Setting List', () => {
       <SettingList
         items={items}
         itemString={i => i.name}
-        onClick={i => { onClickResult = i.name }}
+        onClick={(i) => { onClickResult = i.name; }}
         title="Test List"
       />,
     );
@@ -33,7 +33,7 @@ describe('Setting List', () => {
     component = null;
     root = null;
     onClickResult = null;
-    listItems = null
+    listItems = null;
   });
 
   it('Has correct title', () => {

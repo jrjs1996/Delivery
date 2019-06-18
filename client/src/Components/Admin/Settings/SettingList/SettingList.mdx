@@ -1,0 +1,32 @@
+
+---
+name: Setting List
+menu: Components
+route: /components/Admin/Settings/SettingList
+---
+import { Playground, Props } from 'docz';
+import SettingList from './SettingList';
+
+# Setting List
+
+Updated: 17/6/2019
+
+This component is used to display a list of UI elements that represent
+the items given to it in the 'objects' prop. When one of the UI elements
+is clicked on the onclick function will be called with the item it represents.
+
+<Props of={SettingList} />
+
+<Playground>
+  <span id="show"></span>
+  <SettingList
+    items={[
+      { name: "Joe", job: "Developer"},
+      { name: "Susan", job: "Accountant"},
+      { name: "Steve", job: "Dancer"},
+    ]}
+    itemString={i => `${i.job} ${i.name}`}
+    onClick={i => {document.getElementById('show').innerHTML = JSON.stringify(i);}}
+    title="Example List"
+  />
+</Playground>
