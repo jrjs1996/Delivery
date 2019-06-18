@@ -1,0 +1,1 @@
+®/ 2abapXMhr*node_modules/table/dist/makeConfig.js.flow

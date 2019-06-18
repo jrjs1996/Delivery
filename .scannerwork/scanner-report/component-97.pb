@@ -1,0 +1,1 @@
+a 2jsXFhrZclient/src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.test.js

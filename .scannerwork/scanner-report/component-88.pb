@@ -1,0 +1,1 @@
+X 2jsX=hrDclient/src/components/Admin/Settings/SettingList/SettingList.test.js

@@ -1,0 +1,1 @@
+^ 2jsX<hrDclient/src/components/Admin/Settings/SettingPage/SettingPage.test.js

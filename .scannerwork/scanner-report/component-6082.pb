@@ -1,0 +1,1 @@
+Â/ 2abapXhr1node_modules/table/dist/truncateTableData.js.flow

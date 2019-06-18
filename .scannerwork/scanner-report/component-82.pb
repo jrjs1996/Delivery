@@ -1,0 +1,1 @@
+R 2jsX3hr@client/src/components/Admin/Settings/AdminList/AdminList.test.js

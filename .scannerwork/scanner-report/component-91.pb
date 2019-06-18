@@ -1,0 +1,1 @@
+[ 2jsX&hrXclient/src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.test.js
