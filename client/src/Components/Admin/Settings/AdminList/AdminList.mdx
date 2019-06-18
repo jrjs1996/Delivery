@@ -1,0 +1,25 @@
+
+---
+name: AdminList
+menu: Components
+route: /components/Admin/Settings/AdminList
+---
+import { Playground, Props } from 'docz';
+import { AdminListComponent } from './Adminlist';
+
+# Admin List
+
+Updated 18/6/2018
+
+Displays a list of all the admins.
+
+<Props of={AdminListComponent} />
+
+<Playground>
+  <AdminListComponent
+        admins={[{ username: 'First Admin', __v: 0, _id: '0' },
+          { username: 'Second Admin', __v: 0, _id: '1' },
+          { username: 'Third Admin', __v: 0, _id: '2' }]}
+        fetchAdmins={() => {console.log('hello')}}
+  />
+</Playground>

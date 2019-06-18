@@ -1,4 +1,8 @@
 export const imports = {
+  'src/components/Admin/Settings/AdminList/AdminList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-list" */ 'src/components/Admin/Settings/AdminList/AdminList.mdx'
+    ),
   'src/components/Admin/Settings/SettingList/SettingList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list" */ 'src/components/Admin/Settings/SettingList/SettingList.mdx'
