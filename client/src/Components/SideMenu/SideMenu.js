@@ -3,15 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import HomeIcon from '@material-ui/icons/Home';
-import PersonIcon from '@material-ui/icons/Person';
-import BookIcon from '@material-ui/icons/Book';
-import SettingsIcon from '@material-ui/icons/Settings';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import SideMenuItem from './SideMenuItem/SideMenuItem';
 
 const drawerWidth = 240;
 
@@ -38,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function SideMenu() {
+function SideMenu({ children }) {
   const classes = useStyles();
 
   return (
@@ -53,11 +44,7 @@ function SideMenu() {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <SideMenuItem to="/admin/" text="Home"><HomeIcon /></SideMenuItem>
-        <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
-        <SideMenuItem to="/admin/createorder/" text="Create Order"><ShoppingBasket /></SideMenuItem>
-        <SideMenuItem to="/admin/settings/" text="Settings"><SettingsIcon /></SideMenuItem>
-        <SideMenuItem to="/admin/menu/" text="Menu"><BookIcon /></SideMenuItem>
+        {children}
       </List>
       <Divider />
     </Drawer>

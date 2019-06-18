@@ -6,7 +6,13 @@ import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import BookIcon from '@material-ui/icons/Book';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 import SideMenu from '../SideMenu/SideMenu';
+import SideMenuItem from '../SideMenu/SideMenuItem/SideMenuItem';
 import LogoutButton from './LogoutButton';
 import CreateOrder from './CreateOrder/CreateOrder';
 
@@ -41,7 +47,13 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
   const { username } = currentAdmin;
   return (
     <div className="adminPanel">
-      <SideMenu />
+      <SideMenu>
+        <SideMenuItem to="/admin/" text="Home"><HomeIcon /></SideMenuItem>
+        <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/createorder/" text="Create Order"><ShoppingBasket /></SideMenuItem>
+        <SideMenuItem to="/admin/settings/" text="Settings"><SettingsIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/menu/" text="Menu"><BookIcon /></SideMenuItem>
+      </SideMenu>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
