@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { ChildrenPropType } from '../../../../propTypes';
 
-export default function SettingsMenu({ children, title }) {
+export default function SettingsMenu({ children, title, onClick }) {
   return (
     <Paper style={{
       paddingLeft: '10%',
@@ -16,7 +16,9 @@ export default function SettingsMenu({ children, title }) {
         {title}
       </Typography>
       <Grid container spacing={3}>
-        {children}
+        {React.Children.map(children, (child, i) => React.cloneElement(child, {
+          onClick: () => onClick(i),
+        }))}
       </Grid>
     </Paper>
   );
@@ -25,6 +27,7 @@ export default function SettingsMenu({ children, title }) {
 SettingsMenu.propTypes = {
   children: ChildrenPropType.isRequired,
   title: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 SettingsMenu.defaultProps = {
