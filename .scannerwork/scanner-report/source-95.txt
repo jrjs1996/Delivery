@@ -1,59 +1,33 @@
-import React from 'react';
-import { Grid, TextField } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import { FETCH_ORDERS, ADD_ORDER, COMPLETE_ORDER } from '../actions/types';
+import { array } from 'prop-types';
 
-export default function SettingPageInput({
-  fullWidth,
-  label,
-  name,
-  onChange,
-  required,
-  type,
-  value,
-}) {
-  return (
-    <div>
-      <Grid item xs={6}>
-        <TextField
-          fullWidth={fullWidth}
-          id={name}
-          label={label}
-          name={name}
-          onChange={onChange}
-          required={required}
-          type={type}
-          value={value}
-        />
-      </Grid>
-    </div>
-  );
+const initialState = {
+  items: [],
+  item: {},
+};
+
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case FETCH_ORDERS:
+      return {
+        ...state,
+        items: action.payload,
+      };
+    case ADD_ORDER:
+      return {
+        ...state,
+        items: [action.payload, ...state.items],
+      };
+    case COMPLETE_ORDER:
+      console.log(action.payload);
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item._id === action.payload._id) return Object.assign(item, action.payload);
+          return item;
+        }),
+      };
+    default:
+      return state;
+  }
 }
-
-SettingPageInput.propTypes = {
-  /** If true, the input will take up the full width of its container. */
-  fullWidth: PropTypes.bool,
-  /** Label content to be displayed on the input. */
-  label: PropTypes.string,
-  /** Name used to reference the inputs value in onSubmit of the parent
-   * SettingPage component. All SettingPageInput children of a
-   * SettingPage must have a unique name.
-   */
-  name: PropTypes.string.isRequired,
-  /** Receives this prop from parent SettingPage component. Don't set manually. */
-  onChange: PropTypes.func,
-  /** If true the label is displayed as required. */
-  required: PropTypes.bool,
-  /** The type of the input element. */
-  type: PropTypes.string,
-  /** Received this prop from parent SettingPage component. Don't set manually. */
-  value: PropTypes.string,
-};
-
-SettingPageInput.defaultProps = {
-  fullWidth: false,
-  label: '',
-  required: false,
-  type: 'text',
-  onChange: undefined,
-  value: undefined,
-};

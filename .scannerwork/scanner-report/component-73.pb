@@ -1,1 +1,1 @@
-I 2jsXhr(client/src/components/Admin/Home/Item.js
+I 2jsX(hr(client/src/components/Customers/index.js

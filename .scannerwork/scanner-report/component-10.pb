@@ -1,2 +1,2 @@
 
- 2jsXhrapi/models/Customer.js
+ 2jsXhrapi/models/index.js

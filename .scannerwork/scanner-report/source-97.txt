@@ -1,69 +1,19 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-import React from 'react';
-import { create } from 'react-test-renderer';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 
-import TextField from '@material-ui/core/TextField';
+const initialState = {};
 
-import SettingPageInput from './SettingPageInput';
+const middleware = [thunk];
 
-describe('Setting Page Input', () => {
-  let component;
-  let root;
-  let textField;
+const store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(...middleware),
+    // eslint-disable-next-line no-underscore-dangle
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
+);
 
-  let onChangeResult;
-
-  beforeEach(() => {
-    component = create(
-      <SettingPageInput
-        fullWidth
-        label="Test Label"
-        name="testName"
-        required
-        type="text"
-        onChange={(e) => { onChangeResult = e.target.value; }}
-        value="Test Value"
-      />,
-    );
-    ({ root } = component);
-    textField = root.findByType(TextField);
-    onChangeResult = null;
-  });
-
-  afterEach(() => {
-    component = null;
-    root = null;
-    textField = null;
-    onChangeResult = null;
-  });
-
-  it('Is fulll width', () => {
-    expect(textField.props.fullWidth).toBe(true);
-  });
-
-  it('Shows label', () => {
-    expect(textField.props.label).toBe('Test Label');
-  });
-
-  it('Has correct name', () => {
-    expect(textField.props.name).toBe('testName');
-  });
-
-  it('Is required', () => {
-    expect(textField.props.required).toBe(true);
-  });
-
-  it('Has correct type', () => {
-    expect(textField.props.type).toBe('text');
-  });
-
-  it('OnChange works', () => {
-    textField.props.onChange({ target: { value: 'test' } });
-    expect(onChangeResult).toBe('test');
-  });
-
-  it('Has correct value', () => {
-    expect(textField.props.value).toBe('Test Value');
-  });
-});
+export default store;

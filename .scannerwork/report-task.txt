@@ -3,5 +3,5 @@ projectKey=jrjs1996_Delivery
 serverUrl=https://sonarcloud.io
 serverVersion=7.8.0.26123
 dashboardUrl=https://sonarcloud.io/dashboard?id=jrjs1996_Delivery
-ceTaskId=AWtrSvWiYxfuI0qRLBtN
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWtrSvWiYxfuI0qRLBtN
+ceTaskId=AWtrmNFMofqQKQbrnnrF
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWtrmNFMofqQKQbrnnrF

@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const Admin = require('../models/Admin');
+const Customer = require('../models/Customer');
 
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
@@ -13,54 +13,60 @@ const Admin = require('../models/Admin');
 
 // TODO: Test all authentication
 
+/**
+ * Checks if the user is admin or the user is the customer
+ * with the specified id.
+ * @param {*} req The request to check.
+ */
+const adminOrSpecifiedCustomer = req => (req.admin != null
+    || (req.customer != null && req.customer.id === req.params.id));
 
 /**
- * Retreives all admins.
+ * Retreives all customers.
  * Must be an admin.
  */
 router.get('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
   try {
-    const admins = await Admin.find(null);
-    return res.send(admins);
+    const customers = await Customer.find(null);
+    return res.send(customers);
   } catch (error) {
-    console.log(error);
     return res.sendStatus(500);
   }
 });
 
 /**
- * Creates a new Admin.
- * Must be an admin.
+ * Creates a new customer.
  */
 router.post('/', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
-
-  if (!(req.body.username
+  if (!(req.body.firstName
+    && req.body.lastName
+    && req.body.address
+    && req.body.email
     && req.body.password)) return res.sendStatus(400);
 
   try {
-    const admin = await Admin.create(req.body);
-    const token = admin.newToken();
+    const user = await Customer.create(req.body);
+    const token = user.newToken();
     return res.status(201).send(token).end();
   } catch (error) {
     if (error.code === 11000) {
-      return res.status(400).send({ username: 'Address is already in use!' }).end();
+      return res.status(400).send({ email: 'Address is already in use!' }).end();
     }
     return res.sendStatus(500);
   }
 });
 
 /**
- * Deletes all admins
+ * Deletes all customers
  * Must be admin.
  */
 router.delete('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
   try {
-    await Admin.deleteMany(null);
+    await Customer.deleteMany(null);
     return res.sendStatus(200);
   } catch (error) {
     return res.sendStatus(500);
@@ -68,40 +74,15 @@ router.delete('/', async (req, res) => {
 });
 
 /**
- * Returns the logged in admins info.
- */
-router.get('/login/', (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
-  return res.send(req.admin);
-});
-
-/**
- * Creates a JWT for the specified admin
- * and returns it.
- */
-router.post('/login/', async (req, res) => {
-  if (!req.body.username || !req.body.password) return res.status(400).send();
-
-  const admin = await Admin.findOne({ username: req.body.username });
-  if (!admin) return res.status(401).send({ username: 'Username not found!' });
-
-  const match = await admin.checkPassword(req.body.password);
-  if (!match) return res.status(401).send({ password: 'Password wrong!'});
-
-  const token = admin.newToken();
-  return res.status(200).send(token);
-});
-
-/**
- * Gets the admin with the given id
- * Must be admin
+ * Gets the customer with the given id
+ * Must be specified customer or admin
  */
 router.get('/:id', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
 
   try {
-    const admin = await Admin.findOne({ _id: req.params.id });
-    return res.send(admin);
+    const customer = await Customer.findOne({ _id: req.params.id });
+    return res.send(customer);
   } catch (error) {
     return res.sendStatus(500);
   }
@@ -109,37 +90,49 @@ router.get('/:id', async (req, res) => {
 
 /**
  * Updates the specified user
- * Must be admin
+ * Must be specified customer or admin
  */
 router.put('/:id', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
-  try {
-    const newAdmin = await Admin.findOne({ _id: req.params.id });
-    Object.assign(newAdmin, req.body);
-    newAdmin.save();
-    delete newAdmin.password;
-    delete newAdmin.__v;
-    return res.send(newAdmin);
-  } catch (error) {
-    console.log(error);
-    return res.sendStatus(500);
-  }
-});
-
-/**
- * Deletes the specified admin
- * Muse be admin
- */
-router.delete('/:id', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
 
   try {
-    await Admin.findOneAndDelete({ _id: req.params.id });
+    await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
     return res.sendStatus(200);
   } catch (error) {
     return res.sendStatus(500);
   }
 });
 
+/**
+ * Deletes the specified customer
+ * Muse be specified customer or admin
+ */
+router.delete('/:id', async (req, res) => {
+  if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
+
+  try {
+    await Customer.findOneAndDelete({ _id: req.params.id });
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+});
+
+/**
+ * Creates a JWT for the specified user
+ * and returns it.
+ */
+router.post('/login/', async (req, res) => {
+  if (!req.body.email || !req.body.password) return res.status(400).send();
+
+  const customer = await Customer.findOne({ email: req.body.email });
+  if (!customer) return res.status(401).send({ email: 'Email not found!' });
+
+  const match = await customer.checkPassword(req.body.password);
+  if (!match) return res.status(401).send({ password: 'Password wrong!'});
+
+  const token = customer.newToken();
+  return res.status(200).send(token);
+});
 
 module.exports = router;

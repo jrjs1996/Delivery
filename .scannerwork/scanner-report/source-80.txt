@@ -1,35 +1,17 @@
-import React, { useEffect } from 'react';
-import PropType from 'prop-types';
-import { connect } from 'react-redux';
-import { AdminPropType } from '../../../../propTypes';
-import { fetchAdmins } from '../../../../actions/adminActions';
-import SettingList from '../SettingList/SettingList';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-
-function AdminList({ admins, fetchAdmins: fetchAction }) {
-  useEffect(() => {
-    fetchAction();
-  }, [fetchAction]);
-
+export default function FormInput(props) {
+  console.log(props)
+  //const { type, placeholder } = props;
   return (
-    <SettingList
-      items={admins}
-      itemString={a => a.username}
-      title="Edit Admins"
-    />
+    <div className="signUpRow">
+      <input {...props} className="form-control" />
+    </div>
   );
 }
 
-AdminList.propTypes = {
-  /** Admin objects to populate the list with. */
-  admins: PropType.arrayOf(AdminPropType).isRequired,
-  /** Action to call which fetches admins. */
-  fetchAdmins: PropType.func.isRequired,
+FormInput.propTypes = {
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
-
-const mapStateToProps = state => ({
-  admins: state.admins.admins,
-});
-
-export { AdminList as AdminListComponent };
-export default connect(mapStateToProps, { fetchAdmins })(AdminList);

@@ -1,1 +1,1 @@
-^ 2jsX<hrDclient/src/components/Admin/Settings/SettingPage/SettingPage.test.js
+^ 2jsXDhr"client/src/reducers/menuReducer.js

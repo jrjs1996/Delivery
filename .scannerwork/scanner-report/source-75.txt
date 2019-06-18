@@ -1,34 +1,59 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { logout } from '../../actions/adminActions';
+import { addOrder } from '../../actions/orderActions';
+import { fetchCustomers } from '../../actions/customerActions';
 
-class LogoutButton extends Component {
+class AddOrderForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      customer: '',
+    };
 
-    this.onClick = this.onClick.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onClick() {
-    const { history, logout: action } = this.props;
-    action();
-    history.push('/');
+  componentWillMount() {
+    const { fetchCustomers } = this.props;
+    fetchCustomers();
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const { addOrder } = this.props;
+    addOrder(this.state);
   }
 
   render() {
+    const { customers } = this.props;
+    const customerTags = customers.map(customer => <option key={ customer._id } value={ customer._id }>{ customer.firstName }</option>);
     return (
       <div>
-        <Button onClick={this.onClick} {...this.props}>Logout</Button>
+        <h1>Add Order</h1>
+        <form onSubmit={this.onSubmit}>
+          <select onChange={this.onChange} name="customer">
+            { customerTags }
+          </select>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }
 }
 
-LogoutButton.propTypes = {
-  logout: PropTypes.func.isRequired,
+AddOrderForm.propTypes = {
+  addOrder: PropTypes.func.isRequired,
+  customers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default withRouter(connect(null, { logout })(LogoutButton));
+const mapStateToProps = state => ({
+  customers: state.customers.items,
+});
+
+export default connect(mapStateToProps, { addOrder, fetchCustomers })(AddOrderForm);

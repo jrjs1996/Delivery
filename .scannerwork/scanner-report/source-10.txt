@@ -1,29 +1,18 @@
 const mongoose = require('mongoose');
-const AbstractUserSchema = require('./User');
+const Customer = require('./Customer');
+const Order = require('./Order');
+const Admin = require('./Admin');
+const MenuItem = require('./MenuItem');
 
-const CustomerSchema = new AbstractUserSchema();
-CustomerSchema.add({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  address: [{
-    type: String,
-    required: true,
-    trim: true,
-  }],
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true,
-  },
-});
+const connectDb = () => mongoose.connect('mongodb://localhost:27017/delivery');
 
-module.exports = mongoose.model('Customer', CustomerSchema);
+
+const models = {
+  Customer,
+  Order,
+  Admin,
+  MenuItem,
+};
+
+module.exports = connectDb;
+module.exports.default = models;

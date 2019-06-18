@@ -1,1 +1,1 @@
-a 2jsXFhrZclient/src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.test.js
+a 2jsXhrclient/src/store.js

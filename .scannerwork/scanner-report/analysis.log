@@ -177,7 +177,7 @@ Project server settings:
 Project scanner properties:
   - sonar.c.file.suffixes=-
   - sonar.cpp.file.suffixes=-
-  - sonar.exclusions=client/node_modules/**,api/node_modules/**
+  - sonar.exclusions=client/node_modules/**,api/node_modules/**,**/*.test.js,**/*.eslintrc.js,client/.docz/**
   - sonar.host.url=https://sonarcloud.io
   - sonar.javascript.lcov.reportPaths=client/coverage/lcov.info
   - sonar.login=******

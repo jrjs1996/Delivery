@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const MenuItems = require('../models/MenuItem')
+const Order = require('../models/Order');
 
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
@@ -13,63 +13,76 @@ const MenuItems = require('../models/MenuItem')
 
 // TODO: Test all authentication
 
-/**
- * Gets list of all menu items.
- */
-router.get('/', async (req, res) => {
-  try {
-    const items = await MenuItems.find({ archived: false }, null, { sort: { menuNumber: 1 } });
-    return res.send(items);
-  } catch (error) {
-    console.log(error);
-    return res.sendStatus(500);
+const getStageQuery = (req) => {
+  let stageQuery = null;
+  const { query } = req;
+  if (query.fromStage || query.toStage) {
+    stageQuery = {};
+    if (query.fromStage) stageQuery.$gte = query.fromStage;
+    if (query.toStage) stageQuery.$lte = query.toStage;
   }
-});
+  return stageQuery;
+};
 
-
-const findLowestAvailableMenuNum = async () => {
-  const orderNums = await MenuItems.find({ archived: false },
-    { menuNumber: 1 }, { sort: { menuNumber: 1 } }).exec();
-  console.log(orderNums);
-  // Give a number automatically
-  for (let i = 0; i < orderNums.length - 1; i += 1) {
-    if ((orderNums[i + 1].menuNumber - orderNums[i].menuNumber) > 1) {
-      return orderNums[i].menuNumber + 1;
-    }
+const getDateQuery = (req) => {
+  let dateQuery = null;
+  const { query } = req;
+  if (query.fromDate || query.toDate) {
+    dateQuery = {};
+    if (query.fromDate) dateQuery.$gte = new Date(parseInt(query.fromDate, 10));
+    if (query.toDate) dateQuery.$lte = new Date(parseInt(query.toDate, 10));
   }
-  if (orderNums.length === 0) return 1;
-  return orderNums[orderNums.length - 1].menuNumber + 1;
+  return dateQuery;
 };
 
 /**
- * Adds the specified menuItem
+ * Gets list of all orders.
  */
-router.post('/', async (req, res) => {
-  //if (req.admin == null) return res.sendStatus(401);
-
-  const params = req.body;
+router.get('/', async (req, res) => {
+  // if (req.admin == null) return res.sendStatus(401);
+  const dateQuery = getDateQuery(req);
+  const stageQuery = getStageQuery(req);
+  const query = {};
+  if (dateQuery) query.orderCreated = dateQuery;
+  if (stageQuery) query.stage = stageQuery;
   try {
-    // If the specified menu item doesn't have a menu num
-    // give it one
-    if (!params.menuNumber) params.menuNumber = await findLowestAvailableMenuNum();
-
-    const item = new MenuItems(params);
-    const result = await item.save();
-    return res.send(result);
+    const orders = await Order.find(query, null, { sort: { orderCreated: -1 } })
+      .populate('customer').populate('items').exec();
+    return res.send(orders);
   } catch (error) {
     return res.sendStatus(500);
   }
 });
 
+// TODO: Allow admins to make orders for
+// customers or without customers. Admins
+// Should be able to specify a customer but not
+// Customers. Their id should come from auth.
+
 /**
- * Deletes all menu items.
+ * Adds the specified order.
+ */
+router.post('/', async (req, res) => {
+  const orderParams = req.body;
+  console.log(orderParams);
+  try {
+    const order = new Order(orderParams);
+    const result = order.save();
+    res.send(result);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
+
+/**
+ * Deletes all orders.
  * Must be admin.
  */
 router.delete('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
   try {
-    await MenuItems.updateMany(null, { archived: true });
+    await Order.deleteMany(null);
     return res.sendStatus(200);
   } catch (error) {
     return res.sendStatus(500);
@@ -77,52 +90,32 @@ router.delete('/', async (req, res) => {
 });
 
 /**
- * Gets the specified menu item.
+ * Gets the specified order
+ * Must be admin or customer that
+ * made the order.
  */
-router.get('/:itemId', async (req, res) => {
+router.get('/:orderId', async (req, res) => {
   try {
-    const item = await MenuItems.findOne({ _id: req.params.itemId });
-    console.log(item);
-    return res.send(item);
+    const order = await Order.findOne({ _id: req.params.orderId });
+
+    // If the user is an admin or the customer who has made the order
+    if (res.admin
+      || (req.customer && order.customer
+        && order.customer._id.toString() === req.customer._id.toString())) {
+      return res.send(order);
+    }
+    return res.sendStatus(401);
   } catch (error) {
     return res.sendStatus(500);
   }
 });
 
-router.put('/:menuNumber', async (req, res) => {
+router.put('/:orderId', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
   try {
-    const oldItem = await MenuItems.findOneAndUpdate(
-      { menuNumber: req.params.menuNumber, archived: false }, req.body,
-    );
-    let newItem = oldItem.toObject();
-    oldItem.archived = true;
-    await oldItem.save();
-    newItem.revision += 1;
-    newItem = Object.assign(newItem, req.body);
-    delete newItem._id;
-    newItem.archived = false;
-    const resData = await MenuItems.create(newItem);
-    return res.send(resData);
-  } catch (error) {
-    console.log(error);
-    return res.sendStatus(500);
-  }
-});
-
-/**
- * Deletes the specified menu item.
- * Must be admin.
- */
-router.delete('/:menuNumber', async (req, res) => {
-  if (req.admin == null) return res.sendStatus(401);
-
-  try {
-    await MenuItems.updateOne({
-      archived: false,
-      menuNumber: req.params.menuNumber,
-    }, { archived: true });
-    return res.sendStatus(200);
+    let order = await Order.findOne({ _id: req.params.orderId });
+    order = Object.assign(order, req.body);
+    return res.send(200, order);
   } catch (error) {
     return res.sendStatus(500);
   }

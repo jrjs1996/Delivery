@@ -1,5 +1,7 @@
-Z
+Œ
 
-javascriptS13019"switch" statements should have at least 3 "case" clauses 2 Z
+javascriptS1117["completeOrder" hides or potentially hides a variable declared in an outer scope at line 6. 2 :
+M #Š
 
-javascriptS13019"switch" statements should have at least 3 "case" clauses 2LL 
+javascriptS1117Y"fetchOrders" hides or potentially hides a variable declared in an outer scope at line 6. 2 :
+M	 

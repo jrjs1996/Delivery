@@ -1,1 +1,0 @@
-Ç 2webX^hr8node_modules/mute-stream/coverage/lcov-report/index.html

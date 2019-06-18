@@ -1,3 +1,4 @@
-J
+Š
 
-javascriptS1128)Remove this unused import of 'PropTypes'. 2 
+javascriptS1117Y"addCustomer" hides or potentially hides a variable declared in an outer scope at line 4. 2 :
+G	 

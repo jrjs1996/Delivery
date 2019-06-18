@@ -1,37 +1,67 @@
-/* eslint-disable no-underscore-dangle */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import BookIcon from '@material-ui/icons/Book';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 
-import { AdminPropType } from '../../../propTypes';
-import { changeCurrentAdminUsername } from '../../../actions/adminActions';
-import SettingPage from './SettingPage/SettingPage';
-import SettingPageInput from './SettingPage/SettingPageInput/SettingPageInput';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const onSubmit = (submitData, currentAdmin, action) => {
-  action(currentAdmin._id, submitData.newUsername);
-  return 'Username Updated';
-};
+import SideMenuItem from './SideMenuItem/SideMenuItem';
 
-function ChangeUsername({ currentAdmin, changeCurrentAdminUsername: action }) {
+const drawerWidth = 240;
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+  },
+}));
+
+function SideMenu() {
+  const classes = useStyles();
+
   return (
-    <SettingPage
-      title="Change Username"
-      submitText="Change Username"
-      onSubmit={submitData => onSubmit(submitData, currentAdmin, action)}
+    <Drawer
+      className={classes.drawer}
+      variant="permanent"
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+      anchor="left"
     >
-      <SettingPageInput required fullWidth name="newUsername" label="New Username" />
-    </SettingPage>
+      <div className={classes.toolbar} />
+      <Divider />
+      <List>
+        <SideMenuItem to="/admin/" text="Home"><HomeIcon /></SideMenuItem>
+        <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/createorder/" text="Create Order"><ShoppingBasket /></SideMenuItem>
+        <SideMenuItem to="/admin/settings/" text="Settings"><SettingsIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/menu/" text="Menu"><BookIcon /></SideMenuItem>
+      </List>
+      <Divider />
+    </Drawer>
   );
 }
 
-ChangeUsername.propTypes = {
-  changeCurrentAdminUsername: PropTypes.func.isRequired,
-  currentAdmin: AdminPropType.isRequired,
-};
-
-const mapStateToProps = state => ({
-  currentAdmin: state.admins.currentAdmin,
-});
-
-export default connect(mapStateToProps, { changeCurrentAdminUsername })(ChangeUsername);
+export default SideMenu;

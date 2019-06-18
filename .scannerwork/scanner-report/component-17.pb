@@ -1,1 +1,1 @@
- 2cssX	hr api/public/stylesheets/style.css
+ 2jsX’hrapi/routes/admins.js

@@ -1,1 +1,0 @@
-e 2jsX8hrFclient/src/components/Admin/Settings/SettingsMenu/SettingsMenu.test.js

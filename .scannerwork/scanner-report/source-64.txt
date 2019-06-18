@@ -1,15 +1,59 @@
-export const FETCH_CUSTOMERS = 'FETCH_CUSTOMERS';
-export const ADD_CUSTOMER = 'ADD_CUSTOMER';
+import React from 'react';
+import { Grid, TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
-export const ADD_ORDER = 'ADD_ORDER';
-export const FETCH_ORDERS = 'FETCH_ORDER';
-export const COMPLETE_ORDER = 'COMPLETE_ORDER';
-export const GET_CUSTOMER = 'GET_CUSTOMER';
+export default function SettingPageInput({
+  fullWidth,
+  label,
+  name,
+  onChange,
+  required,
+  type,
+  value,
+}) {
+  return (
+    <div>
+      <Grid item xs={6}>
+        <TextField
+          fullWidth={fullWidth}
+          id={name}
+          label={label}
+          name={name}
+          onChange={onChange}
+          required={required}
+          type={type}
+          value={value}
+        />
+      </Grid>
+    </div>
+  );
+}
 
-export const LOGIN_ADMIN = 'LOGIN_ADMIN';
-export const FETCH_ADMINS = 'FETCH_ADMINS';
+SettingPageInput.propTypes = {
+  /** If true, the input will take up the full width of its container. */
+  fullWidth: PropTypes.bool,
+  /** Label content to be displayed on the input. */
+  label: PropTypes.string,
+  /** Name used to reference the inputs value in onSubmit of the parent
+   * SettingPage component. All SettingPageInput children of a
+   * SettingPage must have a unique name.
+   */
+  name: PropTypes.string.isRequired,
+  /** Receives this prop from parent SettingPage component. Don't set manually. */
+  onChange: PropTypes.func,
+  /** If true the label is displayed as required. */
+  required: PropTypes.bool,
+  /** The type of the input element. */
+  type: PropTypes.string,
+  /** Received this prop from parent SettingPage component. Don't set manually. */
+  value: PropTypes.string,
+};
 
-export const FETCH_MENU = 'FETCH_MENU';
-export const ADD_MENU_ITEM = 'ADD_MENU_ITEM';
-export const UPDATE_MENU_ITEM = 'UPDATE_MENU_ITEM';
-export const DELETE_MENU_ITEM = 'DELETE_MENU_ITEM';
+SettingPageInput.defaultProps = {
+  fullWidth: false,
+  label: '',
+  required: false,
+  type: 'text',
+  onChange: undefined,
+  value: undefined,
+};

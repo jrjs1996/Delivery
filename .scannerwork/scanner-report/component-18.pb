@@ -1,1 +1,1 @@
- 2jsX’hrapi/routes/admins.js
+ 2jsX‹hrapi/routes/customers.js

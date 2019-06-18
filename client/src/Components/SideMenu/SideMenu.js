@@ -11,7 +11,7 @@ import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import SideMenuItem from './SideMenuItem';
+import SideMenuItem from './SideMenuItem/SideMenuItem';
 
 const drawerWidth = 240;
 

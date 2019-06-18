@@ -1,24 +1,49 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import { Button, Grid } from '@material-ui/core';
+import ChangeUsername from './ChangeUsername';
+import ChangePassword from './ChangePassword';
+import AdminSettings from './AdminSettings';
+import { locationPropType } from '../../../propTypes';
+import AdminList from './AdminList/AdminList';
 
-import './App.css';
+const renderBackButton = (pathname) => {
+  if (pathname !== '/admin/settings') {
+    return (
+      <Link to="/admin/settings">
+        <Button variant="contained" color="secondary">
+          Back
+        </Button>
+      </Link>
+    );
+  }
+  return null;
+};
 
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Admin from './components/Admin/Admin';
-import AdminRoute from './components/Admin/AdminRoute';
-import store from './store';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-export default function App() {
+export default function Settings(props) {
+  const { location } = props;
   return (
-    <Router>
-      <Provider store={store}>
-        <div className="App">
-          <AdminRoute path="/admin" component={Admin} />
-          <Route path="/login/" component={Login} />
-        </div>
-      </Provider>
-    </Router>
+    <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
+      <Grid container spacing={3}>
+        <Grid item xs={3}>
+          {renderBackButton(location.pathname)}
+        </Grid>
+        <Grid item xs={6}>
+          <Route
+            path="/admin/settings/"
+            exact
+            component={AdminSettings}
+          />
+          <Route path="/admin/settings/username/" component={ChangeUsername} />
+          <Route path="/admin/settings/password/" component={ChangePassword} />
+          <Route path="/admin/settings/admins/" component={AdminList} />
+        </Grid>
+        <Grid item xs={3} />
+      </Grid>
+    </div>
   );
 }
+
+Settings.propTypes = {
+  location: locationPropType.isRequired,
+};

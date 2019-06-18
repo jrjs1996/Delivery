@@ -1,1 +1,1 @@
-@ 2jsXhrclient/src/actions/types.js
+@ 2jsX<hrUclient/src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.js

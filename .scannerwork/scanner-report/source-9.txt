@@ -1,9 +1,24 @@
 const mongoose = require('mongoose');
 const AbstractUserSchema = require('./User');
 
-const AdminSchema = new AbstractUserSchema();
-AdminSchema.add({
-  username: {
+const CustomerSchema = new AbstractUserSchema();
+CustomerSchema.add({
+  firstName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  address: [{
+    type: String,
+    required: true,
+    trim: true,
+  }],
+  email: {
     type: String,
     required: true,
     trim: true,
@@ -11,4 +26,4 @@ AdminSchema.add({
   },
 });
 
-module.exports = mongoose.model('Admin', AdminSchema);
+module.exports = mongoose.model('Customer', CustomerSchema);

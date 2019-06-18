@@ -1,1 +1,1 @@
-	 2jsXhrapi/models/Admin.js
+	 2jsXhrapi/models/Customer.js

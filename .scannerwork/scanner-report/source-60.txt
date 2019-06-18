@@ -1,75 +1,23 @@
-import axios from 'axios';
-import { saveToken, removeToken, setAuthHeader } from '../utils/token';
-import { LOGIN_ADMIN, FETCH_ADMINS } from './types';
+import React from 'react';
+import PropType from 'prop-types';
+import { Button, Grid } from '@material-ui/core';
 
-export const login = postData => async (dispatch) => {
-  try {
-    const res = await axios.post('http://localhost:9000/admins/login/', postData);
-    saveToken(res.data, true);
-    dispatch({
-      type: LOGIN_ADMIN,
-      payload: {
-        username: postData.username,
-      },
-    });
-    return true;
-  } catch (error) {
-    return false;
-  }
-};
+export default function SettingListItem({ onClick, text }) {
+  return (
+    <Grid item xs={12}>
+      <Button variant="contained" onClick={onClick}>{ text }</Button>
+    </Grid>
+  );
+}
 
-export const changeCurrentAdminUsername = (id, newUsername) => async (dispatch) => {
-  try {
-    const res = await axios.put(`http://localhost:9000/admins/${id}`,
-      { username: newUsername }, setAuthHeader());
-    dispatch({
-      type: LOGIN_ADMIN,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-};
-
-export const changeCurrentAdminPassword = (id, newPassword) => async (dispatch) => {
-  try {
-    const res = await axios.put(`http://localhost:9000/admins/${id}`,
-      { password: newPassword }, setAuthHeader());
-    dispatch({
-      type: LOGIN_ADMIN,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-};
-
-export const getCurrentAdminInfo = () => async (dispatch) => {
-  try {
-    const res = await axios.get('http://localhost:9000/admins/login/', setAuthHeader());
-    dispatch({
-      type: LOGIN_ADMIN,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const fetchAdmins = () => async (dispatch) => {
-  const res = await axios.get('http://localhost:9000/admins/', setAuthHeader());
-  try {
-    dispatch({
-      type: FETCH_ADMINS,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const logout = () => () => {
-  removeToken();
+SettingListItem.propTypes = {
+  /** Function to be called when the item is
+   * clicked on. Given by the SettingList this
+   * item belongs to. */
+  onClick: PropType.func.isRequired,
+  /**
+   * Text representing the object this item represents.
+   * Given by the SettingList this item belongs to.
+   */
+  text: PropType.string.isRequired,
 };

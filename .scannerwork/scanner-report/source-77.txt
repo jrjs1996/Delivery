@@ -1,124 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PropType from 'prop-types';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
+import { fetchOrders, completeOrder } from '../../actions/orderActions';
 
-import { Typography, Button } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import AddIcon from '@material-ui/icons/Add';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import MenuItemList from './MenuItemList';
-import AddMenuItem from './AddMenuItem';
-import {
-  fetchMenu,
-  addMenuItem,
-  updateMenuItem,
-  deleteMenuItem,
-} from '../../../actions/menuActions';
+// TODO: This class is obsolete go over and delete.
+class OrderList extends Component {
+  componentWillMount() {
+    const { fetchOrders } = this.props;
+    fetchOrders();
 
-const getButton = (page, setPage, setSelectedItem, setUpdate) => {
-  switch (page) {
-    case 1: return (
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => setPage(0)}
-      >
-        <ArrowBackIcon />
-      </Button>
-    );
-    default: return (
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          setSelectedItem({});
-          setUpdate(false);
-          setPage(1);
-        }}
-      >
-        <AddIcon />
-      </Button>
+    this.onCompleteOrderClicked = this.onCompleteOrderClicked.bind(this);
+  }
+
+  onCompleteOrderClicked(e) {
+    const { completeOrder } = this.props;
+    completeOrder(e.target.id);
+  }
+
+  render() {
+    let { orders } = this.props;
+    const { excludeCompleted } = this.props;
+    
+    if (excludeCompleted) orders = orders.filter(order => !order.completed);
+
+    // Will have to get customer name address etc.
+    const orderTags = orders.map((order) => {
+      if (order.customer == null) return;
+      return (
+        <p key={order._id}>
+        { order.customer.firstName }
+        { order.customer.lastName }
+        { order.customer.address }
+        { order.completed ? <CheckIcon /> : <CloseIcon />}
+        <button type="button" key={order._id} id ={order._id} onClick={this.onCompleteOrderClicked}>
+          Complete
+        </button>
+      </p>
+      )
+    });
+ 
+    return (
+      <div>
+        { orderTags }
+      </div>
     );
   }
-};
-
-function Menu({
-  menu,
-  fetchMenu:
-  fetchMenuAction,
-  addMenuItem:
-  addAction,
-  updateMenuItem: updateAction,
-  deleteMenuItem: deleteAction,
-}) {
-  const [page, setPage] = useState(0);
-  const [selectedItem, setSelectedItem] = useState(0);
-  const [update, setUpdate] = useState(false);
-
-  useEffect(() => {
-    fetchMenuAction();
-  }, [fetchMenuAction]);
-
-  return (
-    <div style={{ paddingTop: '5%' }}>
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
-          {getButton(page, setPage, setSelectedItem, setUpdate)}
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h4">
-            Menu
-          </Typography>
-        </Grid>
-      </Grid>
-      {(() => {
-        switch (page) {
-          case 1: return (
-            <AddMenuItem
-              onSubmit={(data) => {
-                if (update) updateAction(data);
-                else addAction(data);
-                setPage(0);
-              }}
-              initTitle={selectedItem.title}
-              initPrice={selectedItem.price}
-              initDescription={selectedItem.description}
-              initMenuNumber={selectedItem.menuNumber}
-            />
-          );
-          default: return (
-            <MenuItemList
-              menu={menu}
-              onSelect={(item) => {
-                setSelectedItem(item);
-                setUpdate(true);
-                setPage(1);
-              }}
-              onDelete={deleteAction}
-            />
-          );
-        }
-      })()}
-    </div>
-  );
 }
 
-Menu.propTypes = {
-  addMenuItem: PropType.func.isRequired,
-  fetchMenu: PropType.func.isRequired,
-  menu: PropType.arrayOf(Object).isRequired,
-  updateMenuItem: PropType.func.isRequired,
-  deleteMenuItem: PropType.func.isRequired,
+OrderList.propTypes = {
+  fetchOrders: PropTypes.func.isRequired,
+  completeOrder: PropTypes.func.isRequired,
+  orders: PropTypes.arrayOf(PropTypes.object).isRequired,
+  excludeCompleted: PropTypes.bool,
+};
+
+OrderList.defaultProps = {
+  excludeCompleted: false,
 };
 
 const mapStateToProps = state => ({
-  menu: state.menu.items,
+  orders: state.orders.items,
 });
 
-export default connect(mapStateToProps, {
-  fetchMenu,
-  addMenuItem,
-  updateMenuItem,
-  deleteMenuItem,
-})(Menu);
+export default connect(mapStateToProps, { fetchOrders, completeOrder })(OrderList);

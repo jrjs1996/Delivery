@@ -1,1 +1,1 @@
- 2jsXhrapi/middleware/auth.js
+ 2jsXhrapi/models/Admin.js

@@ -1,1 +1,1 @@
-U 2jsX&hr6client/src/components/Admin/Settings/ChangeUsername.js
+U 2jsXDhr*client/src/components/SideMenu/SideMenu.js

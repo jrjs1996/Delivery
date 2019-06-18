@@ -1,2 +1,2 @@
-client/src/sonar-project.properties
-client/sonar-project.properties
+sonar-project.properties
+.scannerwork/

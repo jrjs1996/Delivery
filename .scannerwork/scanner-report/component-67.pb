@@ -1,1 +1,1 @@
-C 2jsXHhr$client/src/components/Admin/Admin.js
+C 2jsX(hrAclient/src/components/Admin/Settings/SettingsMenu/SettingsMenu.js

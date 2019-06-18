@@ -1,59 +1,67 @@
-import React from 'react';
-import { create, act } from 'react-test-renderer';
-import SettingPage from './SettingPage';
-import SettingPageInput from './SettingPageInput/SettingPageInput';
-import { Button } from '@material-ui/core';
+import { FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM } from '../actions/types';
 
-describe('Setting Page', () => {
-  let component;
-  let root;
+const initialState = {
+  items: [],
+  item: {},
+};
 
-  let onSubmitResult;
+// TODO: Should I use a binary search for this?
+// TODO: Should a make items a dictionary?
 
-  beforeEach(() => {
-    component = create(
-      <SettingPage
-        onSubmit={(r) => { onSubmitResult = r; return 'Good'; }}
-        submitText="Test Submit Text"
-        title="Test Title"
-      >
-        <SettingPageInput name="testName" />
-      </SettingPage>,
-    );
-    ({ root } = component);
-    onSubmitResult = null;
-  });
+const insertMenuItem = (items, newItem) => {
+  const newItems = items.slice();
+  if (newItems.length === 0) return [newItem];
 
-  afterEach(() => {
-    component = null;
-    root = null;
-    onSubmitResult = null;
-  });
+  for (let i = 0; i < newItems.length; i += 1) {
+    if (newItems[i].menuNumber > newItem.menuNumber) {
+      newItems.splice(i, 0, newItem);
+      return newItems;
+    }
+    if (newItems[i].count === (newItems.length - 1)) {
+      newItems.push(newItem);
+      return newItems;
+    }
+  }
+};
 
-  it('Displays title', () => {
-    const title = root.find(c => c.props.id === 'title');
-    expect(title.props.children).toBe('Test Title');
-  });
+const removeMenuItem = (items, itemNumber) => {
+  const newItems = items.slice();
 
-  it('Displays submit text', () => {
-    const submitButton = root.findByType(Button);
-    expect(submitButton.props.children).toBe('Test Submit Text');
-  });
+  for (let i = 0; i < newItems.length; i += 1) {
+    if (newItems[i].menuNumber === itemNumber) {
+      newItems.splice(i, 1);
+      return newItems;
+    }
+  }
+  return newItems;
+};
 
-  it('onSubmit sends correct object', () => {
-    const submitButton = root.findByType(Button);
-    act(() => {
-      submitButton.props.onClick();
-    });
-    expect(JSON.stringify(onSubmitResult)).toBe(JSON.stringify({ testName: '' }));
-  });
-
-  it('onSubmit updates message', () => {
-    const submitButton = root.findByType(Button);
-    const message = root.find(c => c.props.id === 'message');
-    act(() => {
-      submitButton.props.onClick();
-    });
-    expect(message.props.children).toBe('Good');
-  });
-});
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case FETCH_MENU:
+      return {
+        ...state,
+        items: action.payload,
+      };
+    case ADD_MENU_ITEM:
+      return {
+        ...state,
+        items: insertMenuItem(state.items, action.payload),
+      };
+    case UPDATE_MENU_ITEM:
+      return {
+        ...state,
+        items: state.items.map((i) => {
+          if (i.menuNumber !== action.payload.menuNumber) return i;
+          return action.payload;
+        }),
+      };
+    case DELETE_MENU_ITEM:
+      return {
+        ...state,
+        items: removeMenuItem(state.items, action.payload),
+      };
+    default:
+      return state;
+  }
+}

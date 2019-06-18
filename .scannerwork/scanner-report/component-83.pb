@@ -1,1 +1,1 @@
-S 2jsXhr5client/src/components/Admin/Settings/AdminSettings.js
+S 2jsX?hr)client/src/components/Login/SignUpForm.js

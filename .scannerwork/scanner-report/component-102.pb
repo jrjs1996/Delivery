@@ -1,1 +1,1 @@
-f 2jsX'hrVclient/src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.js
+f 2webXhrdocs/src/Schema.html

@@ -1,1 +1,0 @@
-Õ 2webX	hr=node_modules/eslint/lib/formatters/html-template-message.html

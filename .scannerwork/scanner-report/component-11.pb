@@ -1,1 +1,1 @@
- 2jsXhrapi/models/index.js
+ 2jsXhrapi/models/MenuItem.js

@@ -1,1 +1,1 @@
-< 2jsXLhr"client/src/actions/adminActions.js
+< 2jsXhrSclient/src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.js

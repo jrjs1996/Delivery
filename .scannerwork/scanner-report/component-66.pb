@@ -1,1 +1,1 @@
-B 2jsXhrclient/src/App.js
+B 2jsX2hr0client/src/components/Admin/Settings/Settings.js

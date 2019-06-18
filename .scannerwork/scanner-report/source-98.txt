@@ -1,49 +1,50 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import { Button, Grid } from '@material-ui/core';
-import ChangeUsername from './ChangeUsername';
-import ChangePassword from './ChangePassword';
-import AdminSettings from './AdminSettings';
-import { locationPropType } from '../../../propTypes';
-import AdminList from './AdminList/AdminList';
+export const getToken = () => localStorage.getItem('jwt-token');
+export const getIsAdmin = () => localStorage.getItem('isAdmin');
+// TODO: Add docs for these functions
 
-const renderBackButton = (pathname) => {
-  if (pathname !== '/admin/settings') {
-    return (
-      <Link to="/admin/settings">
-        <Button variant="contained" color="secondary">
-          Back
-        </Button>
-      </Link>
-    );
+export const saveToken = (token, isAdmin) => {
+  if (!token || !isAdmin) throw new Error('Token and isAdmin Required');
+
+  localStorage.setItem('jwt-token', token);
+  localStorage.setItem('isAdmin', isAdmin);
+};
+
+export const removeToken = () => {
+  localStorage.removeItem('jwt-token');
+  localStorage.removeItem('isAdmin');
+};
+
+export const getTokenInfo = () => {
+  try {
+    const token = getToken();
+    if (token) {
+      const payload = window.atob(token.split('.')[1]);
+      return JSON.parse(payload);
+    }
+  } catch (error) {
+    console.error(error);
   }
-  return null;
 };
 
-export default function Settings(props) {
-  const { location } = props;
-  return (
-    <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
-          {renderBackButton(location.pathname)}
-        </Grid>
-        <Grid item xs={6}>
-          <Route
-            path="/admin/settings/"
-            exact
-            component={AdminSettings}
-          />
-          <Route path="/admin/settings/username/" component={ChangeUsername} />
-          <Route path="/admin/settings/password/" component={ChangePassword} />
-          <Route path="/admin/settings/admins/" component={AdminList} />
-        </Grid>
-        <Grid item xs={3} />
-      </Grid>
-    </div>
-  );
-}
-
-Settings.propTypes = {
-  location: locationPropType.isRequired,
+/**
+ * Returns an object containing the token info and a boolean
+ * that is true if the user is an admin, false otherwise.
+ * { tokenInfo: *token* , isAdmin *true/false* }
+ * Returns false if the user is not authenticated.
+ */
+export const isAuthed = () => {
+  const tokenInfo = getTokenInfo();
+  const isAdmin = getIsAdmin();
+  if (tokenInfo && tokenInfo.exp > Math.round(new Date() / 1000)) {
+    return {
+      tokenInfo,
+      isAdmin,
+    };
+  }
+  return false;
 };
+
+
+export const setAuthHeader = () => ({
+  headers: { authorization: `Bearer ${getToken()}` },
+});
