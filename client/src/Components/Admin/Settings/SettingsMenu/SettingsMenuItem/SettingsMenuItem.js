@@ -24,7 +24,7 @@ export default function SettingsMenuItem({ onClick, text, to }) {
 SettingsMenuItem.propTypes = {
   /** Prop provided by the parent. SettingsMenu
    * Dont set manually. */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /** Text of the menu item. */
   text: PropTypes.string.isRequired,
   /** If provided the menu item will be a link to the
@@ -34,4 +34,5 @@ SettingsMenuItem.propTypes = {
 
 SettingsMenuItem.defaultProps = {
   to: null,
+  onClick: () => {},
 };

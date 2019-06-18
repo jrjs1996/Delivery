@@ -25,8 +25,12 @@ export default function SettingsMenu({ children, title, onClick }) {
 }
 
 SettingsMenu.propTypes = {
+  /** Should all be SettingsMenuItems. Item in the menu. */
   children: ChildrenPropType.isRequired,
+  /** Title that appears at the top of the menu. */
   title: PropTypes.string,
+  /** Function that will be called when an item is clicked
+   * on. Given the index of the item. */
   onClick: PropTypes.func.isRequired,
 };
 

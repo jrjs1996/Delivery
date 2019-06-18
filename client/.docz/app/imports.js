@@ -11,6 +11,10 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page" */ 'src/components/Admin/Settings/SettingPage/SettingPage.mdx'
     ),
+  'src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu" */ 'src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx'
+    ),
   'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list-item-setting-list-item" */ 'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx'
