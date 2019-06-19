@@ -1,1 +1,0 @@
-< 2jsXhrSclient/src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.js

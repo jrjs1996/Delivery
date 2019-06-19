@@ -1,1 +1,0 @@
-> 2jsXShr?client/src/components/Admin/Settings/SettingPage/SettingPage.js
