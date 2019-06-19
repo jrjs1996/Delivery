@@ -52,11 +52,14 @@ export default function MenuItem({
           </Grid>
           { onDelete ? (
             <Grid item xs={12}>
-              <Button variant="contained" color="secondary" onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onDelete(number);
-              }}
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onDelete(number);
+                }}
               >
               Delete
               </Button>
@@ -76,11 +79,19 @@ export default function MenuItem({
 }
 
 MenuItem.propTypes = {
+  /** Description of the menu item. */
   description: PropType.string.isRequired,
+  /** Number on the menu */
   number: PropType.string.isRequired,
+  /** Price of the item */
   price: PropType.string.isRequired,
+  /** Name of the menu item */
   title: PropType.string.isRequired,
+  /** Function to be called when the menu item
+   * is clicked on. (Anywhere but the delete button) */
   onSelect: PropType.func,
+  /** Function to be called when the delete button
+   * is clicked. */
   onDelete: PropType.func.isRequired,
 };
 

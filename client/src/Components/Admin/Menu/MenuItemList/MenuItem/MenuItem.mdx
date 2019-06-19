@@ -1,0 +1,29 @@
+
+---
+name: MenuItem
+menu: Components
+route: /Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx
+---
+import { Playground, Props } from 'docz';
+import MenuItem from './MenuItem';
+
+# Menu Item
+
+Updated 19/06/2019
+
+Displays a single menu item for the user. Currently for use by the admin.
+Includes delete button to delete the item.
+
+<Props of={MenuItem} />
+
+<Playground>
+  <h1 id="result"></h1>
+  <MenuItem
+    description="Tasty burger with bacon, cheese, and tomato."
+    number="5"
+    price="10.50"
+    title="Boss Burger"
+    onSelect={() => {document.getElementById('result').innerHTML = "You selected boss burger."}}
+    onDelete={() => {document.getElementById('result').innerHTML = "*Delete API call*"}}
+  />
+</Playground>
