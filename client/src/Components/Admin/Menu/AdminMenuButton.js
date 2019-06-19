@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-export default function MenuButton({
+export default function AdminMenuButton({
   home,
   to,
   pathname,
@@ -38,7 +38,7 @@ export default function MenuButton({
 }
 
 
-MenuButton.propTypes = {
+AdminMenuButton.propTypes = {
   /** Home location of the menu button */
   home: PropTypes.string.isRequired,
   /** Location to go to when the button is clicked */
@@ -51,7 +51,7 @@ MenuButton.propTypes = {
   onBack: PropTypes.func,
 };
 
-MenuButton.defaultProps = {
+AdminMenuButton.defaultProps = {
   onForward: () => {},
   onBack: () => {},
 };

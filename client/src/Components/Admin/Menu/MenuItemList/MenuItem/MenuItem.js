@@ -54,6 +54,7 @@ export default function MenuItem({
             <Grid item xs={12}>
               <Button variant="contained" color="secondary" onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 onDelete(number);
               }}
               >

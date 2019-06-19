@@ -6,12 +6,12 @@ import Grid from '@material-ui/core/Grid';
 
 import AdminMenuItemList from './AdminMenuItemList';
 import AdminMenuItemForm from './AdminMenuItemForm';
-import MenuButton from './MenuButton';
+import MenuButton from './AdminMenuButton';
 
 import { locationPropType } from '../../../propTypes';
 
 
-export default function Menu({
+export default function AdminMenu({
   location,
 }) {
   const [selectedItem, setSelectedItem] = useState(0);
@@ -52,6 +52,6 @@ export default function Menu({
   );
 }
 
-Menu.propTypes = {
+AdminMenu.propTypes = {
   location: locationPropType.isRequired,
 };
