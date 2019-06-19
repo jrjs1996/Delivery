@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +15,13 @@ const onChange = (e, submitData, setSubmitData) => {
 
 const initializeSubmitData = (children) => {
   const submitData = {};
-  React.Children.forEach(children, (child) => { submitData[child.props.name] = ''; });
+  React.Children.forEach(children, (child) => {
+    if (child.props.value) {
+      submitData[child.props.name] = child.props.value;
+      return;
+    }
+    submitData[child.props.name] = '';
+  });
   return submitData;
 };
 

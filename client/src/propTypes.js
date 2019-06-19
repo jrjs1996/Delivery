@@ -18,3 +18,15 @@ export const locationPropType = PropTypes.shape({
   search: PropTypes.string.isRequired,
   state: PropTypes.any,
 });
+
+export const menuItemPropType = PropTypes.shape({
+  archived: PropTypes.bool,
+  created: PropTypes.string,
+  description: PropTypes.string,
+  menuNumber: PropTypes.number,
+  price: PropTypes.number,
+  revision: PropTypes.number,
+  title: PropTypes.string,
+  __v: PropTypes.number,
+  _id: PropTypes.string,
+});

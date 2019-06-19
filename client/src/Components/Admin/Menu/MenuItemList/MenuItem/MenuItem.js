@@ -18,13 +18,6 @@ export default function MenuItem({
 }) {
   return (
     <Paper
-      style={{
-        marginTop: '2%',
-        marginLeft: '10%',
-        marginRight: '10%',
-        paddingLeft: '2%',
-        paddingRight: '2%',
-      }}
       onClick={() => onSelect({
         title,
         description,
@@ -60,8 +53,8 @@ export default function MenuItem({
           { onDelete ? (
             <Grid item xs={12}>
               <Button variant="contained" color="secondary" onClick={(e) => {
+                e.preventDefault();
                 onDelete(number);
-                e.stopPropagation();
               }}
               >
               Delete

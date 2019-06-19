@@ -1,70 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropType from 'prop-types';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import AddIcon from '@material-ui/icons/Add';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import MenuItemList from './MenuItemList';
-import AddMenuItem from './AddMenuItem';
-import {
-  fetchMenu,
-  addMenuItem,
-  updateMenuItem,
-  deleteMenuItem,
-} from '../../../actions/menuActions';
+import AdminMenuItemList from './AdminMenuItemList';
+import AdminMenuItemForm from './AdminMenuItemForm';
+import MenuButton from './MenuButton';
 
-const getButton = (page, setPage, setSelectedItem, setUpdate) => {
-  switch (page) {
-    case 1: return (
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => setPage(0)}
-      >
-        <ArrowBackIcon />
-      </Button>
-    );
-    default: return (
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          setSelectedItem({});
-          setUpdate(false);
-          setPage(1);
-        }}
-      >
-        <AddIcon />
-      </Button>
-    );
-  }
-};
+import { locationPropType } from '../../../propTypes';
 
-function Menu({
-  menu,
-  fetchMenu:
-  fetchMenuAction,
-  addMenuItem:
-  addAction,
-  updateMenuItem: updateAction,
-  deleteMenuItem: deleteAction,
+
+export default function Menu({
+  location,
 }) {
-  const [page, setPage] = useState(0);
   const [selectedItem, setSelectedItem] = useState(0);
-  const [update, setUpdate] = useState(false);
-
-  useEffect(() => {
-    fetchMenuAction();
-  }, [fetchMenuAction]);
 
   return (
-    <div style={{ paddingTop: '5%' }}>
+    <div style={{
+      paddingTop: '5%',
+      marginLeft: '20%',
+      marginRight: '20%',
+      paddingBottom: '1%',
+    }}
+    >
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          {getButton(page, setPage, setSelectedItem, setUpdate)}
+          <MenuButton
+            home="/admin/menu/"
+            to="/admin/menu/additem/"
+            onForward={() => setSelectedItem({})}
+            pathname={location.pathname}
+          />
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h4">
@@ -72,53 +39,19 @@ function Menu({
           </Typography>
         </Grid>
       </Grid>
-      {(() => {
-        switch (page) {
-          case 1: return (
-            <AddMenuItem
-              onSubmit={(data) => {
-                if (update) updateAction(data);
-                else addAction(data);
-                setPage(0);
-              }}
-              initTitle={selectedItem.title}
-              initPrice={selectedItem.price}
-              initDescription={selectedItem.description}
-              initMenuNumber={selectedItem.menuNumber}
-            />
-          );
-          default: return (
-            <MenuItemList
-              menu={menu}
-              onSelect={(item) => {
-                setSelectedItem(item);
-                setUpdate(true);
-                setPage(1);
-              }}
-              onDelete={deleteAction}
-            />
-          );
-        }
-      })()}
+      <Route
+        exact
+        path="/admin/menu/"
+        render={() => <AdminMenuItemList onSelect={i => setSelectedItem(i)} />}
+      />
+      <Route
+        path="/admin/menu/additem/"
+        render={() => <AdminMenuItemForm menuItem={selectedItem} />}
+      />
     </div>
   );
 }
 
 Menu.propTypes = {
-  addMenuItem: PropType.func.isRequired,
-  fetchMenu: PropType.func.isRequired,
-  menu: PropType.arrayOf(Object).isRequired,
-  updateMenuItem: PropType.func.isRequired,
-  deleteMenuItem: PropType.func.isRequired,
+  location: locationPropType.isRequired,
 };
-
-const mapStateToProps = state => ({
-  menu: state.menu.items,
-});
-
-export default connect(mapStateToProps, {
-  fetchMenu,
-  addMenuItem,
-  updateMenuItem,
-  deleteMenuItem,
-})(Menu);

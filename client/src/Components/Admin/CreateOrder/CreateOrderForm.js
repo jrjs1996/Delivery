@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createOrder } from '../../../actions/orderActions';
-import MenuItemList from '../Menu/MenuItemList';
+import MenuItemList from '../Menu/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menuActions';
 import OrderItem from './OrderItem';
 

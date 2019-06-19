@@ -8,9 +8,9 @@ import { locationPropType } from '../../../propTypes';
 import AdminList from './AdminList/AdminList';
 
 const renderBackButton = (pathname) => {
-  if (pathname !== '/admin/settings') {
+  if (pathname !== '/admin/settings/') {
     return (
-      <Link to="/admin/settings">
+      <Link to="/admin/settings/">
         <Button variant="contained" color="secondary">
           Back
         </Button>

@@ -1,4 +1,9 @@
-import { FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM } from '../actions/types';
+import {
+  FETCH_MENU,
+  ADD_MENU_ITEM,
+  UPDATE_MENU_ITEM,
+  DELETE_MENU_ITEM,
+} from '../actions/types';
 
 const initialState = {
   items: [],
@@ -17,11 +22,9 @@ const insertMenuItem = (items, newItem) => {
       newItems.splice(i, 0, newItem);
       return newItems;
     }
-    if (newItems[i].count === (newItems.length - 1)) {
-      newItems.push(newItem);
-      return newItems;
-    }
   }
+  newItems.push(newItem);
+  return newItems;
 };
 
 const removeMenuItem = (items, itemNumber) => {

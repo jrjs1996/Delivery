@@ -1,10 +1,14 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-import MenuItem from './MenuItem';
+import MenuItem from './MenuItem/MenuItem';
 
-export default function MenuItemList({ menu, onSelect, onDelete }) {
-  console.log(menu);
+export default function MenuItemList({
+  menu,
+  onSelect,
+  onDelete,
+  renderItem,
+}) {
   const menuItems = menu.map(i => (
     <MenuItem
       title={i.title}
@@ -19,7 +23,7 @@ export default function MenuItemList({ menu, onSelect, onDelete }) {
 
   return (
     <div>
-      {menuItems}
+      {renderItem ? menuItems.map(i => renderItem(i)) : menuItems}
     </div>
   );
 }
@@ -28,9 +32,11 @@ MenuItemList.propTypes = {
   menu: PropType.arrayOf(Object).isRequired,
   onSelect: PropType.func,
   onDelete: PropType.func,
+  renderItem: PropType.func,
 };
 
 MenuItemList.defaultProps = {
   onSelect: null,
   onDelete: null,
+  renderItem: null,
 };
