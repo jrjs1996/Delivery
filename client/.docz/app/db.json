@@ -91,17 +91,42 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormButton.js",
+      "key": "src\\components\\Customers\\AddCustomerForm.js",
       "value": [
         {
           "description": "",
-          "displayName": "FormButton",
-          "methods": [],
-          "actualName": "FormButton",
+          "displayName": "AddCustomerForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            },
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "AddCustomerForm",
           "props": {
-            "title": {
+            "addCustomer": {
               "type": {
-                "name": "string"
+                "name": "func"
               },
               "required": true,
               "description": ""
@@ -111,22 +136,80 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormInput.js",
+      "key": "src\\components\\Customers\\Customer.js",
       "value": [
         {
           "description": "",
-          "displayName": "FormInput",
+          "displayName": "Customer",
           "methods": [],
-          "actualName": "FormInput",
+          "actualName": "Customer",
           "props": {
-            "type": {
+            "getCustomer": {
               "type": {
-                "name": "string"
+                "name": "func"
               },
               "required": true,
               "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\SignInForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignInForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
             },
-            "placeholder": {
+            {
+              "name": "onSubmit",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "SignInForm",
+          "props": {
+            "signIn": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
               "type": {
                 "name": "string"
               },
@@ -172,6 +255,33 @@
           "displayName": "Login",
           "methods": [],
           "actualName": "Login"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormInput",
+          "methods": [],
+          "actualName": "FormInput",
+          "props": {
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -243,71 +353,6 @@
       ]
     },
     {
-      "key": "src\\components\\Customers\\Customer.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Customer",
-          "methods": [],
-          "actualName": "Customer",
-          "props": {
-            "getCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Customers\\AddCustomerForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AddCustomerForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "AddCustomerForm",
-          "props": {
-            "addCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\SideMenu\\SideMenu.js",
       "value": [
         {
@@ -315,85 +360,6 @@
           "displayName": "SideMenu",
           "methods": [],
           "actualName": "SideMenu"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Customers\\SignInForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignInForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "SignInForm",
-          "props": {
-            "signIn": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\SideMenu\\SideMenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SideMenuItem",
-          "methods": [],
-          "actualName": "SideMenuItem",
-          "props": {
-            "to": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "text": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "children": {
-              "type": {
-                "name": "node"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
         }
       ]
     },
@@ -525,6 +491,17 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem"
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
       "value": [
         {
@@ -613,17 +590,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "OrderItem",
-          "methods": [],
-          "actualName": "OrderItem"
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Home\\Home.js",
       "value": [
         {
@@ -644,6 +610,17 @@
             }
           ],
           "actualName": "Home"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Item.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Item",
+          "methods": [],
+          "actualName": "Item"
         }
       ]
     },
@@ -710,13 +687,54 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Home\\Item.js",
+      "key": "src\\components\\Admin\\Menu\\Menu.js",
       "value": [
         {
           "description": "",
-          "displayName": "Item",
+          "displayName": "Menu",
           "methods": [],
-          "actualName": "Item"
+          "actualName": "Menu",
+          "props": {
+            "addMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "deleteMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -779,58 +797,6 @@
                 "value": "''",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\Menu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Menu",
-          "methods": [],
-          "actualName": "Menu",
-          "props": {
-            "addMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "fetchMenu": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "Object"
-                }
-              },
-              "required": true,
-              "description": ""
-            },
-            "updateMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "deleteMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
             }
           }
         }
@@ -942,30 +908,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminSettings",
-          "methods": [],
-          "actualName": "AdminSettings",
-          "props": {
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
       "value": [
         {
@@ -988,6 +930,30 @@
               },
               "required": false,
               "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminSettings",
+          "methods": [],
+          "actualName": "AdminSettings",
+          "props": {
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
             }
           }
         }
@@ -1037,6 +1003,40 @@
               },
               "required": false,
               "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\SideMenu\\SideMenuItem\\SideMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SideMenuItem",
+          "methods": [],
+          "actualName": "SideMenuItem",
+          "props": {
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "The address this item links to."
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Text to display on the item"
+            },
+            "children": {
+              "type": {
+                "name": "node"
+              },
+              "required": true,
+              "description": "A single icon to display"
             }
           }
         }
@@ -1363,6 +1363,44 @@
     }
   ],
   "entries": [
+    {
+      "key": "src/components/SideMenu/SideMenu.mdx",
+      "value": {
+        "name": "SideMenu",
+        "menu": "Components",
+        "route": "/components/admin/SideMenu/SideMenu",
+        "id": "217d86f3a14446f21fbeddab46e7b2f7",
+        "filepath": "src/components/SideMenu/SideMenu.mdx",
+        "link": "",
+        "slug": "src-components-side-menu-side-menu",
+        "headings": [
+          {
+            "slug": "side-menu",
+            "depth": 1,
+            "value": "Side Menu"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/SideMenu/SideMenuItem/SideMenuItem.mdx",
+      "value": {
+        "name": "SideMenuItem",
+        "menu": "Components",
+        "route": "/components/Admin/Sidemenu/SideMenuItem",
+        "id": "8aacf467b6cf85e86c801f04c28c80df",
+        "filepath": "src/components/SideMenu/SideMenuItem/SideMenuItem.mdx",
+        "link": "",
+        "slug": "src-components-side-menu-side-menu-item-side-menu-item",
+        "headings": [
+          {
+            "slug": "side-menu-sidemenuitem",
+            "depth": 1,
+            "value": "Side Menu SideMenuItem"
+          }
+        ]
+      }
+    },
     {
       "key": "src/components/Admin/Settings/AdminList/AdminList.mdx",
       "value": {

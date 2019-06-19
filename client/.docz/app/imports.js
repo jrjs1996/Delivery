@@ -1,4 +1,12 @@
 export const imports = {
+  'src/components/SideMenu/SideMenu.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu" */ 'src/components/SideMenu/SideMenu.mdx'
+    ),
+  'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu-item-side-menu-item" */ 'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx'
+    ),
   'src/components/Admin/Settings/AdminList/AdminList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-list" */ 'src/components/Admin/Settings/AdminList/AdminList.mdx'

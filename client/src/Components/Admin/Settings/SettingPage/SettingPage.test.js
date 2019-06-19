@@ -1,8 +1,11 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import 'jest-dom/extend-expect';
+import { render, cleanup, fireEvent } from '@testing-library/react';
+import { Button } from '@material-ui/core';
 import SettingPage from './SettingPage';
 import SettingPageInput from './SettingPageInput/SettingPageInput';
-import { Button } from '@material-ui/core';
+
 
 describe('Setting Page', () => {
   let component;
@@ -10,16 +13,18 @@ describe('Setting Page', () => {
 
   let onSubmitResult;
 
+  const settingPage = (
+    <SettingPage
+      onSubmit={(r) => { onSubmitResult = r; return 'Good'; }}
+      submitText="Test Submit Text"
+      title="Test Title"
+    >
+      <SettingPageInput name="testName" label="testLabel" />
+    </SettingPage>
+  );
+
   beforeEach(() => {
-    component = create(
-      <SettingPage
-        onSubmit={(r) => { onSubmitResult = r; return 'Good'; }}
-        submitText="Test Submit Text"
-        title="Test Title"
-      >
-        <SettingPageInput name="testName" />
-      </SettingPage>,
-    );
+    component = create(settingPage);
     ({ root } = component);
     onSubmitResult = null;
   });
@@ -55,5 +60,12 @@ describe('Setting Page', () => {
       submitButton.props.onClick();
     });
     expect(message.props.children).toBe('Good');
+  });
+  it('Input changes value', () => {
+    const { getByLabelText } = render(settingPage);
+    const input = getByLabelText('testLabel');
+    fireEvent.change(input, { target: { value: 'testValue' } });
+    expect(input.value).toBe('testValue');
+    cleanup();
   });
 });

@@ -48,7 +48,7 @@
 			"route: $TM_FILEPATH",
 			"---",
 			"import { Playground, Props } from 'docz';",
-			"import $TM_FILENAME_BASE './${TM_FILENAME_BASE}';",
+			"import $TM_FILENAME_BASE from './${TM_FILENAME_BASE}';",
 			"",
 			"# <Title>",
 			"",
