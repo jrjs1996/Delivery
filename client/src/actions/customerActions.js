@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_CUSTOMERS, ADD_CUSTOMER, GET_CUSTOMER } from './types';
+import { FETCH_CUSTOMERS, GET_CUSTOMER } from './types';
 import { saveToken, setAuthHeader } from '../utils/token';
 
 export const fetchCustomers = () => (dispatch) => {

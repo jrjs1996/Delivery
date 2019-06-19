@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography, Grid } from '@material-ui/core';
+import { menuItemPropType } from '../../../propTypes';
 
 export default function OrderItem({ item, onClick, index }) {
   return (
@@ -21,3 +22,9 @@ export default function OrderItem({ item, onClick, index }) {
     </Paper>
   );
 }
+
+OrderItem.propTypes = {
+  item: menuItemPropType.isRequired,
+  onClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+};

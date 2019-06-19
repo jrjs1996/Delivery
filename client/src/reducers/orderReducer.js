@@ -1,5 +1,4 @@
 import { FETCH_ORDERS, ADD_ORDER, COMPLETE_ORDER } from '../actions/types';
-import { array } from 'prop-types';
 
 const initialState = {
   items: [],
@@ -19,7 +18,6 @@ export default function (state = initialState, action) {
         items: [action.payload, ...state.items],
       };
     case COMPLETE_ORDER:
-      console.log(action.payload);
       return {
         ...state,
         items: state.items.map((item) => {

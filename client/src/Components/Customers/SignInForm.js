@@ -22,8 +22,8 @@ class SignInForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { signIn } = this.props;
-    signIn(this.state);
+    const { signIn: signInAction } = this.props;
+    signInAction(this.state);
   }
 
   render() {

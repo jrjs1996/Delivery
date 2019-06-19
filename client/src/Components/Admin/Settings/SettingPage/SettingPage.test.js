@@ -20,6 +20,7 @@ describe('Setting Page', () => {
       title="Test Title"
     >
       <SettingPageInput name="testName" label="testLabel" />
+      <SettingPageInput name="testName2" label="testLabel2" value="testValue" />
     </SettingPage>
   );
 
@@ -50,7 +51,7 @@ describe('Setting Page', () => {
     act(() => {
       submitButton.props.onClick();
     });
-    expect(JSON.stringify(onSubmitResult)).toBe(JSON.stringify({ testName: '' }));
+    expect(JSON.stringify(onSubmitResult)).toBe(JSON.stringify({ testName: '', testName2: 'testValue' }));
   });
 
   it('onSubmit updates message', () => {
@@ -67,5 +68,11 @@ describe('Setting Page', () => {
     fireEvent.change(input, { target: { value: 'testValue' } });
     expect(input.value).toBe('testValue');
     cleanup();
+  });
+
+  it('Sets default value for input', () => {
+    const { getByLabelText } = render(settingPage);
+    const input = getByLabelText('testLabel2');
+    expect(input.value).toBe('testValue');
   });
 });

@@ -24,8 +24,8 @@ class AddCustomerForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { addCustomer } = this.props;
-    addCustomer(this.state);
+    const { addCustomer: addAction } = this.props;
+    addAction(this.state);
   }
 
   render() {

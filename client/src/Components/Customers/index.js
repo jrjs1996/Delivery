@@ -8,8 +8,8 @@ import Customer from './Customer';
 
 class Customers extends Component {
   componentWillMount() {
-    const { fetchCustomers } = this.props;
-    fetchCustomers();
+    const { fetchCustomers: fetchAction } = this.props;
+    fetchAction();
   }
 
   render() {
