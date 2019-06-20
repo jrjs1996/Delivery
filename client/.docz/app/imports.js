@@ -7,6 +7,10 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu-item-side-menu-item" */ 'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx'
     ),
+  'src/components/Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-admin-menu-item-list-admin-menu-item-list" */ 'src/components/Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx'
+    ),
   'src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-forward-back-button-forward-back-button" */ 'src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx'
@@ -35,13 +39,13 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-menu-item" */ 'src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx'
     ),
-  'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list-item-setting-list-item" */ 'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx'
-    ),
   'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-input-setting-page-input" */ 'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx'
+    ),
+  'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list-item-setting-list-item" */ 'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx'
     ),
   'src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx': () =>
     import(

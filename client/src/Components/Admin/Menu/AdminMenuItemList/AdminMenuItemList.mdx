@@ -1,0 +1,40 @@
+
+---
+name: AdminMenuItemList
+menu: Components
+route: /Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx
+---
+import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { menuItemsMock } from '../../../../tests/mocks'
+import { Playground, Props } from 'docz';
+import { AdminMenuItemListComponent } from './AdminMenuItemList';
+
+# Admin Menu Item List
+
+Updated 20/06/2019
+
+Displays a menu item list to be used by the admin.
+
+
+<Props of={AdminMenuItemListComponent} />
+
+<Playground>
+  {() => {
+    const [menu, setMenu] = useState([])
+
+    const [message, setMessage] = useState("")
+
+    return(
+      <Router>
+        <p>{message}</p>
+        <AdminMenuItemListComponent
+          menu={menu}
+          fetchMenu={() => {setMenu(menuItemsMock)}}
+          onSelect={i => {setMessage(`You selected: ${i.title}`)}}
+          onDelete={n => {setMessage(`*Delete ${n} API call*`)}}
+        />
+      </Router>
+    )
+  }}
+</Playground>

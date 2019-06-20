@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
-import MenuItemList from './MenuItemList/MenuItemList';
-import { deleteMenuItem, fetchMenu } from '../../../actions/menuActions';
-import { menuItemPropType } from '../../../propTypes';
+import MenuItemList from '../MenuItemList/MenuItemList';
+import { deleteMenuItem, fetchMenu } from '../../../../actions/menuActions';
+import { menuItemPropType } from '../../../../propTypes';
 
-function AdminMenuItemList({
+export function AdminMenuItemListComponent({
   menu,
   onSelect,
   onDelete,
@@ -26,14 +26,21 @@ function AdminMenuItemList({
   );
 }
 
-AdminMenuItemList.propTypes = {
+AdminMenuItemListComponent.propTypes = {
+  /** Function to be called when one of the menu
+   * items is clicked on. Passed the item. */
   onSelect: PropType.func,
+  /** Function to be called when the delete button
+   * on one of the menu items was clicked. Passed the
+   * menu number. */
   onDelete: PropType.func,
+  /** Function that populates the menu prop. */
   fetchMenu: PropType.func,
+  /** List of menu items. */
   menu: PropType.arrayOf(menuItemPropType).isRequired,
 };
 
-AdminMenuItemList.defaultProps = {
+AdminMenuItemListComponent.defaultProps = {
   onSelect: () => {},
   onDelete: null,
   fetchMenu: () => {},
@@ -43,4 +50,4 @@ const mapStateToProps = state => ({
   menu: state.menu.items,
 });
 
-export default connect(mapStateToProps, { onDelete: deleteMenuItem, fetchMenu })(AdminMenuItemList);
+export default connect(mapStateToProps, { onDelete: deleteMenuItem, fetchMenu })(AdminMenuItemListComponent);

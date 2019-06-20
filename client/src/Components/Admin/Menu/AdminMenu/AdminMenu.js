@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import AdminMenuItemList from '../AdminMenuItemList';
+import AdminMenuItemList from '../AdminMenuItemList/AdminMenuItemList';
 import AdminMenuItemForm from '../AdminMenuItemForm';
 import MenuButton from '../ForwardBackButton/ForwardBackButton';
 

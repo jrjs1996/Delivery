@@ -156,26 +156,6 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormButton.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FormButton",
-          "methods": [],
-          "actualName": "FormButton",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Customers\\SignInForm.js",
       "value": [
         {
@@ -212,6 +192,37 @@
             "signIn": {
               "type": {
                 "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\SideMenu\\SideMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SideMenu",
+          "methods": [],
+          "actualName": "SideMenu"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
               },
               "required": true,
               "description": ""
@@ -353,17 +364,6 @@
       ]
     },
     {
-      "key": "src\\components\\SideMenu\\SideMenu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SideMenu",
-          "methods": [],
-          "actualName": "SideMenu"
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
       "value": [
         {
@@ -371,65 +371,6 @@
           "displayName": "CreateOrder",
           "methods": [],
           "actualName": "CreateOrder"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "OrderItem",
-          "methods": [],
-          "actualName": "OrderItem",
-          "props": {
-            "item": {
-              "type": {
-                "name": "custom",
-                "raw": "menuItemPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "index": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Home\\Home.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Home",
-          "methods": [
-            {
-              "name": "getDate",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "date",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "Home"
         }
       ]
     },
@@ -522,6 +463,65 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem",
+          "props": {
+            "item": {
+              "type": {
+                "name": "custom",
+                "raw": "menuItemPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "index": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Home.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Home",
+          "methods": [
+            {
+              "name": "getDate",
+              "docblock": null,
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "date",
+                  "type": null
+                }
+              ],
+              "returns": null
+            }
+          ],
+          "actualName": "Home"
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\Home\\Item.js",
       "value": [
         {
@@ -595,63 +595,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\AdminMenuItemList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminMenuItemList",
-          "methods": [],
-          "actualName": "AdminMenuItemList",
-          "props": {
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "fetchMenu": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "menuItemPropType"
-                }
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Menu\\AdminMenuItemForm.js",
       "value": [
         {
@@ -691,6 +634,30 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminSettings",
+          "methods": [],
+          "actualName": "AdminSettings",
+          "props": {
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
       "value": [
         {
@@ -713,30 +680,6 @@
               },
               "required": false,
               "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminSettings",
-          "methods": [],
-          "actualName": "AdminSettings",
-          "props": {
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
             }
           }
         }
@@ -847,6 +790,63 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\Menu\\AdminMenuItemList\\AdminMenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenuItemListComponent",
+          "methods": [],
+          "actualName": "AdminMenuItemListComponent",
+          "props": {
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when one of the menu\r\nitems is clicked on. Passed the item.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the delete button\r\non one of the menu items was clicked. Passed the\r\nmenu number.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function that populates the menu prop.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "menuItemPropType"
+                }
+              },
+              "required": true,
+              "description": "List of menu items."
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
       "value": [
         {
@@ -909,6 +909,63 @@
               "description": "Function to be called  when the button is clicked when at to.",
               "defaultValue": {
                 "value": "() => {}",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItemList",
+          "methods": [],
+          "actualName": "MenuItemList",
+          "props": {
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": "The list of menu items to display"
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when a menu item\r\nis clicked on. Will be passed the menu item.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the menu items delete\r\nbutton is clicked on. Will not show delete button if\r\nthis function isn't provided. Passed the menu number\r\nof the item",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "renderItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Optional render function for each menu item. Passed\r\nthe menu item. Could be used to wrap the items in links\r\nfor example.",
+              "defaultValue": {
+                "value": "null",
                 "computed": false
               }
             }
@@ -1297,63 +1354,6 @@
           }
         }
       ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItemList",
-          "methods": [],
-          "actualName": "MenuItemList",
-          "props": {
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "Object"
-                }
-              },
-              "required": true,
-              "description": "The list of menu items to display"
-            },
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when a menu item\r\nis clicked on. Will be passed the menu item.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the menu items delete\r\nbutton is clicked on. Will not show delete button if\r\nthis function isn't provided. Passed the menu number\r\nof the item",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "renderItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Optional render function for each menu item. Passed\r\nthe menu item. Could be used to wrap the items in links\r\nfor example.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
     }
   ],
   "entries": [
@@ -1391,6 +1391,25 @@
             "slug": "side-menu-sidemenuitem",
             "depth": 1,
             "value": "Side Menu SideMenuItem"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx",
+      "value": {
+        "name": "AdminMenuItemList",
+        "menu": "Components",
+        "route": "/Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx",
+        "id": "17b10b9a578ad6612ef4a3ac4581cd4d",
+        "filepath": "src/components/Admin/Menu/AdminMenuItemList/AdminMenuItemList.mdx",
+        "link": "",
+        "slug": "src-components-admin-menu-admin-menu-item-list-admin-menu-item-list",
+        "headings": [
+          {
+            "slug": "admin-menu-item-list",
+            "depth": 1,
+            "value": "Admin Menu Item List"
           }
         ]
       }
@@ -1529,25 +1548,6 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
-      "value": {
-        "name": "SettingListItem",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingList/SettingListItem",
-        "id": "428aed1faf3ee22496c4469e97bcf24a",
-        "filepath": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-setting-list-setting-list-item-setting-list-item",
-        "headings": [
-          {
-            "slug": "setting-list-settinglistitem",
-            "depth": 1,
-            "value": "Setting List SettingListItem"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
       "value": {
         "name": "SettingPageInput",
@@ -1562,6 +1562,25 @@
             "slug": "setting-page-input",
             "depth": 1,
             "value": "Setting Page Input"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+      "value": {
+        "name": "SettingListItem",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingList/SettingListItem",
+        "id": "428aed1faf3ee22496c4469e97bcf24a",
+        "filepath": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-list-setting-list-item-setting-list-item",
+        "headings": [
+          {
+            "slug": "setting-list-settinglistitem",
+            "depth": 1,
+            "value": "Setting List SettingListItem"
           }
         ]
       }
