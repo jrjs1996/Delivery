@@ -3,17 +3,17 @@ import { Route } from 'react-router-dom';
 
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import AdminMenuItemList from './AdminMenuItemList';
-import AdminMenuItemForm from './AdminMenuItemForm';
-import MenuButton from './AdminMenuButton';
+import AdminMenuItemList from '../AdminMenuItemList';
+import AdminMenuItemForm from '../AdminMenuItemForm';
+import MenuButton from './ForwardBackButton/ForwardBackButton';
 
-import { locationPropType } from '../../../propTypes';
+import { locationPropType } from '../../../../propTypes';
 
 
-export default function AdminMenu({
-  location,
-}) {
+export default function AdminMenu({ location }) {
   const [selectedItem, setSelectedItem] = useState(0);
 
   return (
@@ -31,6 +31,8 @@ export default function AdminMenu({
             to="/admin/menu/additem/"
             onForward={() => setSelectedItem({})}
             pathname={location.pathname}
+            homeIcon={AddIcon}
+            toIcon={ArrowBackIcon}
           />
         </Grid>
         <Grid item xs={6}>
@@ -53,5 +55,7 @@ export default function AdminMenu({
 }
 
 AdminMenu.propTypes = {
+  /** Current browser location. Provided by router.
+   *  (Dont set manually) */
   location: locationPropType.isRequired,
 };

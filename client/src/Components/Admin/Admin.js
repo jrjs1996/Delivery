@@ -20,7 +20,7 @@ import { getCurrentAdminInfo } from '../../actions/adminActions';
 
 import Home from './Home/Home';
 import Settings from './Settings/Settings';
-import AdminMenu from './Menu/AdminMenu';
+import AdminMenu from './Menu/AdminMenu/AdminMenu';
 
 const drawerWidth = 240;
 

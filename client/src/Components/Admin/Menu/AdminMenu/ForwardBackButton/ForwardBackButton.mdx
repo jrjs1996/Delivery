@@ -1,0 +1,51 @@
+
+---
+name: ForwardBackButton
+menu: Components
+route: /Admin/Menu/AdminMenu/ForwardBackButton
+---
+import { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Playground, Props } from 'docz';
+import ForwardBackButton from './ForwardBackButton';
+import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
+# Forward Back Button
+
+Updated 20/06/2019
+
+Navigates back and forth between home and to locations.
+Displays different icons based on the current pathname.
+
+<Props of={ForwardBackButton} />
+
+<Playground>
+  {() => {
+    const [path, setPath] = useState('/home/');
+  
+    return (
+      <div>
+        <span>Current path: {path}</span>
+        <Router>
+          <ForwardBackButton
+            home="/home/"
+            to="/to/"
+            onForward={() => {
+              setPath('/to/');
+            }}
+            onBack={() => {
+              setPath('/home/');
+            }}
+            pathname={location.pathname}
+            homeIcon={AddIcon}
+            toIcon={ArrowBackIcon}
+          />
+        </Router>
+        
+      </div>
+      )
+    }}
+  
+   
+</Playground>

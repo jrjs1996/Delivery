@@ -82,7 +82,6 @@ class CreateOrderForm extends Component {
   }
 
   addItem(item) {
-    console.log(item)
     const { items, total } = this.state;
     const newItems = items.slice();
     newItems.push(item);
@@ -97,7 +96,6 @@ class CreateOrderForm extends Component {
     const { items, total } = this.state;
     const newItems = items.slice();
     const newTotal = total - items[index].price;
-    console.log(newItems);
     newItems.splice(index, 1);
     this.setState({
       items: newItems,
@@ -176,7 +174,11 @@ class CreateOrderForm extends Component {
               <Grid item xs={12}>
                 <p>{ message }</p>
               </Grid>
-              {items.map((i, index) => <Grid item xs={12}><OrderItem item={i} index={index} onClick={this.removeItem} /></Grid>)}
+              {items.map((i, index) => (
+                <Grid item xs={12}>
+                  <OrderItem item={i} index={index} onClick={this.removeItem} />
+                </Grid>
+              ))}
               <Typography variant="h3">
                 $
                 {total}

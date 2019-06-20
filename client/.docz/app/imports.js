@@ -23,6 +23,10 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu" */ 'src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx'
     ),
+  'src/components/Admin/Menu/AdminMenu/ForwardBackButton/ForwardBackButton.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-admin-menu-forward-back-button-forward-back-button" */ 'src/components/Admin/Menu/AdminMenu/ForwardBackButton/ForwardBackButton.mdx'
+    ),
   'src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-menu-item" */ 'src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx'

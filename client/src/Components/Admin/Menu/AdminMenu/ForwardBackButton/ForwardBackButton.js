@@ -2,27 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-export default function AdminMenuButton({
+
+export default function ForwardBackButton({
   home,
   to,
   pathname,
   onForward,
   onBack,
+  homeIcon,
+  toIcon,
 }) {
   let renderTo;
   let renderOnClick;
   let renderIcon;
   if (pathname === to) {
     renderTo = home;
-    renderOnClick = onForward;
-    renderIcon = (<ArrowBackIcon />);
+    renderOnClick = onBack;
+    renderIcon = (React.createElement(toIcon));
   } else {
     renderTo = to;
-    renderOnClick = onBack;
-    renderIcon = (<AddIcon />);
+    renderOnClick = onForward;
+    renderIcon = (React.createElement(homeIcon));
   }
   return (
     <Link to={renderTo}>
@@ -38,11 +39,15 @@ export default function AdminMenuButton({
 }
 
 
-AdminMenuButton.propTypes = {
+ForwardBackButton.propTypes = {
   /** Home location of the menu button */
   home: PropTypes.string.isRequired,
+  /** Icon to display when at home */
+  homeIcon: PropTypes.elementType.isRequired,
   /** Location to go to when the button is clicked */
   to: PropTypes.string.isRequired,
+  /** Icon to display when at to */
+  toIcon: PropTypes.elementType.isRequired,
   /** Browser location pathname */
   pathname: PropTypes.string.isRequired,
   /** Function to be called when the button is clicked when at home. */
@@ -51,7 +56,7 @@ AdminMenuButton.propTypes = {
   onBack: PropTypes.func,
 };
 
-AdminMenuButton.defaultProps = {
+ForwardBackButton.defaultProps = {
   onForward: () => {},
   onBack: () => {},
 };

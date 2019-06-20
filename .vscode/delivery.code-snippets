@@ -57,6 +57,7 @@
 			"<Description>",
 			"",
 			"<Props of={$TM_FILENAME_BASE} />",
+			"",
 			"<Playground>",
 			"",
 			"</Playground>",

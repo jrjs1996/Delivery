@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\api\\bin\\www"
+      "program": "${workspaceFolder}\\client\\node_modules\\.bin\\jest"
     }
   ]
 }
