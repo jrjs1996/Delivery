@@ -31,8 +31,15 @@ export function AdminMenuItemFormComponent({ menuItem, addMenuItem: addAction, u
 }
 
 AdminMenuItemFormComponent.propTypes = {
+  /** Menu item to initialize the form with. If a
+   * menu item is provided the form will call
+   * updateMenuItem. If none is given it will
+   * call addMenuItem.
+   */
   menuItem: menuItemPropType,
+  /** Function to call when adding a new menu item. */
   addMenuItem: PropTypes.func.isRequired,
+  /** Function called on submit when menuItem is given. */
   updateMenuItem: PropTypes.func.isRequired,
 };
 

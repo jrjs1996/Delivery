@@ -1,0 +1,34 @@
+
+---
+name: AdminMenuItemForm
+menu: Components
+route: /Admin/Menu/AdminMenuItemForm/AdminMenuItemForm.mdx
+---
+import { useState } from 'react'
+import { Playground, Props } from 'docz';
+import { AdminMenuItemFormComponent } from './AdminMenuItemForm';
+
+# Admin Menu Item Form
+
+Updated 20/06/2019
+
+Form for editing menu items. Can either add a new menu item or update
+an existing one based on whether or not the menuItem prop is provided.
+
+<Props of={AdminMenuItemFormComponent} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return (
+      <div>
+        <p>{ message }</p>
+        <AdminMenuItemFormComponent
+          addMenuItem={i => setMessage('Add Item: ' + JSON.stringify(i))}
+          updateMenuItem={i => setMessage('Update Item: ' + JSON.stringify(i))}
+        />
+      </div>
+    );
+  }}
+</Playground>
