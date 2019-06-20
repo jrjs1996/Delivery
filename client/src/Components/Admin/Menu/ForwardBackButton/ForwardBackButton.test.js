@@ -2,8 +2,10 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
+import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AdminMenuButton from './ForwardBackButton';
+import ForwardBackButton from './ForwardBackButton';
 
 
 describe('ForwardBackButton', () => {
@@ -26,9 +28,11 @@ describe('ForwardBackButton', () => {
   it('onForward is called', () => {
     component = create(
       <Router>
-        <AdminMenuButton
+        <ForwardBackButton
           home="/home/"
+          homeIcon={AddIcon}
           to="/to/"
+          toIcon={ArrowBackIcon}
           pathname="/home/"
           onForward={() => { onForwardResult = true; }}
           onBack={() => { onBackResult = true; }}
@@ -44,9 +48,11 @@ describe('ForwardBackButton', () => {
   it('onBack is called', () => {
     component = create(
       <Router>
-        <AdminMenuButton
+        <ForwardBackButton
           home="/home/"
+          homeIcon={AddIcon}
           to="/to/"
+          toIcon={ArrowBackIcon}
           pathname="/to/"
           onForward={() => { onForwardResult = true; }}
           onBack={() => { onBackResult = true; }}
@@ -62,9 +68,11 @@ describe('ForwardBackButton', () => {
   it('Works without onForward', () => {
     component = create(
       <Router>
-        <AdminMenuButton
+        <ForwardBackButton
           home="/home/"
+          homeIcon={AddIcon}
           to="/to/"
+          toIcon={ArrowBackIcon}
           pathname="/home/"
         />
       </Router>,
@@ -77,9 +85,11 @@ describe('ForwardBackButton', () => {
   it('Works without onBack', () => {
     component = create(
       <Router>
-        <AdminMenuButton
+        <ForwardBackButton
           home="/home/"
+          homeIcon={AddIcon}
           to="/to/"
+          toIcon={ArrowBackIcon}
           pathname="/to/"
         />
       </Router>,

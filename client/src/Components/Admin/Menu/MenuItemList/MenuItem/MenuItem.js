@@ -16,6 +16,7 @@ export default function MenuItem({
   onDelete,
   _id,
 }) {
+  console.log(onDelete)
   return (
     <Paper
       onClick={() => onSelect({
@@ -92,9 +93,10 @@ MenuItem.propTypes = {
   onSelect: PropType.func,
   /** Function to be called when the delete button
    * is clicked. */
-  onDelete: PropType.func.isRequired,
+  onDelete: PropType.func,
 };
 
 MenuItem.defaultProps = {
   onSelect: null,
+  onDelete: null,
 };

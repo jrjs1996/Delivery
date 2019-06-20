@@ -57,4 +57,24 @@ describe('MenuItem.test', () => {
     expect(onSelectResult).toBe(false);
     expect(onDeleteResult).toBe(true);
   });
+
+  it('Doesnt display delete button if onDelete isnt provided', () => {
+    cleanup();
+    ({ getByText } = render(
+      <MenuItem
+        title="TestTitle"
+        description="TestDescription"
+        number="1234"
+        price="4321"
+        onSelect={() => { onSelectResult = true; }}
+        _id="2"
+      />,
+    ));
+    try {
+      getByText('Delete');
+      fail('Shouldnt have found Delete')
+    } catch(error) {
+      
+    }
+  });
 });

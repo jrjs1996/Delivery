@@ -23,26 +23,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\AdminRoute.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminRoute",
-          "methods": [],
-          "actualName": "AdminRoute",
-          "props": {
-            "component": {
-              "type": {
-                "name": "node"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Admin.js",
       "value": [
         {
@@ -54,6 +34,26 @@
             "getCurrentAdminInfo": {
               "type": {
                 "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\AdminRoute.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminRoute",
+          "methods": [],
+          "actualName": "AdminRoute",
+          "props": {
+            "component": {
+              "type": {
+                "name": "node"
               },
               "required": true,
               "description": ""
@@ -375,6 +375,41 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "OrderItem",
+          "methods": [],
+          "actualName": "OrderItem",
+          "props": {
+            "item": {
+              "type": {
+                "name": "custom",
+                "raw": "menuItemPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "index": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
       "value": [
         {
@@ -463,41 +498,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "OrderItem",
-          "methods": [],
-          "actualName": "OrderItem",
-          "props": {
-            "item": {
-              "type": {
-                "name": "custom",
-                "raw": "menuItemPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "index": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Home\\Home.js",
       "value": [
         {
@@ -518,17 +518,6 @@
             }
           ],
           "actualName": "Home"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Home\\Item.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Item",
-          "methods": [],
-          "actualName": "Item"
         }
       ]
     },
@@ -586,6 +575,113 @@
             "updateOrder": {
               "type": {
                 "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Item.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Item",
+          "methods": [],
+          "actualName": "Item"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AdminMenuItemForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenuItemForm",
+          "methods": [],
+          "actualName": "AdminMenuItemForm",
+          "props": {
+            "menuItem": {
+              "type": {
+                "name": "custom",
+                "raw": "menuItemPropType"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "addMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AdminMenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenuItemList",
+          "methods": [],
+          "actualName": "AdminMenuItemList",
+          "props": {
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "menuItemPropType"
+                }
               },
               "required": true,
               "description": ""
@@ -696,102 +792,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\AdminMenuItemForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminMenuItemForm",
-          "methods": [],
-          "actualName": "AdminMenuItemForm",
-          "props": {
-            "menuItem": {
-              "type": {
-                "name": "custom",
-                "raw": "menuItemPropType"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "addMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "updateMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\AdminMenuItemList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminMenuItemList",
-          "methods": [],
-          "actualName": "AdminMenuItemList",
-          "props": {
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "fetchMenu": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "menuItemPropType"
-                }
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\SideMenu\\SideMenuItem\\SideMenuItem.js",
       "value": [
         {
@@ -820,6 +820,154 @@
               },
               "required": true,
               "description": "A single icon to display"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenu",
+          "methods": [],
+          "actualName": "AdminMenu",
+          "props": {
+            "location": {
+              "type": {
+                "name": "custom",
+                "raw": "locationPropType.isRequired"
+              },
+              "required": false,
+              "description": "Current browser location. Provided by router.\r\n (Dont set manually)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ForwardBackButton",
+          "methods": [],
+          "actualName": "ForwardBackButton",
+          "props": {
+            "home": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Home location of the menu button"
+            },
+            "homeIcon": {
+              "type": {
+                "name": "elementType"
+              },
+              "required": true,
+              "description": "Icon to display when at home"
+            },
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Location to go to when the button is clicked"
+            },
+            "toIcon": {
+              "type": {
+                "name": "elementType"
+              },
+              "required": true,
+              "description": "Icon to display when at to"
+            },
+            "pathname": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Browser location pathname"
+            },
+            "onForward": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the button is clicked when at home.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "onBack": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called  when the button is clicked when at to.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItemList",
+          "methods": [],
+          "actualName": "MenuItemList",
+          "props": {
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "renderItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
             }
           }
         }
@@ -990,52 +1138,48 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
+      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
       "value": [
         {
           "description": "",
-          "displayName": "AdminMenu",
+          "displayName": "MenuItem",
           "methods": [],
-          "actualName": "AdminMenu",
+          "actualName": "MenuItem",
           "props": {
-            "location": {
+            "description": {
               "type": {
-                "name": "custom",
-                "raw": "locationPropType.isRequired"
-              },
-              "required": false,
-              "description": "Current browser location. Provided by router.\r\n (Dont set manually)"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItemList",
-          "methods": [],
-          "actualName": "MenuItemList",
-          "props": {
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "Object"
-                }
+                "name": "string"
               },
               "required": true,
-              "description": ""
+              "description": "Description of the menu item."
+            },
+            "number": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Number on the menu"
+            },
+            "price": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Price of the item"
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name of the menu item"
             },
             "onSelect": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": "",
+              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
               "defaultValue": {
                 "value": "null",
                 "computed": false
@@ -1045,23 +1189,8 @@
               "type": {
                 "name": "func"
               },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "renderItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
+              "required": true,
+              "description": "Function to be called when the delete button\r\nis clicked."
             }
           }
         }
@@ -1221,135 +1350,6 @@
           }
         }
       ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\AdminMenu\\ForwardBackButton\\ForwardBackButton.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ForwardBackButton",
-          "methods": [],
-          "actualName": "ForwardBackButton",
-          "props": {
-            "home": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Home location of the menu button"
-            },
-            "homeIcon": {
-              "type": {
-                "name": "elementType"
-              },
-              "required": true,
-              "description": "Icon to display when at home"
-            },
-            "to": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Location to go to when the button is clicked"
-            },
-            "toIcon": {
-              "type": {
-                "name": "elementType"
-              },
-              "required": true,
-              "description": "Icon to display when at to"
-            },
-            "pathname": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Browser location pathname"
-            },
-            "onForward": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the button is clicked when at home.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "onBack": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called  when the button is clicked when at to.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItem",
-          "methods": [],
-          "actualName": "MenuItem",
-          "props": {
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Description of the menu item."
-            },
-            "number": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Number on the menu"
-            },
-            "price": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Price of the item"
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name of the menu item"
-            },
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the delete button\r\nis clicked."
-            }
-          }
-        }
-      ]
     }
   ],
   "entries": [
@@ -1392,6 +1392,25 @@
       }
     },
     {
+      "key": "src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
+      "value": {
+        "name": "ForwardBackButton",
+        "menu": "Components",
+        "route": "/Admin/Menu/AdminMenu/ForwardBackButton",
+        "id": "53898d945fe4553d75dd4fde7f078e5d",
+        "filepath": "src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
+        "link": "",
+        "slug": "src-components-admin-menu-forward-back-button-forward-back-button",
+        "headings": [
+          {
+            "slug": "forward-back-button",
+            "depth": 1,
+            "value": "Forward Back Button"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/components/Admin/Settings/AdminList/AdminList.mdx",
       "value": {
         "name": "AdminList",
@@ -1406,6 +1425,25 @@
             "slug": "admin-list",
             "depth": 1,
             "value": "Admin List"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+      "value": {
+        "name": "SettingsMenu",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingsMenu",
+        "id": "c4393aed2807ec74644c2daea8ca5ef7",
+        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-settings-menu-settings-menu",
+        "headings": [
+          {
+            "slug": "settings-menu",
+            "depth": 1,
+            "value": "Settings Menu"
           }
         ]
       }
@@ -1449,44 +1487,6 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
-      "value": {
-        "name": "SettingsMenu",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingsMenu",
-        "id": "c4393aed2807ec74644c2daea8ca5ef7",
-        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-settings-menu-settings-menu",
-        "headings": [
-          {
-            "slug": "settings-menu",
-            "depth": 1,
-            "value": "Settings Menu"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Menu/AdminMenu/ForwardBackButton/ForwardBackButton.mdx",
-      "value": {
-        "name": "ForwardBackButton",
-        "menu": "Components",
-        "route": "/Admin/Menu/AdminMenu/ForwardBackButton",
-        "id": "e8870e5cd1c590b8460213df43f96223",
-        "filepath": "src/components/Admin/Menu/AdminMenu/ForwardBackButton/ForwardBackButton.mdx",
-        "link": "",
-        "slug": "src-components-admin-menu-admin-menu-forward-back-button-forward-back-button",
-        "headings": [
-          {
-            "slug": "forward-back-button",
-            "depth": 1,
-            "value": "Forward Back Button"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
       "value": {
         "name": "MenuItem",
@@ -1501,6 +1501,25 @@
             "slug": "menu-item",
             "depth": 1,
             "value": "Menu Item"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+      "value": {
+        "name": "SettingsMenuItem",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingsMenu/SettingsMenuItem",
+        "id": "6bd148ceefb1adee09b0ab17289dbd28",
+        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item",
+        "headings": [
+          {
+            "slug": "settings-menu-item",
+            "depth": 1,
+            "value": "Settings Menu Item"
           }
         ]
       }
@@ -1539,25 +1558,6 @@
             "slug": "setting-page-input",
             "depth": 1,
             "value": "Setting Page Input"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
-      "value": {
-        "name": "SettingsMenuItem",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingsMenu/SettingsMenuItem",
-        "id": "6bd148ceefb1adee09b0ab17289dbd28",
-        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item",
-        "headings": [
-          {
-            "slug": "settings-menu-item",
-            "depth": 1,
-            "value": "Settings Menu Item"
           }
         ]
       }
