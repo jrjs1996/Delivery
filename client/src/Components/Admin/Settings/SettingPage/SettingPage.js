@@ -38,7 +38,7 @@ export default function SettingPage({
     <Paper>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant="h4" gutterBottom id="title">
+          <Typography variant="h4" gutterBottom id="pageTitle">
             {title}
           </Typography>
           {React.Children.map(children, child => React.cloneElement(child,

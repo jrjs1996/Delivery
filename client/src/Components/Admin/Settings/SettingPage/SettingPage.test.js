@@ -1,7 +1,7 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import 'jest-dom/extend-expect';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, findByText } from '@testing-library/react';
 import { Button } from '@material-ui/core';
 import SettingPage from './SettingPage';
 import SettingPageInput from './SettingPageInput/SettingPageInput';
@@ -37,8 +37,8 @@ describe('Setting Page', () => {
   });
 
   it('Displays title', () => {
-    const title = root.find(c => c.props.id === 'title');
-    expect(title.props.children).toBe('Test Title');
+    const { findByText } = render(settingPage);
+    findByText('Test Title');
   });
 
   it('Displays submit text', () => {

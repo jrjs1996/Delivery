@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addMenuItem, updateMenuItem } from '../../../actions/menuActions';
-import SettingPage from '../Settings/SettingPage/SettingPage';
-import SettingPageInput from '../Settings/SettingPage/SettingPageInput/SettingPageInput';
-import { menuItemPropType } from '../../../propTypes';
+import { addMenuItem, updateMenuItem } from '../../../../actions/menuActions';
+import SettingPage from '../../Settings/SettingPage/SettingPage';
+import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
+import { menuItemPropType } from '../../../../propTypes';
 
 const onSubmit = (submitData, update, addAction, updateAction) => {
   if (update) {
@@ -16,7 +16,7 @@ const onSubmit = (submitData, update, addAction, updateAction) => {
   return 'Item added';
 };
 
-function AdminMenuItemForm({ menuItem, addMenuItem: addAction, updateMenuItem: updateAction }) {
+export function AdminMenuItemFormComponent({ menuItem, addMenuItem: addAction, updateMenuItem: updateAction }) {
   return (
     <SettingPage
       title="Order"
@@ -30,14 +30,19 @@ function AdminMenuItemForm({ menuItem, addMenuItem: addAction, updateMenuItem: u
   );
 }
 
-AdminMenuItemForm.propTypes = {
+AdminMenuItemFormComponent.propTypes = {
   menuItem: menuItemPropType,
   addMenuItem: PropTypes.func.isRequired,
   updateMenuItem: PropTypes.func.isRequired,
 };
 
-AdminMenuItemForm.defaultProps = {
-  menuItem: null,
+AdminMenuItemFormComponent.defaultProps = {
+  menuItem: {
+    title: '',
+    price: '',
+    menuNumber: '',
+    description: '',
+  },
 };
 
-export default connect(null, { addMenuItem, updateMenuItem })(AdminMenuItemForm);
+export default connect(null, { addMenuItem, updateMenuItem })(AdminMenuItemFormComponent);

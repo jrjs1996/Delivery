@@ -595,45 +595,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\AdminMenuItemForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminMenuItemForm",
-          "methods": [],
-          "actualName": "AdminMenuItemForm",
-          "props": {
-            "menuItem": {
-              "type": {
-                "name": "custom",
-                "raw": "menuItemPropType"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "addMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "updateMenuItem": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
       "value": [
         {
@@ -1350,6 +1311,45 @@
                 "value": "null",
                 "computed": false
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AdminMenuItemForm\\AdminMenuItemForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenuItemForm",
+          "methods": [],
+          "actualName": "AdminMenuItemForm",
+          "props": {
+            "menuItem": {
+              "type": {
+                "name": "custom",
+                "raw": "menuItemPropType"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "addMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateMenuItem": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }
