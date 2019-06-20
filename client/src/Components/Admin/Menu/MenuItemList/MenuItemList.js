@@ -29,9 +29,19 @@ export default function MenuItemList({
 }
 
 MenuItemList.propTypes = {
+  /** The list of menu items to display */
   menu: PropType.arrayOf(Object).isRequired,
+  /** Function to be called when a menu item
+   * is clicked on. Will be passed the menu item. */
   onSelect: PropType.func,
+  /** Function to be called when the menu items delete
+   * button is clicked on. Will not show delete button if
+   * this function isn't provided. Passed the menu number
+   * of the item */
   onDelete: PropType.func,
+  /** Optional render function for each menu item. Passed
+   * the menu item. Could be used to wrap the items in links
+   * for example. */
   renderItem: PropType.func,
 };
 

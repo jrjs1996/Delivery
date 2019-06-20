@@ -107,7 +107,7 @@ describe('MenuItemList', () => {
     ));
     try {
       getByText('Delete');
-      throw error;
+      fail('Shouldnt have found delete');
     } catch (e) { }
   });
 });

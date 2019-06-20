@@ -16,7 +16,6 @@ export default function MenuItem({
   onDelete,
   _id,
 }) {
-  console.log(onDelete)
   return (
     <Paper
       onClick={() => onSelect({
