@@ -35,19 +35,19 @@ export const menuItemsMock = [
 
 export const customersMock = [
   {
-    firstName: 'John',
-    lastName: 'Davidson',
-    address: '1234 Green St.',
-    email: 'johnD@email.com',
     __v: 0,
     _id: '0',
+    address: '1234 Green St.',
+    email: 'johnD@email.com',
+    firstName: 'John',
+    lastName: 'Davidson',
   },
   {
-    firstName: 'Bob',
-    lastName: 'Harris',
-    address: '444 8th St. E',
-    email: 'Bobby@email.com',
     __v: 0,
     _id: '1',
+    address: '444 8th St. E',
+    email: 'Bobby@email.com',
+    firstName: 'Bob',
+    lastName: 'Harris',
   },
 ];

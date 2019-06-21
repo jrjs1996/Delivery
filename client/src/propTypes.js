@@ -11,6 +11,15 @@ export const ChildrenPropType = PropTypes.oneOfType([
   PropTypes.node,
 ]);
 
+export const CustomerPropType = PropTypes.shape({
+  __v: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+});
+
 export const locationPropType = PropTypes.shape({
   hash: PropTypes.string.isRequired,
   key: PropTypes.string.isRequired,

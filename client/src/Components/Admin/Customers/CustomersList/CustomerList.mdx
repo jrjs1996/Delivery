@@ -1,0 +1,40 @@
+
+---
+name: CustomerList
+menu: Components
+route: /Admin/Customers/CustomersList/CustomerList.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import CustomerList from './CustomerList';
+import { customersMock } from '../../../../tests/mocks';
+
+# Customer List
+
+Updated 21/06/2019
+
+Displays a list of customers. If a customer is clicked on
+onSelect will be called with the customers info. If a delete
+button is clicked on onDelete will be called with the customers
+id. If onDelete isn't provided the deletebuttons wont be shown.
+
+<Props of={CustomerList} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return (
+      <div>
+        <p>{message}</p>
+        <CustomerList
+          customers={customersMock}
+          onSelect={(id, firstName, lastName, address, email) => {
+            setMessage(`onSelect: ${id} ${firstName} ${lastName} ${address} ${email}`)
+          }}
+          onDelete={id => setMessage(`onDelete: ${id}`)}
+        />
+      </div>
+    )
+  }}
+</Playground>
