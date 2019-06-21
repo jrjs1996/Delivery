@@ -7,6 +7,10 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu-item-side-menu-item" */ 'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx'
     ),
+  'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx'
+    ),
   'src/components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-list" */ 'src/components/Admin/Customers/CustomersList/CustomerList.mdx'

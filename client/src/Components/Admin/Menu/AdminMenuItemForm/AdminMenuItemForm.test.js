@@ -3,16 +3,13 @@ import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import { AdminMenuItemFormComponent } from './AdminMenuItemForm';
 import { menuItemsMock } from '../../../../tests/mocks';
+import { getByLabelAndInput } from '../../../../tests/utils';
 
 let getByLabelText;
 let getByText;
 
 let addMenuItem = jest.fn();
 let updateMenuItem = jest.fn();
-
-const getByLabelAndInput = (label, inputText) => {
-  fireEvent.input(getByLabelText(new RegExp(`${label}*`)), { target: { value: inputText } });
-};
 
 const checkInputs = () => {
   ({ getByLabelText } = render(
@@ -52,10 +49,10 @@ describe('AdminMenuItemForm without menu item', () => {
   it('Calls add item', () => {
     const mockItem = menuItemsMock[0];
 
-    getByLabelAndInput('Title', mockItem.title);
-    getByLabelAndInput('Price', mockItem.price);
-    getByLabelAndInput('Number', mockItem.menuNumber);
-    getByLabelAndInput('Description', mockItem.description);
+    getByLabelAndInput('Title', mockItem.title, getByLabelText);
+    getByLabelAndInput('Price', mockItem.price, getByLabelText);
+    getByLabelAndInput('Number', mockItem.menuNumber, getByLabelText);
+    getByLabelAndInput('Description', mockItem.description, getByLabelText);
 
     fireEvent.click(getByText('Submit'));
     const submitData = addMenuItem.mock.calls[0][0];
@@ -90,10 +87,10 @@ describe('AdminMenuItem with menu item', () => {
   });
 
   it('Calls update item', () => {
-    getByLabelAndInput('Title', 'NewTitle');
-    getByLabelAndInput('Price', '2');
-    getByLabelAndInput('Number', '1');
-    getByLabelAndInput('Description', 'New Description');
+    getByLabelAndInput('Title', 'NewTitle', getByLabelText);
+    getByLabelAndInput('Price', '2', getByLabelText);
+    getByLabelAndInput('Number', '1', getByLabelText);
+    getByLabelAndInput('Description', 'New Description', getByLabelText);
 
     fireEvent.click(getByText('Submit'));
     const submitData = updateMenuItem.mock.calls[0][0];

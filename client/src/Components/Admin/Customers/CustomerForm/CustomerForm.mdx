@@ -1,0 +1,38 @@
+
+---
+name: CustomerForm
+menu: Components
+route: /Admin/Customers/CustomerForm/CustomerForm.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import CustomerForm from './CustomerForm';
+
+# Customer Form
+
+Updated 21/06/2019
+
+A form with inputs for customer information. If no id
+is provided the form title will be 'Add Customer'. If
+an id is provided it will be 'Update Customer'.
+
+<Props of={CustomerForm} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return(
+      <div>
+        <p>{message}</p>
+        <CustomerForm
+          onSubmit={data => {
+            setMessage(JSON.stringify(data));
+          }}
+        />
+      </div>
+      
+    )
+    
+  }}
+</Playground>
