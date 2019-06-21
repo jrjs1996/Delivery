@@ -18,6 +18,7 @@ export default function MenuItemList({
       onSelect={onSelect}
       onDelete={onDelete}
       _id={i._id}
+      key={`item ${i._id}`}
     />
   ));
 

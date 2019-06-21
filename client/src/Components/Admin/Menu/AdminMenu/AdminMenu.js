@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import AdminMenuItemList from '../AdminMenuItemList/AdminMenuItemList';
-import AdminMenuItemForm from '../AdminMenuItemForm';
+import AdminMenuItemForm from '../AdminMenuItemForm/AdminMenuItemForm';
 import MenuButton from '../ForwardBackButton/ForwardBackButton';
 
 import { locationPropType } from '../../../../propTypes';

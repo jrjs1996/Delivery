@@ -21,11 +21,12 @@ export function AdminMenuItemFormComponent({ menuItem, addMenuItem: addAction, u
     <SettingPage
       title="Order"
       onSubmit={submitData => onSubmit(submitData, menuItem._id, addAction, updateAction)}
+      style={{ paddingLeft: '20%', paddingRight: '20%' }}
     >
       <SettingPageInput required fullWidth name="title" label="Title" value={menuItem.title} />
       <SettingPageInput required fullWidth name="price" label="Price" value={menuItem.price} />
       <SettingPageInput required fullWidth name="menuNumber" label="Number" value={menuItem.menuNumber} />
-      <SettingPageInput required fullWidth name="description" label="Description" value={menuItem.description} />
+      <SettingPageInput required fullWidth name="description" multiline label="Description" value={menuItem.description} />
     </SettingPage>
   );
 }

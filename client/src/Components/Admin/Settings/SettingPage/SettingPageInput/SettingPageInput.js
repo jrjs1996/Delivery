@@ -1,10 +1,11 @@
 import React from 'react';
-import { Grid, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 export default function SettingPageInput({
   fullWidth,
   label,
+  multiline,
   name,
   onChange,
   required,
@@ -12,20 +13,17 @@ export default function SettingPageInput({
   value,
 }) {
   return (
-    <div>
-      <Grid item xs={6}>
-        <TextField
-          fullWidth={fullWidth}
-          id={name}
-          label={label}
-          name={name}
-          onChange={onChange}
-          required={required}
-          type={type}
-          value={value}
-        />
-      </Grid>
-    </div>
+    <TextField
+      fullWidth={fullWidth}
+      id={name}
+      label={label}
+      multiline={multiline}
+      name={name}
+      onChange={onChange}
+      required={required}
+      type={type}
+      value={value}
+    />
   );
 }
 
@@ -34,6 +32,8 @@ SettingPageInput.propTypes = {
   fullWidth: PropTypes.bool,
   /** Label content to be displayed on the input. */
   label: PropTypes.string,
+  /** If true input will appear on multiple lines if long enough */
+  multiline: PropTypes.bool,
   /** Name used to reference the inputs value in onSubmit of the parent
    * SettingPage component. All SettingPageInput children of a
    * SettingPage must have a unique name.
@@ -52,6 +52,7 @@ SettingPageInput.propTypes = {
 SettingPageInput.defaultProps = {
   fullWidth: false,
   label: '',
+  multiline: false,
   required: false,
   type: 'text',
   onChange: undefined,

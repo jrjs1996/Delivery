@@ -21,7 +21,7 @@ export function AdminMenuItemListComponent({
       menu={menu}
       onSelect={onSelect}
       onDelete={onDelete}
-      renderItem={i => <Link to="/admin/menu/additem/">{i}</Link>}
+      renderItem={i => <Link to="/admin/menu/additem/" key={i._id}>{i}</Link>}
     />
   );
 }

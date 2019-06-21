@@ -34,7 +34,7 @@ describe('MenuItemList', () => {
       revision: '0',
       title: 'TestItem2',
       __v: '0',
-      _id: '0',
+      _id: '1',
     },
   ];
 

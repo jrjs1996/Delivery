@@ -15,7 +15,7 @@ export const menuItemsMock = [
     revision: '0',
     title: 'Hamburger',
     __v: 0,
-    _id: '1',
+    _id: '0',
   },
   {
     archived: false,
@@ -28,6 +28,25 @@ export const menuItemsMock = [
     price: '8.25',
     revision: '0',
     title: 'Salad',
+    __v: 0,
+    _id: '1',
+  },
+];
+
+export const customersMock = [
+  {
+    firstName: 'John',
+    lastName: 'Davidson',
+    address: '1234 Green St.',
+    email: 'johnD@email.com',
+    __v: 0,
+    _id: '0',
+  },
+  {
+    firstName: 'Bob',
+    lastName: 'Harris',
+    address: '444 8th St. E',
+    email: 'Bobby@email.com',
     __v: 0,
     _id: '1',
   },

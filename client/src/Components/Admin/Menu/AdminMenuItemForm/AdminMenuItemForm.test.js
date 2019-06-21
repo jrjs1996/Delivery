@@ -1,5 +1,4 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import { AdminMenuItemFormComponent } from './AdminMenuItemForm';
@@ -29,7 +28,6 @@ const checkInputs = () => {
 };
 
 describe('AdminMenuItemForm without menu item', () => {
-
   beforeEach(() => {
     ({ getByLabelText, getByText } = render(
       <AdminMenuItemFormComponent
@@ -92,7 +90,6 @@ describe('AdminMenuItem with menu item', () => {
   });
 
   it('Calls update item', () => {
-
     getByLabelAndInput('Title', 'NewTitle');
     getByLabelAndInput('Price', '2');
     getByLabelAndInput('Number', '1');

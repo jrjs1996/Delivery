@@ -30,12 +30,13 @@ export default function SettingPage({
   onSubmit,
   submitText,
   title,
+  style,
 }) {
   const [submitData, setSubmitData] = useState(() => initializeSubmitData(children));
   const [message, setMessage] = useState('');
 
   return (
-    <Paper>
+    <Paper style={style}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom id="pageTitle">

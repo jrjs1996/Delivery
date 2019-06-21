@@ -1,0 +1,40 @@
+
+---
+name: Customer
+menu: Components
+route: /Admin/Customers/CustomersList/Customer/Customer.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import Customer from './Customer';
+
+Customer
+
+Updated 21/06/2019
+
+Displays a customers information. Also displays a delete button
+if onDelete is specified.
+
+<Props of={Customer} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return (
+        <div>
+          <p>{message}</p>
+          <Customer
+            address="143 Grove St."
+            email="cj488@gmail.com"
+            firstName="Carl"
+            id="0"
+            lastName="Johnson"
+            onSelect={(id, firstName, lastName, address, email) => {
+              setMessage(`onSelect: ${id} ${firstName} ${lastName} ${address} ${email}`)
+            } }
+            onDelete={id => setMessage(`onDelete: ${id}`)}
+          />
+        </div>
+    );
+  }}
+</Playground>
