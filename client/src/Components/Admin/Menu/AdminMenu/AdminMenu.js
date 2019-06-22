@@ -8,7 +8,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import AdminMenuItemList from '../AdminMenuItemList/AdminMenuItemList';
 import AdminMenuItemForm from '../AdminMenuItemForm/AdminMenuItemForm';
-import MenuButton from '../ForwardBackButton/ForwardBackButton';
+import ForwardBackButton from '../ForwardBackButton/ForwardBackButton';
 
 import { locationPropType } from '../../../../propTypes';
 
@@ -26,7 +26,7 @@ export default function AdminMenu({ location }) {
     >
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          <MenuButton
+          <ForwardBackButton
             home="/admin/menu/"
             to="/admin/menu/additem/"
             onForward={() => setSelectedItem({})}

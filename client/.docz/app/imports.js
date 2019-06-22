@@ -1,4 +1,8 @@
 export const imports = {
+  'src/components/General/CrudPage.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-general-crud-page" */ 'src/components/General/CrudPage.mdx'
+    ),
   'src/components/SideMenu/SideMenu.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu" */ 'src/components/SideMenu/SideMenu.mdx'
@@ -27,13 +31,13 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-forward-back-button-forward-back-button" */ 'src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx'
     ),
-  'src/components/Admin/Menu/MenuItemList/MenuItemList.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-list" */ 'src/components/Admin/Menu/MenuItemList/MenuItemList.mdx'
-    ),
   'src/components/Admin/Settings/AdminList/AdminList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-list" */ 'src/components/Admin/Settings/AdminList/AdminList.mdx'
+    ),
+  'src/components/Admin/Menu/MenuItemList/MenuItemList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-list" */ 'src/components/Admin/Menu/MenuItemList/MenuItemList.mdx'
     ),
   'src/components/Admin/Settings/SettingList/SettingList.mdx': () =>
     import(
@@ -59,12 +63,12 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list-item-setting-list-item" */ 'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx'
     ),
-  'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-input-setting-page-input" */ 'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx'
-    ),
   'src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item" */ 'src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx'
+    ),
+  'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-input-setting-page-input" */ 'src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx'
     ),
 }

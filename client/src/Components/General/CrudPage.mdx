@@ -1,0 +1,65 @@
+
+---
+name: CrudPage
+menu: Components
+route: /General/CrudPage.mdx
+---
+import { MemoryRouter as Router, Route } from 'react-router-dom';
+import { Playground, Props } from 'docz';
+import CrudPage from './CrudPage';
+
+# Crud Page
+
+Updated 22/06/2019
+
+This component navigates between displaying a list of items and a form for
+updating or adding an item.
+
+<Props of={CrudPage} />
+
+<Playground>
+  {() => {
+    const items = [
+      {
+        id: 1,
+        name: 'first',
+      },
+      {
+        id: 2,
+        name: 'Second',
+      },
+    ]
+
+    return (
+      <Router initialEntries={['/']}>
+      <Route
+        path="/"
+        render={({ history, location }) => (
+          <CrudPage
+            formPath="/form/"
+            items={items}
+            listPath="/"
+            renderForm={(item) => {
+              console.log('render form')
+              return (<h3>*Form* Item given: {JSON.stringify(item)}</h3>)
+            }}
+            renderList={(items, setSelectedItem) => {
+              return (
+                <div>
+                  <h3>List</h3>
+                  { items.map(i => <div onClick={() => {
+                    setSelectedItem(i);
+                    history.push("/form/")
+                    }}>{JSON.stringify(i)}</div>)}
+                </div>
+              )
+            }}
+            title="Test Title"
+            pathName={location.pathname}
+          />
+        )}
+      />
+    </Router>
+    );
+  }}
+</Playground>
