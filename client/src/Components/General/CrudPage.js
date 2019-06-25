@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropType, { object } from 'prop-types';
+import PropType from 'prop-types';
 import { Route } from 'react-router-dom';
 
 import { Typography } from '@material-ui/core';
@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import { locationPropType } from '../../propTypes';
 import ForwardBackButton from '../Admin/Menu/ForwardBackButton/ForwardBackButton';
 
 export default function CrudPage({
@@ -21,7 +20,7 @@ export default function CrudPage({
   style,
   title,
 }) {
-  const [selectedItem, setSelectedItem] = useState({});
+  const [selectedItem, setSelectedItem] = useState(null);
 
   return (
     <div style={style}>
@@ -66,7 +65,7 @@ CrudPage.propTypes = {
   listPath: PropType.string.isRequired,
   /** Function to render the form when at form path.
    * This function will be passed the selected item
-   * if an item is selected. */
+   * if an item is selected. Otherwise an empty object. */
   renderForm: PropType.func.isRequired,
   /** Function to render the list when at list path.
    * Will be passed items and a function that sets the

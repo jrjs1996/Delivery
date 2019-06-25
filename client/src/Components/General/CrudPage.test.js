@@ -74,7 +74,7 @@ describe('CrudPage with renderForm', () => {
   });
 
   it('Calls renderForm with empty object.', () => {
-    expect(renderForm).toBeCalledWith({});
+    expect(renderForm).toBeCalledWith(null);
   });
 });
 
@@ -111,26 +111,5 @@ describe('CrudPage with navigation', () => {
 
   it('Calls render form with selected object.', () => {
     expect(renderForm).toBeCalledWith(itemsMock[0]);
-  });
-});
-
-describe('Crud page with simulated form', () => {
-  beforeEach(() => {
-    ({ getByText } = render(
-      <Router initialEntries={['/form/']}>
-        <CrudPage
-          formPath="/form/"
-          items={itemsMock}
-          listPath="/"
-          renderForm={() => {
-            <button
-          })}
-          renderList={renderList}
-          title="Test Title"
-          pathName="/"
-        />
-      </Router>
-      ,
-    ));
   });
 });

@@ -40,17 +40,16 @@ updating or adding an item.
             items={items}
             listPath="/"
             renderForm={(item) => {
-              console.log('render form')
               return (<h3>*Form* Item given: {JSON.stringify(item)}</h3>)
             }}
             renderList={(items, setSelectedItem) => {
               return (
                 <div>
                   <h3>List</h3>
-                  { items.map(i => <div onClick={() => {
+                  { items.map(i => <button onClick={() => {
                     setSelectedItem(i);
                     history.push("/form/")
-                    }}>{JSON.stringify(i)}</div>)}
+                    }}>{JSON.stringify(i)}</button>)}
                 </div>
               )
             }}

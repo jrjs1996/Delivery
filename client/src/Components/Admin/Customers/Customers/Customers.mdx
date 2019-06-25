@@ -1,0 +1,51 @@
+
+---
+name: Customers
+menu: Components
+route: /Admin/Customers/Customers/Customers.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { CustomersComponent } from './Customers';
+import { MemoryRouter as Router, Route } from 'react-router-dom';
+import { customersMock } from '../../../../tests/mocks';
+import { render, cleanup, fireEvent } from '@testing-library/react';
+
+# Customers
+
+Updated 25/06/2019
+
+Page for viewing and editing customers. Displays a list of customers to the user.
+Allows the user to delete, add, or update customers.
+
+<Props of={CustomersComponent} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return(
+      <Router initialEntries={['/']} initialIndex={0}>
+        <Route
+          path="/"
+          render={({ location }) => {
+            return (
+              <div>
+                <p>{message}</p>
+                <CustomersComponent
+                  customers={customersMock}
+                  addCustomer={c => setMessage(JSON.stringify(c))}
+                  updateCustomer={c => setMessage(JSON.stringify(c))}
+                  deleteCustomer={c => setMessage(JSON.stringify(c))}
+                  location={location}
+                  homePath="/"
+                />
+              </div>
+            );
+          }}
+        />
+      </Router>
+    )
+  }}
+  
+</Playground>

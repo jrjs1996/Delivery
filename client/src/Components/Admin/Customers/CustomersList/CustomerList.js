@@ -7,7 +7,7 @@ export default function CustomerList({
   customers,
   onDelete,
   onSelect,
-  render
+  render,
 }) {
   const customerItems = customers.map((c) => {
     const customer = (
