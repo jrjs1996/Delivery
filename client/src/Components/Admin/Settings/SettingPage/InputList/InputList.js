@@ -3,10 +3,10 @@ import SettingPageInput from '../SettingPageInput/SettingPageInput';
 
 
 export default function InputList({ onChange, name, value }) {
-  const [values, setValues] = useState(value);
+  console.log(value);
   return (
     <div name={name}>
-      {values.map((v, i) => (
+      {value.map((v, i) => (
         <div>
           <SettingPageInput
             required
@@ -14,19 +14,17 @@ export default function InputList({ onChange, name, value }) {
             label={`${name} ${i}`}
             value={v}
             onChange={(e) => {
-              const newValues = values.slice();
+              const newValues = value.slice();
               newValues[i] = e.target.value;
               onChange({ target: { name, value: newValues } });
-              setValues(newValues);
             }}
           />
           <button
             type="button"
             onClick={() => {
-              const newValues = values.slice();
+              const newValues = value.slice();
               newValues.splice(i, 1);
               onChange({ target: { name, value: newValues } });
-              setValues(newValues);
             }}
           >
             X
@@ -36,10 +34,9 @@ export default function InputList({ onChange, name, value }) {
       <button
         type="button"
         onClick={() => {
-          const newValues = values.slice();
+          const newValues = value.slice();
           newValues.push('');
           onChange({ target: { name, value: newValues } });
-          setValues(newValues);
         }}
       >
         +

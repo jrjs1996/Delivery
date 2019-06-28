@@ -20,7 +20,14 @@ const initializeSubmitData = (children) => {
       submitData[child.props.name] = child.props.value;
       return;
     }
-    submitData[child.props.name] = '';
+    switch (child.type.name) {
+      case 'InputList':
+        submitData[child.props.name] = [];
+        break;
+      default:
+        submitData[child.props.name] = '';
+        break;
+    }
   });
   return submitData;
 };
