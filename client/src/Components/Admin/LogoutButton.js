@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from '@material-ui/core/Button';
@@ -7,7 +7,12 @@ import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/adminActions';
 
 
-function LogoutButton({ history, action, ...rest }) {
+function LogoutButton({
+  history,
+  action,
+  staticContext,
+  ...rest
+}) {
   return (
     <div>
       <Button
@@ -22,7 +27,6 @@ function LogoutButton({ history, action, ...rest }) {
     </div>
   );
 }
-
 
 LogoutButton.propTypes = {
   action: PropTypes.func.isRequired,

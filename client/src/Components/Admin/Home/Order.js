@@ -8,8 +8,10 @@ import { StepLabel } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import { connect } from 'react-redux';
+import shortid from 'shortid';
 import { updateOrder } from '../../../actions/orderActions';
 import Item from './Item';
+import { menuItemPropType } from '../../../propTypes';
 
 
 function getSteps(delivery) {
@@ -74,7 +76,15 @@ export function Order({
           <Button variant="contained" color="primary" type="submit" onClick={() => { updateAction(id, { stage: stage + 1 }); }}>Next</Button>
         </Grid>
         <Grid item xs={12}>
-          {expand ? items.map(i => <Item title={i.title} menuNumber={i.menuNumber} />) : null}
+          {expand
+            ? items.map(i => (
+              <Item
+                title={i.title}
+                key={shortid.generate()}
+                menuNumber={i.menuNumber}
+              />
+            ))
+            : null}
         </Grid>
       </Grid>
     </Paper>
@@ -89,6 +99,7 @@ Order.propTypes = {
   stage: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   updateOrder: PropTypes.func.isRequired,
+  items: PropTypes.arrayOf(menuItemPropType).isRequired,
 };
 
 export default connect(null, { updateOrder })(Order);

@@ -24,5 +24,5 @@ export default function AdminRoute({ component: Component, ...rest }) {
 }
 
 AdminRoute.propTypes = {
-  component: PropTypes.node.isRequired,
+  component: PropTypes.elementType.isRequired,
 };

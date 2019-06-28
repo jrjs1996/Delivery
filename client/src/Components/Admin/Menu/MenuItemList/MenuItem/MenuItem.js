@@ -82,9 +82,9 @@ MenuItem.propTypes = {
   /** Description of the menu item. */
   description: PropType.string.isRequired,
   /** Number on the menu */
-  number: PropType.string.isRequired,
+  number: PropType.number.isRequired,
   /** Price of the item */
-  price: PropType.string.isRequired,
+  price: PropType.number.isRequired,
   /** Name of the menu item */
   title: PropType.string.isRequired,
   /** Function to be called when the menu item

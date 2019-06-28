@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { createOrder } from '../../../actions/orderActions';
 import MenuItemList from '../Menu/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menuActions';
@@ -175,7 +176,7 @@ class CreateOrderForm extends Component {
                 <p>{ message }</p>
               </Grid>
               {items.map((i, index) => (
-                <Grid item xs={12}>
+                <Grid item xs={12} key={shortid.generate()}>
                   <OrderItem item={i} index={index} onClick={this.removeItem} />
                 </Grid>
               ))}
