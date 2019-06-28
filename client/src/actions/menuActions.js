@@ -44,7 +44,7 @@ export const deleteMenuItem = menuNumber => async (dispatch) => {
     await axios.delete(`http://localhost:9000/menuItems/${menuNumber}`, setAuthHeader());
     dispatch({
       type: DELETE_MENU_ITEM,
-      payload: menuNumber,
+      payload: { menuNumber },
     });
   } catch (error) {
     console.log(error);

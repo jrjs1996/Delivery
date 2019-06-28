@@ -30,7 +30,7 @@ export default function CrudPage({
             <ForwardBackButton
               home={listPath}
               to={formPath}
-              onForward={() => setSelectedItem({})}
+              onForward={() => setSelectedItem(null)}
               pathname={pathName}
               homeIcon={AddIcon}
               toIcon={ArrowBackIcon}

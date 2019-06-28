@@ -15,7 +15,9 @@ export default function CustomerForm({
     <SettingPage
       title={id ? 'Update Customer' : 'Add Customer'}
       onSubmit={(data) => {
-        data._id = id;
+        if (id) {
+          data._id = id;
+        }
         onSubmit(data);
       }}
     >
@@ -23,6 +25,7 @@ export default function CustomerForm({
       <SettingPageInput required fullWidth name="lastName" label="Last Name" value={lastName} />
       <SettingPageInput required fullWidth name="address" label="Address" value={address} />
       <SettingPageInput required fullWidth name="email" label="Email" value={email} />
+      <SettingPageInput required fullWidth name="password" label="Password" type="password" />
     </SettingPage>
   );
 }

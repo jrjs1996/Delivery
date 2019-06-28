@@ -48,8 +48,7 @@ router.post('/', async (req, res) => {
 
   try {
     const user = await Customer.create(req.body);
-    const token = user.newToken();
-    return res.status(201).send(token).end();
+    return res.status(201).send(user).end();
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).send({ email: 'Address is already in use!' }).end();

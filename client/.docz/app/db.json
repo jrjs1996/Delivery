@@ -899,66 +899,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\Customers\\Customers.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CustomersComponent",
-          "methods": [],
-          "actualName": "CustomersComponent",
-          "props": {
-            "location": {
-              "type": {
-                "name": "custom",
-                "raw": "locationPropType.isRequired"
-              },
-              "required": false,
-              "description": "Location proptype provided by route.\r\nDon't provide manually."
-            },
-            "customers": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "CustomerPropType"
-                }
-              },
-              "required": true,
-              "description": "Customers to populate the list of customers with."
-            },
-            "addCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to add\r\na customer."
-            },
-            "updateCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to update\r\na customer."
-            },
-            "deleteCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user clicks on a customers delete button."
-            },
-            "homePath": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Path to display the page at"
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
       "value": [
         {
@@ -1721,6 +1661,66 @@
                 "value": "null",
                 "computed": false
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Customers\\Customers\\Customers.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CustomersComponent",
+          "methods": [],
+          "actualName": "CustomersComponent",
+          "props": {
+            "location": {
+              "type": {
+                "name": "custom",
+                "raw": "locationPropType.isRequired"
+              },
+              "required": false,
+              "description": "Location proptype provided by route.\r\nDon't provide manually."
+            },
+            "customers": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "CustomerPropType"
+                }
+              },
+              "required": true,
+              "description": "Customers to populate the list of customers with."
+            },
+            "addCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to add\r\na customer."
+            },
+            "updateCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to update\r\na customer."
+            },
+            "deleteCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user clicks on a customers delete button."
+            },
+            "homePath": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Path to display the page at"
             }
           }
         }

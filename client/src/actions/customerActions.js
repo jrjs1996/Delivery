@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_CUSTOMERS, GET_CUSTOMER } from './types';
+import { FETCH_CUSTOMERS, GET_CUSTOMER, UPDATE_CUSTOMER, ADD_CUSTOMER, DELETE_CUSTOMER } from './types';
 import { saveToken, setAuthHeader } from '../utils/token';
 
 export const fetchCustomers = () => (dispatch) => {
@@ -13,10 +13,12 @@ export const fetchCustomers = () => (dispatch) => {
 };
 
 export const addCustomer = postData => (dispatch) => {
-  console.log(JSON.stringify(postData))
   axios.post('http://localhost:9000/customers/', postData)
     .then((res) => {
-      saveToken(res.data);
+      dispatch({
+        type: ADD_CUSTOMER,
+        payload: res.data,
+      });
     });
 };
 
@@ -35,4 +37,27 @@ export const getCustomer = userId => (dispatch) => {
         payload: res.data,
       });
     });
+};
+
+export const updateCustomer = putData => (dispatch) => {
+  axios.put(`http://localhost:9000/customers/${putData._id}`, putData, setAuthHeader())
+    .then(() => {
+      const payload = putData;
+      dispatch({
+        type: UPDATE_CUSTOMER,
+        payload,
+      });
+    });
+};
+
+export const deleteCustomer = customerId => async (dispatch) => {
+  try {
+    await axios.delete(`http://localhost:9000/customers/${customerId}`, setAuthHeader());
+    dispatch({
+      type: DELETE_CUSTOMER,
+      payload: { _id: customerId },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };

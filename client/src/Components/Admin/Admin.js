@@ -15,6 +15,7 @@ import SideMenu from '../SideMenu/SideMenu';
 import SideMenuItem from '../SideMenu/SideMenuItem/SideMenuItem';
 import LogoutButton from './LogoutButton';
 import CreateOrder from './CreateOrder/CreateOrder';
+import Customers from './Customers/Customers/Customers';
 
 import { getCurrentAdminInfo } from '../../actions/adminActions';
 
@@ -49,7 +50,7 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
     <div className="adminPanel">
       <SideMenu>
         <SideMenuItem to="/admin/" text="Home"><HomeIcon /></SideMenuItem>
-        <SideMenuItem to="/customers/" text="Customers"><PersonIcon /></SideMenuItem>
+        <SideMenuItem to="/admin/customers/" text="Customers"><PersonIcon /></SideMenuItem>
         <SideMenuItem to="/admin/createorder/" text="Create Order"><ShoppingBasket /></SideMenuItem>
         <SideMenuItem to="/admin/settings/" text="Settings"><SettingsIcon /></SideMenuItem>
         <SideMenuItem to="/admin/menu/" text="Menu"><BookIcon /></SideMenuItem>
@@ -67,6 +68,7 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
         <Route path="/admin/createorder/" component={CreateOrder} />
         <Route path="/admin/menu/" component={AdminMenu} />
         <Route path="/admin/settings/" component={Settings} />
+        <Route path="/admin/customers/" component={Customers} />
       </div>
     </div>
   );

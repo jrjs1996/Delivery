@@ -20,6 +20,7 @@ export const CustomerPropType = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
 });
 
+/** Location provided by routes (react router) */
 export const locationPropType = PropTypes.shape({
   hash: PropTypes.string.isRequired,
   key: PropTypes.string.isRequired,
@@ -38,4 +39,12 @@ export const menuItemPropType = PropTypes.shape({
   title: PropTypes.string,
   __v: PropTypes.number,
   _id: PropTypes.string,
+});
+
+/** Match provided by routes (react router)  */
+export const matchPropType = PropTypes.shape({
+  isExact: PropTypes.bool.isRequired,
+  params: PropTypes.object.isRequired,
+  path: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 });
