@@ -3,7 +3,6 @@ import SettingPageInput from '../SettingPageInput/SettingPageInput';
 
 
 export default function InputList({ onChange, name, value }) {
-  console.log(value);
   return (
     <div name={name}>
       {value.map((v, i) => (

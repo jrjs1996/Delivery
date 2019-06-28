@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/adminActions';
 
-class LogoutButton extends Component {
-  constructor(props) {
-    super(props);
 
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    const { history, logout: action } = this.props;
-    action();
-    history.push('/');
-  }
-
-  render() {
-    return (
-      <div>
-        <Button onClick={this.onClick} {...this.props}>Logout</Button>
-      </div>
-    );
-  }
+function LogoutButton({ history, action, ...rest }) {
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          action();
+          history.push('/');
+        }}
+        {...rest}
+      >
+        Logout
+      </Button>
+    </div>
+  );
 }
 
+
 LogoutButton.propTypes = {
-  logout: PropTypes.func.isRequired,
+  action: PropTypes.func.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
-export default withRouter(connect(null, { logout })(LogoutButton));
+export default withRouter(connect(null, { action: logout })(LogoutButton));
