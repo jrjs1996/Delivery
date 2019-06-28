@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Paper, Grid, Button } from '@material-ui/core';
 
 export default function Customer({
-  address,
+  addresses,
   email,
   firstName,
   id,
@@ -12,7 +12,7 @@ export default function Customer({
   onSelect,
 }) {
   return (
-    <Paper onClick={() => onSelect(id, firstName, lastName, address, email)}>
+    <Paper onClick={() => onSelect(id, firstName, lastName, addresses, email)}>
       <Grid container spacing={3}>
         <Grid item xs={4}>
           Name:
@@ -23,7 +23,7 @@ export default function Customer({
         <Grid item xs={4}>
           Address:
           <Paper>
-            {address}
+            {addresses[0]}
           </Paper>
         </Grid>
         <Grid item xs={4}>
@@ -49,7 +49,7 @@ export default function Customer({
 
 Customer.propTypes = {
   /** Street address of the customer */
-  address: PropTypes.string.isRequired,
+  addresses: PropTypes.arrayOf(PropTypes.string).isRequired,
   /** Customers email */
   email: PropTypes.string.isRequired,
   /** Customers first name */

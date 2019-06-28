@@ -14,7 +14,7 @@ export const ChildrenPropType = PropTypes.oneOfType([
 export const CustomerPropType = PropTypes.shape({
   __v: PropTypes.number.isRequired,
   _id: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  addresses: PropTypes.arrayOf(PropTypes.string.isRequired),
   email: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,

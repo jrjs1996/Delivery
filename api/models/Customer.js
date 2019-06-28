@@ -13,7 +13,7 @@ CustomerSchema.add({
     required: true,
     trim: true,
   },
-  address: [{
+  addresses: [{
     type: String,
     required: true,
     trim: true,

@@ -19,7 +19,7 @@ const renderCustomerForm = (c, addAction, updateAction) => {
   }
   return (
     <CustomerForm
-      address={c.address}
+      addresses={c.addresses}
       email={c.email}
       firstName={c.firstName}
       id={c.id}
@@ -33,12 +33,12 @@ const renderCustomerList = (customers, setSelectedCustomer, deleteAction, formPa
   <CustomersList
     customers={customers}
     onDelete={deleteAction}
-    onSelect={(id, firstName, lastName, address, email) => {
+    onSelect={(id, firstName, lastName, addresses, email) => {
       setSelectedCustomer({
         id,
         firstName,
         lastName,
-        address,
+        addresses,
         email,
       });
     }}

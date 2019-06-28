@@ -12,7 +12,7 @@ export default function CustomerList({
   const customerItems = customers.map((c) => {
     const customer = (
       <Customer
-        address={c.address}
+        addresses={c.addresses}
         email={c.email}
         firstName={c.firstName}
         id={c._id}

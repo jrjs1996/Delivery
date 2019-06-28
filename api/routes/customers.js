@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   if (!(req.body.firstName
     && req.body.lastName
-    && req.body.address
+    && req.body.addresses
     && req.body.email
     && req.body.password)) return res.sendStatus(400);
 

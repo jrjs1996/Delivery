@@ -2,9 +2,10 @@ import React from 'react';
 import PropType from 'prop-types';
 import SettingPage from '../../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
+import InputList from '../../Settings/SettingPage/InputList/InputList';
 
 export default function CustomerForm({
-  address,
+  addresses,
   email,
   firstName,
   id,
@@ -23,9 +24,9 @@ export default function CustomerForm({
     >
       <SettingPageInput required fullWidth name="firstName" label="First Name" value={firstName} />
       <SettingPageInput required fullWidth name="lastName" label="Last Name" value={lastName} />
-      <SettingPageInput required fullWidth name="address" label="Address" value={address} />
       <SettingPageInput required fullWidth name="email" label="Email" value={email} />
       <SettingPageInput required fullWidth name="password" label="Password" type="password" />
+      <InputList name="addresses" value={addresses} />
     </SettingPage>
   );
 }
