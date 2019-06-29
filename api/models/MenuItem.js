@@ -11,7 +11,7 @@ const { Schema } = mongoose;
 
 const MenuItemSchema = new Schema({
   title: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String },
   archived: { type: Boolean, required: true, default: false },
   price: { type: Number, required: true },
   created: { type: Date, required: true, default: Date.now() },

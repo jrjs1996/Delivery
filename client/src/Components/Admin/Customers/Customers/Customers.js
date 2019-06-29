@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import PropType from 'prop-types';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CrudPage from '../../../General/CrudPage';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import CustomersList from '../CustomersList/CustomerList';
-import { locationPropType, CustomerPropType, matchPropType } from '../../../../propTypes';
 import {
   fetchCustomers,
   addCustomer,
   updateCustomer,
   deleteCustomer,
 } from '../../../../actions/customerActions';
+import { CustomerPropType } from '../../../../propTypes';
 
 const renderCustomerForm = (c, addAction, updateAction) => {
   if (!c) {
@@ -74,9 +75,9 @@ export function CustomersComponent({
 CustomersComponent.propTypes = {
   /** Location proptype provided by route.
    * Don't provide manually. */
-  location: locationPropType.isRequired,
+  location: ReactRouterPropTypes.location.isRequired,
   /** Match property provided by route */
-  match: matchPropType.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
   /** Customers to populate the list of customers with. */
   customers: PropType.arrayOf(CustomerPropType).isRequired,
   /** Function to be called when the user submits the form to add

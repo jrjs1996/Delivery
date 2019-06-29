@@ -1,61 +1,96 @@
-import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import PropType from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ReactRouterPropTypes from 'react-router-prop-types';
+import MenuItemForm from '../MenuItemForm/MenuItemForm';
+import {
+  fetchMenu,
+  addMenuItem,
+  updateMenuItem,
+  deleteMenuItem,
+} from '../../../../actions/menuActions';
+import { menuItemPropType } from '../../../../propTypes';
+import CrudPage from '../../../General/CrudPage';
+import MenuItemList from '../MenuItemList/MenuItemList';
 
-import { Typography } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import AddIcon from '@material-ui/icons/Add';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-import AdminMenuItemList from '../AdminMenuItemList/AdminMenuItemList';
-import AdminMenuItemForm from '../AdminMenuItemForm/AdminMenuItemForm';
-import ForwardBackButton from '../ForwardBackButton/ForwardBackButton';
-
-import { locationPropType } from '../../../../propTypes';
-
-
-export default function AdminMenu({ location }) {
-  const [selectedItem, setSelectedItem] = useState(0);
-
+const renderItemForm = (i, addAction, updateAction) => {
+  if (!i) {
+    return <MenuItemForm onSubmit={addAction} />;
+  }
   return (
-    <div style={{
-      paddingTop: '5%',
-      marginLeft: '20%',
-      marginRight: '20%',
-      paddingBottom: '1%',
-    }}
-    >
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <ForwardBackButton
-            home="/admin/menu/"
-            to="/admin/menu/additem/"
-            onForward={() => setSelectedItem({})}
-            pathname={location.pathname}
-            homeIcon={AddIcon}
-            toIcon={ArrowBackIcon}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h4">
-            Menu
-          </Typography>
-        </Grid>
-      </Grid>
-      <Route
-        exact
-        path="/admin/menu/"
-        render={() => <AdminMenuItemList onSelect={i => setSelectedItem(i)} />}
-      />
-      <Route
-        path="/admin/menu/additem/"
-        render={() => <AdminMenuItemForm menuItem={selectedItem} />}
-      />
-    </div>
+    <MenuItemForm
+      title={i.title}
+      price={i.price}
+      menuNumber={i.menuNumber}
+      description={i.menuItem}
+      onSubmit={updateAction}
+    />
+  );
+};
+
+const renderItemList = (items, setSelectedItem, deleteAction, formPath) => (
+  <MenuItemList
+    menu={items}
+    onSelect={setSelectedItem}
+    onDelete={deleteAction}
+    render={i => <Link to={formPath} key={i.props._id}>{i}</Link>}
+  />
+);
+
+function AdminMenu({
+  location,
+  match,
+  items,
+  addAction,
+  fetchAction,
+  updateAction,
+  deleteAction,
+}) {
+  useEffect(() => {
+    fetchAction();
+  }, [fetchAction]);
+  return (
+    <CrudPage
+      formPath={`${match.path}form/`}
+      items={items}
+      listPath={match.path}
+      renderForm={i => renderItemForm(i, addAction, updateAction)}
+      renderList={(i, setSelectedItem) => renderItemList(i, setSelectedItem, deleteAction, `${match.path}form/`)}
+      title="Menu"
+      pathName={location.pathname}
+    />
   );
 }
 
 AdminMenu.propTypes = {
-  /** Current browser location. Provided by router.
-   *  (Dont set manually) */
-  location: locationPropType.isRequired,
+  /** Location proptype provided by route.
+   * Don't provide manually. */
+  location: ReactRouterPropTypes.location.isRequired,
+  /** Match property provided by route */
+  match: ReactRouterPropTypes.location.isRequired,
+  /** Items to populate the list of menu with. */
+  items: PropType.arrayOf(menuItemPropType).isRequired,
+  /** Function to be called when the user submits the form to add
+   * an item. */
+  addAction: PropType.func.isRequired,
+  /** Function to be called when the user submits the form to update
+   * an item. */
+  updateAction: PropType.func.isRequired,
+  /** Function to be called when the user clicks on a menu items delete button. */
+  deleteAction: PropType.func.isRequired,
+  /** Function that populates items */
+  fetchAction: PropType.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  items: state.menu.items,
+});
+
+export default connect(mapStateToProps,
+  {
+    fetchAction: fetchMenu,
+    addAction: addMenuItem,
+    updateAction: updateMenuItem,
+    deleteAction: deleteMenuItem,
+  })(AdminMenu);

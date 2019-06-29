@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
     case ADD_MENU_ITEM:
       return {
         ...state,
-        items: insertItem(state.items, action.payload, 'menuItem'),
+        items: insertItem(state.items, action.payload, 'menuNumber'),
       };
     case UPDATE_MENU_ITEM:
       return {

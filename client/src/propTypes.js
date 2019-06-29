@@ -20,15 +20,6 @@ export const CustomerPropType = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
 });
 
-/** Location provided by routes (react router) */
-export const locationPropType = PropTypes.shape({
-  hash: PropTypes.string.isRequired,
-  key: PropTypes.string.isRequired,
-  pathname: PropTypes.string.isRequired,
-  search: PropTypes.string.isRequired,
-  state: PropTypes.any,
-});
-
 export const menuItemPropType = PropTypes.shape({
   archived: PropTypes.bool,
   created: PropTypes.string,
@@ -51,12 +42,4 @@ export const menuItemFormPropType = PropTypes.shape({
   title: PropTypes.string,
   __v: PropTypes.number,
   _id: PropTypes.string,
-});
-
-/** Match provided by routes (react router)  */
-export const matchPropType = PropTypes.shape({
-  isExact: PropTypes.bool.isRequired,
-  params: PropTypes.object.isRequired,
-  path: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
 });

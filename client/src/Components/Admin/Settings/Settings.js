@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { Button, Grid } from '@material-ui/core';
 import ChangeUsername from './ChangeUsername';
 import ChangePassword from './ChangePassword';
 import AdminSettings from './AdminSettings';
-import { locationPropType } from '../../../propTypes';
 import AdminList from './AdminList/AdminList';
 
 const renderBackButton = (pathname) => {
@@ -45,5 +45,5 @@ export default function Settings(props) {
 }
 
 Settings.propTypes = {
-  location: locationPropType.isRequired,
+  location: ReactRouterPropTypes.location.isRequired,
 };

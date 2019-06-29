@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
-import { AdminMenuItemFormComponent } from './AdminMenuItemForm';
+import MenuItemForm from './MenuItemForm';
 import { menuItemsMock, menuItemsFormMock } from '../../../../tests/mocks';
 import { getByLabelAndInput } from '../../../../tests/utils';
 
@@ -13,7 +13,7 @@ let updateMenuItem = jest.fn();
 
 const checkInputs = () => {
   ({ getByLabelText } = render(
-    <AdminMenuItemFormComponent
+    <MenuItemForm
       addMenuItem={addMenuItem}
       updateMenuItem={updateMenuItem}
     />,
@@ -24,10 +24,10 @@ const checkInputs = () => {
   getByLabelText(new RegExp('Description*'));
 };
 
-describe('AdminMenuItemForm without menu item', () => {
+describe('MenuItemForm without menu item', () => {
   beforeEach(() => {
     ({ getByLabelText, getByText } = render(
-      <AdminMenuItemFormComponent
+      <MenuItemForm
         addMenuItem={addMenuItem}
         updateMenuItem={updateMenuItem}
       />,
@@ -65,10 +65,10 @@ describe('AdminMenuItemForm without menu item', () => {
   });
 });
 
-describe('AdminMenuItem with menu item', () => {
+describe('MenuItem with menu item', () => {
   beforeEach(() => {
     ({ getByLabelText, getByText } = render(
-      <AdminMenuItemFormComponent
+      <MenuItemForm
         addMenuItem={addMenuItem}
         updateMenuItem={updateMenuItem}
         menuItem={menuItemsFormMock[0]}

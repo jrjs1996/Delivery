@@ -7,7 +7,7 @@ export default function MenuItemList({
   menu,
   onSelect,
   onDelete,
-  renderItem,
+  render,
 }) {
   const menuItems = menu.map(i => (
     <MenuItem
@@ -18,13 +18,14 @@ export default function MenuItemList({
       onSelect={onSelect}
       onDelete={onDelete}
       _id={i._id}
+      _key={i._id}
       key={shortid.generate()}
     />
   ));
 
   return (
     <div>
-      {renderItem ? menuItems.map(i => renderItem(i)) : menuItems}
+      {render ? menuItems.map(i => render(i)) : menuItems}
     </div>
   );
 }
@@ -43,11 +44,11 @@ MenuItemList.propTypes = {
   /** Optional render function for each menu item. Passed
    * the menu item. Could be used to wrap the items in links
    * for example. */
-  renderItem: PropType.func,
+  render: PropType.func,
 };
 
 MenuItemList.defaultProps = {
   onSelect: null,
   onDelete: null,
-  renderItem: null,
+  render: null,
 };
