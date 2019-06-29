@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import shortid from 'shortid';
 import { ChildrenPropType } from '../../../../propTypes';
 
 
@@ -16,15 +17,20 @@ const onChange = (e, submitData, setSubmitData) => {
 const initializeSubmitData = (children) => {
   const submitData = {};
   React.Children.forEach(children, (child) => {
-    if (child.props.value) {
-      submitData[child.props.name] = child.props.value;
-      return;
-    }
     switch (child.type.name) {
       case 'InputList':
+        if (child.props.value) {
+          submitData[child.props.name] = child.props.value.map(v => (
+            { value: v, key: shortid.generate() }));
+          return;
+        }
         submitData[child.props.name] = [];
         break;
       default:
+        if (child.props.value) {
+          submitData[child.props.name] = child.props.value;
+          return;
+        }
         submitData[child.props.name] = '';
         break;
     }

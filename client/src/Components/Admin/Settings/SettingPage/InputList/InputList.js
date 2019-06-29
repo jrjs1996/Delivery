@@ -8,16 +8,16 @@ export default function InputList({ onChange, name, value }) {
   return (
     <div name={name}>
       {value.map((v, i) => (
-        <div key={shortid.generate()}>
+        <div key={v.key}>
           <SettingPageInput
             required
             fullWidth
             label={`${name} ${i}`}
             name={`${name}${i}`}
-            value={v}
+            value={v.value}
             onChange={(e) => {
               const newValues = value.slice();
-              newValues[i] = e.target.value;
+              newValues[i] = { value: e.target.value, key: v.key };
               onChange({ target: { name, value: newValues } });
             }}
           />
@@ -37,7 +37,7 @@ export default function InputList({ onChange, name, value }) {
         type="button"
         onClick={() => {
           const newValues = value.slice();
-          newValues.push('');
+          newValues.push({ value: '', key: shortid.generate() });
           onChange({ target: { name, value: newValues } });
         }}
       >
@@ -50,7 +50,8 @@ export default function InputList({ onChange, name, value }) {
 InputList.propTypes = {
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
-  value: PropTypes.arrayOf(PropTypes.string),
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object),
+    PropTypes.arrayOf(PropTypes.string)]),
 };
 
 InputList.defaultProps = {

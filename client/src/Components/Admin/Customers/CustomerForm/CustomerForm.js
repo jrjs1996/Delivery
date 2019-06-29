@@ -32,8 +32,6 @@ export default function CustomerForm({
 }
 
 CustomerForm.propTypes = {
-  /** Initial value of address input */
-  address: PropType.string,
   /** Initial value of email input */
   email: PropType.string,
   /** Initial value of firstName input */
@@ -49,7 +47,6 @@ CustomerForm.propTypes = {
 };
 
 CustomerForm.defaultProps = {
-  address: '',
   email: '',
   firstName: '',
   id: undefined,
