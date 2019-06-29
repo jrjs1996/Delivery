@@ -15,9 +15,9 @@ describe('Customer', () => {
   beforeEach(() => {
     ({ getByText } = render(
       <Customer
+        addresses={[]}
         firstName={customer.firstName}
         lastName={customer.lastName}
-        address={customer.address}
         email={customer.email}
         id={customer._id}
         onSelect={onSelect}
@@ -34,24 +34,10 @@ describe('Customer', () => {
   it('Displays name', () => {
     getByText(`${customer.firstName} ${customer.lastName}`);
   });
-  it('Displays Address', () => {
-    getByText(customer.address);
-  });
   it('Displays email', () => {
     getByText(customer.email);
   });
 
-  // Check functions
-  it('OnSelect works', () => {
-    fireEvent.click(getByText(customer.address));
-    expect(onSelect).toBeCalledWith(
-      customer._id,
-      customer.firstName,
-      customer.lastName,
-      customer.address,
-      customer.email,
-    );
-  });
   it('OnDelete works', () => {
     fireEvent.click(getByText('Delete'));
     expect(onDelete).toBeCalledWith(customer._id);
@@ -62,9 +48,9 @@ describe('Customer without function props', () => {
   beforeEach(() => {
     ({ getByText } = render(
       <Customer
+        addresses={[]}
         firstName={customer.firstName}
         lastName={customer.lastName}
-        address={customer.address}
         email={customer.email}
         id={customer._id}
       />,
@@ -75,9 +61,6 @@ describe('Customer without function props', () => {
     cleanup();
   });
 
-  it('Doesnt throw error on click', () => {
-    fireEvent.click(getByText(customer.address));
-  });
   it('Doesnt display delete button', () => {
     try {
       getByText('Delete');

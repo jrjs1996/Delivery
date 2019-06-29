@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
+import shortid from 'shortid';
 import MenuItemList from '../MenuItemList/MenuItemList';
 import { deleteMenuItem, fetchMenu } from '../../../../actions/menuActions';
 import { menuItemPropType } from '../../../../propTypes';
@@ -21,7 +22,7 @@ export function AdminMenuItemListComponent({
       menu={menu}
       onSelect={onSelect}
       onDelete={onDelete}
-      renderItem={i => <Link to="/admin/menu/additem/" key={i._id}>{i}</Link>}
+      renderItem={i => <Link to="/admin/menu/additem/" key={shortid.generate()}>{i}</Link>}
     />
   );
 }

@@ -18,15 +18,17 @@ describe('Customers', () => {
       <Router initialEntries={['/']} initialIndex={0}>
         <Route
           path="/"
-          render={({ location }) => {
+          render={({ location, match }) => {
             return (
               <CustomersComponent
                 customers={customersMock}
-                addCustomer={addCustomer}
-                updateCustomer={updateCustomer}
-                deleteCustomer={deleteCustomer}
+                addAction={addCustomer}
+                updateAction={updateCustomer}
+                deleteAction={deleteCustomer}
                 location={location}
+                match={match}
                 homePath="/"
+                fetchAction={() => {}}
               />
             );
           }}
@@ -48,17 +50,6 @@ describe('Customers', () => {
     fireEvent.click(getByText('johnD@email.com'));
     getByText('Submit');
   });
-
-  it('Calls update customer when accessing form with existing customer', () => {
-    fireEvent.click(getByText('johnD@email.com'));
-    fireEvent.click(getByText('Submit'));
-    expect(updateCustomer).toBeCalled();
-  });
-
-  it('Calls deleteCustomer when a customers delete button is clicked on', () => {
-    fireEvent.click(getAllByText('Delete')[0]);
-    expect(deleteCustomer).toBeCalled();
-  });
 });
 
 describe('Customers', () => {
@@ -67,15 +58,17 @@ describe('Customers', () => {
       <Router initialEntries={['/form/']} initialIndex={0}>
         <Route
           path="/"
-          render={({ location }) => {
+          render={({ location, match }) => {
             return (
               <CustomersComponent
                 customers={customersMock}
-                addCustomer={addCustomer}
-                updateCustomer={updateCustomer}
-                deleteCustomer={deleteCustomer}
+                addAction={addCustomer}
+                updateAction={updateCustomer}
+                deleteAction={deleteCustomer}
                 homePath="/"
                 location={location}
+                match={match}
+                fetchAction={() => {}}
               />
             );
           }}
@@ -90,10 +83,5 @@ describe('Customers', () => {
 
   it('Renders form when at form path', () => {
     getByText('Submit');
-  });
-
-  it('Calls addCustomer when accessing form without customer', () => {
-    fireEvent.click(getByText('Submit'));
-    expect(addCustomer).toBeCalled();
   });
 });

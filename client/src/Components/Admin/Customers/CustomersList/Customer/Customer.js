@@ -23,7 +23,7 @@ export default function Customer({
         <Grid item xs={4}>
           Address:
           <Paper>
-            {addresses[0]}
+            {addresses ? addresses[0] : null}
           </Paper>
         </Grid>
         <Grid item xs={4}>

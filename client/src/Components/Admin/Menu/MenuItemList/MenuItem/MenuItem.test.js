@@ -15,8 +15,8 @@ describe('MenuItem.test', () => {
       <MenuItem
         title="TestTitle"
         description="TestDescription"
-        number="1234"
-        price="4321"
+        number={1234}
+        price={4321}
         onSelect={() => { onSelectResult = true; }}
         onDelete={() => { onDeleteResult = true; }}
         _id="2"
@@ -64,8 +64,8 @@ describe('MenuItem.test', () => {
       <MenuItem
         title="TestTitle"
         description="TestDescription"
-        number="1234"
-        price="4321"
+        number={1234}
+        price={4321}
         onSelect={() => { onSelectResult = true; }}
         _id="2"
       />,

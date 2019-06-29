@@ -39,10 +39,6 @@ describe('CustomerForm', () => {
     getByLabelText(RegExp('Last Name*'));
   });
 
-  it('Has Address input', () => {
-    getByLabelText(RegExp('Address*'));
-  });
-
   it('Has Email input', () => {
     getByLabelText(RegExp('Email*'));
   });
@@ -55,7 +51,6 @@ describe('CustomerForm', () => {
 
     getByLabelAndInput('First Name', customer.firstName, getByLabelText);
     getByLabelAndInput('Last Name', customer.lastName, getByLabelText);
-    getByLabelAndInput('Address', customer.address, getByLabelText);
     getByLabelAndInput('Email', customer.email, getByLabelText);
 
     fireEvent.click((getByText('Submit')));
@@ -63,7 +58,6 @@ describe('CustomerForm', () => {
     const submitObject = onSubmit.mock.calls[0][0];
     expect(submitObject.firstName).toBe(customer.firstName);
     expect(submitObject.lastName).toBe(customer.lastName);
-    expect(submitObject.address).toBe(customer.address);
     expect(submitObject.email).toBe(customer.email);
     expect(submitObject._id).toBe(undefined);
   });
@@ -73,7 +67,6 @@ describe('CustomerForm with user info initialized', () => {
   beforeEach(() => {
     ({ getByText, getByLabelText } = render(
       <CustomerForm
-        address={customer.address}
         email={customer.email}
         firstName={customer.firstName}
         id={customer._id}
@@ -94,14 +87,12 @@ describe('CustomerForm with user info initialized', () => {
   it('Fills input values with user info', () => {
     expect(getByLabelText(RegExp('First Name*')).value).toBe(customer.firstName);
     expect(getByLabelText(RegExp('Last Name*')).value).toBe(customer.lastName);
-    expect(getByLabelText(RegExp('Address*')).value).toBe(customer.address);
     expect(getByLabelText(RegExp('Email*')).value).toBe(customer.email);
   });
 
   it('Sends new info with id', () => {
     getByLabelAndInput('First Name', 'newFirstName', getByLabelText);
     getByLabelAndInput('Last Name', 'newLastName', getByLabelText);
-    getByLabelAndInput('Address', 'newAddress', getByLabelText);
     getByLabelAndInput('Email', 'newEmail', getByLabelText);
 
     fireEvent.click((getByText('Submit')));
@@ -109,7 +100,6 @@ describe('CustomerForm with user info initialized', () => {
     const submitObject = onSubmit.mock.calls[0][0];
     expect(submitObject.firstName).toBe('newFirstName');
     expect(submitObject.lastName).toBe('newLastName');
-    expect(submitObject.address).toBe('newAddress');
     expect(submitObject.email).toBe('newEmail');
     expect(submitObject._id).toBe(customer._id);
   });

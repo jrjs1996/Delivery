@@ -13,6 +13,7 @@ function AdminList({ admins, fetchAdmins: fetchAction }) {
 
   return (
     <SettingList
+      onClick={() => {}}
       items={admins}
       itemString={a => a.username}
       title="Edit Admins"

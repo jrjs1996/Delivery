@@ -23,7 +23,7 @@ describe('Setting Page Input', () => {
         required
         type="text"
         onChange={(e) => { onChangeResult = e.target.value; }}
-        value="Test Value"
+        value="1"
       />,
     );
     ({ root } = component);
@@ -64,6 +64,6 @@ describe('Setting Page Input', () => {
   });
 
   it('Has correct value', () => {
-    expect(textField.props.value).toBe('Test Value');
+    expect(textField.props.value).toBe('1');
   });
 });

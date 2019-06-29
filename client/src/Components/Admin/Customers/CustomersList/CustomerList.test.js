@@ -29,18 +29,18 @@ describe('CustomerList', () => {
   });
 
   it('Displays customers', () => {
-    getByText(customersMock[0].address);
-    getByText(customersMock[1].address);
+    getByText(customersMock[0].email);
+    getByText(customersMock[1].email);
   });
 
   it('OnClick is called with correct customer info', () => {
     const customer = customersMock[0];
-    fireEvent.click(getByText(customer.address));
+    fireEvent.click(getByText(customer.email));
     expect(onSelect).toBeCalledWith(
       customer._id,
       customer.firstName,
       customer.lastName,
-      customer.address,
+      customer.addresses,
       customer.email,
     );
   });
@@ -66,7 +66,7 @@ describe('CustomerList without onDelete and onSelect', () => {
   });
 
   it('Doesnt cause error when onSelect isnt provided', () => {
-    fireEvent.click(getByText(customersMock[0].address));
+    fireEvent.click(getByText(customersMock[0].email));
   });
 
   it('Doesnt display delete buttons when onDelete isnt given', () => {

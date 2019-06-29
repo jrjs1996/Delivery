@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addMenuItem, updateMenuItem } from '../../../../actions/menuActions';
 import SettingPage from '../../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
-import { menuItemPropType } from '../../../../propTypes';
+import { menuItemFormPropType } from '../../../../propTypes';
 
 const onSubmit = (submitData, update, addAction, updateAction) => {
   if (update) {
@@ -37,7 +37,7 @@ AdminMenuItemFormComponent.propTypes = {
    * updateMenuItem. If none is given it will
    * call addMenuItem.
    */
-  menuItem: menuItemPropType,
+  menuItem: menuItemFormPropType,
   /** Function to call when adding a new menu item. */
   addMenuItem: PropTypes.func.isRequired,
   /** Function called on submit when menuItem is given. */

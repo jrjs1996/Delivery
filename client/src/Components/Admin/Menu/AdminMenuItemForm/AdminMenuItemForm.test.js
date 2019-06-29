@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import { AdminMenuItemFormComponent } from './AdminMenuItemForm';
-import { menuItemsMock } from '../../../../tests/mocks';
+import { menuItemsMock, menuItemsFormMock } from '../../../../tests/mocks';
 import { getByLabelAndInput } from '../../../../tests/utils';
 
 let getByLabelText;
@@ -57,8 +57,8 @@ describe('AdminMenuItemForm without menu item', () => {
     fireEvent.click(getByText('Submit'));
     const submitData = addMenuItem.mock.calls[0][0];
     expect(submitData.title).toBe(mockItem.title);
-    expect(submitData.price).toBe(mockItem.price);
-    expect(submitData.menuNumber).toBe(mockItem.menuNumber);
+    expect(parseFloat(submitData.price, 10)).toBe(mockItem.price);
+    expect(parseInt(submitData.menuNumber, 10)).toBe(mockItem.menuNumber);
     // Have to remove whitespace to check because multi line
     // inputs add whitespace to the string.
     expect(submitData.description.replace(/\s/g, '')).toBe(mockItem.description.replace(/\s/g, ''));
@@ -71,7 +71,7 @@ describe('AdminMenuItem with menu item', () => {
       <AdminMenuItemFormComponent
         addMenuItem={addMenuItem}
         updateMenuItem={updateMenuItem}
-        menuItem={menuItemsMock[0]}
+        menuItem={menuItemsFormMock[0]}
       />,
     ));
   });
@@ -88,8 +88,8 @@ describe('AdminMenuItem with menu item', () => {
 
   it('Calls update item', () => {
     getByLabelAndInput('Title', 'NewTitle', getByLabelText);
-    getByLabelAndInput('Price', '2', getByLabelText);
-    getByLabelAndInput('Number', '1', getByLabelText);
+    getByLabelAndInput('Price', 2, getByLabelText);
+    getByLabelAndInput('Number', 1, getByLabelText);
     getByLabelAndInput('Description', 'New Description', getByLabelText);
 
     fireEvent.click(getByText('Submit'));

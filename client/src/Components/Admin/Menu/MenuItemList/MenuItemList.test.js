@@ -1,6 +1,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
+import shortid from 'shortid';
 import 'jest-dom/extend-expect';
 import MenuItemList from './MenuItemList';
 
@@ -18,8 +19,8 @@ describe('MenuItemList', () => {
       archived: false,
       created: 'Test',
       description: 'TestDescription',
-      menuNumber: '1',
-      price: '20.00',
+      menuNumber: 1,
+      price: 20.00,
       revision: '0',
       title: 'TestItem1',
       __v: '0',
@@ -29,8 +30,8 @@ describe('MenuItemList', () => {
       archived: false,
       created: 'Test',
       description: 'TestDescription2',
-      menuNumber: '2',
-      price: '10.00',
+      menuNumber: 2,
+      price: 10.00,
       revision: '0',
       title: 'TestItem2',
       __v: '0',
@@ -44,7 +45,7 @@ describe('MenuItemList', () => {
         onSelect={() => { onSelectResult = true; }}
         onDelete={() => { onDeleteResult = true; }}
         renderItem={i => (
-          <div>
+          <div key={shortid.generate()}>
             <h3>
               TestRender
             </h3>

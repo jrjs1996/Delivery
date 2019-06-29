@@ -1,6 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types';
-
+import shortid from 'shortid';
 import MenuItem from './MenuItem/MenuItem';
 
 export default function MenuItemList({
@@ -18,7 +18,7 @@ export default function MenuItemList({
       onSelect={onSelect}
       onDelete={onDelete}
       _id={i._id}
-      key={`item ${i._id}`}
+      key={shortid.generate()}
     />
   ));
 

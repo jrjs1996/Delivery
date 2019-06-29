@@ -41,6 +41,18 @@ export const menuItemPropType = PropTypes.shape({
   _id: PropTypes.string,
 });
 
+export const menuItemFormPropType = PropTypes.shape({
+  archived: PropTypes.bool,
+  created: PropTypes.string,
+  description: PropTypes.string,
+  menuNumber: PropTypes.string,
+  price: PropTypes.string,
+  revision: PropTypes.number,
+  title: PropTypes.string,
+  __v: PropTypes.number,
+  _id: PropTypes.string,
+});
+
 /** Match provided by routes (react router)  */
 export const matchPropType = PropTypes.shape({
   isExact: PropTypes.bool.isRequired,
