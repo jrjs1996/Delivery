@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
   try {
     const admin = await Admin.create(req.body);
     const token = admin.newToken();
-    return res.status(201).send(token).end();
+    return res.status(201).send(admin).end();
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).send({ username: 'Address is already in use!' }).end();
@@ -114,6 +114,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
   try {
+    if (req.body.password === '') delete req.body.password;
     const newAdmin = await Admin.findOne({ _id: req.params.id });
     Object.assign(newAdmin, req.body);
     newAdmin.save();

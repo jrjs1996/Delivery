@@ -1,11 +1,13 @@
 import React from 'react';
 import PropType from 'prop-types';
-import { Card, Grid, Typography } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import { Card, Grid, Typography, Button } from '@material-ui/core';
 import SettingListItem from './SettingListItem/SettingListItem';
 
 export default function SettingList({
   items,
   itemString,
+  onAdd,
   onClick,
   title,
 }) {
@@ -27,6 +29,9 @@ export default function SettingList({
           );
         })}
       </Grid>
+      { onAdd ? (
+        <Button onClick={onAdd} variant="contained" color="secondary"><AddIcon /></Button>
+      ) : null}
     </Card>
   );
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../utils/token';
-import { LOGIN_ADMIN, FETCH_ADMINS } from './types';
+import { LOGIN_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN } from './types';
 
 export const login = postData => async (dispatch) => {
   try {
@@ -46,6 +46,17 @@ export const changeCurrentAdminPassword = (id, newPassword) => async (dispatch) 
   }
 };
 
+export const updateAdmin = putData => (dispatch) => {
+  axios.put(`http://localhost:9000/admins/${putData._id}`, putData, setAuthHeader())
+    .then(() => {
+      const payload = putData;
+      dispatch({
+        type: UPDATE_ADMIN,
+        payload,
+      });
+    });
+};
+
 export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
     const res = await axios.get('http://localhost:9000/admins/login/', setAuthHeader());
@@ -63,6 +74,19 @@ export const fetchAdmins = () => async (dispatch) => {
   try {
     dispatch({
       type: FETCH_ADMINS,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createAdmin = postData => async (dispatch) => {
+  const res = await axios.post('http://localhost:9000/admins/', postData, setAuthHeader());
+  console.log(res);
+  try {
+    dispatch({
+      type: CREATE_ADMIN,
       payload: res.data,
     });
   } catch (error) {

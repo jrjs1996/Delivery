@@ -10,6 +10,8 @@ export const GET_CUSTOMER = 'GET_CUSTOMER';
 
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
 export const FETCH_ADMINS = 'FETCH_ADMINS';
+export const UPDATE_ADMIN = 'UPDATE_ADMIN';
+export const CREATE_ADMIN = 'CREATE_ADMIN';
 
 export const FETCH_MENU = 'FETCH_MENU';
 export const ADD_MENU_ITEM = 'ADD_MENU_ITEM';

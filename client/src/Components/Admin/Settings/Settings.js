@@ -7,26 +7,23 @@ import ChangePassword from './ChangePassword';
 import AdminSettings from './AdminSettings';
 import AdminList from './AdminList/AdminList';
 
-const renderBackButton = (pathname) => {
+const renderBackButton = (pathname, history) => {
   if (pathname !== '/admin/settings/') {
     return (
-      <Link to="/admin/settings/">
-        <Button variant="contained" color="secondary">
-          Back
-        </Button>
-      </Link>
+      <Button variant="contained" color="secondary" onClick={() => history.goBack()}>
+        Back
+      </Button>
     );
   }
   return null;
 };
 
-export default function Settings(props) {
-  const { location } = props;
+export default function Settings({ location, history }) {
   return (
     <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
-          {renderBackButton(location.pathname)}
+          {renderBackButton(location.pathname, history)}
         </Grid>
         <Grid item xs={6}>
           <Route
