@@ -13,28 +13,34 @@ import {
 import { menuItemPropType } from '../../../../propTypes';
 import CrudPage from '../../../General/CrudPage';
 import MenuItemList from '../MenuItemList/MenuItemList';
+import './AdminMenu.css';
 
 const renderItemForm = (i, addAction, updateAction) => {
   if (!i) {
     return <MenuItemForm onSubmit={addAction} />;
   }
+  console.log(i)
   return (
     <MenuItemForm
       title={i.title}
       price={i.price}
+      id={i._id}
       menuNumber={i.menuNumber}
       description={i.menuItem}
       onSubmit={updateAction}
+      image={i.image}
     />
   );
 };
 
 const renderItemList = (items, setSelectedItem, deleteAction, formPath) => (
   <MenuItemList
+    image
     menu={items}
     onSelect={setSelectedItem}
     onDelete={deleteAction}
-    render={i => <Link to={formPath} key={i.props._id}>{i}</Link>}
+    className="MenuItemList"
+    render={i => <Link className="Link" to={formPath} key={i.props._id}>{i}</Link>}
   />
 );
 
@@ -50,6 +56,7 @@ function AdminMenu({
   useEffect(() => {
     fetchAction();
   }, [fetchAction]);
+
   return (
     <CrudPage
       formPath={`${match.path}form/`}

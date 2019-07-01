@@ -29,7 +29,7 @@ export default function CustomerList({
   });
 
   return (
-    <div>
+    <div className="CustomerList">
       {customerItems}
     </div>
   );

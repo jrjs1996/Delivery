@@ -21,7 +21,6 @@ export default function CrudPage({
   title,
 }) {
   const [selectedItem, setSelectedItem] = useState(null);
-
   return (
     <div style={style}>
       <Grid container spacing={3}>
@@ -50,7 +49,7 @@ export default function CrudPage({
       />
       <Route
         path={formPath}
-        render={() => renderForm(selectedItem)}
+        render={() => renderForm(items[selectedItem])}
       />
     </div>
   );

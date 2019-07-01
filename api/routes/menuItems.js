@@ -1,8 +1,29 @@
 const express = require('express');
+const multer = require('multer');
 
 const router = express.Router();
 const MenuItems = require('../models/MenuItem')
+const getUpload = require('../bin/www');
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    console.log(file);
+    cb(null, './uploads/');
+  },
+  filename: (req, file, cb) => {
+    console.log(req.body.id);
+    cb(null, req.body.id);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  }
+  cb(null, false);
+};
+
+const upload = multer({ storage, fileFilter });
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
 
@@ -126,6 +147,15 @@ router.delete('/:menuNumber', async (req, res) => {
   } catch (error) {
     return res.sendStatus(500);
   }
+});
+
+router.post('/image/', upload.single('image'), async (req, res) => {
+  console.log('id is', req.body.id);
+  await MenuItems.findOneAndUpdate(
+    { archived: false, _id: req.body.id },
+    { image: true },
+  );
+  return res.sendStatus(200);
 });
 
 module.exports = router;

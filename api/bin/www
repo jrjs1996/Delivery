@@ -8,6 +8,12 @@ const debug = require('debug')('api:server');
 const http = require('http');
 const app = require('../app');
 const connectDb = require('../models/index');
+const crypto = require('crypto');
+const path = require('path');
+const multer = require('multer');
+const Grid = require('gridfs-stream');
+const GridFsStorage = require('multer-gridfs-storage');
+const mongoose = require('mongoose');
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -82,12 +88,15 @@ function onListening() {
   debug(`Listening on ${bind}`);
 }
 
+let upload;
 /**
  * Connect to database then begin listening
  */
-connectDb().then(async () => {
+connectDb((err, client) => {
   // Listen on provided port, on all network interfaces.
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
 });
+
+module.exports = upload;

@@ -8,23 +8,30 @@ export default function MenuItemList({
   onSelect,
   onDelete,
   render,
+  image,
 }) {
-  const menuItems = menu.map(i => (
-    <MenuItem
-      title={i.title}
-      price={i.price}
-      description={i.description}
-      number={i.menuNumber}
-      onSelect={onSelect}
-      onDelete={onDelete}
-      _id={i._id}
-      _key={i._id}
-      key={shortid.generate()}
-    />
-  ));
+  const menuItems = menu.map((i, idx) => {
+    if (!image) {
+      i.image = false;
+    }
+    return (
+      <MenuItem
+        title={i.title}
+        price={i.price}
+        description={i.description}
+        number={i.menuNumber}
+        onSelect={() => onSelect(idx)}
+        onDelete={onDelete}
+        _id={i._id}
+        _key={i._id}
+        key={shortid.generate()}
+        image={i.image}
+      />
+    );
+  });
 
   return (
-    <div>
+    <div className="MenuItemList">
       {render ? menuItems.map(i => render(i)) : menuItems}
     </div>
   );
@@ -45,10 +52,12 @@ MenuItemList.propTypes = {
    * the menu item. Could be used to wrap the items in links
    * for example. */
   render: PropType.func,
+  image: PropType.bool,
 };
 
 MenuItemList.defaultProps = {
   onSelect: null,
   onDelete: null,
   render: null,
+  image: false,
 };

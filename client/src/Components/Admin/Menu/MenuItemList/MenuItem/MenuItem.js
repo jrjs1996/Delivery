@@ -11,6 +11,7 @@ export default function MenuItem({
   title,
   description,
   number,
+  image,
   price,
   onSelect,
   onDelete,
@@ -18,61 +19,66 @@ export default function MenuItem({
 }) {
   return (
     <Paper
+      className="MenuItem"
       onClick={() => onSelect({
         title,
         description,
         menuNumber: number,
         price,
+        image,
         _id,
       })}
     >
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <Grid item xs={12}>
-            <Paper>
-              <Typography variant="h6" gutterBottom>
-                {title}
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper>
-              <Typography variant="h6" gutterBottom>
-                {number}
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper>
-              <Typography variant="h6" gutterBottom>
-                $
-                {price}
-              </Typography>
-            </Paper>
-          </Grid>
-          { onDelete ? (
-            <Grid item xs={12}>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onDelete(number);
-                }}
-              >
-              Delete
-              </Button>
-            </Grid>
-          ) : null }
-        </Grid>
-        <Grid item xs={8}>
+      <Grid container spacing={1}>
+        <Grid item xs={1}>
           <Paper>
             <Typography variant="h6" gutterBottom>
-              {description}
+              {number}
+            </Typography>           
+          </Paper>
+        </Grid>
+        <Grid item style={{textAlign: 'left'}} xs={9}>
+          <Typography variant="h6" gutterBottom>
+            {title}
+          </Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper>
+            <Typography variant="h6" gutterBottom>
+              $
+              {price}
             </Typography>
           </Paper>
         </Grid>
+        <Grid item style={{ textAlign: 'left' }} xs={12}>
+          <Typography style={{wordWrap: 'break-word', fontSize: 'large'}} gutterBottom>
+            {description}
+          </Typography>
+        </Grid>
+      </Grid>
+      { image ? (
+        <Grid container spacing={0}>
+          <Grid item xs={12}>
+            <img src={`http://localhost:9000/uploads/${_id}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+          </Grid>
+        </Grid>
+      ) : null }
+      <Grid container spacing={1} justify="flex-end" style={{ textAlign: 'right' }}>
+        { onDelete ? (
+          <Grid item xs={2}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onDelete(number);
+              }}
+            >
+            Delete
+            </Button>
+          </Grid>
+        ) : null }
       </Grid>
     </Paper>
   );

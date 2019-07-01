@@ -12,7 +12,10 @@ export default function Customer({
   onSelect,
 }) {
   return (
-    <Paper onClick={() => onSelect(id, firstName, lastName, addresses, email)}>
+    <Paper
+      onClick={() => onSelect(id, firstName, lastName, addresses, email)}
+      className="Customer"
+    >
       <Grid container spacing={3}>
         <Grid item xs={4}>
           Name:
@@ -32,16 +35,21 @@ export default function Customer({
             {email}
           </Paper>
         </Grid>
-        { onDelete ? (
-          <Button onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onDelete(id);
-          }}
-          >
-            Delete
-          </Button>
-        ) : null}
+        <Grid item xs={12} justify="flex-end" style={{textAlign: 'right'}}>
+          { onDelete ? (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onDelete(id);
+              }}
+            >
+              Delete
+            </Button>
+          ) : null}
+        </Grid>
       </Grid>
     </Paper>
   );

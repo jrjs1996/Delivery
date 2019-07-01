@@ -13,6 +13,7 @@ import {
   deleteCustomer,
 } from '../../../../actions/customerActions';
 import { CustomerPropType } from '../../../../propTypes';
+import './Customers.css';
 
 const renderCustomerForm = (c, addAction, updateAction) => {
   if (!c) {
@@ -43,7 +44,7 @@ const renderCustomerList = (customers, setSelectedCustomer, deleteAction, formPa
         email,
       });
     }}
-    render={c => <Link to={formPath} key={c.props.id}>{c}</Link>}
+    render={c => <Link className="Link" to={formPath} key={c.props.id}>{c}</Link>}
   />
 );
 

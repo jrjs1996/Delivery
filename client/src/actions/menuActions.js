@@ -30,6 +30,7 @@ export const addMenuItem = postData => async (dispatch) => {
 export const updateMenuItem = putData => async (dispatch) => {
   try {
     const res = await axios.put(`http://localhost:9000/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
+    console.log(res.data)
     dispatch({
       type: UPDATE_MENU_ITEM,
       payload: res.data,

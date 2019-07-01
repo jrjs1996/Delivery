@@ -4,7 +4,7 @@ const Order = require('./Order');
 const Admin = require('./Admin');
 const MenuItem = require('./MenuItem');
 
-const connectDb = () => mongoose.connect('mongodb://localhost:27017/delivery');
+const connectDb = callback => mongoose.connect('mongodb://localhost:27017/delivery', callback);
 
 
 const models = {
