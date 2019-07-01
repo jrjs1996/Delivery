@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
 import SettingPage from '../../Settings/SettingPage/SettingPage';
@@ -14,6 +15,7 @@ export default function MenuItemForm({
   price,
   title,
   image,
+  uploadImage,
 }) {
   return (
     <div>
@@ -31,7 +33,6 @@ export default function MenuItemForm({
         <SettingPageInput required fullWidth name="menuNumber" label="Number" value={menuNumber} />
         <SettingPageInput required fullWidth name="description" multiline label="Description" value={description} />
       </SettingPage>
-      {console.log(image)}
       { image ? (
         <div>
           <img src={`http://localhost:9000/uploads/${id}`} alt="Item" />
@@ -44,7 +45,7 @@ export default function MenuItemForm({
             Delete
           </Button>
         </div>
-      ) : id ? <ImageUpload id={id} /> : null }
+      ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }
     </div>
   );
 }

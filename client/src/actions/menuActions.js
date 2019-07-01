@@ -51,3 +51,19 @@ export const deleteMenuItem = menuNumber => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const uploadMenuItemImage = (id, file) => async (dispatch) => {
+  try {
+    const fd = new FormData();
+    fd.append('id', id);
+    fd.append('image', file);
+    const res = await axios.post('http://localhost:9000/menuitems/image/',
+      fd, { headers: { 'Content-Type': 'multipart/form-data' } });
+    dispatch({
+      type: UPDATE_MENU_ITEM,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

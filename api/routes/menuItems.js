@@ -137,7 +137,6 @@ router.put('/:menuNumber', async (req, res) => {
  */
 router.delete('/:menuNumber', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
-
   try {
     await MenuItems.updateOne({
       archived: false,
@@ -150,12 +149,12 @@ router.delete('/:menuNumber', async (req, res) => {
 });
 
 router.post('/image/', upload.single('image'), async (req, res) => {
-  console.log('id is', req.body.id);
-  await MenuItems.findOneAndUpdate(
+  const item = await MenuItems.findOneAndUpdate(
     { archived: false, _id: req.body.id },
     { image: true },
   );
-  return res.sendStatus(200);
+  item.image = true;
+  return res.send(item);
 });
 
 module.exports = router;

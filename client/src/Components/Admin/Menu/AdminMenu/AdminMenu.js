@@ -9,13 +9,14 @@ import {
   addMenuItem,
   updateMenuItem,
   deleteMenuItem,
+  uploadMenuItemImage,
 } from '../../../../actions/menuActions';
 import { menuItemPropType } from '../../../../propTypes';
 import CrudPage from '../../../General/CrudPage';
 import MenuItemList from '../MenuItemList/MenuItemList';
 import './AdminMenu.css';
 
-const renderItemForm = (i, addAction, updateAction) => {
+const renderItemForm = (i, addAction, updateAction, uploadImage) => {
   if (!i) {
     return <MenuItemForm onSubmit={addAction} />;
   }
@@ -29,6 +30,7 @@ const renderItemForm = (i, addAction, updateAction) => {
       description={i.menuItem}
       onSubmit={updateAction}
       image={i.image}
+      uploadImage={uploadImage}
     />
   );
 };
@@ -52,6 +54,7 @@ function AdminMenu({
   fetchAction,
   updateAction,
   deleteAction,
+  uploadImage,
 }) {
   useEffect(() => {
     fetchAction();
@@ -62,7 +65,7 @@ function AdminMenu({
       formPath={`${match.path}form/`}
       items={items}
       listPath={match.path}
-      renderForm={i => renderItemForm(i, addAction, updateAction)}
+      renderForm={i => renderItemForm(i, addAction, updateAction, uploadImage)}
       renderList={(i, setSelectedItem) => renderItemList(i, setSelectedItem, deleteAction, `${match.path}form/`)}
       title="Menu"
       pathName={location.pathname}
@@ -100,4 +103,5 @@ export default connect(mapStateToProps,
     addAction: addMenuItem,
     updateAction: updateMenuItem,
     deleteAction: deleteMenuItem,
+    uploadImage: uploadMenuItemImage,
   })(AdminMenu);
