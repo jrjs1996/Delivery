@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import React, { useEffect } from 'react';
 
-import { fetchOpenOrders, updateOrder } from '../../../actions/orderActions';
-import { menuItemPropType } from '../../../propTypes';
+import { fetchOpenOrders, updateOrder } from '../../../../actions/orderActions';
+import { orderPropType } from '../../../../propTypes';
 
 import './Home.css';
-import Order from './Order/Order';
+import Order from '../Order/Order';
 
 
 const getDate = (date) => {
@@ -14,7 +14,7 @@ const getDate = (date) => {
   return d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: 'numeric' });
 };
 
-function Home({
+export function HomeComponent({
   fetchAction,
   orders,
   updateAction,
@@ -40,9 +40,13 @@ function Home({
   );
 }
 
-Home.propTypes = {
+HomeComponent.propTypes = {
+  /** Function that is called when the component loads. Fetches
+   * the orders. */
   fetchAction: PropType.func.isRequired,
-  orders: PropType.arrayOf(menuItemPropType).isRequired,
+  /** The orders to populate the page with. */
+  orders: PropType.arrayOf(orderPropType).isRequired,
+  /** Action that updates an order. */
   updateAction: PropType.func.isRequired,
 };
 
@@ -53,4 +57,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   fetchAction: fetchOpenOrders,
   updateAction: updateOrder,
-})(Home);
+})(HomeComponent);

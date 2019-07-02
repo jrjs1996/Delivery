@@ -82,7 +82,8 @@ class CreateOrderForm extends Component {
     }
   }
 
-  addItem(item) {
+  addItem(item, menu) {
+    item = menu[item]
     const { items, total } = this.state;
     const newItems = items.slice();
     newItems.push(item);
@@ -187,7 +188,7 @@ class CreateOrderForm extends Component {
             </Grid>
           </form>
         </Paper>
-        <MenuItemList menu={menu} onSelect={this.addItem} />
+        <MenuItemList menu={menu} onSelect={i => this.addItem(i, menu)} />
       </div>
     );
   }

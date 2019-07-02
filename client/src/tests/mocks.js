@@ -1,4 +1,5 @@
 
+
 // eslint-disable-next-line import/prefer-default-export
 export const menuItemsMock = [
   {
@@ -83,5 +84,28 @@ export const customersMock = [
     email: 'Bobby@email.com',
     firstName: 'Bob',
     lastName: 'Harris',
+  },
+];
+
+export const ordersMock = [
+  {
+    __v: 0,
+    _id: '0',
+    stage: 0,
+    address: '232 Blue St.',
+    orderCreated: 'Mon Jul 01 2019 23:57:40 GMT-060',
+    delivery: true,
+    customerName: 'Joe Green',
+    items: menuItemsMock,
+  },
+  {
+    __v: 0,
+    _id: '1',
+    stage: 2,
+    address: '322 Park St.',
+    orderCreated: 'Mon Jul 02 2019 23:57:40 GMT-060',
+    delivery: false,
+    customerName: 'John Anderson',
+    items: [menuItemsMock[1]],
   },
 ];

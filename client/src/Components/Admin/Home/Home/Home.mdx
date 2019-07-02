@@ -1,0 +1,36 @@
+
+---
+name: Home
+menu: Components
+route: /Admin/Home/Home/Home.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { HomeComponent } from './Home';
+import { ordersMock } from '../../../../tests/mocks';
+
+# Admin Home
+
+Updated 02/07/2019
+
+The home page for admins. Displays a list of all open orders to the admin.
+Allows them to see the menu items that belong to the order and progress the
+orders through the stages.
+
+<Props of={HomeComponent} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return (
+      <div>
+        <span>{message}</span>
+        <HomeComponent
+          fetchAction={() => setMessage('Fetch called')}
+          orders={ordersMock}
+          updateAction={() => setMessage('Update called')}
+        />
+      </div>
+    )
+  }}
+</Playground>

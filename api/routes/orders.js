@@ -111,10 +111,12 @@ router.get('/:orderId', async (req, res) => {
 });
 
 router.put('/:orderId', async (req, res) => {
+  console.log(req.body)
   if (req.admin == null) return res.sendStatus(401);
   try {
     let order = await Order.findOne({ _id: req.params.orderId });
     order = Object.assign(order, req.body);
+    order.save()
     return res.send(200, order);
   } catch (error) {
     return res.sendStatus(500);

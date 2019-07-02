@@ -19,7 +19,7 @@ import Customers from './Customers/Customers/Customers';
 
 import { getCurrentAdminInfo } from '../../actions/adminActions';
 
-import Home from './Home/Home';
+import Home from './Home/Home/Home';
 import Settings from './Settings/Settings';
 import AdminMenu from './Menu/AdminMenu/AdminMenu';
 

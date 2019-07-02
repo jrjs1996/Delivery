@@ -43,3 +43,14 @@ export const menuItemFormPropType = PropTypes.shape({
   __v: PropTypes.number,
   _id: PropTypes.string,
 });
+
+export const orderPropType = PropTypes.shape({
+  customer: PropTypes.string,
+  stage: PropTypes.number.isRequired,
+  address: PropTypes.string.isRequired,
+  orderCreated: PropTypes.string.isRequired,
+  orderCompleted: PropTypes.string,
+  delivery: PropTypes.bool.isRequired,
+  customerName: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(menuItemPropType),
+});
