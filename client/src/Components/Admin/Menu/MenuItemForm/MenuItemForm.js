@@ -1,11 +1,11 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, Paper } from '@material-ui/core';
 import SettingPage from '../../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
-import {DropzoneArea} from 'material-ui-dropzone';
 import ImageUpload from './ImageUpload/ImageUpload';
-import { Button } from '@material-ui/core';
+
 
 export default function MenuItemForm({
   description,
@@ -18,7 +18,7 @@ export default function MenuItemForm({
   uploadImage,
 }) {
   return (
-    <div>
+    <div className="MenuItemForm">
       <SettingPage
         title="Order"
         onSubmit={(data) => {
@@ -33,19 +33,21 @@ export default function MenuItemForm({
         <SettingPageInput required fullWidth name="menuNumber" label="Number" value={menuNumber} />
         <SettingPageInput required fullWidth name="description" multiline label="Description" value={description} />
       </SettingPage>
-      { image ? (
-        <div>
-          <img src={`http://localhost:9000/uploads/${id}`} alt="Item" />
-          <br />
-          <Button
-            color="secondary"
-            variant="contained"
-            onClick={() => onSubmit({ menuNumber, image: false })}
-          >
-            Delete
-          </Button>
-        </div>
-      ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }
+      <Paper>
+        { image ? (
+          <div>
+            <img src={`http://localhost:9000/uploads/${id}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <br />
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={() => onSubmit({ menuNumber, image: false })}
+            >
+              Delete
+            </Button>
+          </div>
+        ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }
+      </Paper>
     </div>
   );
 }
@@ -57,6 +59,8 @@ MenuItemForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   price: PropTypes.number,
   title: PropTypes.string,
+  image: PropTypes.bool,
+  uploadImage: PropTypes.func.isRequired,
 };
 
 MenuItemForm.defaultProps = {
@@ -65,4 +69,5 @@ MenuItemForm.defaultProps = {
   menuNumber: null,
   price: null,
   title: null,
+  image: false,
 };

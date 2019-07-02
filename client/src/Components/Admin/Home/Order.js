@@ -44,6 +44,7 @@ export function Order({
         paddingLeft: '2%',
         paddingRight: '2%',
       }}
+      className="Order"
     >
       <Grid container spacing={3}>
         <Grid item xs={4}>
