@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ReactRouterPropTypes from 'react-router-prop-types';
@@ -80,17 +80,17 @@ AdminMenu.propTypes = {
   /** Match property provided by route */
   match: ReactRouterPropTypes.location.isRequired,
   /** Items to populate the list of menu with. */
-  items: PropType.arrayOf(menuItemPropType).isRequired,
+  items: PropTypes.arrayOf(menuItemPropType).isRequired,
   /** Function to be called when the user submits the form to add
    * an item. */
-  addAction: PropType.func.isRequired,
+  addAction: PropTypes.func.isRequired,
   /** Function to be called when the user submits the form to update
    * an item. */
-  updateAction: PropType.func.isRequired,
+  updateAction: PropTypes.func.isRequired,
   /** Function to be called when the user clicks on a menu items delete button. */
-  deleteAction: PropType.func.isRequired,
+  deleteAction: PropTypes.func.isRequired,
   /** Function that populates items */
-  fetchAction: PropType.func.isRequired,
+  fetchAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

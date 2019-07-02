@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { Button } from '@material-ui/core';
 
@@ -15,6 +15,6 @@ export default function ImageUpload({ id, uploadImage }) {
 }
 
 ImageUpload.propTypes = {
-  id: PropType.string.isRequired,
-  uploadImage: PropType.func.isRequired,
+  id: PropTypes.string.isRequired,
+  uploadImage: PropTypes.func.isRequired,
 };

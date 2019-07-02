@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -80,17 +80,17 @@ CustomersComponent.propTypes = {
   /** Match property provided by route */
   match: ReactRouterPropTypes.match.isRequired,
   /** Customers to populate the list of customers with. */
-  customers: PropType.arrayOf(CustomerPropType).isRequired,
+  customers: PropTypes.arrayOf(CustomerPropType).isRequired,
   /** Function to be called when the user submits the form to add
    * a customer. */
-  addAction: PropType.func.isRequired,
+  addAction: PropTypes.func.isRequired,
   /** Function to be called when the user submits the form to update
    * a customer. */
-  updateAction: PropType.func.isRequired,
+  updateAction: PropTypes.func.isRequired,
   /** Function to be called when the user clicks on a customers delete button. */
-  deleteAction: PropType.func.isRequired,
+  deleteAction: PropTypes.func.isRequired,
   /** Function that populates customers */
-  fetchAction: PropType.func.isRequired,
+  fetchAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

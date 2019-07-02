@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
@@ -66,9 +66,9 @@ function AdminList({
 
 AdminList.propTypes = {
   /** Admin objects to populate the list with. */
-  admins: PropType.arrayOf(AdminPropType).isRequired,
+  admins: PropTypes.arrayOf(AdminPropType).isRequired,
   /** Action to call which fetches admins. */
-  fetchAdmins: PropType.func.isRequired,
+  fetchAdmins: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

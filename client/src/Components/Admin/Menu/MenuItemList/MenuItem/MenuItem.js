@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
@@ -5,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-import PropType from 'prop-types';
 
 export default function MenuItem({
   title,
@@ -86,19 +86,19 @@ export default function MenuItem({
 
 MenuItem.propTypes = {
   /** Description of the menu item. */
-  description: PropType.string.isRequired,
+  description: PropTypes.string.isRequired,
   /** Number on the menu */
-  number: PropType.number.isRequired,
+  number: PropTypes.number.isRequired,
   /** Price of the item */
-  price: PropType.number.isRequired,
+  price: PropTypes.number.isRequired,
   /** Name of the menu item */
-  title: PropType.string.isRequired,
+  title: PropTypes.string.isRequired,
   /** Function to be called when the menu item
    * is clicked on. (Anywhere but the delete button) */
-  onSelect: PropType.func,
+  onSelect: PropTypes.func,
   /** Function to be called when the delete button
    * is clicked. */
-  onDelete: PropType.func,
+  onDelete: PropTypes.func,
 };
 
 MenuItem.defaultProps = {

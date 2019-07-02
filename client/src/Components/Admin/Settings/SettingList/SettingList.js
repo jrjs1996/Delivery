@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import AddIcon from '@material-ui/icons/Add';
 import { Card, Grid, Typography, Button } from '@material-ui/core';
 import SettingListItem from './SettingListItem/SettingListItem';
@@ -38,13 +38,13 @@ export default function SettingList({
 
 SettingList.propTypes = {
   /** Items to populate the list.  */
-  items: PropType.arrayOf(PropType.object).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Function that takes an item and returns a string
    * to represent the function in the list. */
-  itemString: PropType.func.isRequired,
+  itemString: PropTypes.func.isRequired,
   /** Function to be called when an item is clicked on.
    * Function will receive the item. */
-  onClick: PropType.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   /** Title to appear at top of list. */
-  title: PropType.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

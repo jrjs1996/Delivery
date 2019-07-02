@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import SettingPage from '../../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
 import InputList from '../../Settings/SettingPage/InputList/InputList';
@@ -33,17 +33,17 @@ export default function CustomerForm({
 
 CustomerForm.propTypes = {
   /** Initial value of email input */
-  email: PropType.string,
+  email: PropTypes.string,
   /** Initial value of firstName input */
-  firstName: PropType.string,
+  firstName: PropTypes.string,
   /** Id of customer to update. Will change form title if provided. */
-  id: PropType.string,
+  id: PropTypes.string,
   /** Initial value of lastName input */
-  lastName: PropType.string,
+  lastName: PropTypes.string,
   /** Function to call when on submit.
    * Passed an object that contains the input data
    * and the id if provided. */
-  onSubmit: PropType.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 CustomerForm.defaultProps = {

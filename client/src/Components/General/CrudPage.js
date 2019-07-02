@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
 import { Typography } from '@material-ui/core';
@@ -57,28 +57,28 @@ export default function CrudPage({
 
 CrudPage.propTypes = {
   /** Path to display the form at. */
-  formPath: PropType.string.isRequired,
+  formPath: PropTypes.string.isRequired,
   /** Items to populate the list with */
-  items: PropType.arrayOf(PropType.object).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Path to display the list of items at */
-  listPath: PropType.string.isRequired,
+  listPath: PropTypes.string.isRequired,
   /** Function to render the form when at form path.
    * This function will be passed the selected item
    * if an item is selected. Otherwise an empty object. */
-  renderForm: PropType.func.isRequired,
+  renderForm: PropTypes.func.isRequired,
   /** Function to render the list when at list path.
    * Will be passed items and a function that sets the
    * pages selected item. */
-  renderList: PropType.func.isRequired,
+  renderList: PropTypes.func.isRequired,
   /** If true, the add button will be shown when at
    * list page. */
-  showAdd: PropType.bool,
+  showAdd: PropTypes.bool,
   /** Style of the page */
-  style: PropType.objectOf(PropType.object),
+  style: PropTypes.objectOf(PropTypes.object),
   /** Title to show at top of page */
-  title: PropType.string,
+  title: PropTypes.string,
   /** Current browser location path. */
-  pathName: PropType.string.isRequired,
+  pathName: PropTypes.string.isRequired,
 };
 CrudPage.defaultProps = {
   showAdd: true,

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { Button, Grid } from '@material-ui/core';
 
 export default function SettingListItem({ onClick, text }) {
@@ -14,10 +14,10 @@ SettingListItem.propTypes = {
   /** Function to be called when the item is
    * clicked on. Given by the SettingList this
    * item belongs to. */
-  onClick: PropType.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   /**
    * Text representing the object this item represents.
    * Given by the SettingList this item belongs to.
    */
-  text: PropType.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

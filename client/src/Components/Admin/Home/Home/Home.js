@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
 import { fetchOpenOrders, updateOrder } from '../../../../actions/orderActions';
@@ -43,11 +43,11 @@ export function HomeComponent({
 HomeComponent.propTypes = {
   /** Function that is called when the component loads. Fetches
    * the orders. */
-  fetchAction: PropType.func.isRequired,
+  fetchAction: PropTypes.func.isRequired,
   /** The orders to populate the page with. */
-  orders: PropType.arrayOf(orderPropType).isRequired,
+  orders: PropTypes.arrayOf(orderPropType).isRequired,
   /** Action that updates an order. */
-  updateAction: PropType.func.isRequired,
+  updateAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

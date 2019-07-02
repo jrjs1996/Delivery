@@ -1,4 +1,4 @@
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Paper, Typography, Grid } from '@material-ui/core';
@@ -31,7 +31,7 @@ export default function Item({
 
 Item.propTypes = {
   /** The title of the menu item. */
-  title: PropType.string.isRequired,
+  title: PropTypes.string.isRequired,
   /** The menu number of the menu item. */
-  menuNumber: PropType.number.isRequired,
+  menuNumber: PropTypes.number.isRequired,
 };

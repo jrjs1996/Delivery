@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
@@ -75,7 +75,7 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
 }
 
 Admin.propTypes = {
-  getCurrentAdminInfo: PropType.func.isRequired,
+  getCurrentAdminInfo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
