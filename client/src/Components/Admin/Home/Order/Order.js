@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import { StepLabel } from '@material-ui/core';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
 import shortid from 'shortid';
-import { updateOrder } from '../../../actions/orderActions';
-import Item from './Item';
-import { menuItemPropType } from '../../../propTypes';
+
+import { StepLabel } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Step from '@material-ui/core/Step';
+import Stepper from '@material-ui/core/Stepper';
+import Typography from '@material-ui/core/Typography';
+
+import { menuItemPropType } from '../../../../propTypes';
+
+import Item from './Item/Item';
 
 
 function getSteps(delivery) {
@@ -22,15 +23,15 @@ function getSteps(delivery) {
   return steps;
 }
 
-export function Order({
+export default function Order({
   address,
   customerName,
   delivery,
-  orderCreated,
-  stage,
   id,
   items,
-  updateOrder: updateAction,
+  orderCreated,
+  stage,
+  updateAction,
 }) {
   const steps = getSteps(delivery);
   const [expand, setExpand] = useState(false);
@@ -93,14 +94,22 @@ export function Order({
 }
 
 Order.propTypes = {
+  /** Address of the order */
   address: PropTypes.string.isRequired,
+  /** Name of the customer that placed the order */
   customerName: PropTypes.string.isRequired,
+  /** True if a delivery order */
   delivery: PropTypes.bool.isRequired,
-  orderCreated: PropTypes.string.isRequired,
-  stage: PropTypes.number.isRequired,
+  /** Id of the order */
   id: PropTypes.string.isRequired,
-  updateOrder: PropTypes.func.isRequired,
+  /** The menu items that belong to the order */
   items: PropTypes.arrayOf(menuItemPropType).isRequired,
+  /** The date the order was created. */
+  orderCreated: PropTypes.string.isRequired,
+  /** The stage of the order */
+  stage: PropTypes.number.isRequired,
+  /** Action to update the order. This is called when the next
+   * button is clicked. Is given the id of the order and an object
+   * containing the new order stage. */
+  updateAction: PropTypes.func.isRequired,
 };
-
-export default connect(null, { updateOrder })(Order);

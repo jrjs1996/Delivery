@@ -1,17 +1,24 @@
-import React, { useEffect } from 'react';
-import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import Order from './Order';
-import { fetchOpenOrders } from '../../../actions/orderActions';
-import './Home.css';
+import PropType from 'prop-types';
+import React, { useEffect } from 'react';
+
+import { fetchOpenOrders, updateOrder } from '../../../actions/orderActions';
 import { menuItemPropType } from '../../../propTypes';
+
+import './Home.css';
+import Order from './Order/Order';
+
 
 const getDate = (date) => {
   const d = new Date(date);
   return d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: 'numeric' });
 };
 
-function Home({ fetchAction, orders }) {
+function Home({
+  fetchAction,
+  orders,
+  updateAction,
+}) {
   useEffect(fetchAction, [fetchAction]);
 
   return (
@@ -21,11 +28,12 @@ function Home({ fetchAction, orders }) {
           address={o.address}
           customerName={o.customerName}
           delivery={o.delivery}
+          id={o._id}
+          items={o.items}
+          key={o._id}
           orderCreated={getDate(o.orderCreated)}
           stage={o.stage}
-          id={o._id}
-          key={o._id}
-          items={o.items}
+          updateAction={updateAction}
         />
       ))}
     </div>
@@ -35,10 +43,14 @@ function Home({ fetchAction, orders }) {
 Home.propTypes = {
   fetchAction: PropType.func.isRequired,
   orders: PropType.arrayOf(menuItemPropType).isRequired,
+  updateAction: PropType.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   orders: state.orders.items,
 });
 
-export default connect(mapStateToProps, { fetchAction: fetchOpenOrders })(Home);
+export default connect(mapStateToProps, {
+  fetchAction: fetchOpenOrders,
+  updateAction: updateOrder,
+})(Home);

@@ -1,0 +1,40 @@
+
+---
+name: Order
+menu: Components
+route: /Admin/Home/Order/Order.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import Order from './Order';
+import { menuItemsMock } from '../../../../tests/mocks';
+
+# Order
+
+Updated 01/07/2019
+
+Displays an order to the admin. Allows the admin to progress
+the order through the stages.
+
+<Props of={Order} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return (
+      <div>
+        <span>{message}</span>
+        <Order
+          address="TestAddress"
+          customerName="TestCustomerName"
+          delivery
+          id="TestId"
+          items={menuItemsMock}
+          orderCreated="TestOrderCreated"
+          stage={0}
+          updateAction={(id, s) => setMessage(`Update action called with: ${id} ${s.stage}`)}
+        />
+      </div>
+    )
+  }}
+</Playground>

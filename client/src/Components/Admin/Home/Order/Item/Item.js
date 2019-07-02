@@ -1,7 +1,12 @@
+import PropType from 'prop-types';
 import React from 'react';
+
 import { Paper, Typography, Grid } from '@material-ui/core';
 
-export default function Item({ title, menuNumber }) {
+export default function Item({
+  title,
+  menuNumber,
+}) {
   return (
     <Paper>
       <Grid container spacing={3}>
@@ -23,3 +28,10 @@ export default function Item({ title, menuNumber }) {
     </Paper>
   );
 }
+
+Item.propTypes = {
+  /** The title of the menu item. */
+  title: PropType.string.isRequired,
+  /** The menu number of the menu item. */
+  menuNumber: PropType.number.isRequired,
+};
