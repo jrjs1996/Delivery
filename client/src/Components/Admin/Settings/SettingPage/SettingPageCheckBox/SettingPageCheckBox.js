@@ -24,7 +24,11 @@ SettingPageCheckBox.propTypes = {
   /** Name used for check box value when page is submitted */
   name: PropTypes.string.isRequired,
   /** Used by Setting Page, don't set manually */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   /** Initial value of the check box. */
   value: PropTypes.bool.isRequired,
+};
+
+SettingPageCheckBox.defaultProps = {
+  onChange: null,
 };

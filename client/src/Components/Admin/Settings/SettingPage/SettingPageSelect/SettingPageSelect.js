@@ -36,7 +36,7 @@ SettingPageSelect.propTypes = {
   /** Name that will be used for the value when submitting. */
   name: PropType.string.isRequired,
   /** Provided by Setting page, don't set manually. */
-  onChange: PropType.func.isRequired,
+  onChange: PropType.func,
   /** Array of shape [[value, name]...] that will be used to
    * populate the select list. This property will be ignored if
    * getOptions is provided. */
@@ -49,6 +49,7 @@ SettingPageSelect.propTypes = {
 };
 
 SettingPageSelect.defaultProps = {
+  onChange: null,
   options: null,
   getOptions: null,
   state: null,

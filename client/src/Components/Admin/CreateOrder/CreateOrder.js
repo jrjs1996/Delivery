@@ -60,7 +60,7 @@ const manageState = (state) => {
   return state;
 };
 
-function CreateOrder({
+export function CreateOrderComponent({
   createAction,
   fetchAction,
   menu,
@@ -106,10 +106,10 @@ function CreateOrder({
   );
 }
 
-CreateOrder.propTypes = {
+CreateOrderComponent.propTypes = {
   createAction: PropTypes.func.isRequired,
-  menu: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchAction: PropTypes.func.isRequired,
+  menu: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -119,4 +119,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   createAction: createOrder,
   fetchAction: fetchMenu,
-})(CreateOrder);
+})(CreateOrderComponent);

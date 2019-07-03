@@ -1,0 +1,37 @@
+
+---
+name: CreateOrder
+menu: Components
+route: /components/Admin/CreateOrder/CreateOrder.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { CreateOrderComponent } from './CreateOrder';
+import { menuItemsMock } from '../../../tests/mocks';
+
+# Create Order
+
+Updated 03/07/2019
+
+Page for admins to create orders manually. Displays the
+menu items and allows admins to add them to the order and
+enter the order details.
+
+<Props of={CreateOrderComponent} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return(
+      <div>
+        <p>{message}</p>
+        <CreateOrderComponent
+          fetchAction={() => {}}
+          createAction={(data) => setMessage(JSON.stringify(data))}
+          menu={menuItemsMock}
+        />
+      />
+      </div>
+    )
+  }}
+</Playground>
