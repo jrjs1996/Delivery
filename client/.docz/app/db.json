@@ -351,54 +351,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreateOrder",
-          "methods": [],
-          "actualName": "CreateOrder"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreateOrderForm",
-          "methods": [],
-          "actualName": "CreateOrderForm",
-          "props": {
-            "createAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": ""
-            },
-            "fetchAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
       "value": [
         {
@@ -1915,6 +1867,43 @@
               },
               "required": true,
               "description": "Function that is called with the index of the item that\r\nwas clicked on."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrder",
+          "methods": [],
+          "actualName": "CreateOrder",
+          "props": {
+            "createAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }
