@@ -59,6 +59,7 @@ export default function SettingPage({
             {
               onChange: e => onChange(e, submitData, setSubmitData),
               value: submitData[child.props.name],
+              state: submitData,
             }))}
         </Grid>
         <Grid item xs={12}>

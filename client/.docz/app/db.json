@@ -94,71 +94,6 @@
       ]
     },
     {
-      "key": "src\\components\\Customers\\AddCustomerForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AddCustomerForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "AddCustomerForm",
-          "props": {
-            "addCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Customers\\Customer.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Customer",
-          "methods": [],
-          "actualName": "Customer",
-          "props": {
-            "getCustomer": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Login\\FormButton.js",
       "value": [
         {
@@ -197,51 +132,6 @@
             "label": {
               "type": {
                 "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Customers\\SignInForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignInForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "SignInForm",
-          "props": {
-            "signIn": {
-              "type": {
-                "name": "func"
               },
               "required": true,
               "description": ""
@@ -327,26 +217,6 @@
             "login": {
               "type": {
                 "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Login\\SignUpHeader.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignUpHeader",
-          "methods": [],
-          "actualName": "SignUpHeader",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
               },
               "required": true,
               "description": ""
@@ -450,6 +320,26 @@
       ]
     },
     {
+      "key": "src\\components\\Login\\SignUpHeader.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpHeader",
+          "methods": [],
+          "actualName": "SignUpHeader",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\SideMenu\\SideMenu.js",
       "value": [
         {
@@ -461,22 +351,11 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
+      "key": "src\\components\\Customers\\AddCustomerForm.js",
       "value": [
         {
           "description": "",
-          "displayName": "CreateOrder",
-          "methods": [],
-          "actualName": "CreateOrder"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreateOrderForm",
+          "displayName": "AddCustomerForm",
           "methods": [
             {
               "name": "onChange",
@@ -493,9 +372,40 @@
             {
               "name": "onSubmit",
               "docblock": null,
-              "modifiers": [
-                "async"
+              "modifiers": [],
+              "params": [
+                {
+                  "name": "e",
+                  "type": null
+                }
               ],
+              "returns": null
+            }
+          ],
+          "actualName": "AddCustomerForm",
+          "props": {
+            "addCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\SignInForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignInForm",
+          "methods": [
+            {
+              "name": "onChange",
+              "docblock": null,
+              "modifiers": [],
               "params": [
                 {
                   "name": "e",
@@ -505,30 +415,58 @@
               "returns": null
             },
             {
-              "name": "addItem",
+              "name": "onSubmit",
               "docblock": null,
               "modifiers": [],
               "params": [
                 {
-                  "name": "item",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "removeItem",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "index",
+                  "name": "e",
                   "type": null
                 }
               ],
               "returns": null
             }
           ],
+          "actualName": "SignInForm",
+          "props": {
+            "signIn": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Customers\\Customer.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Customer",
+          "methods": [],
+          "actualName": "Customer",
+          "props": {
+            "getCustomer": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrderForm",
+          "methods": [],
           "actualName": "CreateOrderForm",
           "props": {
             "createOrder": {
@@ -556,6 +494,17 @@
               "description": ""
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrder",
+          "methods": [],
+          "actualName": "CreateOrder"
         }
       ]
     },
@@ -862,55 +811,68 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\CustomersList\\CustomerList.js",
+      "key": "src\\components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
       "value": [
         {
           "description": "",
-          "displayName": "CustomerList",
+          "displayName": "ForwardBackButton",
           "methods": [],
-          "actualName": "CustomerList",
+          "actualName": "ForwardBackButton",
           "props": {
-            "customers": {
+            "home": {
               "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "CustomerPropType"
-                }
+                "name": "string"
               },
               "required": true,
-              "description": "List of customers to be displayed"
+              "description": "Home location of the menu button"
             },
-            "onDelete": {
+            "homeIcon": {
+              "type": {
+                "name": "elementType"
+              },
+              "required": true,
+              "description": "Icon to display when at home"
+            },
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Location to go to when the button is clicked"
+            },
+            "toIcon": {
+              "type": {
+                "name": "elementType"
+              },
+              "required": true,
+              "description": "Icon to display when at to"
+            },
+            "pathname": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Browser location pathname"
+            },
+            "onForward": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": "Function to be called when the delete button on a\r\ncustomer is clicked.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when a customer is clicked on",
+              "description": "Function to be called when the button is clicked when at home.",
               "defaultValue": {
                 "value": "() => {}",
                 "computed": false
               }
             },
-            "render": {
+            "onBack": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": "Function to render each customer. e.g to wrap in links.",
+              "description": "Function to be called  when the button is clicked when at to.",
               "defaultValue": {
-                "value": "null",
+                "value": "() => {}",
                 "computed": false
               }
             }
@@ -1080,70 +1042,38 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
+      "key": "src\\components\\Admin\\Home\\Home\\Home.js",
       "value": [
         {
           "description": "",
-          "displayName": "ForwardBackButton",
+          "displayName": "HomeComponent",
           "methods": [],
-          "actualName": "ForwardBackButton",
+          "actualName": "HomeComponent",
           "props": {
-            "home": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Home location of the menu button"
-            },
-            "homeIcon": {
-              "type": {
-                "name": "elementType"
-              },
-              "required": true,
-              "description": "Icon to display when at home"
-            },
-            "to": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Location to go to when the button is clicked"
-            },
-            "toIcon": {
-              "type": {
-                "name": "elementType"
-              },
-              "required": true,
-              "description": "Icon to display when at to"
-            },
-            "pathname": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Browser location pathname"
-            },
-            "onForward": {
+            "fetchAction": {
               "type": {
                 "name": "func"
               },
-              "required": false,
-              "description": "Function to be called when the button is clicked when at home.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
+              "required": true,
+              "description": "Function that is called when the component loads. Fetches\r\nthe orders."
             },
-            "onBack": {
+            "orders": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "orderPropType"
+                }
+              },
+              "required": true,
+              "description": "The orders to populate the page with."
+            },
+            "updateAction": {
               "type": {
                 "name": "func"
               },
-              "required": false,
-              "description": "Function to be called  when the button is clicked when at to.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
+              "required": true,
+              "description": "Action that updates an order."
             }
           }
         }
@@ -1212,6 +1142,136 @@
                 "value": "false",
                 "computed": false
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Customers\\CustomersList\\CustomerList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CustomerList",
+          "methods": [],
+          "actualName": "CustomerList",
+          "props": {
+            "customers": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "CustomerPropType"
+                }
+              },
+              "required": true,
+              "description": "List of customers to be displayed"
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the delete button on a\r\ncustomer is clicked.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when a customer is clicked on",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "render": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to render each customer. e.g to wrap in links.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Order\\Order.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Order",
+          "methods": [],
+          "actualName": "Order",
+          "props": {
+            "address": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Address of the order"
+            },
+            "customerName": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name of the customer that placed the order"
+            },
+            "delivery": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": "True if a delivery order"
+            },
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Id of the order"
+            },
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "menuItemPropType"
+                }
+              },
+              "required": true,
+              "description": "The menu items that belong to the order"
+            },
+            "orderCreated": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "The date the order was created."
+            },
+            "stage": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "The stage of the order"
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Action to update the order. This is called when the next\r\nbutton is clicked. Is given the id of the order and an object\r\ncontaining the new order stage."
             }
           }
         }
@@ -1293,6 +1353,45 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenu",
+          "methods": [],
+          "actualName": "SettingsMenu",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "Should all be SettingsMenuItems. Item in the menu."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that appears at the top of the menu.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
       "value": [
         {
@@ -1343,150 +1442,90 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingsMenu",
+          "displayName": "MenuItem",
           "methods": [],
-          "actualName": "SettingsMenu",
+          "actualName": "MenuItem",
           "props": {
-            "children": {
+            "description": {
               "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
+                "name": "string"
               },
-              "required": false,
-              "description": "Should all be SettingsMenuItems. Item in the menu."
+              "required": true,
+              "description": "Description of the menu item."
+            },
+            "number": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Number on the menu"
+            },
+            "price": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Price of the item"
             },
             "title": {
               "type": {
                 "name": "string"
               },
+              "required": true,
+              "description": "Name of the menu item"
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
               "required": false,
-              "description": "Title that appears at the top of the menu.",
+              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
               "defaultValue": {
-                "value": "''",
+                "value": "null",
                 "computed": false
               }
             },
-            "onClick": {
+            "onDelete": {
               "type": {
                 "name": "func"
               },
-              "required": true,
-              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
+              "required": false,
+              "description": "Function to be called when the delete button\r\nis clicked.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
             }
           }
         }
       ]
     },
     {
-      "key": "src\\components\\Admin\\Home\\Home\\Home.js",
+      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
       "value": [
         {
           "description": "",
-          "displayName": "HomeComponent",
+          "displayName": "ImageUpload",
           "methods": [],
-          "actualName": "HomeComponent",
+          "actualName": "ImageUpload",
           "props": {
-            "fetchAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that is called when the component loads. Fetches\r\nthe orders."
-            },
-            "orders": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "orderPropType"
-                }
-              },
-              "required": true,
-              "description": "The orders to populate the page with."
-            },
-            "updateAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Action that updates an order."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Home\\Order\\Order.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Order",
-          "methods": [],
-          "actualName": "Order",
-          "props": {
-            "address": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Address of the order"
-            },
-            "customerName": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name of the customer that placed the order"
-            },
-            "delivery": {
-              "type": {
-                "name": "bool"
-              },
-              "required": true,
-              "description": "True if a delivery order"
-            },
             "id": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": "Id of the order"
+              "description": ""
             },
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "menuItemPropType"
-                }
-              },
-              "required": true,
-              "description": "The menu items that belong to the order"
-            },
-            "orderCreated": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "The date the order was created."
-            },
-            "stage": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "The stage of the order"
-            },
-            "updateAction": {
+            "uploadImage": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": "Action to update the order. This is called when the next\r\nbutton is clicked. Is given the id of the order and an object\r\ncontaining the new order stage."
+              "description": ""
             }
           }
         }
@@ -1570,90 +1609,27 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
+      "key": "src\\components\\Admin\\Home\\Order\\Item\\Item.js",
       "value": [
         {
           "description": "",
-          "displayName": "ImageUpload",
+          "displayName": "Item",
           "methods": [],
-          "actualName": "ImageUpload",
+          "actualName": "Item",
           "props": {
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "uploadImage": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItem",
-          "methods": [],
-          "actualName": "MenuItem",
-          "props": {
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Description of the menu item."
-            },
-            "number": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "Number on the menu"
-            },
-            "price": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "Price of the item"
-            },
             "title": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": "Name of the menu item"
+              "description": "The title of the menu item."
             },
-            "onSelect": {
+            "menuNumber": {
               "type": {
-                "name": "func"
+                "name": "number"
               },
-              "required": false,
-              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the delete button\r\nis clicked.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
+              "required": true,
+              "description": "The menu number of the menu item."
             }
           }
         }
@@ -1748,6 +1724,89 @@
                 "value": "[]",
                 "computed": false
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenuItem",
+          "methods": [],
+          "actualName": "SettingsMenuItem",
+          "props": {
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Prop provided by the parent. SettingsMenu\r\nDont set manually.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Text of the menu item."
+            },
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "If provided the menu item will be a link to the\r\naddress specified in this prop.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageCheckBox\\SettingPageCheckBox.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPageCheckBox",
+          "methods": [],
+          "actualName": "SettingPageCheckBox",
+          "props": {
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Label for the check box"
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name used for check box value when page is submitted"
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Used by Setting Page, don't set manually"
+            },
+            "value": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": "Initial value of the check box."
             }
           }
         }
@@ -1851,69 +1910,70 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageSelect\\SettingPageSelect.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingsMenuItem",
+          "displayName": "SettingPageSelect",
           "methods": [],
-          "actualName": "SettingsMenuItem",
+          "actualName": "SettingPageSelect",
           "props": {
-            "onClick": {
+            "getOptions": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": "Prop provided by the parent. SettingsMenu\r\nDont set manually.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "text": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Text of the menu item."
-            },
-            "to": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "If provided the menu item will be a link to the\r\naddress specified in this prop.",
+              "description": "Function to get options. The function is passed the\r\ncurrent state of the form with the values of all the form inputs.\r\nThis function should return an array of shape [[value, name]...]\r\nfor the options. If this prop is given the options prop will be ignored.",
               "defaultValue": {
                 "value": "null",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Home\\Order\\Item\\Item.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Item",
-          "methods": [],
-          "actualName": "Item",
-          "props": {
-            "title": {
+            },
+            "name": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": "The title of the menu item."
+              "description": "Name that will be used for the value when submitting."
             },
-            "menuNumber": {
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Provided by Setting page, don't set manually."
+            },
+            "options": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "array"
+                }
+              },
+              "required": false,
+              "description": "Array of shape [[value, name]...] that will be used to\r\npopulate the select list. This property will be ignored if\r\ngetOptions is provided.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "state": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "The state of the SettingPage. Provided by setting page,\r\ndon't set manually",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "value": {
               "type": {
                 "name": "number"
               },
               "required": true,
-              "description": "The menu number of the menu item."
+              "description": "Initial value"
             }
           }
         }
@@ -2150,25 +2210,6 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingList/SettingList.mdx",
-      "value": {
-        "name": "Setting List",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingList",
-        "id": "6ccfb92c20a5a4c7d8ee7db779a8a88e",
-        "filepath": "src/components/Admin/Settings/SettingList/SettingList.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-setting-list-setting-list",
-        "headings": [
-          {
-            "slug": "setting-list",
-            "depth": 1,
-            "value": "Setting List"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
       "value": {
         "name": "SettingPage",
@@ -2183,6 +2224,25 @@
             "slug": "setting-page",
             "depth": 1,
             "value": "Setting Page"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+      "value": {
+        "name": "Setting List",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingList",
+        "id": "6ccfb92c20a5a4c7d8ee7db779a8a88e",
+        "filepath": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-list-setting-list",
+        "headings": [
+          {
+            "slug": "setting-list",
+            "depth": 1,
+            "value": "Setting List"
           }
         ]
       }
@@ -2207,6 +2267,19 @@
       }
     },
     {
+      "key": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
+      "value": {
+        "name": "Customer",
+        "menu": "Components",
+        "route": "/Admin/Customers/CustomersList/Customer/Customer.mdx",
+        "id": "3fa8fc6053de66b47b838456908668d3",
+        "filepath": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
+        "link": "",
+        "slug": "src-components-admin-customers-customers-list-customer-customer",
+        "headings": []
+      }
+    },
+    {
       "key": "src/components/Admin/Home/Order/Item/Item.mdx",
       "value": {
         "name": "Item",
@@ -2226,19 +2299,6 @@
       }
     },
     {
-      "key": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
-      "value": {
-        "name": "Customer",
-        "menu": "Components",
-        "route": "/Admin/Customers/CustomersList/Customer/Customer.mdx",
-        "id": "3fa8fc6053de66b47b838456908668d3",
-        "filepath": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
-        "link": "",
-        "slug": "src-components-admin-customers-customers-list-customer-customer",
-        "headings": []
-      }
-    },
-    {
       "key": "src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
       "value": {
         "name": "MenuItem",
@@ -2253,6 +2313,44 @@
             "slug": "menu-item",
             "depth": 1,
             "value": "Menu Item"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+      "value": {
+        "name": "SettingPageCheckBox",
+        "menu": "Components",
+        "route": "/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+        "id": "855bf7a049af6a80ed70ceca40ba6219",
+        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-page-setting-page-check-box-setting-page-check-box",
+        "headings": [
+          {
+            "slug": "settingpagecheckbox",
+            "depth": 1,
+            "value": "SettingPageCheckBox"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+      "value": {
+        "name": "SettingPageInput",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
+        "id": "9c0dd32d5055494e4ae3ce334147511c",
+        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-setting-page-setting-page-input-setting-page-input",
+        "headings": [
+          {
+            "slug": "setting-page-input",
+            "depth": 1,
+            "value": "Setting Page Input"
           }
         ]
       }
@@ -2277,20 +2375,20 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+      "key": "src/components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
       "value": {
-        "name": "SettingPageInput",
+        "name": "SettingPageSelect",
         "menu": "Components",
-        "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
-        "id": "9c0dd32d5055494e4ae3ce334147511c",
-        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+        "route": "/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect",
+        "id": "5403ab7c8f18f082174e67cd42dfb587",
+        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
         "link": "",
-        "slug": "src-components-admin-settings-setting-page-setting-page-input-setting-page-input",
+        "slug": "src-components-admin-settings-setting-page-setting-page-select-setting-page-select",
         "headings": [
           {
-            "slug": "setting-page-input",
+            "slug": "setting-page-select",
             "depth": 1,
-            "value": "Setting Page Input"
+            "value": "Setting Page Select"
           }
         ]
       }

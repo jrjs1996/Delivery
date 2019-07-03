@@ -1,0 +1,31 @@
+
+---
+name: SettingPageSelect
+menu: Components
+route: /Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect
+---
+import { Playground, Props } from 'docz';
+import SettingPageSelect from './SettingPageSelect';
+import SettingPage from '../SettingPage';
+
+# Setting Page Select
+
+Updated 02/07/2019
+
+Select for setting page.
+
+<Props of={SettingPageSelect} />
+
+<Playground>
+  <span id="showData"></span>
+  <SettingPage
+    title="Example"
+    onSubmit={submitData => {document.getElementById("showData").innerHTML = JSON.stringify(submitData)}}
+  >
+    <SettingPageSelect
+      name="example"
+      options={[[0, 'First'], [1, 'Second']]}
+      value={1}
+    />
+  </SettingPage>
+</Playground>

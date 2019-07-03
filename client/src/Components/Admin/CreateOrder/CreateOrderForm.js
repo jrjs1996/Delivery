@@ -19,6 +19,7 @@ import OrderItem from './OrderItem';
 import SettingPage from '../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../Settings/SettingPage/SettingPageInput/SettingPageInput';
 import SettingPageCheckBox from '../Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox';
+import SettingPageSelect from '../Settings/SettingPage/SettingPageSelect/SettingPageSelect';
 
 const onDeliveryChange = (delivery, setDelivery, stage, setStage) => {
   if (delivery === true && stage === 3) {
@@ -62,14 +63,26 @@ const removeItem = (index, items, setItems, total, setTotal) => {
   setTotal(newTotal);
 };
 
+const getOptions = (state) => {
+  const options = [
+    [0, 'Submitted'],
+    [1, 'Preparing'],
+    [4, 'Completed'],
+    [5, 'Cancelled'],
+  ];
+  if (state.delivery) {
+    options.splice(2, 0, [2, 'Waiting for delivery']);
+    options.splice(3, 0, [3, 'Out for delivery']);
+  } else {
+    options.splice(2, 0, [2, 'Waiting for pickup']);
+  }
+  return options;
+};
+
 function CreateOrderForm({
   fetchMenu,
 }) {
   const [delivery, setDelivery] = useState(true);
-  const [message, setMessage] = useState('');
-  const [stage, setStage] = useState(1);
-  const [items, setItems] = useState([]);
-  const [total, setTotal] = useState(0);
 
   useEffect(fetchMenu, [fetchMenu])
 
@@ -81,67 +94,16 @@ function CreateOrderForm({
       >
         <SettingPageInput required fullWidth name="customerName" label="Customer Name" />
         <SettingPageInput required fullWidth name="address" label="Address" />
-        <Select value={1} name="stage">
-          <MenuItem value={0}>Submitted</MenuItem>
-          <MenuItem value={1}>Preparing</MenuItem>
-          { delivery ? (
-            <MenuItem value={2}>Waiting for delivery</MenuItem>
-          ) : (
-            <MenuItem value={2}>Waiting for pickup</MenuItem>
-          )}
-          { delivery ? <MenuItem value={3}>Out for delivery</MenuItem> : null}
-          <MenuItem value={4}>Completed</MenuItem>
-          <MenuItem value={5}>Cancelled</MenuItem>
-        </Select>
+        <SettingPageSelect
+          name="stage"
+          value={1}
+          getOptions={getOptions}
+        />
         <SettingPageCheckBox label="Delivery" name="delivery" value />
       </SettingPage>
     </div>
   );
 }
-
-
-//class CreateOrderForm extends Component {
-//  render() {
-//    const {
-//      customerName,
-//      address,
-//      stage,
-//      delivery,
-//      message,
-//      items,
-//      total,
-//    } = this.state;
-//    const { menu } = this.props;
-//    return (
-//      <div>
-//        <Paper style={{marginTop: '5%', marginLeft: '20%', marginRight: '20%', paddingLeft: '10%', paddingRight: '10%'}}>
-//          <form onSubmit={this.onSubmit}>
-//              <Grid item xs={12} md={6}>
-//                
-//              </Grid>
-//              <Grid item xs={12}>
-//                <Button variant="contained" color="primary" type="submit">Submit</Button>
-//              </Grid>
-//              <Grid item xs={12}>
-//                <p>{ message }</p>
-//              </Grid>
-//              {items.map((i, index) => (
-//                <Grid item xs={12} key={shortid.generate()}>
-//                  <OrderItem item={i} index={index} onClick={this.removeItem} />
-//                </Grid>
-//              ))}
-//              <Typography variant="h3">
-//                $
-//                {total}
-//              </Typography>
-//            </Grid>
-//          </form>
-//        </Paper>
-//        <MenuItemList menu={menu} onSelect={i => this.addItem(i, menu)} />
-//      </div>
-//    );
-//  }
-//}
 
 CreateOrderForm.propTypes = {
   createOrder: PropTypes.func.isRequired,
