@@ -38,6 +38,7 @@ const initializeSubmitData = (children) => {
         break;
     }
   });
+  console.log(submitData);
   return submitData;
 };
 

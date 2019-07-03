@@ -5,7 +5,10 @@ import { menuItemPropType } from '../../../propTypes';
 
 export default function OrderItem({ item, onClick, index }) {
   return (
-    <Paper onClick={() => onClick(index)}>
+    <Paper
+      onClick={() => onClick(index)}
+      className="OrderItem"
+    >
       <Grid spacing={3} container>
         <Grid item xs={6}>
           <Typography variant="h6">
