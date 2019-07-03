@@ -1,0 +1,33 @@
+
+---
+name: AdminForm
+menu: Components
+route: /components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import AdminForm from './AdminForm';
+
+# Admin Form
+
+Updated 03/07/2019
+
+A form form creating an admin or editing admin information.
+
+<Props of={AdminForm} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return (
+      <div>
+        <p>{message}</p>
+        <AdminForm
+          id="testId"
+          username="testUsername"
+          onSubmit={data => setMessage(JSON.stringify(data))}
+        />
+      </div>
+    )
+  }}
+</Playground>

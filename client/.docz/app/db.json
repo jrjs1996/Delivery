@@ -273,26 +273,6 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\SignUpHeader.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignUpHeader",
-          "methods": [],
-          "actualName": "SignUpHeader",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Login\\SignUpForm.js",
       "value": [
         {
@@ -347,6 +327,26 @@
           "displayName": "SideMenu",
           "methods": [],
           "actualName": "SideMenu"
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Login\\SignUpHeader.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpHeader",
+          "methods": [],
+          "actualName": "SignUpHeader",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -523,74 +523,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\Customers\\Customers.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CustomersComponent",
-          "methods": [],
-          "actualName": "CustomersComponent",
-          "props": {
-            "location": {
-              "type": {
-                "name": "custom",
-                "raw": "ReactRouterPropTypes.location.isRequired"
-              },
-              "required": false,
-              "description": "Location proptype provided by route.\r\nDon't provide manually."
-            },
-            "match": {
-              "type": {
-                "name": "custom",
-                "raw": "ReactRouterPropTypes.match.isRequired"
-              },
-              "required": false,
-              "description": "Match property provided by route"
-            },
-            "customers": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "CustomerPropType"
-                }
-              },
-              "required": true,
-              "description": "Customers to populate the list of customers with."
-            },
-            "addAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to add\r\na customer."
-            },
-            "updateAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to update\r\na customer."
-            },
-            "deleteAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user clicks on a customers delete button."
-            },
-            "fetchAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that populates customers"
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Customers\\CustomerForm\\CustomerForm.js",
       "value": [
         {
@@ -665,6 +597,74 @@
       ]
     },
     {
+      "key": "src\\components\\Admin\\Customers\\Customers\\Customers.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CustomersComponent",
+          "methods": [],
+          "actualName": "CustomersComponent",
+          "props": {
+            "location": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.location.isRequired"
+              },
+              "required": false,
+              "description": "Location proptype provided by route.\r\nDon't provide manually."
+            },
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.match.isRequired"
+              },
+              "required": false,
+              "description": "Match property provided by route"
+            },
+            "customers": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "CustomerPropType"
+                }
+              },
+              "required": true,
+              "description": "Customers to populate the list of customers with."
+            },
+            "addAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to add\r\na customer."
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to update\r\na customer."
+            },
+            "deleteAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user clicks on a customers delete button."
+            },
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that populates customers"
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src\\components\\Admin\\CreateOrder\\OrderItemList\\OrderItemList.js",
       "value": [
         {
@@ -690,6 +690,44 @@
               },
               "required": true,
               "description": "Function that is called with the index of the item that\r\nwas clicked on."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Home\\Home\\Home.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "HomeComponent",
+          "methods": [],
+          "actualName": "HomeComponent",
+          "props": {
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that is called when the component loads. Fetches\r\nthe orders."
+            },
+            "orders": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "orderPropType"
+                }
+              },
+              "required": true,
+              "description": "The orders to populate the page with."
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Action that updates an order."
             }
           }
         }
@@ -747,112 +785,6 @@
                 "value": "null",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminMenu",
-          "methods": [],
-          "actualName": "AdminMenu",
-          "props": {
-            "location": {
-              "type": {
-                "name": "custom",
-                "raw": "ReactRouterPropTypes.location.isRequired"
-              },
-              "required": false,
-              "description": "Location proptype provided by route.\r\nDon't provide manually."
-            },
-            "match": {
-              "type": {
-                "name": "custom",
-                "raw": "ReactRouterPropTypes.location.isRequired"
-              },
-              "required": false,
-              "description": "Match property provided by route"
-            },
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "menuItemPropType"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list of menu with."
-            },
-            "addAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to add\r\nan item."
-            },
-            "updateAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to update\r\nan item."
-            },
-            "deleteAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user clicks on a menu items delete button."
-            },
-            "fetchAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that populates items"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Home\\Home\\Home.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "HomeComponent",
-          "methods": [],
-          "actualName": "HomeComponent",
-          "props": {
-            "fetchAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that is called when the component loads. Fetches\r\nthe orders."
-            },
-            "orders": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "orderPropType"
-                }
-              },
-              "required": true,
-              "description": "The orders to populate the page with."
-            },
-            "updateAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Action that updates an order."
             }
           }
         }
@@ -926,6 +858,249 @@
               },
               "required": true,
               "description": "Action to update the order. This is called when the next\r\nbutton is clicked. Is given the id of the order and an object\r\ncontaining the new order stage."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminList",
+          "methods": [],
+          "actualName": "AdminList",
+          "props": {
+            "admins": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "AdminPropType"
+                }
+              },
+              "required": true,
+              "description": "Admin objects to populate the list with."
+            },
+            "fetchAdmins": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Action to call which fetches admins."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingList",
+          "methods": [],
+          "actualName": "SettingList",
+          "props": {
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list."
+            },
+            "itemString": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Title to appear at top of list."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPage",
+          "methods": [],
+          "actualName": "SettingPage",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "SettingPageInputs for this setting page."
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
+            },
+            "onValueChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "An optional function that will be called with the new state\r\nof the setting page. The function should return the new state.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "submitText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The text that will appear on the submit button.",
+              "defaultValue": {
+                "value": "'Submit'",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that will appear on top of page.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenu",
+          "methods": [],
+          "actualName": "SettingsMenu",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "Should all be SettingsMenuItems. Item in the menu."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that appears at the top of the menu.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminMenu",
+          "methods": [],
+          "actualName": "AdminMenu",
+          "props": {
+            "location": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.location.isRequired"
+              },
+              "required": false,
+              "description": "Location proptype provided by route.\r\nDon't provide manually."
+            },
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.location.isRequired"
+              },
+              "required": false,
+              "description": "Match property provided by route"
+            },
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "menuItemPropType"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list of menu with."
+            },
+            "addAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to add\r\nan item."
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to update\r\nan item."
+            },
+            "deleteAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user clicks on a menu items delete button."
+            },
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that populates items"
             }
           }
         }
@@ -1163,181 +1338,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminList",
-          "methods": [],
-          "actualName": "AdminList",
-          "props": {
-            "admins": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "AdminPropType"
-                }
-              },
-              "required": true,
-              "description": "Admin objects to populate the list with."
-            },
-            "fetchAdmins": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Action to call which fetches admins."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingList",
-          "methods": [],
-          "actualName": "SettingList",
-          "props": {
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list."
-            },
-            "itemString": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Title to appear at top of list."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPage",
-          "methods": [],
-          "actualName": "SettingPage",
-          "props": {
-            "children": {
-              "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
-              },
-              "required": false,
-              "description": "SettingPageInputs for this setting page."
-            },
-            "onSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
-            },
-            "onValueChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "An optional function that will be called with the new state\r\nof the setting page. The function should return the new state.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "submitText": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The text that will appear on the submit button.",
-              "defaultValue": {
-                "value": "'Submit'",
-                "computed": false
-              }
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title that will appear on top of page.",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingsMenu",
-          "methods": [],
-          "actualName": "SettingsMenu",
-          "props": {
-            "children": {
-              "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
-              },
-              "required": false,
-              "description": "Should all be SettingsMenuItems. Item in the menu."
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title that appears at the top of the menu.",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\CreateOrder\\OrderItemList\\OrderItem\\OrderItem.js",
       "value": [
         {
@@ -1476,103 +1476,44 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ImageUpload",
-          "methods": [],
-          "actualName": "ImageUpload",
-          "props": {
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "uploadImage": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItem",
-          "methods": [],
-          "actualName": "MenuItem",
-          "props": {
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Description of the menu item."
-            },
-            "number": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "Number on the menu"
-            },
-            "price": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "Price of the item"
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name of the menu item"
-            },
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the delete button\r\nis clicked.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Settings\\AdminList\\AdminForm\\AdminForm.js",
       "value": [
         {
           "description": "",
           "displayName": "AdminForm",
           "methods": [],
-          "actualName": "AdminForm"
+          "actualName": "AdminForm",
+          "props": {
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Id of the user if modifying a user.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the form is submitted. Is given\r\nan object with the username and password that was entered. As\r\nwell as the users id if modifying a user."
+            },
+            "username": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Username of the user if modifying.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            }
+          }
         }
       ]
     },
@@ -1916,6 +1857,96 @@
           }
         }
       ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ImageUpload",
+          "methods": [],
+          "actualName": "ImageUpload",
+          "props": {
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "uploadImage": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItem",
+          "methods": [],
+          "actualName": "MenuItem",
+          "props": {
+            "description": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Description of the menu item."
+            },
+            "number": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Number on the menu"
+            },
+            "price": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Price of the item"
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name of the menu item"
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the menu item\r\nis clicked on. (Anywhere but the delete button)",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the delete button\r\nis clicked.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
     }
   ],
   "entries": [
@@ -1996,6 +2027,25 @@
       }
     },
     {
+      "key": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
+      "value": {
+        "name": "CustomerForm",
+        "menu": "Components",
+        "route": "/Admin/Customers/CustomerForm/CustomerForm.mdx",
+        "id": "0d236512a9840bf5f3e37afbd3c326ca",
+        "filepath": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
+        "link": "",
+        "slug": "src-components-admin-customers-customer-form-customer-form",
+        "headings": [
+          {
+            "slug": "customer-form",
+            "depth": 1,
+            "value": "Customer Form"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
       "value": {
         "name": "OrderItemList",
@@ -2010,6 +2060,44 @@
             "slug": "order-item-list",
             "depth": 1,
             "value": "Order Item List"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Customers/Customers/Customers.mdx",
+      "value": {
+        "name": "Customers",
+        "menu": "Components",
+        "route": "/Admin/Customers/Customers/Customers.mdx",
+        "id": "b55dad37c1e4b69257a732a2dfbf57cf",
+        "filepath": "src/components/Admin/Customers/Customers/Customers.mdx",
+        "link": "",
+        "slug": "src-components-admin-customers-customers-customers",
+        "headings": [
+          {
+            "slug": "customers",
+            "depth": 1,
+            "value": "Customers"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
+      "value": {
+        "name": "CustomerList",
+        "menu": "Components",
+        "route": "/Admin/Customers/CustomersList/CustomerList.mdx",
+        "id": "1874d541dbd06eda6b8a83881b2a3e7c",
+        "filepath": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
+        "link": "",
+        "slug": "src-components-admin-customers-customers-list-customer-list",
+        "headings": [
+          {
+            "slug": "customer-list",
+            "depth": 1,
+            "value": "Customer List"
           }
         ]
       }
@@ -2048,63 +2136,6 @@
             "slug": "order",
             "depth": 1,
             "value": "Order"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Customers/Customers/Customers.mdx",
-      "value": {
-        "name": "Customers",
-        "menu": "Components",
-        "route": "/Admin/Customers/Customers/Customers.mdx",
-        "id": "b55dad37c1e4b69257a732a2dfbf57cf",
-        "filepath": "src/components/Admin/Customers/Customers/Customers.mdx",
-        "link": "",
-        "slug": "src-components-admin-customers-customers-customers",
-        "headings": [
-          {
-            "slug": "customers",
-            "depth": 1,
-            "value": "Customers"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
-      "value": {
-        "name": "CustomerForm",
-        "menu": "Components",
-        "route": "/Admin/Customers/CustomerForm/CustomerForm.mdx",
-        "id": "0d236512a9840bf5f3e37afbd3c326ca",
-        "filepath": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
-        "link": "",
-        "slug": "src-components-admin-customers-customer-form-customer-form",
-        "headings": [
-          {
-            "slug": "customer-form",
-            "depth": 1,
-            "value": "Customer Form"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
-      "value": {
-        "name": "CustomerList",
-        "menu": "Components",
-        "route": "/Admin/Customers/CustomersList/CustomerList.mdx",
-        "id": "1874d541dbd06eda6b8a83881b2a3e7c",
-        "filepath": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
-        "link": "",
-        "slug": "src-components-admin-customers-customers-list-customer-list",
-        "headings": [
-          {
-            "slug": "customer-list",
-            "depth": 1,
-            "value": "Customer List"
           }
         ]
       }
@@ -2243,25 +2274,6 @@
       }
     },
     {
-      "key": "src/components/Admin/Home/Order/Item/Item.mdx",
-      "value": {
-        "name": "Item",
-        "menu": "Components",
-        "route": "/Admin/Home/Order/Item/Item.mdx",
-        "id": "f98a87592be7c3492a8bd1de0684b419",
-        "filepath": "src/components/Admin/Home/Order/Item/Item.mdx",
-        "link": "",
-        "slug": "src-components-admin-home-order-item-item",
-        "headings": [
-          {
-            "slug": "item",
-            "depth": 1,
-            "value": "Item"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
       "value": {
         "name": "OrderItem",
@@ -2294,6 +2306,25 @@
       }
     },
     {
+      "key": "src/components/Admin/Home/Order/Item/Item.mdx",
+      "value": {
+        "name": "Item",
+        "menu": "Components",
+        "route": "/Admin/Home/Order/Item/Item.mdx",
+        "id": "f98a87592be7c3492a8bd1de0684b419",
+        "filepath": "src/components/Admin/Home/Order/Item/Item.mdx",
+        "link": "",
+        "slug": "src-components-admin-home-order-item-item",
+        "headings": [
+          {
+            "slug": "item",
+            "depth": 1,
+            "value": "Item"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
       "value": {
         "name": "MenuItem",
@@ -2308,6 +2339,25 @@
             "slug": "menu-item",
             "depth": 1,
             "value": "Menu Item"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
+      "value": {
+        "name": "AdminForm",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
+        "id": "7ff709d2e04c6b1bf65b4e65884276a1",
+        "filepath": "src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
+        "link": "",
+        "slug": "src-components-admin-settings-admin-list-admin-form-admin-form",
+        "headings": [
+          {
+            "slug": "admin-form",
+            "depth": 1,
+            "value": "Admin Form"
           }
         ]
       }

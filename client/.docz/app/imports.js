@@ -15,9 +15,21 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu-item-side-menu-item" */ 'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx'
     ),
+  'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx'
+    ),
   'src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-create-order-order-item-list-order-item-list" */ 'src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx'
+    ),
+  'src/components/Admin/Customers/Customers/Customers.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-customers" */ 'src/components/Admin/Customers/Customers/Customers.mdx'
+    ),
+  'src/components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-list" */ 'src/components/Admin/Customers/CustomersList/CustomerList.mdx'
     ),
   'src/components/Admin/Home/Home/Home.mdx': () =>
     import(
@@ -26,18 +38,6 @@ export const imports = {
   'src/components/Admin/Home/Order/Order.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-order" */ 'src/components/Admin/Home/Order/Order.mdx'
-    ),
-  'src/components/Admin/Customers/Customers/Customers.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-customers" */ 'src/components/Admin/Customers/Customers/Customers.mdx'
-    ),
-  'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx'
-    ),
-  'src/components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-list" */ 'src/components/Admin/Customers/CustomersList/CustomerList.mdx'
     ),
   'src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx': () =>
     import(
@@ -67,10 +67,6 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu" */ 'src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx'
     ),
-  'src/components/Admin/Home/Order/Item/Item.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-item-item" */ 'src/components/Admin/Home/Order/Item/Item.mdx'
-    ),
   'src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-create-order-order-item-list-order-item-order-item" */ 'src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx'
@@ -79,9 +75,17 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-customer" */ 'src/components/Admin/Customers/CustomersList/Customer/Customer.mdx'
     ),
+  'src/components/Admin/Home/Order/Item/Item.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-item-item" */ 'src/components/Admin/Home/Order/Item/Item.mdx'
+    ),
   'src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-menu-item" */ 'src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx'
+    ),
+  'src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-form-admin-form" */ 'src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx'
     ),
   'src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx': () =>
     import(

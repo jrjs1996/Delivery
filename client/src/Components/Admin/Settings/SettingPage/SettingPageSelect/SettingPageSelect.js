@@ -1,4 +1,4 @@
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Select, MenuItem } from '@material-ui/core';
 import shortId from 'shortid';
@@ -32,20 +32,20 @@ SettingPageSelect.propTypes = {
    * current state of the form with the values of all the form inputs.
    * This function should return an array of shape [[value, name]...]
    * for the options. If this prop is given the options prop will be ignored. */
-  getOptions: PropType.func,
+  getOptions: PropTypes.func,
   /** Name that will be used for the value when submitting. */
-  name: PropType.string.isRequired,
+  name: PropTypes.string.isRequired,
   /** Provided by Setting page, don't set manually. */
-  onChange: PropType.func,
+  onChange: PropTypes.func,
   /** Array of shape [[value, name]...] that will be used to
    * populate the select list. This property will be ignored if
    * getOptions is provided. */
-  options: PropType.arrayOf(PropType.array),
+  options: PropTypes.arrayOf(PropTypes.array),
   /** The state of the SettingPage. Provided by setting page,
    * don't set manually */
-  state: PropType.object,
+  state: PropTypes.object,
   /** Initial value */
-  value: PropType.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 SettingPageSelect.defaultProps = {
