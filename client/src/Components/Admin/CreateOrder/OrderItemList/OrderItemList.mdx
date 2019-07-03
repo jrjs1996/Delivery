@@ -1,0 +1,35 @@
+---
+name: OrderItemList
+menu: Components
+route: /components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx
+---
+
+import { useState } from "react";
+import { Playground, Props } from "docz";
+import OrderItemList from "./OrderItemList";
+import { menuItemsMock } from "../../../../tests/mocks";
+
+# Order Item List
+
+Updated 02/07/2019
+
+Displays a list of menu items that belong to an order.
+
+<Props of={OrderItemList} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return (
+    <div>
+      <p>{message}</p>
+      <OrderItemList
+        orderItems={menuItemsMock}
+        onClick={setMessage}
+      />
+    </div>
+    )
+
+}}
+
+</Playground>
