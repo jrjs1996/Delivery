@@ -8,9 +8,12 @@ import shortid from 'shortid';
 import { ChildrenPropType } from '../../../../propTypes';
 
 
-const onChange = (e, submitData, setSubmitData) => {
-  const newSubmitData = Object.assign({}, submitData);
+const onChange = (e, submitData, setSubmitData, onValueChange) => {
+  let newSubmitData = Object.assign({}, submitData);
   newSubmitData[e.target.name] = e.target.value;
+  if (onValueChange) {
+    newSubmitData = onValueChange(newSubmitData);
+  }
   setSubmitData(newSubmitData);
 };
 
@@ -40,6 +43,7 @@ const initializeSubmitData = (children) => {
 
 export default function SettingPage({
   children,
+  onValueChange,
   onSubmit,
   submitText,
   title,
@@ -57,7 +61,7 @@ export default function SettingPage({
           </Typography>
           {React.Children.map(children, child => React.cloneElement(child,
             {
-              onChange: e => onChange(e, submitData, setSubmitData),
+              onChange: e => onChange(e, submitData, setSubmitData, onValueChange),
               value: submitData[child.props.name],
               state: submitData,
             }))}
@@ -89,6 +93,10 @@ SettingPage.propTypes = {
    * and value for each input in children.
    */
   onSubmit: PropTypes.func.isRequired,
+  /** An optional function that will be called with the new state
+   * of the setting page. The function should return the new state.
+   */
+  onValueChange: PropTypes.func,
   /**
    * The text that will appear on the submit button.
    */
@@ -98,6 +106,7 @@ SettingPage.propTypes = {
 };
 
 SettingPage.defaultProps = {
+  onValueChange: null,
   submitText: 'Submit',
   title: '',
 };

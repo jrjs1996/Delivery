@@ -79,6 +79,10 @@ const getOptions = (state) => {
   return options;
 };
 
+const manageState = (state) => {
+
+};
+
 function CreateOrderForm({
   fetchMenu,
 }) {
@@ -91,6 +95,7 @@ function CreateOrderForm({
       <SettingPage
         title="Create Order"
         onSubmit={console.log}
+        onValueChange={manageState}
       >
         <SettingPageInput required fullWidth name="customerName" label="Customer Name" />
         <SettingPageInput required fullWidth name="address" label="Address" />

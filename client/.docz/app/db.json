@@ -461,43 +461,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreateOrderForm",
-          "methods": [],
-          "actualName": "CreateOrderForm",
-          "props": {
-            "createOrder": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": ""
-            },
-            "fetchMenu": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
       "value": [
         {
@@ -1392,56 +1355,6 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPage",
-          "methods": [],
-          "actualName": "SettingPage",
-          "props": {
-            "children": {
-              "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
-              },
-              "required": false,
-              "description": "SettingPageInputs for this setting page."
-            },
-            "onSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
-            },
-            "submitText": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The text that will appear on the submit button.",
-              "defaultValue": {
-                "value": "'Submit'",
-                "computed": false
-              }
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title that will appear on top of page.",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
       "value": [
         {
@@ -1974,6 +1887,104 @@
               },
               "required": true,
               "description": "Initial value"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPage",
+          "methods": [],
+          "actualName": "SettingPage",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "SettingPageInputs for this setting page."
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
+            },
+            "onValueChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "An optional function that will be called with the new state\r\nof the setting page. The function should return the new state.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "submitText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The text that will appear on the submit button.",
+              "defaultValue": {
+                "value": "'Submit'",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that will appear on top of page.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\components\\Admin\\CreateOrder\\CreateOrderForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreateOrderForm",
+          "methods": [],
+          "actualName": "CreateOrderForm",
+          "props": {
+            "createOrder": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": ""
+            },
+            "fetchMenu": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }
