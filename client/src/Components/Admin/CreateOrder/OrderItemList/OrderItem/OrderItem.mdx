@@ -1,0 +1,33 @@
+
+---
+name: OrderItem
+menu: Components
+route: /src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import OrderItem from './OrderItem';
+
+# Order Item
+
+Updated 02/07/2019
+
+Displays information of an order item.
+
+<Props of={OrderItem} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    return(
+      <div>
+        <p>{message}</p>
+        <OrderItem
+          title="Test Title"
+          price={10.25}
+          onClick={() => setMessage('Clicked!')}
+        />
+      </div>
+    )
+  }}
+</Playground>

@@ -10,7 +10,7 @@ import SettingPage from '../Settings/SettingPage/SettingPage';
 import SettingPageInput from '../Settings/SettingPage/SettingPageInput/SettingPageInput';
 import SettingPageCheckBox from '../Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox';
 import SettingPageSelect from '../Settings/SettingPage/SettingPageSelect/SettingPageSelect';
-import OrderItemList from './OrderItemList';
+import OrderItemList from './OrderItemList/OrderItemList';
 import './CreateOrderForm.css';
 
 const onSubmit = (formData, items, createAction) => {
