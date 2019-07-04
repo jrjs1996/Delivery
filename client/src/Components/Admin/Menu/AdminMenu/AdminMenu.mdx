@@ -1,0 +1,49 @@
+
+---
+name: AdminMenu
+menu: Components
+route: /Admin/Menu/AdminMenu/AdminMenu.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { AdminMenuComponent } from './AdminMenu';
+import { menuItemsMock } from '../../../../tests/mocks';
+import { MemoryRouter as Router, Route } from 'react-router-dom';
+
+# Admin Menu
+
+Updated 03/07/2019
+
+Page for adding, removing, and updating menu items. Displays the menu items to
+the user. Allows them to click on a menu item to modify it or click their delete
+button to delete it. Users can click the add button to add a new item to the menu.
+
+<Props of={AdminMenuComponent} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return (
+      <div>
+        <Router initialEntries={['/']}>
+          <p>{message}</p>
+          <Route
+            path="/"
+            render={props => (
+              <AdminMenuComponent
+                fetchAction={() => {}}
+                addAction={data => setMessage(`Add called with ${JSON.stringify(data)}`)}
+                updateAction={data => setMessage(`Update called with ${JSON.stringify(data)}`)}
+                deleteAction={data => setMessage(`Delete called with ${JSON.stringify(data)}`)}
+                uploadImage={data => setMessage(`Upload Image called with ${JSON.stringify(data)}`)}
+                items={menuItemsMock}
+                {...props}
+              />
+              )}
+            />
+        </Router>
+      </div>
+    )
+  }}
+</Playground>

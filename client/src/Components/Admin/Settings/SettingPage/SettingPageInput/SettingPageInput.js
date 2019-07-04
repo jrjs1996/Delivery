@@ -46,7 +46,7 @@ SettingPageInput.propTypes = {
   /** The type of the input element. */
   type: PropTypes.string,
   /** Received this prop from parent SettingPage component. Don't set manually. */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 SettingPageInput.defaultProps = {

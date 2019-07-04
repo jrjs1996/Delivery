@@ -15,10 +15,6 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-side-menu-side-menu-item-side-menu-item" */ 'src/components/SideMenu/SideMenuItem/SideMenuItem.mdx'
     ),
-  'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx'
-    ),
   'src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-create-order-order-item-list-order-item-list" */ 'src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx'
@@ -26,6 +22,10 @@ export const imports = {
   'src/components/Admin/Customers/Customers/Customers.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-customers" */ 'src/components/Admin/Customers/Customers/Customers.mdx'
+    ),
+  'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/components/Admin/Customers/CustomerForm/CustomerForm.mdx'
     ),
   'src/components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
     import(
@@ -39,13 +39,17 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-order" */ 'src/components/Admin/Home/Order/Order.mdx'
     ),
-  'src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx': () =>
+  'src/components/Admin/Menu/AdminMenu/AdminMenu.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-form-menu-item-form" */ 'src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-admin-menu-admin-menu" */ 'src/components/Admin/Menu/AdminMenu/AdminMenu.mdx'
     ),
   'src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-forward-back-button-forward-back-button" */ 'src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx'
+    ),
+  'src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-form-menu-item-form" */ 'src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx'
     ),
   'src/components/Admin/Menu/MenuItemList/MenuItemList.mdx': () =>
     import(

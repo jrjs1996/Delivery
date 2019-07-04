@@ -10,11 +10,11 @@ import ImageUpload from './ImageUpload/ImageUpload';
 export default function MenuItemForm({
   description,
   id,
+  image,
   menuNumber,
   onSubmit,
   price,
   title,
-  image,
   uploadImage,
 }) {
   return (
@@ -55,19 +55,20 @@ export default function MenuItemForm({
 MenuItemForm.propTypes = {
   description: PropTypes.string,
   id: PropTypes.string,
+  image: PropTypes.bool,
   menuNumber: PropTypes.number,
   onSubmit: PropTypes.func.isRequired,
   price: PropTypes.number,
   title: PropTypes.string,
-  image: PropTypes.bool,
-  uploadImage: PropTypes.func.isRequired,
+  uploadImage: PropTypes.func,
 };
 
 MenuItemForm.defaultProps = {
   description: '',
   id: null,
+  image: false,
   menuNumber: null,
   price: null,
   title: null,
-  image: false,
+  uploadImage: null,
 };

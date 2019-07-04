@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import MenuItemForm from '../MenuItemForm/MenuItemForm';
+
 import {
-  fetchMenu,
   addMenuItem,
-  updateMenuItem,
   deleteMenuItem,
+  fetchMenu,
+  updateMenuItem,
   uploadMenuItemImage,
 } from '../../../../actions/menuActions';
 import { menuItemPropType } from '../../../../propTypes';
+
 import CrudPage from '../../../General/CrudPage';
+import MenuItemForm from '../MenuItemForm/MenuItemForm';
 import MenuItemList from '../MenuItemList/MenuItemList';
 import './AdminMenu.css';
 
@@ -20,7 +22,7 @@ const renderItemForm = (i, addAction, updateAction, uploadImage) => {
   if (!i) {
     return <MenuItemForm onSubmit={addAction} />;
   }
-  console.log(i)
+
   return (
     <MenuItemForm
       title={i.title}
@@ -42,18 +44,22 @@ const renderItemList = (items, setSelectedItem, deleteAction, formPath) => (
     onSelect={setSelectedItem}
     onDelete={deleteAction}
     className="MenuItemList"
-    render={i => <Link className="Link" to={formPath} key={i.props._id}>{i}</Link>}
+    render={i => (
+      <Link className="Link" to={formPath} key={i.props._id}>
+        {i}
+      </Link>
+    )}
   />
 );
 
-function AdminMenu({
+export function AdminMenuComponent({
+  addAction,
+  deleteAction,
+  fetchAction,
+  items,
   location,
   match,
-  items,
-  addAction,
-  fetchAction,
   updateAction,
-  deleteAction,
   uploadImage,
 }) {
   useEffect(() => {
@@ -65,43 +71,48 @@ function AdminMenu({
       formPath={`${match.path}form/`}
       items={items}
       listPath={match.path}
-      renderForm={i => renderItemForm(i, addAction, updateAction, uploadImage)}
-      renderList={(i, setSelectedItem) => renderItemList(i, setSelectedItem, deleteAction, `${match.path}form/`)}
-      title="Menu"
       pathName={location.pathname}
+      renderForm={i => renderItemForm(i, addAction, updateAction, uploadImage)}
+      renderList={(i, setSelectedItem) => renderItemList(i, setSelectedItem, deleteAction, `${match.path}form/`)
+      }
+      title="Menu"
     />
   );
 }
 
-AdminMenu.propTypes = {
+AdminMenuComponent.propTypes = {
+  /** Function to be called when the user submits the form to add
+   * an item. */
+  addAction: PropTypes.func.isRequired,
+  /** Function to be called when the user clicks on a menu items delete button. */
+  deleteAction: PropTypes.func.isRequired,
+  /** Function that populates items */
+  fetchAction: PropTypes.func.isRequired,
+  /** Items to populate the list of menu with. */
+  items: PropTypes.arrayOf(menuItemPropType).isRequired,
   /** Location proptype provided by route.
    * Don't provide manually. */
   location: ReactRouterPropTypes.location.isRequired,
   /** Match property provided by route */
   match: ReactRouterPropTypes.location.isRequired,
-  /** Items to populate the list of menu with. */
-  items: PropTypes.arrayOf(menuItemPropType).isRequired,
-  /** Function to be called when the user submits the form to add
-   * an item. */
-  addAction: PropTypes.func.isRequired,
   /** Function to be called when the user submits the form to update
    * an item. */
   updateAction: PropTypes.func.isRequired,
-  /** Function to be called when the user clicks on a menu items delete button. */
-  deleteAction: PropTypes.func.isRequired,
-  /** Function that populates items */
-  fetchAction: PropTypes.func.isRequired,
+  /** Function to call to upload a menu item image */
+  uploadImage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   items: state.menu.items,
 });
 
-export default connect(mapStateToProps,
+export default connect(
+  mapStateToProps,
   {
-    fetchAction: fetchMenu,
     addAction: addMenuItem,
-    updateAction: updateMenuItem,
     deleteAction: deleteMenuItem,
+    fetchAction: fetchMenu,
+    updateAction: updateMenuItem,
     uploadImage: uploadMenuItemImage,
-  })(AdminMenu);
+  },
+)(AdminMenuComponent);
