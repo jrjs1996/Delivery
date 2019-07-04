@@ -68,7 +68,9 @@ export function CreateOrderComponent({
   const [orderItems, setOrderItems] = useState([]);
   const [total, setTotal] = useState(0);
 
-  useEffect(fetchAction, [fetchAction]);
+  useEffect(() => {
+    fetchAction();
+  }, [fetchAction]);
 
   return (
     <div>

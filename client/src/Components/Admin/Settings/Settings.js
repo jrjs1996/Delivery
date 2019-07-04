@@ -19,6 +19,7 @@ const renderBackButton = (pathname, history) => {
 };
 
 export default function Settings({ location, history }) {
+  console.log('in settings')
   return (
     <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
       <Grid container spacing={3}>
