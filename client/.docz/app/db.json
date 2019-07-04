@@ -26,7 +26,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Admin.js",
+      "key": "src\\Components\\Admin\\Admin.js",
       "value": [
         {
           "description": "",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\AdminRoute.js",
+      "key": "src\\Components\\Admin\\AdminRoute.js",
       "value": [
         {
           "description": "",
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\LogoutButton.js",
+      "key": "src\\Components\\Admin\\LogoutButton.js",
       "value": [
         {
           "description": "",
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "key": "src\\components\\General\\CrudPage.js",
+      "key": "src\\Components\\General\\CrudPage.js",
       "value": [
         {
           "description": "",
@@ -188,7 +188,7 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormButton.js",
+      "key": "src\\Components\\Login\\FormButton.js",
       "value": [
         {
           "description": "",
@@ -208,7 +208,7 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\FormCheckBox.js",
+      "key": "src\\Components\\Login\\FormCheckBox.js",
       "value": [
         {
           "description": "",
@@ -235,18 +235,7 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\Login.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Login",
-          "methods": [],
-          "actualName": "Login"
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Login\\FormInput.js",
+      "key": "src\\Components\\Login\\FormInput.js",
       "value": [
         {
           "description": "",
@@ -273,7 +262,18 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\SignUpForm.js",
+      "key": "src\\Components\\Login\\Login.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Login",
+          "methods": [],
+          "actualName": "Login"
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Login\\SignUpForm.js",
       "value": [
         {
           "description": "",
@@ -320,7 +320,7 @@
       ]
     },
     {
-      "key": "src\\components\\Login\\SignUpHeader.js",
+      "key": "src\\Components\\Login\\SignUpHeader.js",
       "value": [
         {
           "description": "",
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "key": "src\\components\\SideMenu\\SideMenu.js",
+      "key": "src\\Components\\SideMenu\\SideMenu.js",
       "value": [
         {
           "description": "",
@@ -351,7 +351,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\CreateOrder.js",
+      "key": "src\\Components\\Admin\\CreateOrder\\CreateOrder.js",
       "value": [
         {
           "description": "",
@@ -388,7 +388,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\AdminSettings.js",
+      "key": "src\\Components\\Admin\\Settings\\AdminSettings.js",
       "value": [
         {
           "description": "",
@@ -412,7 +412,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\ChangePassword.js",
+      "key": "src\\Components\\Admin\\Settings\\ChangePassword.js",
       "value": [
         {
           "description": "",
@@ -440,35 +440,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\ChangeUsername.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangeUsername",
-          "methods": [],
-          "actualName": "ChangeUsername",
-          "props": {
-            "changeCurrentAdminUsername": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "currentAdmin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\Settings.js",
+      "key": "src\\Components\\Admin\\Settings\\Settings.js",
       "value": [
         {
           "description": "",
@@ -489,7 +461,7 @@
       ]
     },
     {
-      "key": "src\\components\\SideMenu\\SideMenuItem\\SideMenuItem.js",
+      "key": "src\\Components\\SideMenu\\SideMenuItem\\SideMenuItem.js",
       "value": [
         {
           "description": "",
@@ -523,7 +495,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItemList\\OrderItemList.js",
+      "key": "src\\Components\\Admin\\CreateOrder\\OrderItemList\\OrderItemList.js",
       "value": [
         {
           "description": "",
@@ -554,7 +526,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\CustomerForm\\CustomerForm.js",
+      "key": "src\\Components\\Admin\\Customers\\CustomerForm\\CustomerForm.js",
       "value": [
         {
           "description": "",
@@ -628,7 +600,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\Customers\\Customers.js",
+      "key": "src\\Components\\Admin\\Customers\\Customers\\Customers.js",
       "value": [
         {
           "description": "",
@@ -696,7 +668,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\CustomersList\\CustomerList.js",
+      "key": "src\\Components\\Admin\\Customers\\CustomersList\\CustomerList.js",
       "value": [
         {
           "description": "",
@@ -753,7 +725,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Home\\Home\\Home.js",
+      "key": "src\\Components\\Admin\\Home\\Home\\Home.js",
       "value": [
         {
           "description": "",
@@ -791,7 +763,80 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
+      "key": "src\\Components\\Admin\\Home\\Order\\Order.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Order",
+          "methods": [],
+          "actualName": "Order",
+          "props": {
+            "address": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Address of the order"
+            },
+            "customerName": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name of the customer that placed the order"
+            },
+            "delivery": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": "True if a delivery order"
+            },
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Id of the order"
+            },
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "menuItemPropType"
+                }
+              },
+              "required": true,
+              "description": "The menu items that belong to the order"
+            },
+            "orderCreated": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "The date the order was created."
+            },
+            "stage": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "The stage of the order"
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Action to update the order. This is called when the next\r\nbutton is clicked. Is given the id of the order and an object\r\ncontaining the new order stage."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Menu\\ForwardBackButton\\ForwardBackButton.js",
       "value": [
         {
           "description": "",
@@ -861,7 +906,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
+      "key": "src\\Components\\Admin\\Menu\\AdminMenu\\AdminMenu.js",
       "value": [
         {
           "description": "",
@@ -936,148 +981,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Home\\Order\\Order.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Order",
-          "methods": [],
-          "actualName": "Order",
-          "props": {
-            "address": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Address of the order"
-            },
-            "customerName": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name of the customer that placed the order"
-            },
-            "delivery": {
-              "type": {
-                "name": "bool"
-              },
-              "required": true,
-              "description": "True if a delivery order"
-            },
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Id of the order"
-            },
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "menuItemPropType"
-                }
-              },
-              "required": true,
-              "description": "The menu items that belong to the order"
-            },
-            "orderCreated": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "The date the order was created."
-            },
-            "stage": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "The stage of the order"
-            },
-            "updateAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Action to update the order. This is called when the next\r\nbutton is clicked. Is given the id of the order and an object\r\ncontaining the new order stage."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MenuItemList",
-          "methods": [],
-          "actualName": "MenuItemList",
-          "props": {
-            "menu": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "Object"
-                }
-              },
-              "required": true,
-              "description": "The list of menu items to display"
-            },
-            "onSelect": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when a menu item\r\nis clicked on. Will be passed the menu item.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onDelete": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to be called when the menu items delete\r\nbutton is clicked on. Will not show delete button if\r\nthis function isn't provided. Passed the menu number\r\nof the item",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "render": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Optional render function for each menu item. Passed\r\nthe menu item. Could be used to wrap the items in links\r\nfor example.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "image": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\MenuItemForm.js",
+      "key": "src\\Components\\Admin\\Menu\\MenuItemForm\\MenuItemForm.js",
       "value": [
         {
           "description": "",
@@ -1174,7 +1078,75 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminList.js",
+      "key": "src\\Components\\Admin\\Menu\\MenuItemList\\MenuItemList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MenuItemList",
+          "methods": [],
+          "actualName": "MenuItemList",
+          "props": {
+            "menu": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "Object"
+                }
+              },
+              "required": true,
+              "description": "The list of menu items to display"
+            },
+            "onSelect": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when a menu item\r\nis clicked on. Will be passed the menu item.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onDelete": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to be called when the menu items delete\r\nbutton is clicked on. Will not show delete button if\r\nthis function isn't provided. Passed the menu number\r\nof the item",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "render": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Optional render function for each menu item. Passed\r\nthe menu item. Could be used to wrap the items in links\r\nfor example.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "image": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminList.js",
       "value": [
         {
           "description": "",
@@ -1205,7 +1177,79 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "key": "src\\Components\\Admin\\Settings\\ChangeUsername\\ChangeUsername.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangeUsername",
+          "methods": [],
+          "actualName": "ChangeUsername",
+          "props": {
+            "changeCurrentAdminUsername": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\SettingList\\SettingList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingList",
+          "methods": [],
+          "actualName": "SettingList",
+          "props": {
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list."
+            },
+            "itemString": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Title to appear at top of list."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPage.js",
       "value": [
         {
           "description": "",
@@ -1266,51 +1310,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingList",
-          "methods": [],
-          "actualName": "SettingList",
-          "props": {
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list."
-            },
-            "itemString": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
-            },
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Title to appear at top of list."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
       "value": [
         {
           "description": "",
@@ -1349,7 +1349,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\CreateOrder\\OrderItemList\\OrderItem\\OrderItem.js",
+      "key": "src\\Components\\Admin\\CreateOrder\\OrderItemList\\OrderItem\\OrderItem.js",
       "value": [
         {
           "description": "",
@@ -1383,7 +1383,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Customers\\CustomersList\\Customer\\Customer.js",
+      "key": "src\\Components\\Admin\\Customers\\CustomersList\\Customer\\Customer.js",
       "value": [
         {
           "description": "",
@@ -1460,7 +1460,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Home\\Order\\Item\\Item.js",
+      "key": "src\\Components\\Admin\\Home\\Order\\Item\\Item.js",
       "value": [
         {
           "description": "",
@@ -1487,7 +1487,34 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
+      "key": "src\\Components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ImageUpload",
+          "methods": [],
+          "actualName": "ImageUpload",
+          "props": {
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Id of the menu item to upload the image for."
+            },
+            "uploadImage": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to upload the file. Given the id of the\r\nmenu item and the file to upload."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Menu\\MenuItemList\\MenuItem\\MenuItem.js",
       "value": [
         {
           "description": "",
@@ -1550,34 +1577,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Menu\\MenuItemForm\\ImageUpload\\ImageUpload.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ImageUpload",
-          "methods": [],
-          "actualName": "ImageUpload",
-          "props": {
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "uploadImage": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\AdminList\\AdminForm\\AdminForm.js",
+      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminForm\\AdminForm.js",
       "value": [
         {
           "description": "",
@@ -1619,7 +1619,34 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\InputList\\InputList.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingList\\SettingListItem\\SettingListItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingListItem",
+          "methods": [],
+          "actualName": "SettingListItem",
+          "props": {
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the item is\r\nclicked on. Given by the SettingList this\r\nitem belongs to."
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Text representing the object this item represents.\r\nGiven by the SettingList this item belongs to."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\SettingPage\\InputList\\InputList.js",
       "value": [
         {
           "description": "",
@@ -1675,7 +1702,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageCheckBox\\SettingPageCheckBox.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageCheckBox\\SettingPageCheckBox.js",
       "value": [
         {
           "description": "",
@@ -1720,7 +1747,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageInput\\SettingPageInput.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageInput\\SettingPageInput.js",
       "value": [
         {
           "description": "",
@@ -1825,34 +1852,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingList\\SettingListItem\\SettingListItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingListItem",
-          "methods": [],
-          "actualName": "SettingListItem",
-          "props": {
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the item is\r\nclicked on. Given by the SettingList this\r\nitem belongs to."
-            },
-            "text": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Text representing the object this item represents.\r\nGiven by the SettingList this item belongs to."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\components\\Admin\\Settings\\SettingPage\\SettingPageSelect\\SettingPageSelect.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageSelect\\SettingPageSelect.js",
       "value": [
         {
           "description": "",
@@ -1926,7 +1926,7 @@
       ]
     },
     {
-      "key": "src\\components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
+      "key": "src\\Components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
       "value": [
         {
           "description": "",
@@ -1970,13 +1970,13 @@
   ],
   "entries": [
     {
-      "key": "src/components/General/CrudPage.mdx",
+      "key": "src/Components/General/CrudPage.mdx",
       "value": {
         "name": "CrudPage",
         "menu": "Components",
         "route": "/General/CrudPage.mdx",
-        "id": "eb02b3fd88fe853092c0f7909f29cac9",
-        "filepath": "src/components/General/CrudPage.mdx",
+        "id": "1f54fda052b6e9232a338c529622100b",
+        "filepath": "src/Components/General/CrudPage.mdx",
         "link": "",
         "slug": "src-components-general-crud-page",
         "headings": [
@@ -1989,13 +1989,13 @@
       }
     },
     {
-      "key": "src/components/SideMenu/SideMenu.mdx",
+      "key": "src/Components/SideMenu/SideMenu.mdx",
       "value": {
         "name": "SideMenu",
         "menu": "Components",
         "route": "/components/admin/SideMenu/SideMenu",
-        "id": "217d86f3a14446f21fbeddab46e7b2f7",
-        "filepath": "src/components/SideMenu/SideMenu.mdx",
+        "id": "f506fbca8e51b89b54581e99e8a21fe6",
+        "filepath": "src/Components/SideMenu/SideMenu.mdx",
         "link": "",
         "slug": "src-components-side-menu-side-menu",
         "headings": [
@@ -2008,13 +2008,13 @@
       }
     },
     {
-      "key": "src/components/Admin/CreateOrder/CreateOrder.mdx",
+      "key": "src/Components/Admin/CreateOrder/CreateOrder.mdx",
       "value": {
         "name": "CreateOrder",
         "menu": "Components",
         "route": "/components/Admin/CreateOrder/CreateOrder.mdx",
-        "id": "d493d156f5b40dafd3418682bf9833d2",
-        "filepath": "src/components/Admin/CreateOrder/CreateOrder.mdx",
+        "id": "a534d3603ea1b21389971ac9074a735b",
+        "filepath": "src/Components/Admin/CreateOrder/CreateOrder.mdx",
         "link": "",
         "slug": "src-components-admin-create-order-create-order",
         "headings": [
@@ -2027,13 +2027,13 @@
       }
     },
     {
-      "key": "src/components/SideMenu/SideMenuItem/SideMenuItem.mdx",
+      "key": "src/Components/SideMenu/SideMenuItem/SideMenuItem.mdx",
       "value": {
         "name": "SideMenuItem",
         "menu": "Components",
         "route": "/components/Admin/Sidemenu/SideMenuItem",
-        "id": "8aacf467b6cf85e86c801f04c28c80df",
-        "filepath": "src/components/SideMenu/SideMenuItem/SideMenuItem.mdx",
+        "id": "54c3030c5b75ad773590dcdb03aa6446",
+        "filepath": "src/Components/SideMenu/SideMenuItem/SideMenuItem.mdx",
         "link": "",
         "slug": "src-components-side-menu-side-menu-item-side-menu-item",
         "headings": [
@@ -2046,13 +2046,13 @@
       }
     },
     {
-      "key": "src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
+      "key": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
       "value": {
         "name": "OrderItemList",
         "menu": "Components",
         "route": "/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
-        "id": "b7e1b759674be8e67832d47f0f4a3b13",
-        "filepath": "src/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
+        "id": "42740af4929f3021d387691dd38325e1",
+        "filepath": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
         "link": "",
         "slug": "src-components-admin-create-order-order-item-list-order-item-list",
         "headings": [
@@ -2065,32 +2065,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Customers/Customers/Customers.mdx",
-      "value": {
-        "name": "Customers",
-        "menu": "Components",
-        "route": "/Admin/Customers/Customers/Customers.mdx",
-        "id": "b55dad37c1e4b69257a732a2dfbf57cf",
-        "filepath": "src/components/Admin/Customers/Customers/Customers.mdx",
-        "link": "",
-        "slug": "src-components-admin-customers-customers-customers",
-        "headings": [
-          {
-            "slug": "customers",
-            "depth": 1,
-            "value": "Customers"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
+      "key": "src/Components/Admin/Customers/CustomerForm/CustomerForm.mdx",
       "value": {
         "name": "CustomerForm",
         "menu": "Components",
         "route": "/Admin/Customers/CustomerForm/CustomerForm.mdx",
-        "id": "0d236512a9840bf5f3e37afbd3c326ca",
-        "filepath": "src/components/Admin/Customers/CustomerForm/CustomerForm.mdx",
+        "id": "030f51217a78ba905e514292bbedadf0",
+        "filepath": "src/Components/Admin/Customers/CustomerForm/CustomerForm.mdx",
         "link": "",
         "slug": "src-components-admin-customers-customer-form-customer-form",
         "headings": [
@@ -2103,13 +2084,32 @@
       }
     },
     {
-      "key": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
+      "key": "src/Components/Admin/Customers/Customers/Customers.mdx",
+      "value": {
+        "name": "Customers",
+        "menu": "Components",
+        "route": "/Admin/Customers/Customers/Customers.mdx",
+        "id": "090628f78218eaa0b5e6a4eb878b2e87",
+        "filepath": "src/Components/Admin/Customers/Customers/Customers.mdx",
+        "link": "",
+        "slug": "src-components-admin-customers-customers-customers",
+        "headings": [
+          {
+            "slug": "customers",
+            "depth": 1,
+            "value": "Customers"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/Admin/Customers/CustomersList/CustomerList.mdx",
       "value": {
         "name": "CustomerList",
         "menu": "Components",
         "route": "/Admin/Customers/CustomersList/CustomerList.mdx",
-        "id": "1874d541dbd06eda6b8a83881b2a3e7c",
-        "filepath": "src/components/Admin/Customers/CustomersList/CustomerList.mdx",
+        "id": "b3720107c12ad51356507bdc74c21997",
+        "filepath": "src/Components/Admin/Customers/CustomersList/CustomerList.mdx",
         "link": "",
         "slug": "src-components-admin-customers-customers-list-customer-list",
         "headings": [
@@ -2122,13 +2122,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Home/Home/Home.mdx",
+      "key": "src/Components/Admin/Home/Home/Home.mdx",
       "value": {
         "name": "Home",
         "menu": "Components",
         "route": "/Admin/Home/Home/Home.mdx",
-        "id": "7236249a5b218efdfdf4688b9721dfb2",
-        "filepath": "src/components/Admin/Home/Home/Home.mdx",
+        "id": "9eef6abb93f8b495e2dc4a2ca09f691c",
+        "filepath": "src/Components/Admin/Home/Home/Home.mdx",
         "link": "",
         "slug": "src-components-admin-home-home-home",
         "headings": [
@@ -2141,13 +2141,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Home/Order/Order.mdx",
+      "key": "src/Components/Admin/Home/Order/Order.mdx",
       "value": {
         "name": "Order",
         "menu": "Components",
         "route": "/Admin/Home/Order/Order.mdx",
-        "id": "707bd888f9dd83c2898b06d778ba17c9",
-        "filepath": "src/components/Admin/Home/Order/Order.mdx",
+        "id": "ceeba4ba9539ae31dd311688fcd57194",
+        "filepath": "src/Components/Admin/Home/Order/Order.mdx",
         "link": "",
         "slug": "src-components-admin-home-order-order",
         "headings": [
@@ -2160,13 +2160,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Menu/AdminMenu/AdminMenu.mdx",
+      "key": "src/Components/Admin/Menu/AdminMenu/AdminMenu.mdx",
       "value": {
         "name": "AdminMenu",
         "menu": "Components",
         "route": "/Admin/Menu/AdminMenu/AdminMenu.mdx",
-        "id": "b26c25c26a9834db755d3d8429f3b6b9",
-        "filepath": "src/components/Admin/Menu/AdminMenu/AdminMenu.mdx",
+        "id": "238e8d52497a7b4cb29714a98a970f31",
+        "filepath": "src/Components/Admin/Menu/AdminMenu/AdminMenu.mdx",
         "link": "",
         "slug": "src-components-admin-menu-admin-menu-admin-menu",
         "headings": [
@@ -2179,13 +2179,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
+      "key": "src/Components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
       "value": {
         "name": "ForwardBackButton",
         "menu": "Components",
         "route": "/Admin/Menu/AdminMenu/ForwardBackButton",
-        "id": "53898d945fe4553d75dd4fde7f078e5d",
-        "filepath": "src/components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
+        "id": "42c1989e720e510093d9babc9a4cdfa7",
+        "filepath": "src/Components/Admin/Menu/ForwardBackButton/ForwardBackButton.mdx",
         "link": "",
         "slug": "src-components-admin-menu-forward-back-button-forward-back-button",
         "headings": [
@@ -2198,13 +2198,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx",
+      "key": "src/Components/Admin/Menu/MenuItemForm/MenuItemForm.mdx",
       "value": {
         "name": "MenuItemForm",
         "menu": "Components",
         "route": "/Admin/Menu/MenuItemForm/MenuItemForm.mdx",
-        "id": "3ad3f1bc0f15ace2bd575daf2c71eaa2",
-        "filepath": "src/components/Admin/Menu/MenuItemForm/MenuItemForm.mdx",
+        "id": "ac13e5cf7e1e7bd4a763c4b77823d1dc",
+        "filepath": "src/Components/Admin/Menu/MenuItemForm/MenuItemForm.mdx",
         "link": "",
         "slug": "src-components-admin-menu-menu-item-form-menu-item-form",
         "headings": [
@@ -2217,13 +2217,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Menu/MenuItemList/MenuItemList.mdx",
+      "key": "src/Components/Admin/Menu/MenuItemList/MenuItemList.mdx",
       "value": {
         "name": "MenuItemList",
         "menu": "Components",
         "route": "/components/Admin/Menu/MenuItemList/MenuItemList.mdx",
-        "id": "10f41378f07e42a2e99495a94f14fe13",
-        "filepath": "src/components/Admin/Menu/MenuItemList/MenuItemList.mdx",
+        "id": "fdb16e49850a3e0e78e8482206e512a9",
+        "filepath": "src/Components/Admin/Menu/MenuItemList/MenuItemList.mdx",
         "link": "",
         "slug": "src-components-admin-menu-menu-item-list-menu-item-list",
         "headings": [
@@ -2236,13 +2236,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/AdminList/AdminList.mdx",
+      "key": "src/Components/Admin/Settings/AdminList/AdminList.mdx",
       "value": {
         "name": "AdminList",
         "menu": "Components",
         "route": "/components/Admin/Settings/AdminList",
-        "id": "4c8bbe1723e8629e9d71d78b7b80935c",
-        "filepath": "src/components/Admin/Settings/AdminList/AdminList.mdx",
+        "id": "49e391fadfa847085586c47b32e73094",
+        "filepath": "src/Components/Admin/Settings/AdminList/AdminList.mdx",
         "link": "",
         "slug": "src-components-admin-settings-admin-list-admin-list",
         "headings": [
@@ -2255,13 +2255,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+      "key": "src/Components/Admin/Settings/SettingList/SettingList.mdx",
       "value": {
         "name": "Setting List",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingList",
-        "id": "6ccfb92c20a5a4c7d8ee7db779a8a88e",
-        "filepath": "src/components/Admin/Settings/SettingList/SettingList.mdx",
+        "id": "3bfa56e8a6575fe7792b48b007124a09",
+        "filepath": "src/Components/Admin/Settings/SettingList/SettingList.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-list-setting-list",
         "headings": [
@@ -2274,13 +2274,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
+      "key": "src/Components/Admin/Settings/SettingPage/SettingPage.mdx",
       "value": {
         "name": "SettingPage",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingPage",
-        "id": "e6214c5adf7e95ddbf1e6748b3820d1c",
-        "filepath": "src/components/Admin/Settings/SettingPage/SettingPage.mdx",
+        "id": "413c71ab8fcdc01dd0dd41868e7ef376",
+        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPage.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-page-setting-page",
         "headings": [
@@ -2293,13 +2293,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+      "key": "src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
       "value": {
         "name": "SettingsMenu",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingsMenu",
-        "id": "c4393aed2807ec74644c2daea8ca5ef7",
-        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+        "id": "06631241ece4c4d2cb2a43f88cb2d587",
+        "filepath": "src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
         "link": "",
         "slug": "src-components-admin-settings-settings-menu-settings-menu",
         "headings": [
@@ -2312,13 +2312,13 @@
       }
     },
     {
-      "key": "src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
+      "key": "src/Components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
       "value": {
         "name": "OrderItem",
         "menu": "Components",
         "route": "/src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
-        "id": "01fe4b78b4ac1a0b400f29c5db8b8fec",
-        "filepath": "src/components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
+        "id": "e3dc42df3841ca734fed0ece4b7db908",
+        "filepath": "src/Components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx",
         "link": "",
         "slug": "src-components-admin-create-order-order-item-list-order-item-order-item",
         "headings": [
@@ -2331,26 +2331,26 @@
       }
     },
     {
-      "key": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
+      "key": "src/Components/Admin/Customers/CustomersList/Customer/Customer.mdx",
       "value": {
         "name": "Customer",
         "menu": "Components",
         "route": "/Admin/Customers/CustomersList/Customer/Customer.mdx",
-        "id": "3fa8fc6053de66b47b838456908668d3",
-        "filepath": "src/components/Admin/Customers/CustomersList/Customer/Customer.mdx",
+        "id": "fc9ceb6f53c8b69e9f6853438856c4bc",
+        "filepath": "src/Components/Admin/Customers/CustomersList/Customer/Customer.mdx",
         "link": "",
         "slug": "src-components-admin-customers-customers-list-customer-customer",
         "headings": []
       }
     },
     {
-      "key": "src/components/Admin/Home/Order/Item/Item.mdx",
+      "key": "src/Components/Admin/Home/Order/Item/Item.mdx",
       "value": {
         "name": "Item",
         "menu": "Components",
         "route": "/Admin/Home/Order/Item/Item.mdx",
-        "id": "f98a87592be7c3492a8bd1de0684b419",
-        "filepath": "src/components/Admin/Home/Order/Item/Item.mdx",
+        "id": "ad2b13d15de65bc283e88338ba01254b",
+        "filepath": "src/Components/Admin/Home/Order/Item/Item.mdx",
         "link": "",
         "slug": "src-components-admin-home-order-item-item",
         "headings": [
@@ -2363,13 +2363,32 @@
       }
     },
     {
-      "key": "src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
+      "key": "src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx",
+      "value": {
+        "name": "ImageUpload",
+        "menu": "Components",
+        "route": "/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx",
+        "id": "c55ef826647ae63290dc69cc722adb6c",
+        "filepath": "src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx",
+        "link": "",
+        "slug": "src-components-admin-menu-menu-item-form-image-upload-image-upload",
+        "headings": [
+          {
+            "slug": "image-upload",
+            "depth": 1,
+            "value": "Image Upload"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
       "value": {
         "name": "MenuItem",
         "menu": "Components",
         "route": "/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
-        "id": "2c8aca712970def4124f61bb13a02b8d",
-        "filepath": "src/components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
+        "id": "31d94f476f3f6e5111e94f023f999b00",
+        "filepath": "src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx",
         "link": "",
         "slug": "src-components-admin-menu-menu-item-list-menu-item-menu-item",
         "headings": [
@@ -2382,13 +2401,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
+      "key": "src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
       "value": {
         "name": "AdminForm",
         "menu": "Components",
         "route": "/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
-        "id": "7ff709d2e04c6b1bf65b4e65884276a1",
-        "filepath": "src/components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
+        "id": "f0aa9241c94dda9d03d5ed5d432af2e9",
+        "filepath": "src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx",
         "link": "",
         "slug": "src-components-admin-settings-admin-list-admin-form-admin-form",
         "headings": [
@@ -2401,13 +2420,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+      "key": "src/Components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
       "value": {
         "name": "SettingListItem",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingList/SettingListItem",
-        "id": "428aed1faf3ee22496c4469e97bcf24a",
-        "filepath": "src/components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+        "id": "88ba8fcc015c3d7a84b55bc1866728d3",
+        "filepath": "src/Components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-list-setting-list-item-setting-list-item",
         "headings": [
@@ -2420,13 +2439,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+      "key": "src/Components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
       "value": {
         "name": "SettingPageCheckBox",
         "menu": "Components",
         "route": "/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
-        "id": "855bf7a049af6a80ed70ceca40ba6219",
-        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+        "id": "bc8861216f3e2f1fed4b372d33fa51c8",
+        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-page-setting-page-check-box-setting-page-check-box",
         "headings": [
@@ -2439,13 +2458,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+      "key": "src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
       "value": {
         "name": "SettingPageInput",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
-        "id": "9c0dd32d5055494e4ae3ce334147511c",
-        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
+        "id": "ad9187781280fae15a57590443d179da",
+        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-page-setting-page-input-setting-page-input",
         "headings": [
@@ -2458,13 +2477,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
+      "key": "src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
       "value": {
         "name": "SettingPageSelect",
         "menu": "Components",
         "route": "/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect",
-        "id": "5403ab7c8f18f082174e67cd42dfb587",
-        "filepath": "src/components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
+        "id": "ff692a4f1d9e565d2c0cca67aa751755",
+        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
         "link": "",
         "slug": "src-components-admin-settings-setting-page-setting-page-select-setting-page-select",
         "headings": [
@@ -2477,13 +2496,13 @@
       }
     },
     {
-      "key": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+      "key": "src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
       "value": {
         "name": "SettingsMenuItem",
         "menu": "Components",
         "route": "/components/Admin/Settings/SettingsMenu/SettingsMenuItem",
-        "id": "6bd148ceefb1adee09b0ab17289dbd28",
-        "filepath": "src/components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+        "id": "96ce1e6e59e8fb05d44fb949d508ac61",
+        "filepath": "src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
         "link": "",
         "slug": "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item",
         "headings": [

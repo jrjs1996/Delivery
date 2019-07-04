@@ -109,3 +109,16 @@ export const ordersMock = [
     items: [menuItemsMock[1]],
   },
 ];
+
+export const adminsMock = [
+  {
+    __v: 0,
+    _id: '1',
+    username: 'FirstAdmin',
+  },
+  {
+    __v: 0,
+    _id: '1',
+    username: 'SecondAdmin',
+  },
+];

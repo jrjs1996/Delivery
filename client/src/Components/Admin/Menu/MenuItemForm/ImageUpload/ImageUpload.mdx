@@ -1,0 +1,33 @@
+
+---
+name: ImageUpload
+menu: Components
+route: /Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import ImageUpload from './ImageUpload';
+
+# Image Upload
+
+Updated 03/07/2019
+
+Component for uploading an image.
+
+<Props of={ImageUpload} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return(
+      <div>
+        <p>{message}</p>
+        <ImageUpload
+          id="TestId"
+          uploadImage={data => setMessage(JSON.stringify(data))}
+        />
+      </div>
+    )
+  }}
+</Playground>
