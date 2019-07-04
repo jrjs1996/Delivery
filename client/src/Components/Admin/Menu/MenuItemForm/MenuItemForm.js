@@ -36,7 +36,7 @@ export default function MenuItemForm({
       <Paper>
         { image ? (
           <div>
-            <img src={`http://localhost:9000/uploads/${id}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img src={`/uploads/${id}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
             <br />
             <Button
               color="secondary"

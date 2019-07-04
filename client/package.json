@@ -74,5 +74,6 @@
   },
   "jest-junit": {
     "output": "test-results/test-report.junit.xml"
-  }
+  },
+  "proxy": "http://localhost:9000"
 }

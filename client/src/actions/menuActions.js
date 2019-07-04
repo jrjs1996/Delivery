@@ -5,7 +5,7 @@ import { FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM } from '.
 
 export const fetchMenu = () => async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:9000/menuitems/');
+    const res = await axios.get('/menuitems/');
     dispatch({
       type: FETCH_MENU,
       payload: res.data,
@@ -17,7 +17,7 @@ export const fetchMenu = () => async (dispatch) => {
 
 export const addMenuItem = postData => async (dispatch) => {
   try {
-    const res = await axios.post('http://localhost:9000/menuitems/', postData, setAuthHeader());
+    const res = await axios.post('/menuitems/', postData, setAuthHeader());
     dispatch({
       type: ADD_MENU_ITEM,
       payload: res.data,
@@ -29,7 +29,7 @@ export const addMenuItem = postData => async (dispatch) => {
 
 export const updateMenuItem = putData => async (dispatch) => {
   try {
-    const res = await axios.put(`http://localhost:9000/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
+    const res = await axios.put(`/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
     console.log(res.data)
     dispatch({
       type: UPDATE_MENU_ITEM,
@@ -42,7 +42,7 @@ export const updateMenuItem = putData => async (dispatch) => {
 
 export const deleteMenuItem = menuNumber => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:9000/menuItems/${menuNumber}`, setAuthHeader());
+    await axios.delete(`/menuItems/${menuNumber}`, setAuthHeader());
     dispatch({
       type: DELETE_MENU_ITEM,
       payload: { menuNumber },
@@ -57,7 +57,7 @@ export const uploadMenuItemImage = (id, file) => async (dispatch) => {
     const fd = new FormData();
     fd.append('id', id);
     fd.append('image', file);
-    const res = await axios.post('http://localhost:9000/menuitems/image/',
+    const res = await axios.post('/menuitems/image/',
       fd, { headers: { 'Content-Type': 'multipart/form-data' } });
     dispatch({
       type: UPDATE_MENU_ITEM,

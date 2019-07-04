@@ -3,7 +3,7 @@ import { ADD_ORDER, FETCH_ORDERS, COMPLETE_ORDER } from './types';
 import { setAuthHeader } from '../utils/token';
 
 export const fetchOrders = () => (dispatch) => {
-  axios.get('http://localhost:9000/orders/')
+  axios.get('/orders/')
     .then((res) => {
       dispatch({
         type: FETCH_ORDERS,
@@ -13,7 +13,7 @@ export const fetchOrders = () => (dispatch) => {
 };
 
 export const fetchOpenOrders = () => (dispatch) => {
-  axios.get('http://localhost:9000/orders/?toStage=3')
+  axios.get('/orders/?toStage=3')
     .then((res) => {
       dispatch({
         type: FETCH_ORDERS,
@@ -23,7 +23,7 @@ export const fetchOpenOrders = () => (dispatch) => {
 };
 
 export const createOrder = postData => (dispatch) => {
-  axios.post('http://localhost:9000/orders/', postData)
+  axios.post('/orders/', postData)
     .then((res) => {
       dispatch({
         type: ADD_ORDER,
@@ -33,7 +33,7 @@ export const createOrder = postData => (dispatch) => {
 };
 
 export const updateOrder = (id, putData) => (dispatch) => {
-  axios.put(`http://localhost:9000/orders/${id}`, putData, setAuthHeader())
+  axios.put(`/orders/${id}`, putData, setAuthHeader())
     .then(() => {
       const payload = putData;
       payload._id = id;
