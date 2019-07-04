@@ -4,9 +4,9 @@ import './App.css';
 
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Admin from './components/Admin/Admin';
-import AdminRoute from './components/Admin/AdminRoute';
+import Login from './Components/Login/Login';
+import Admin from './Components/Admin/Admin';
+import AdminRoute from './Components/Admin/AdminRoute';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
