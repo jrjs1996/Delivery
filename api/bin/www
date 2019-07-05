@@ -8,12 +8,8 @@ const debug = require('debug')('api:server');
 const http = require('http');
 const app = require('../app');
 const connectDb = require('../models/index');
-const crypto = require('crypto');
-const path = require('path');
-const multer = require('multer');
-const Grid = require('gridfs-stream');
-const GridFsStorage = require('multer-gridfs-storage');
-const mongoose = require('mongoose');
+const config = require('../config');
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -38,7 +34,7 @@ function normalizePort(val) {
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '9000');
+const port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
 
