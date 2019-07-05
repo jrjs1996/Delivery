@@ -4,7 +4,6 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Hidden } from '@material-ui/core';
-import { useTheme } from '@material-ui/styles';
 
 const drawerWidth = 240;
 
@@ -13,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
@@ -32,7 +31,7 @@ function SideMenu({ children, mobileOpen, setMobileOpen }) {
   const classes = useStyles();
   return (
     <nav className={classes.drawer}>
-      <Hidden smUp implementation="css">
+      <Hidden mdUp implementation="css">
         <Drawer
           variant="temporary"
           classes={{
@@ -50,7 +49,7 @@ function SideMenu({ children, mobileOpen, setMobileOpen }) {
           <Divider />
         </Drawer>
       </Hidden>
-      <Hidden xsDown implementation="css">
+      <Hidden smDown implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper,

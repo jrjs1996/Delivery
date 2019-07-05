@@ -8,7 +8,7 @@ export default function Item({
   menuNumber,
 }) {
   return (
-    <Paper>
+    <Paper className="Item">
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Paper>

@@ -29,14 +29,13 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
   root: {
     display: 'flex',
@@ -44,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
   },
@@ -62,7 +61,6 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
   }, [getInfo]);
   const { username } = currentAdmin;
   return (
-    <div className="adminPanel">
       <div className={classes.root}>
         <CssBaseline />
         <AppBar position="fixed" className={classes.appBar}>
@@ -108,7 +106,6 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
           <Route path="/admin/customers/" component={Customers} />
         </main>
       </div>
-    </div>
   );
 }
 

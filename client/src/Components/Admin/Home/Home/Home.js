@@ -22,7 +22,7 @@ export function HomeComponent({
   useEffect(fetchAction, [fetchAction]);
 
   return (
-    <div>
+    <div className="Customers">
       {orders.map(o => (
         <Order
           address={o.address}
