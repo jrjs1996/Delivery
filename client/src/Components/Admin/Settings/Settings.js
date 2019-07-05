@@ -6,6 +6,7 @@ import ChangeUsername from './ChangeUsername/ChangeUsername';
 import ChangePassword from './ChangePassword';
 import AdminSettings from './AdminSettings';
 import AdminList from './AdminList/AdminList';
+import './Settings.css';
 
 const renderBackButton = (pathname, history) => {
   if (pathname !== '/admin/settings/') {
@@ -19,24 +20,19 @@ const renderBackButton = (pathname, history) => {
 };
 
 export default function Settings({ location, history }) {
-  console.log('in settings')
   return (
-    <div style={{ marginTop: '5%', marginRight: '25%', marginLeft: '25%' }}>
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
+    <div className="Settings">
+      <Grid container spacing={1}>
+        <Grid item  sm={3}>
           {renderBackButton(location.pathname, history)}
         </Grid>
-        <Grid item xs={6}>
-          <Route
-            path="/admin/settings/"
-            exact
-            component={AdminSettings}
-          />
+        <Grid item xs={12} sm={6}>
+          <Route path="/admin/settings/" exact component={AdminSettings} />
           <Route path="/admin/settings/username/" component={ChangeUsername} />
           <Route path="/admin/settings/password/" component={ChangePassword} />
           <Route path="/admin/settings/admins/" component={AdminList} />
         </Grid>
-        <Grid item xs={3} />
+        <Grid item xs={12} sm={3} />
       </Grid>
     </div>
   );
