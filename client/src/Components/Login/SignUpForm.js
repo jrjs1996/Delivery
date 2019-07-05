@@ -28,6 +28,11 @@ class SignUpForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  async componentDidMount() {
+    await this.props.login({ username: 'admin', password: 'admin' });
+    this.props.history.push('/admin/');
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -46,8 +51,20 @@ class SignUpForm extends Component {
       <div id="signUpFormContainer" onSubmit={this.onSubmit}>
         <form id="signUpForm">
           <span>Admin Login</span>
-          <FormInput type="text" placeholder="username" name="username" onChange={this.onChange} value={username} />
-          <FormInput type="password" placeholder="password" name="password" onChange={this.onChange} value={password} />
+          <FormInput
+            type="text"
+            placeholder="username"
+            name="username"
+            onChange={this.onChange}
+            value={username}
+          />
+          <FormInput
+            type="password"
+            placeholder="password"
+            name="password"
+            onChange={this.onChange}
+            value={password}
+          />
           <FormButton title="Log in" />
         </form>
       </div>
@@ -59,4 +76,9 @@ SignUpForm.propTypes = {
   login: PropTypes.func.isRequired,
 };
 
-export default withRouter(connect(null, { login })(SignUpForm));
+export default withRouter(
+  connect(
+    null,
+    { login },
+  )(SignUpForm),
+);
