@@ -62,6 +62,7 @@ export function CustomersComponent({
   }, [fetchAction]);
   return (
     <CrudPage
+      className="Customers"
       formPath={`${match.path}form/`}
       items={customers}
       listPath={match.path}

@@ -68,6 +68,7 @@ export function AdminMenuComponent({
 
   return (
     <CrudPage
+      className="AdminMenu"
       formPath={`${match.path}form/`}
       items={items}
       listPath={match.path}

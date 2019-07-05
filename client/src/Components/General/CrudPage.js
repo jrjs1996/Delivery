@@ -19,10 +19,12 @@ export default function CrudPage({
   showAdd,
   style,
   title,
+  ...rest
 }) {
+  console.log(rest)
   const [selectedItem, setSelectedItem] = useState(null);
   return (
-    <div style={style}>
+    <div {...rest}>
       <Grid container spacing={3}>
         <Grid item xs={3}>
           { (pathName === listPath && !showAdd) ? null : (
