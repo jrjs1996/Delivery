@@ -7,6 +7,8 @@
 
 .Customers {
   margin-top: 25px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .Customer:hover {
@@ -15,6 +17,16 @@
 }
 
 .CustomerList {
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 5px;
+}
+    
+@media only screen and (max-width: 1200px) {
+  .CustomerList {
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+  
 }

@@ -12,31 +12,40 @@ export default function Customer({
   onSelect,
 }) {
   return (
-    <Paper
-      onClick={() => onSelect(id, firstName, lastName, addresses, email)}
-      className="Customer"
-    >
-      <Grid container spacing={3}>
-        <Grid item xs={4}>
-          Name:
-          <Paper>
-            {`${firstName} ${lastName}`}
-          </Paper>
+    <Paper onClick={() => onSelect(id, firstName, lastName, addresses, email)} className="Customer">
+      <Grid container spacing={2}>
+        <Grid item xs={12} lg={4}>
+          <Grid container spacing={0}>
+            <Grid item xs={2}>
+              Name:
+            </Grid>
+            <Grid item xs={10}>
+              <Paper>{`${firstName} ${lastName}`}</Paper>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          Address:
-          <Paper>
-            {addresses ? addresses[0] : null}
-          </Paper>
+        <Grid item xs={12} lg={4}>
+          <Grid container spacing={0}>
+            <Grid item xs={2}>
+              Address:
+            </Grid>
+            <Grid item xs={10}>
+              <Paper>{addresses ? addresses[0] : null}</Paper>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          Email:
-          <Paper>
-            {email}
-          </Paper>
+        <Grid item xs={12} lg={4}>
+          <Grid container spacing={0}>
+            <Grid item xs={2}>
+              Email:
+            </Grid>
+            <Grid item xs={10}>
+              <Paper>{email}</Paper>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={12} justify="flex-end" style={{textAlign: 'right'}}>
-          { onDelete ? (
+        <Grid item xs={12} justify="flex-end" style={{ textAlign: 'right' }}>
+          {onDelete ? (
             <Button
               variant="contained"
               color="secondary"
