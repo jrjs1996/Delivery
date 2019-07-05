@@ -30,19 +30,19 @@ export default function MenuItem({
       })}
     >
       <Grid container spacing={1}>
-        <Grid item xs={1}>
+        <Grid item xs={2} sm={1}>
           <Paper>
             <Typography variant="h6" gutterBottom>
               {number}
             </Typography>           
           </Paper>
         </Grid>
-        <Grid item style={{textAlign: 'left'}} xs={9}>
+        <Grid item style={{ textAlign: 'left' }} xs={10} sm={9}>
           <Typography variant="h6" gutterBottom>
             {title}
           </Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={2}>
           <Paper>
             <Typography variant="h6" gutterBottom>
               $

@@ -61,51 +61,51 @@ function Admin({ currentAdmin, getCurrentAdminInfo: getInfo }) {
   }, [getInfo]);
   const { username } = currentAdmin;
   return (
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              edge="start"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              {username}
-            </Typography>
-            <LogoutButton color="inherit" />
-          </Toolbar>
-        </AppBar>
-        <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}>
-          <SideMenuItem to="/admin/" text="Home">
-            <HomeIcon />
-          </SideMenuItem>
-          <SideMenuItem to="/admin/customers/" text="Customers">
-            <PersonIcon />
-          </SideMenuItem>
-          <SideMenuItem to="/admin/createorder/" text="Create Order">
-            <ShoppingBasket />
-          </SideMenuItem>
-          <SideMenuItem to="/admin/settings/" text="Settings">
-            <SettingsIcon />
-          </SideMenuItem>
-          <SideMenuItem to="/admin/menu/" text="Menu">
-            <BookIcon />
-          </SideMenuItem>
-        </SideMenu>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Route path="/admin/" exact component={Home} />
-          <Route path="/admin/createorder/" component={CreateOrder} />
-          <Route path="/admin/menu/" component={AdminMenu} />
-          <Route path="/admin/settings/" component={Settings} />
-          <Route path="/admin/customers/" component={Customers} />
-        </main>
-      </div>
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            edge="start"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            {username}
+          </Typography>
+          <LogoutButton color="inherit" />
+        </Toolbar>
+      </AppBar>
+      <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}>
+        <SideMenuItem to="/admin/" text="Home">
+          <HomeIcon />
+        </SideMenuItem>
+        <SideMenuItem to="/admin/customers/" text="Customers">
+          <PersonIcon />
+        </SideMenuItem>
+        <SideMenuItem to="/admin/createorder/" text="Create Order">
+          <ShoppingBasket />
+        </SideMenuItem>
+        <SideMenuItem to="/admin/settings/" text="Settings">
+          <SettingsIcon />
+        </SideMenuItem>
+        <SideMenuItem to="/admin/menu/" text="Menu">
+          <BookIcon />
+        </SideMenuItem>
+      </SideMenu>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Route path="/admin/" exact component={Home} />
+        <Route path="/admin/createorder/" component={CreateOrder} />
+        <Route path="/admin/menu/" component={AdminMenu} />
+        <Route path="/admin/settings/" component={Settings} />
+        <Route path="/admin/customers/" component={Customers} />
+      </main>
+    </div>
   );
 }
 

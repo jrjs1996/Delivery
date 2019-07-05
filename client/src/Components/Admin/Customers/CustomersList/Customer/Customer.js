@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Paper, Grid, Button } from '@material-ui/core';
+import {
+  Paper, Grid, Button, Typography,
+} from '@material-ui/core';
 
 export default function Customer({
   addresses,
@@ -20,7 +22,9 @@ export default function Customer({
               Name:
             </Grid>
             <Grid item xs={10}>
-              <Paper>{`${firstName} ${lastName}`}</Paper>
+              <Typography variant="h6" gutterBottom>
+                <Paper>{`${firstName} ${lastName}`}</Paper>
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -30,7 +34,9 @@ export default function Customer({
               Address:
             </Grid>
             <Grid item xs={10}>
-              <Paper>{addresses ? addresses[0] : null}</Paper>
+              <Typography variant="h6" gutterBottom>
+                <Paper>{addresses ? addresses[0] : null}</Paper>
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -40,7 +46,9 @@ export default function Customer({
               Email:
             </Grid>
             <Grid item xs={10}>
-              <Paper>{email}</Paper>
+              <Typography variant="h6" gutterBottom>
+                <Paper>{email}</Paper>
+              </Typography>
             </Grid>
           </Grid>
         </Grid>

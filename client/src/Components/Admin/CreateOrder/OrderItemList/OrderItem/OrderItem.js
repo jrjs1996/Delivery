@@ -8,7 +8,7 @@ export default function OrderItem({ title, price, onClick }) {
       onClick={onClick}
       className="OrderItem"
     >
-      <Grid spacing={3} container>
+      <Grid spacing={0} container>
         <Grid item xs={6}>
           <Typography variant="h6">
             {title}

@@ -37,12 +37,7 @@ const removeItem = (index, items, setItems, total, setTotal) => {
 };
 
 const getOptions = (state) => {
-  const options = [
-    [0, 'Submitted'],
-    [1, 'Preparing'],
-    [4, 'Completed'],
-    [5, 'Cancelled'],
-  ];
+  const options = [[0, 'Submitted'], [1, 'Preparing'], [4, 'Completed'], [5, 'Cancelled']];
   if (state.delivery) {
     options.splice(2, 0, [2, 'Waiting for delivery']);
     options.splice(3, 0, [3, 'Out for delivery']);
@@ -60,11 +55,7 @@ const manageState = (state) => {
   return state;
 };
 
-export function CreateOrderComponent({
-  createAction,
-  fetchAction,
-  menu,
-}) {
+export function CreateOrderComponent({ createAction, fetchAction, menu }) {
   const [orderItems, setOrderItems] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -74,19 +65,16 @@ export function CreateOrderComponent({
 
   return (
     <div>
-      <Paper className="CreateOrderForm">
+      <Paper className="CreateOrder">
         <SettingPage
+          className="CreateOrderForm"
           title="Create Order"
           onSubmit={formData => onSubmit(formData, orderItems, createAction)}
           onValueChange={manageState}
         >
           <SettingPageInput required fullWidth name="customerName" label="Customer Name" />
           <SettingPageInput required fullWidth name="address" label="Address" />
-          <SettingPageSelect
-            name="stage"
-            value={1}
-            getOptions={getOptions}
-          />
+          <SettingPageSelect name="stage" value={1} getOptions={getOptions} />
           <SettingPageCheckBox label="Delivery" name="delivery" value />
         </SettingPage>
         <Paper>
@@ -118,7 +106,10 @@ const mapStateToProps = state => ({
   menu: state.menu.items,
 });
 
-export default connect(mapStateToProps, {
-  createAction: createOrder,
-  fetchAction: fetchMenu,
-})(CreateOrderComponent);
+export default connect(
+  mapStateToProps,
+  {
+    createAction: createOrder,
+    fetchAction: fetchMenu,
+  },
+)(CreateOrderComponent);
