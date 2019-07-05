@@ -20,7 +20,7 @@ export default function MenuItemForm({
   return (
     <div className="MenuItemForm">
       <SettingPage
-        title="Order"
+        title="Item"
         onSubmit={(data) => {
           if (id) {
             data._id = id;

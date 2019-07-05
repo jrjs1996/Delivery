@@ -9,8 +9,7 @@
 
 .MenuItem {
   margin-bottom: 22px;
-  padding-left: 15px;
-  padding-right: 15px;
+
 }
 
 .MenuItem:hover {
@@ -35,5 +34,10 @@
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 30px;
+  }
+  .MenuItemForm {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 15px;
   }
 }
