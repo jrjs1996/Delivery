@@ -58,7 +58,7 @@ export default function SettingPage({
               state: submitData,
             }))}
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ paddingTop: 8 }}>
           <Button
             variant="contained"
             color="primary"

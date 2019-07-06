@@ -41,9 +41,10 @@ export default function MenuItemForm({
             <Button
               color="secondary"
               variant="contained"
+              style={{ marginTop: 5, marginBottom: 5 }}
               onClick={() => onSubmit({ menuNumber, image: false })}
             >
-              Delete
+              Delete Image
             </Button>
           </div>
         ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }
