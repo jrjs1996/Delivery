@@ -40,6 +40,7 @@ router.get('/', async (req, res) => {
  * Creates a new customer.
  */
 router.post('/', async (req, res) => {
+  console.log(req.body)
   if (!(req.body.firstName
     && req.body.lastName
     && req.body.addresses
@@ -53,6 +54,7 @@ router.post('/', async (req, res) => {
     if (error.code === 11000) {
       return res.status(400).send({ email: 'Address is already in use!' }).end();
     }
+    console.log(error)
     return res.sendStatus(500);
   }
 });
@@ -92,12 +94,14 @@ router.get('/:id', async (req, res) => {
  * Must be specified customer or admin
  */
 router.put('/:id', async (req, res) => {
+  console.log(req.body);
   if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
 
   try {
     await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
     return res.sendStatus(200);
   } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 });

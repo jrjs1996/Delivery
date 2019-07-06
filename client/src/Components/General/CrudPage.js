@@ -21,7 +21,6 @@ export default function CrudPage({
   title,
   ...rest
 }) {
-  console.log(rest)
   const [selectedItem, setSelectedItem] = useState(null);
   return (
     <div {...rest}>

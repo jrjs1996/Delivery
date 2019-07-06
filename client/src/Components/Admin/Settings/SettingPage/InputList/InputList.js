@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import SettingPageInput from '../SettingPageInput/SettingPageInput';
 
-
 export default function InputList({ onChange, name, value }) {
+  const [keys, setKeys] = useState(value.map(() => shortid.generate()));
   return (
     <div name={name}>
       {value.map((v, i) => (
-        <div key={v.key}>
+        <div key={keys[i]}>
           <SettingPageInput
             required
             fullWidth
             label={`${name} ${i}`}
             name={`${name}${i}`}
-            value={v.value}
+            value={v}
             onChange={(e) => {
               const newValues = value.slice();
-              newValues[i] = { value: e.target.value, key: v.key };
+              newValues[i] = e.target.value;
               onChange({ target: { name, value: newValues } });
             }}
           />
@@ -26,6 +26,9 @@ export default function InputList({ onChange, name, value }) {
             onClick={() => {
               const newValues = value.slice();
               newValues.splice(i, 1);
+              const newKeys = keys.slice();
+              newKeys.splice(i, 1);
+              setKeys(newKeys);
               onChange({ target: { name, value: newValues } });
             }}
           >
@@ -37,7 +40,10 @@ export default function InputList({ onChange, name, value }) {
         type="button"
         onClick={() => {
           const newValues = value.slice();
-          newValues.push({ value: '', key: shortid.generate() });
+          newValues.push('');
+          const newKeys = keys.slice();
+          newKeys.push(shortid.generate());
+          setKeys(newKeys);
           onChange({ target: { name, value: newValues } });
         }}
       >
@@ -50,8 +56,10 @@ export default function InputList({ onChange, name, value }) {
 InputList.propTypes = {
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object),
-    PropTypes.arrayOf(PropTypes.string)]),
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
 };
 
 InputList.defaultProps = {

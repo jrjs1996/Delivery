@@ -9,13 +9,14 @@ export default function CustomerList({
   onSelect,
   render,
 }) {
-  const customerItems = customers.map((c) => {
+  const customerItems = customers.map((c, i) => {
     const customer = (
       <Customer
         addresses={c.addresses}
         email={c.email}
         firstName={c.firstName}
         id={c._id}
+        index={i}
         key={c._id}
         lastName={c.lastName}
         onDelete={onDelete}

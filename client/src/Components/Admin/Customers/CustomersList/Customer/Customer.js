@@ -9,12 +9,13 @@ export default function Customer({
   email,
   firstName,
   id,
+  index,
   lastName,
   onDelete,
   onSelect,
 }) {
   return (
-    <Paper onClick={() => onSelect(id, firstName, lastName, addresses, email)} className="Customer">
+    <Paper onClick={() => onSelect(index)} className="Customer">
       <Grid container spacing={2}>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
@@ -81,6 +82,8 @@ Customer.propTypes = {
   firstName: PropTypes.string.isRequired,
   /** Id of the customer */
   id: PropTypes.string,
+  /** Index of the customer in the customer list */
+  index: PropTypes.number.isRequired,
   /** Customers last name */
   lastName: PropTypes.string.isRequired,
   /** Function called when the on delete button is clicked.

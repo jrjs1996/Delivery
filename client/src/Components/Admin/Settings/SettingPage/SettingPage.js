@@ -21,14 +21,6 @@ const initializeSubmitData = (children) => {
   const submitData = {};
   React.Children.forEach(children, (child) => {
     switch (child.type.name) {
-      case 'InputList':
-        if (child.props.value) {
-          submitData[child.props.name] = child.props.value.map(v => (
-            { value: v, key: shortid.generate() }));
-          return;
-        }
-        submitData[child.props.name] = [];
-        break;
       default:
         if (child.props.value) {
           submitData[child.props.name] = child.props.value;

@@ -24,7 +24,7 @@ const renderCustomerForm = (c, addAction, updateAction) => {
       addresses={c.addresses}
       email={c.email}
       firstName={c.firstName}
-      id={c.id}
+      id={c._id}
       lastName={c.lastName}
       onSubmit={updateAction}
     />
@@ -35,15 +35,7 @@ const renderCustomerList = (customers, setSelectedCustomer, deleteAction, formPa
   <CustomersList
     customers={customers}
     onDelete={deleteAction}
-    onSelect={(id, firstName, lastName, addresses, email) => {
-      setSelectedCustomer({
-        id,
-        firstName,
-        lastName,
-        addresses,
-        email,
-      });
-    }}
+    onSelect={setSelectedCustomer}
     render={c => <Link className="Link" to={formPath} key={c.props.id}>{c}</Link>}
   />
 );
