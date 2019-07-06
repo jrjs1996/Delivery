@@ -18,8 +18,7 @@ const Customer = require('../models/Customer');
  * with the specified id.
  * @param {*} req The request to check.
  */
-const adminOrSpecifiedCustomer = req => (req.admin != null
-    || (req.customer != null && req.customer.id === req.params.id));
+const adminOrSpecifiedCustomer = req => req.admin != null || (req.customer != null && req.customer.id === req.params.id);
 
 /**
  * Retreives all customers.
@@ -29,7 +28,8 @@ router.get('/', async (req, res) => {
   if (req.admin == null) return res.sendStatus(401);
 
   try {
-    const customers = await Customer.find(null);
+    const customers = await Customer.find(null, null, { sort: { firstName: 1 } });
+    console.log(customers)
     return res.send(customers);
   } catch (error) {
     return res.sendStatus(500);
@@ -40,21 +40,30 @@ router.get('/', async (req, res) => {
  * Creates a new customer.
  */
 router.post('/', async (req, res) => {
-  console.log(req.body)
-  if (!(req.body.firstName
-    && req.body.lastName
-    && req.body.addresses
-    && req.body.email
-    && req.body.password)) return res.sendStatus(400);
+  if (
+    !(
+      req.body.firstName
+      && req.body.lastName
+      && req.body.addresses
+      && req.body.email
+      && req.body.password
+    )
+  ) return res.sendStatus(400);
 
   try {
     const user = await Customer.create(req.body);
-    return res.status(201).send(user).end();
+    return res
+      .status(201)
+      .send(user)
+      .end();
   } catch (error) {
     if (error.code === 11000) {
-      return res.status(400).send({ email: 'Address is already in use!' }).end();
+      return res
+        .status(400)
+        .send({ email: 'Address is already in use!' })
+        .end();
     }
-    console.log(error)
+    console.log(error);
     return res.sendStatus(500);
   }
 });
@@ -101,7 +110,7 @@ router.put('/:id', async (req, res) => {
     await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
     return res.sendStatus(200);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.sendStatus(500);
   }
 });
@@ -132,7 +141,7 @@ router.post('/login/', async (req, res) => {
   if (!customer) return res.status(401).send({ email: 'Email not found!' });
 
   const match = await customer.checkPassword(req.body.password);
-  if (!match) return res.status(401).send({ password: 'Password wrong!'});
+  if (!match) return res.status(401).send({ password: 'Password wrong!' });
 
   const token = customer.newToken();
   return res.status(200).send(token);
