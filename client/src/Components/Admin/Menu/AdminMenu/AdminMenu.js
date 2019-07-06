@@ -29,7 +29,7 @@ const renderItemForm = (i, addAction, updateAction, uploadImage) => {
       price={i.price}
       id={i._id}
       menuNumber={i.menuNumber}
-      description={i.menuItem}
+      description={i.description}
       onSubmit={updateAction}
       image={i.image}
       uploadImage={uploadImage}
