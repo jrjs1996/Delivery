@@ -45,7 +45,7 @@ export default function SettingPage({
   const [message, setMessage] = useState('');
 
   return (
-    <Paper {...props}>
+    <Paper {...props} style={{ paddingLeft: 5, paddingRight: 5 }}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom id="pageTitle">

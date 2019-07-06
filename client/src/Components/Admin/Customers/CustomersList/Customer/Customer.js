@@ -19,10 +19,10 @@ export default function Customer({
       <Grid container spacing={2}>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Name:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{`${firstName} ${lastName}`}</Paper>
               </Typography>
@@ -31,10 +31,10 @@ export default function Customer({
         </Grid>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Address:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{addresses ? addresses[0] : null}</Paper>
               </Typography>
@@ -43,10 +43,10 @@ export default function Customer({
         </Grid>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Email:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{email}</Paper>
               </Typography>
