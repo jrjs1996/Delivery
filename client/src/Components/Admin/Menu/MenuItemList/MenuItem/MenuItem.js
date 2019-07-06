@@ -63,9 +63,9 @@ export default function MenuItem({
           </Grid>
         </Grid>
       ) : null }
-      <Grid container spacing={1} justify="flex-end" style={{ textAlign: 'right', paddingTop: 5 }}>
+      <Grid container spacing={1} justify="flex-end" style={{ paddingTop: 5, paddingRight: 0 }}>
         { onDelete ? (
-          <Grid item xs={4}>
+          <Grid item xs={4} md={2}>
             <Button
               variant="contained"
               color="secondary"

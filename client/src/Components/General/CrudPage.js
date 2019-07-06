@@ -24,7 +24,7 @@ export default function CrudPage({
   const [selectedItem, setSelectedItem] = useState(null);
   return (
     <div {...rest}>
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         <Grid item xs={3}>
           { (pathName === listPath && !showAdd) ? null : (
             <ForwardBackButton
