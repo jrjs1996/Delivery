@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { Button } from '@material-ui/core';
-
+import '../../AdminMenu/AdminMenu.css';
 
 export default function ImageUpload({ id, uploadImage }) {
-  const [files, setFiles] = useState([]);
   return (
     <div>
-      <DropzoneArea onChange={setFiles} dropzoneText="Upload item image" />
-      <Button variant="contained" onClick={() => uploadImage(id, files[0])} color="primary">Upload</Button>
+      <DropzoneArea
+        dropzoneText="Upload item image"
+        filesLimit={1}
+        onChange={files => uploadImage(id, files[0])}
+        showAlerts={false}
+        showPreviewsInDropzone={false}
+      />
     </div>
   );
 }

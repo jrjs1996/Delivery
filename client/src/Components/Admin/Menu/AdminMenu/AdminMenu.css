@@ -29,6 +29,14 @@
   margin-top: 30px;
 }
 
+.PreviewList-imageContainer-402 {
+    z-index: 10;
+    position: relative;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
 @media only screen and (max-width: 1100px) {
   .MenuItemList {
     margin-left: 2%;
