@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
 import {
@@ -18,9 +18,17 @@ import MenuItemForm from '../MenuItemForm/MenuItemForm';
 import MenuItemList from '../MenuItemList/MenuItemList';
 import './AdminMenu.css';
 
-const renderItemForm = (i, addAction, updateAction, uploadImage) => {
+const renderItemForm = (i, addAction, updateAction, uploadImage, listPath, history, setMessage) => {
+  setMessage(null);
   if (!i) {
-    return <MenuItemForm onSubmit={addAction} />;
+    return (
+      <MenuItemForm onSubmit={(data) => {
+        addAction(data);
+        setMessage('Item Added');
+        history.push(listPath);
+      }}
+      />
+    );
   }
 
   return (
@@ -30,7 +38,10 @@ const renderItemForm = (i, addAction, updateAction, uploadImage) => {
       id={i._id}
       menuNumber={i.menuNumber}
       description={i.description}
-      onSubmit={updateAction}
+      onSubmit={(data) => {
+        updateAction(data);
+        return 'Item Updated';
+      }}
       image={i.image}
       uploadImage={uploadImage}
     />
@@ -56,6 +67,7 @@ export function AdminMenuComponent({
   addAction,
   deleteAction,
   fetchAction,
+  history,
   items,
   location,
   match,
@@ -65,6 +77,7 @@ export function AdminMenuComponent({
   useEffect(() => {
     fetchAction();
   }, [fetchAction]);
+  const [message, setMessage] = useState(null);
 
   return (
     <CrudPage
@@ -72,8 +85,9 @@ export function AdminMenuComponent({
       formPath={`${match.path}form/`}
       items={items}
       listPath={match.path}
+      message={message}
       pathName={location.pathname}
-      renderForm={i => renderItemForm(i, addAction, updateAction, uploadImage)}
+      renderForm={i => renderItemForm(i, addAction, updateAction, uploadImage, match.path, history, setMessage)}
       renderList={(i, setSelectedItem) => renderItemList(i, setSelectedItem, deleteAction, `${match.path}form/`)
       }
       title="Menu"
@@ -89,6 +103,8 @@ AdminMenuComponent.propTypes = {
   deleteAction: PropTypes.func.isRequired,
   /** Function that populates items */
   fetchAction: PropTypes.func.isRequired,
+  /** History property provided by route */
+  history: ReactRouterPropTypes.history.isRequired,
   /** Items to populate the list of menu with. */
   items: PropTypes.arrayOf(menuItemPropType).isRequired,
   /** Location proptype provided by route.

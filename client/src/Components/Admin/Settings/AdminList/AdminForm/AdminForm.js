@@ -16,6 +16,7 @@ export default function AdminForm({
           data._id = id;
         }
         onSubmit(data);
+        return 'Admin Updated';
       }}
     >
       <SettingPageInput required fullWidth name="username" label="Username" value={username} />

@@ -19,7 +19,7 @@ export default function CustomerForm({
         if (id) {
           data._id = id;
         }
-        onSubmit(data);
+        return onSubmit(data);
       }}
     >
       <SettingPageInput required fullWidth name="firstName" label="First Name" value={firstName} />

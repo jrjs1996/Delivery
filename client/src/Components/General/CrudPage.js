@@ -13,6 +13,7 @@ export default function CrudPage({
   formPath,
   items,
   listPath,
+  message,
   pathName,
   renderForm,
   renderList,
@@ -42,6 +43,11 @@ export default function CrudPage({
             {title}
           </Typography>
         </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h6">
+            {message}
+          </Typography>
+        </Grid>
       </Grid>
       <Route
         exact
@@ -63,6 +69,8 @@ CrudPage.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Path to display the list of items at */
   listPath: PropTypes.string.isRequired,
+  /** Message to display at top of page */
+  message: PropTypes.string,
   /** Function to render the form when at form path.
    * This function will be passed the selected item
    * if an item is selected. Otherwise an empty object. */
@@ -82,6 +90,7 @@ CrudPage.propTypes = {
   pathName: PropTypes.string.isRequired,
 };
 CrudPage.defaultProps = {
+  message: null,
   showAdd: true,
   style: {},
   title: '',

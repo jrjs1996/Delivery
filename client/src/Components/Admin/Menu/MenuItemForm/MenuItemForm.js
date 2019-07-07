@@ -25,7 +25,7 @@ export default function MenuItemForm({
           if (id) {
             data._id = id;
           }
-          onSubmit(data);
+          return onSubmit(data);
         }}
       >
         <SettingPageInput required fullWidth name="title" label="Title" value={title} />

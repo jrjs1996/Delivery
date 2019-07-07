@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { Link } from 'react-router-dom';
@@ -15,9 +15,18 @@ import {
 import { CustomerPropType } from '../../../../propTypes';
 import './Customers.css';
 
-const renderCustomerForm = (c, addAction, updateAction) => {
+const renderCustomerForm = (c, addAction, updateAction, listPath, history, setMessage) => {
+  setMessage(null);
   if (!c) {
-    return <CustomerForm onSubmit={addAction} />;
+    return (
+      <CustomerForm
+        onSubmit={(data) => {
+          addAction(data);
+          setMessage('Customer Added');
+          history.push(listPath);
+        }}
+      />
+    );
   }
   return (
     <CustomerForm
@@ -26,7 +35,10 @@ const renderCustomerForm = (c, addAction, updateAction) => {
       firstName={c.firstName}
       id={c._id}
       lastName={c.lastName}
-      onSubmit={updateAction}
+      onSubmit={(data) => {
+        updateAction(data);
+        return 'Customer Updated';
+      }}
     />
   );
 };
@@ -41,6 +53,7 @@ const renderCustomerList = (customers, setSelectedCustomer, deleteAction, formPa
 );
 
 export function CustomersComponent({
+  history, 
   location,
   match,
   customers,
@@ -52,13 +65,17 @@ export function CustomersComponent({
   useEffect(() => {
     fetchAction();
   }, [fetchAction]);
+
+  const [message, setMessage] = useState(null);
+  
   return (
     <CrudPage
       className="Customers"
       formPath={`${match.path}form/`}
       items={customers}
       listPath={match.path}
-      renderForm={c => renderCustomerForm(c, addAction, updateAction)}
+      message={message}
+      renderForm={c => renderCustomerForm(c, addAction, updateAction, match.path, history, setMessage)}
       renderList={(c, setSelectedCustomer) => renderCustomerList(c, setSelectedCustomer, deleteAction, `${match.path}form/`)}
       title="Customers"
       pathName={location.pathname}

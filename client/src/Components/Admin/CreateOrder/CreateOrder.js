@@ -13,10 +13,13 @@ import SettingPageSelect from '../Settings/SettingPage/SettingPageSelect/Setting
 import OrderItemList from './OrderItemList/OrderItemList';
 import './CreateOrder.css';
 
-const onSubmit = (formData, items, createAction) => {
+const onSubmit = (formData, items, createAction, setOrderItems, setTotal) => {
   const order = formData;
   order.items = items.map(i => i._id);
   createAction(order);
+  setOrderItems([]);
+  setTotal(0);
+  return 'Order Created';
 };
 
 const addItem = (item, menu, items, setItems, total, setTotal) => {
@@ -68,8 +71,9 @@ export function CreateOrderComponent({ createAction, fetchAction, menu }) {
       <Paper className="CreateOrder">
         <SettingPage
           className="CreateOrderForm"
+          clearOnSubmit
           title="Create Order"
-          onSubmit={formData => onSubmit(formData, orderItems, createAction)}
+          onSubmit={formData => onSubmit(formData, orderItems, createAction, setOrderItems, setTotal)}
           onValueChange={manageState}
         >
           <SettingPageInput required fullWidth name="customerName" label="Customer Name" />
