@@ -13,6 +13,7 @@ export default function CrudPage({
   formPath,
   items,
   listPath,
+  message,
   pathName,
   renderForm,
   renderList,
@@ -21,11 +22,10 @@ export default function CrudPage({
   title,
   ...rest
 }) {
-  console.log(rest)
   const [selectedItem, setSelectedItem] = useState(null);
   return (
     <div {...rest}>
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         <Grid item xs={3}>
           { (pathName === listPath && !showAdd) ? null : (
             <ForwardBackButton
@@ -41,6 +41,11 @@ export default function CrudPage({
         <Grid item xs={6}>
           <Typography variant="h4">
             {title}
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h6">
+            {message}
           </Typography>
         </Grid>
       </Grid>
@@ -64,6 +69,8 @@ CrudPage.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Path to display the list of items at */
   listPath: PropTypes.string.isRequired,
+  /** Message to display at top of page */
+  message: PropTypes.string,
   /** Function to render the form when at form path.
    * This function will be passed the selected item
    * if an item is selected. Otherwise an empty object. */
@@ -83,6 +90,7 @@ CrudPage.propTypes = {
   pathName: PropTypes.string.isRequired,
 };
 CrudPage.defaultProps = {
+  message: null,
   showAdd: true,
   style: {},
   title: '',

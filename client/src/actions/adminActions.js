@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../utils/token';
-import { LOGIN_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN } from './types';
+import {
+  LOGIN_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN,
+} from './types';
 
 export const login = postData => async (dispatch) => {
   try {
-    const res = await axios.post('/admins/login/', postData);
+    const res = await axios.post('/api/admins/login/', postData);
     saveToken(res.data, true);
     dispatch({
       type: LOGIN_ADMIN,
@@ -20,8 +22,7 @@ export const login = postData => async (dispatch) => {
 
 export const changeCurrentAdminUsername = (id, newUsername) => async (dispatch) => {
   try {
-    const res = await axios.put(`/admins/${id}`,
-      { username: newUsername }, setAuthHeader());
+    const res = await axios.put(`/api/admins/${id}`, { username: newUsername }, setAuthHeader());
     dispatch({
       type: LOGIN_ADMIN,
       payload: res.data,
@@ -34,8 +35,7 @@ export const changeCurrentAdminUsername = (id, newUsername) => async (dispatch) 
 
 export const changeCurrentAdminPassword = (id, newPassword) => async (dispatch) => {
   try {
-    const res = await axios.put(`/admins/${id}`,
-      { password: newPassword }, setAuthHeader());
+    const res = await axios.put(`/api/admins/${id}`, { password: newPassword }, setAuthHeader());
     dispatch({
       type: LOGIN_ADMIN,
       payload: res.data,
@@ -47,19 +47,18 @@ export const changeCurrentAdminPassword = (id, newPassword) => async (dispatch) 
 };
 
 export const updateAdmin = putData => (dispatch) => {
-  axios.put(`/admins/${putData._id}`, putData, setAuthHeader())
-    .then(() => {
-      const payload = putData;
-      dispatch({
-        type: UPDATE_ADMIN,
-        payload,
-      });
+  axios.put(`/api/admins/${putData._id}`, putData, setAuthHeader()).then(() => {
+    const payload = putData;
+    dispatch({
+      type: UPDATE_ADMIN,
+      payload,
     });
+  });
 };
 
 export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
-    const res = await axios.get('/admins/login/', setAuthHeader());
+    const res = await axios.get('/api/admins/login/', setAuthHeader());
     dispatch({
       type: LOGIN_ADMIN,
       payload: res.data,
@@ -70,7 +69,7 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
 };
 
 export const fetchAdmins = () => async (dispatch) => {
-  const res = await axios.get('/admins/', setAuthHeader());
+  const res = await axios.get('/api/admins/', setAuthHeader());
   try {
     dispatch({
       type: FETCH_ADMINS,
@@ -82,7 +81,7 @@ export const fetchAdmins = () => async (dispatch) => {
 };
 
 export const createAdmin = postData => async (dispatch) => {
-  const res = await axios.post('/admins/', postData, setAuthHeader());
+  const res = await axios.post('/api/admins/', postData, setAuthHeader());
   console.log(res);
   try {
     dispatch({

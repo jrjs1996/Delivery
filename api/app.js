@@ -28,11 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(auth);
 
 app.use('/uploads', express.static('uploads'));
-app.use('/', indexRouter);
-app.use('/admins', adminsRouter);
-app.use('/customers', customersRouter);
-app.use('/orders', ordersRouter);
-app.use('/menuitems', menuItemsRouter);
+app.use('/api', indexRouter);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));

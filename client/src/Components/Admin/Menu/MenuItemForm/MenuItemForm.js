@@ -25,7 +25,7 @@ export default function MenuItemForm({
           if (id) {
             data._id = id;
           }
-          onSubmit(data);
+          return onSubmit(data);
         }}
       >
         <SettingPageInput required fullWidth name="title" label="Title" value={title} />
@@ -36,14 +36,15 @@ export default function MenuItemForm({
       <Paper>
         { image ? (
           <div>
-            <img src={`/uploads/${id}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img src={`/uploads/${image}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
             <br />
             <Button
               color="secondary"
               variant="contained"
-              onClick={() => onSubmit({ menuNumber, image: false })}
+              style={{ marginTop: 5, marginBottom: 5 }}
+              onClick={() => onSubmit({ menuNumber, image: null })}
             >
-              Delete
+              Delete Image
             </Button>
           </div>
         ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }

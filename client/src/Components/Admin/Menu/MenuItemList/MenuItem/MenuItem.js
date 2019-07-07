@@ -59,13 +59,13 @@ export default function MenuItem({
       { image ? (
         <Grid container spacing={0}>
           <Grid item xs={12}>
-            <img src={`/uploads/${_id}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img src={`/uploads/${image}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
           </Grid>
         </Grid>
       ) : null }
-      <Grid container spacing={1} justify="flex-end" style={{ textAlign: 'right', paddingTop: 5 }}>
+      <Grid container spacing={1} justify="flex-end" style={{ paddingTop: 5, paddingRight: 0 }}>
         { onDelete ? (
-          <Grid item xs={4}>
+          <Grid item xs={4} md={2}>
             <Button
               variant="contained"
               color="secondary"

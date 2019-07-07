@@ -21,7 +21,7 @@ const MenuItemSchema = new Schema({
     min: 1,
   },
   revision: { type: Number, required: true, default: 0 },
-  image: { type: Boolean, required: true, default: false },
+  image: { type: String, required: false },
 });
 
 

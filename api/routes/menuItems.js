@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
     const result = await item.save();
     return res.send(result);
   } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 });
@@ -151,9 +152,9 @@ router.delete('/:menuNumber', async (req, res) => {
 router.post('/image/', upload.single('image'), async (req, res) => {
   const item = await MenuItems.findOneAndUpdate(
     { archived: false, _id: req.body.id },
-    { image: true },
+    { image: req.body.id },
   );
-  item.image = true;
+  item.image = req.body.id;
   return res.send(item);
 });
 

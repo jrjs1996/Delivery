@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddIcon from '@material-ui/icons/Add';
-import { Card, Grid, Typography, Button } from '@material-ui/core';
+import {
+  Card, Grid, Typography, Button,
+} from '@material-ui/core';
 import SettingListItem from './SettingListItem/SettingListItem';
 
 export default function SettingList({
-  items,
-  itemString,
-  onAdd,
-  onClick,
-  title,
+  items, itemString, onAdd, onClick, title,
 }) {
   return (
     <Card style={{ paddingTop: '1%', paddingBottom: '2%' }}>
@@ -17,20 +15,22 @@ export default function SettingList({
         {title}
       </Typography>
       <Grid container spacing={1}>
-        { items.map((item) => {
+        {items.map((item) => {
           const text = itemString(item);
           return (
-            <SettingListItem
-              item={item}
-              onClick={() => onClick(item)}
-              text={text}
-              key={text}
-            />
+            <SettingListItem item={item} onClick={() => onClick(item)} text={text} key={text} />
           );
         })}
       </Grid>
-      { onAdd ? (
-        <Button onClick={onAdd} variant="contained" color="secondary"><AddIcon /></Button>
+      {onAdd ? (
+        <Button
+          color="secondary"
+          onClick={onAdd}
+          style={{ marginTop: 8 }}
+          variant="contained"
+        >
+          <AddIcon />
+        </Button>
       ) : null}
     </Card>
   );

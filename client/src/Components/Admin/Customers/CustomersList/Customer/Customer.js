@@ -9,19 +9,20 @@ export default function Customer({
   email,
   firstName,
   id,
+  index,
   lastName,
   onDelete,
   onSelect,
 }) {
   return (
-    <Paper onClick={() => onSelect(id, firstName, lastName, addresses, email)} className="Customer">
+    <Paper onClick={() => onSelect(index)} className="Customer">
       <Grid container spacing={2}>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Name:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{`${firstName} ${lastName}`}</Paper>
               </Typography>
@@ -30,10 +31,10 @@ export default function Customer({
         </Grid>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Address:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{addresses ? addresses[0] : null}</Paper>
               </Typography>
@@ -42,10 +43,10 @@ export default function Customer({
         </Grid>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
-            <Grid item xs={2}>
+            <Grid item xs={12} lg={2}>
               Email:
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} lg={10}>
               <Typography variant="h6" gutterBottom>
                 <Paper>{email}</Paper>
               </Typography>
@@ -81,6 +82,8 @@ Customer.propTypes = {
   firstName: PropTypes.string.isRequired,
   /** Id of the customer */
   id: PropTypes.string,
+  /** Index of the customer in the customer list */
+  index: PropTypes.number.isRequired,
   /** Customers last name */
   lastName: PropTypes.string.isRequired,
   /** Function called when the on delete button is clicked.

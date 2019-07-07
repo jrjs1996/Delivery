@@ -19,14 +19,14 @@ export default function CustomerForm({
         if (id) {
           data._id = id;
         }
-        onSubmit(data);
+        return onSubmit(data);
       }}
     >
       <SettingPageInput required fullWidth name="firstName" label="First Name" value={firstName} />
       <SettingPageInput required fullWidth name="lastName" label="Last Name" value={lastName} />
       <SettingPageInput required fullWidth name="email" label="Email" value={email} />
       <SettingPageInput required fullWidth name="password" label="Password" type="password" />
-      <InputList name="addresses" value={addresses} />
+      <InputList name="addresses" value={addresses} title="Addresses:" />
     </SettingPage>
   );
 }

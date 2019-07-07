@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import shortid from 'shortid';
 import { ChildrenPropType } from '../../../../propTypes';
 
-
 const onChange = (e, submitData, setSubmitData, onValueChange) => {
   let newSubmitData = Object.assign({}, submitData);
   newSubmitData[e.target.name] = e.target.value;
@@ -21,14 +20,6 @@ const initializeSubmitData = (children) => {
   const submitData = {};
   React.Children.forEach(children, (child) => {
     switch (child.type.name) {
-      case 'InputList':
-        if (child.props.value) {
-          submitData[child.props.name] = child.props.value.map(v => (
-            { value: v, key: shortid.generate() }));
-          return;
-        }
-        submitData[child.props.name] = [];
-        break;
       default:
         if (child.props.value) {
           submitData[child.props.name] = child.props.value;
@@ -43,6 +34,7 @@ const initializeSubmitData = (children) => {
 
 export default function SettingPage({
   children,
+  clearOnSubmit,
   onValueChange,
   onSubmit,
   submitText,
@@ -51,34 +43,38 @@ export default function SettingPage({
 }) {
   const [submitData, setSubmitData] = useState(() => initializeSubmitData(children));
   const [message, setMessage] = useState('');
-
+  console.log(submitData)
   return (
-    <Paper {...props}>
+    <Paper {...props} style={{ paddingLeft: 5, paddingRight: 5 }}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom id="pageTitle">
             {title}
           </Typography>
-          {React.Children.map(children, child => React.cloneElement(child,
-            {
-              onChange: e => onChange(e, submitData, setSubmitData, onValueChange),
-              value: submitData[child.props.name],
-              state: submitData,
-            }))}
-        </Grid>
-        <Grid item xs={12}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => setMessage(onSubmit(submitData))}
-          >
-            {submitText}
-          </Button>
+          {React.Children.map(children, child => React.cloneElement(child, {
+            onChange: e => onChange(e, submitData, setSubmitData, onValueChange),
+            value: submitData[child.props.name],
+            state: submitData,
+          }))}
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h6" id="message" gutterBottom>
             {message}
           </Typography>
+        </Grid>
+        <Grid item xs={12} style={{ paddingBottom: 8 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setMessage(onSubmit(submitData));
+              if (clearOnSubmit) {
+                setSubmitData(initializeSubmitData(children));
+              }
+            }}
+          >
+            {submitText}
+          </Button>
         </Grid>
       </Grid>
     </Paper>
@@ -88,6 +84,8 @@ export default function SettingPage({
 SettingPage.propTypes = {
   /** SettingPageInputs for this setting page. */
   children: ChildrenPropType.isRequired,
+  /** If true all fields will be cleared when the form is submitted. */
+  clearOnSubmit: PropTypes.bool,
   /** Function to be called when the submit button is pressed.
    * This function will be given an object containing a property
    * and value for each input in children.
@@ -106,6 +104,7 @@ SettingPage.propTypes = {
 };
 
 SettingPage.defaultProps = {
+  clearOnSubmit: false,
   onValueChange: null,
   submitText: 'Submit',
   title: '',
