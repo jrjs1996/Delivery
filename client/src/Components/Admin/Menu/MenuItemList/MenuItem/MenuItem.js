@@ -59,7 +59,7 @@ export default function MenuItem({
       { image ? (
         <Grid container spacing={0}>
           <Grid item xs={12}>
-            <img src={`/uploads/${_id}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img src={`/uploads/${image}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
           </Grid>
         </Grid>
       ) : null }
