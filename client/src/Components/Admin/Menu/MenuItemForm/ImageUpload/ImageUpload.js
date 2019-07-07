@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropzoneArea } from 'material-ui-dropzone';
-import { Button } from '@material-ui/core';
-import '../../AdminMenu/AdminMenu.css';
 
 export default function ImageUpload({ id, uploadImage }) {
   return (
