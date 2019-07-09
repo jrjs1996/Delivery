@@ -4,7 +4,7 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import { Button, Grid } from '@material-ui/core';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
 import ChangePassword from './ChangePassword/ChangePassword';
-import AdminSettings from './AdminSettings';
+import AdminSettings from './AdminSettings/AdminSettings';
 import AdminList from './AdminList/AdminList';
 import './Settings.css';
 
