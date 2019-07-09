@@ -9,7 +9,7 @@ export default function CustomerList({
   onSelect,
   render,
 }) {
-  const customerItems = customers.map((c, i) => {
+  const customerItems = Object.entries(customers).map(([, c], i) => {
     const customer = (
       <Customer
         addresses={c.addresses}

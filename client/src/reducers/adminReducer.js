@@ -4,11 +4,11 @@ import {
   UPDATE_ADMIN,
   CREATE_ADMIN,
 } from '../actions/types';
-import { updateItem } from './utils';
+import { createItems, updateItem, insertItem } from './utils';
 
 const initialState = {
   currentAdmin: {},
-  admins: [],
+  admins: {},
 };
 
 export default function (state = initialState, action) {
@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
     case FETCH_ADMINS:
       return {
         ...state,
-        admins: action.payload,
+        admins: createItems(action.payload, '_id'),
       };
     case UPDATE_ADMIN:
       return {
@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
     case CREATE_ADMIN:
       return {
         ...state,
-        admins: [action.payload, ...state.admins],
+        admins: insertItem(state.admins, action.payload, '_id'),
       };
     default:
       return state;

@@ -1,13 +1,10 @@
 import {
-  FETCH_MENU,
-  ADD_MENU_ITEM,
-  UPDATE_MENU_ITEM,
-  DELETE_MENU_ITEM,
+  ADD_MENU_ITEM, DELETE_MENU_ITEM, FETCH_MENU, UPDATE_MENU_ITEM,
 } from '../actions/types';
-import { insertItem, deleteItem } from './utils';
+import { createItems, insertItem, updateItem, deleteItem } from './utils';
 
 const initialState = {
-  items: [],
+  items: {},
   item: {},
 };
 
@@ -16,7 +13,7 @@ export default function (state = initialState, action) {
     case FETCH_MENU:
       return {
         ...state,
-        items: action.payload,
+        items: createItems(action.payload, 'menuNumber'),
       };
     case ADD_MENU_ITEM:
       return {
@@ -26,10 +23,7 @@ export default function (state = initialState, action) {
     case UPDATE_MENU_ITEM:
       return {
         ...state,
-        items: state.items.map((i) => {
-          if (i.menuNumber !== action.payload.menuNumber) return i;
-          return action.payload;
-        }),
+        items: updateItem(state.items, action.payload, 'menuNumber'),
       };
     case DELETE_MENU_ITEM:
       return {

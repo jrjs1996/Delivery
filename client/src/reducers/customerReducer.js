@@ -1,8 +1,14 @@
-import { FETCH_CUSTOMERS, ADD_CUSTOMER, GET_CUSTOMER, UPDATE_CUSTOMER, DELETE_CUSTOMER } from '../actions/types';
-import { updateItem, deleteItem, insertItem } from './utils';
+import {
+  ADD_CUSTOMER,
+  DELETE_CUSTOMER,
+  FETCH_CUSTOMERS,
+  GET_CUSTOMER,
+  UPDATE_CUSTOMER,
+} from '../actions/types';
+import { updateItem, deleteItem, insertItem, createItems } from './utils';
 
 const initialState = {
-  items: [],
+  items: {},
   item: {},
 };
 
@@ -11,12 +17,12 @@ export default function (state = initialState, action) {
     case FETCH_CUSTOMERS:
       return {
         ...state,
-        items: action.payload,
+        items: createItems(action.payload, '_id'),
       };
     case ADD_CUSTOMER:
       return {
         ...state,
-        items: insertItem(state.items, action.payload, 'firstName'),
+        items: insertItem(state.items, action.payload, '_id'),
       };
     case GET_CUSTOMER:
       return {

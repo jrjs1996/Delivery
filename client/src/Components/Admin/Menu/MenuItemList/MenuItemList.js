@@ -10,7 +10,7 @@ export default function MenuItemList({
   render,
   image,
 }) {
-  const menuItems = menu.map((i, idx) => {
+  const menuItems = Object.entries(menu).map(([, i]) => {
     if (!image) {
       i.image = false;
     }
@@ -20,7 +20,7 @@ export default function MenuItemList({
         price={i.price}
         description={i.description}
         number={i.menuNumber}
-        onSelect={() => onSelect(idx)}
+        onSelect={() => onSelect(i.menuNumber)}
         onDelete={onDelete}
         _id={i._id}
         _key={i._id}

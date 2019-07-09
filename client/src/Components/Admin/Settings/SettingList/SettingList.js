@@ -15,7 +15,7 @@ export default function SettingList({
         {title}
       </Typography>
       <Grid container spacing={1}>
-        {items.map((item) => {
+        {Object.entries(items).map(([, item]) => {
           const text = itemString(item);
           return (
             <SettingListItem item={item} onClick={() => onClick(item)} text={text} key={text} />
