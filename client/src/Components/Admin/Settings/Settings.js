@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { Button, Grid } from '@material-ui/core';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
@@ -19,18 +19,18 @@ const renderBackButton = (pathname, history) => {
   return null;
 };
 
-export default function Settings({ location, history }) {
+export default function Settings({ location, history, match }) {
   return (
     <div className="Settings">
       <Grid container spacing={1}>
-        <Grid item  sm={3}>
+        <Grid item sm={3}>
           {renderBackButton(location.pathname, history)}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Route path="/admin/settings/" exact component={AdminSettings} />
-          <Route path="/admin/settings/username/" component={ChangeUsername} />
-          <Route path="/admin/settings/password/" component={ChangePassword} />
-          <Route path="/admin/settings/admins/" component={AdminList} />
+          <Route path={match.path} exact component={AdminSettings} />
+          <Route path={`${match.path}username/`} component={ChangeUsername} />
+          <Route path={`${match.path}password/`} component={ChangePassword} />
+          <Route path={`${match.path}admins/`} component={AdminList} />
         </Grid>
         <Grid item xs={12} sm={3} />
       </Grid>
@@ -39,5 +39,7 @@ export default function Settings({ location, history }) {
 }
 
 Settings.propTypes = {
+  history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
 };

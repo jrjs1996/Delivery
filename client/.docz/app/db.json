@@ -343,27 +343,6 @@
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Settings\\Settings.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Settings",
-          "methods": [],
-          "actualName": "Settings",
-          "props": {
-            "location": {
-              "type": {
-                "name": "custom",
-                "raw": "ReactRouterPropTypes.location.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\Components\\Admin\\CreateOrder\\CreateOrder.js",
       "value": [
         {
@@ -2003,6 +1982,43 @@
                 "value": "undefined",
                 "computed": true
               }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\Settings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Settings",
+          "methods": [],
+          "actualName": "Settings",
+          "props": {
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "location": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.location.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.match.isRequired"
+              },
+              "required": false,
+              "description": ""
             }
           }
         }
