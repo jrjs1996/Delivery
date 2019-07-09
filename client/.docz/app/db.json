@@ -226,26 +226,6 @@
       ]
     },
     {
-      "key": "src\\Components\\Login\\FormButton.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "FormButton",
-          "methods": [],
-          "actualName": "FormButton",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\Components\\Login\\FormInput.js",
       "value": [
         {
@@ -295,53 +275,6 @@
             "title": {
               "type": {
                 "name": "string"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Login\\SignUpForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SignUpForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [
-                "async"
-              ],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
-          "actualName": "SignUpForm",
-          "props": {
-            "login": {
-              "type": {
-                "name": "func"
               },
               "required": true,
               "description": ""
@@ -928,34 +861,6 @@
                 "value": "''",
                 "computed": false
               }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\ChangePassword\\ChangePassword.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangePasswordComponent",
-          "methods": [],
-          "actualName": "ChangePasswordComponent",
-          "props": {
-            "changeCurrentAdminPassword": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "currentAdmin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
             }
           }
         }
@@ -2022,6 +1927,82 @@
               },
               "required": true,
               "description": "Function to upload the file. Given the id of the\r\nmenu item and the file to upload."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\ChangePassword\\ChangePassword.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangePasswordComponent",
+          "methods": [],
+          "actualName": "ChangePasswordComponent",
+          "props": {
+            "action": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Login\\SignUpForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SignUpForm",
+          "methods": [],
+          "actualName": "SignUpForm",
+          "props": {
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "loginAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Login\\FormButton.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "FormButton",
+          "methods": [],
+          "actualName": "FormButton",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }

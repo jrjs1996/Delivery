@@ -17,7 +17,7 @@ const onClick = (submitData, currentAdmin, action) => {
   return 'Password Changed!';
 };
 
-export function ChangePasswordComponent({ currentAdmin, changeCurrentAdminPassword: action }) {
+export function ChangePasswordComponent({ currentAdmin, action }) {
   return (
     <SettingPage
       title="Change Password"
@@ -30,7 +30,7 @@ export function ChangePasswordComponent({ currentAdmin, changeCurrentAdminPasswo
 }
 
 ChangePasswordComponent.propTypes = {
-  changeCurrentAdminPassword: PropTypes.func.isRequired,
+  action: PropTypes.func.isRequired,
   currentAdmin: AdminPropType.isRequired,
 };
 
@@ -38,4 +38,4 @@ const mapStateToProps = state => ({
   currentAdmin: state.admins.currentAdmin,
 });
 
-export default connect(mapStateToProps, { changeCurrentAdminPassword })(ChangePasswordComponent);
+export default connect(mapStateToProps, { action: changeCurrentAdminPassword })(ChangePasswordComponent);

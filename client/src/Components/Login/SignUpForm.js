@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -7,54 +8,55 @@ import FormButton from './FormButton';
 import { login } from '../../actions/adminActions';
 import { isAuthed } from '../../utils/token';
 
-class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
+const onSubmit = async (loginAction, history, username, password) => {
+  const success = await loginAction({username, password });
+  if (success) history.push('/admin/');
+};
 
+function SignUpForm({ history, loginAction }) {
+  // Forward to panel if already logged in
+  useEffect(() => {
     const authInfo = isAuthed();
     if (authInfo.tokenInfo && authInfo.isAdmin) {
-      const { history } = props;
       history.push('/admin/');
     }
+  }, [history, loginAction]);
 
-    this.state = {
-      username: '',
-      password: '',
-    };
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  async onSubmit(e) {
-    e.preventDefault();
-    const { login: action, history } = this.props;
-
-    const success = await action(this.state);
-    if (success) history.push('/admin/');
-  }
-
-  render() {
-    const { username, password } = this.state;
-    return (
-      <div id="signUpFormContainer" onSubmit={this.onSubmit}>
-        <form id="signUpForm">
-          <span>Admin Login</span>
-          <FormInput type="text" placeholder="username" name="username" onChange={this.onChange} value={username} />
-          <FormInput type="password" placeholder="password" name="password" onChange={this.onChange} value={password} />
-          <FormButton title="Log in" />
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div
+      id="signUpFormContainer"
+    >
+      <span>Admin Login</span>
+      <FormInput
+        type="text"
+        placeholder="username"
+        name="username"
+        onChange={e => setUsername(e.target.value)}
+        value={username}
+      />
+      <FormInput
+        type="password"
+        placeholder="password"
+        name="password"
+        onChange={e => setPassword(e.target.value)}
+        value={password}
+      />
+      <FormButton title="Log in" onClick={() => onSubmit(loginAction, history, username, password)} />
+    </div>
+  );
 }
 
 SignUpForm.propTypes = {
-  login: PropTypes.func.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
+  loginAction: PropTypes.func.isRequired,
 };
 
-export default withRouter(connect(null, { login })(SignUpForm));
+export default withRouter(
+  connect(
+    null,
+    { loginAction: login },
+  )(SignUpForm),
+);
