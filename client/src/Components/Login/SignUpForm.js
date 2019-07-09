@@ -7,8 +7,6 @@ import FormButton from './FormButton';
 import { login } from '../../actions/adminActions';
 import { isAuthed } from '../../utils/token';
 
-// TODO: Add error handling
-
 class SignUpForm extends Component {
   constructor(props) {
     super(props);

@@ -19,17 +19,21 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-create-order-order-item-list-order-item-list" */ 'src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx'
     ),
+  'src/Components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-list" */ 'src/Components/Admin/Customers/CustomersList/CustomerList.mdx'
+    ),
   'src/Components/Admin/Customers/CustomerForm/CustomerForm.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customer-form-customer-form" */ 'src/Components/Admin/Customers/CustomerForm/CustomerForm.mdx'
     ),
+  'src/Components/Admin/Settings/AdminList/AdminList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-list" */ 'src/Components/Admin/Settings/AdminList/AdminList.mdx'
+    ),
   'src/Components/Admin/Customers/Customers/Customers.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-customers" */ 'src/Components/Admin/Customers/Customers/Customers.mdx'
-    ),
-  'src/Components/Admin/Customers/CustomersList/CustomerList.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-list" */ 'src/Components/Admin/Customers/CustomersList/CustomerList.mdx'
     ),
   'src/Components/Admin/Home/Home/Home.mdx': () =>
     import(
@@ -38,6 +42,22 @@ export const imports = {
   'src/Components/Admin/Home/Order/Order.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-order" */ 'src/Components/Admin/Home/Order/Order.mdx'
+    ),
+  'src/Components/Admin/Settings/SettingList/SettingList.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list" */ 'src/Components/Admin/Settings/SettingList/SettingList.mdx'
+    ),
+  'src/Components/Admin/Settings/ChangePassword/ChangePassword.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-change-password-change-password" */ 'src/Components/Admin/Settings/ChangePassword/ChangePassword.mdx'
+    ),
+  'src/Components/Admin/Settings/SettingPage/SettingPage.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page" */ 'src/Components/Admin/Settings/SettingPage/SettingPage.mdx'
+    ),
+  'src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu" */ 'src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx'
     ),
   'src/Components/Admin/Menu/AdminMenu/AdminMenu.mdx': () =>
     import(
@@ -55,22 +75,6 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-list" */ 'src/Components/Admin/Menu/MenuItemList/MenuItemList.mdx'
     ),
-  'src/Components/Admin/Settings/AdminList/AdminList.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-list" */ 'src/Components/Admin/Settings/AdminList/AdminList.mdx'
-    ),
-  'src/Components/Admin/Settings/SettingList/SettingList.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-list-setting-list" */ 'src/Components/Admin/Settings/SettingList/SettingList.mdx'
-    ),
-  'src/Components/Admin/Settings/SettingPage/SettingPage.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page" */ 'src/Components/Admin/Settings/SettingPage/SettingPage.mdx'
-    ),
-  'src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu" */ 'src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx'
-    ),
   'src/Components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-create-order-order-item-list-order-item-order-item" */ 'src/Components/Admin/CreateOrder/OrderItemList/OrderItem/OrderItem.mdx'
@@ -79,21 +83,17 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-customers-customers-list-customer-customer" */ 'src/Components/Admin/Customers/CustomersList/Customer/Customer.mdx'
     ),
+  'src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-form-admin-form" */ 'src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx'
+    ),
   'src/Components/Admin/Home/Order/Item/Item.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-home-order-item-item" */ 'src/Components/Admin/Home/Order/Item/Item.mdx'
     ),
-  'src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx': () =>
+  'src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-form-image-upload-image-upload" */ 'src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx'
-    ),
-  'src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-menu-item" */ 'src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx'
-    ),
-  'src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-admin-list-admin-form-admin-form" */ 'src/Components/Admin/Settings/AdminList/AdminForm/AdminForm.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-input-setting-page-input" */ 'src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx'
     ),
   'src/Components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx': () =>
     import(
@@ -103,16 +103,20 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-check-box-setting-page-check-box" */ 'src/Components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx'
     ),
-  'src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx': () =>
+  'src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-input-setting-page-input" */ 'src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item" */ 'src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx'
+    ),
+  'src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-form-image-upload-image-upload" */ 'src/Components/Admin/Menu/MenuItemForm/ImageUpload/ImageUpload.mdx'
+    ),
+  'src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx': () =>
+    import(
+      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-menu-menu-item-list-menu-item-menu-item" */ 'src/Components/Admin/Menu/MenuItemList/MenuItem/MenuItem.mdx'
     ),
   'src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx': () =>
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-setting-page-setting-page-select-setting-page-select" */ 'src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx'
-    ),
-  'src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx': () =>
-    import(
-      /* webpackPrefetch: true, webpackChunkName: "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item" */ 'src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx'
     ),
 }

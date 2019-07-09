@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import { Button, Grid } from '@material-ui/core';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
-import ChangePassword from './ChangePassword';
+import ChangePassword from './ChangePassword/ChangePassword';
 import AdminSettings from './AdminSettings';
 import AdminList from './AdminList/AdminList';
 import './Settings.css';
