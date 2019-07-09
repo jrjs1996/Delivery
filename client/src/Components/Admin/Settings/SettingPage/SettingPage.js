@@ -43,7 +43,6 @@ export default function SettingPage({
 }) {
   const [submitData, setSubmitData] = useState(() => initializeSubmitData(children));
   const [message, setMessage] = useState('');
-  console.log(submitData)
   return (
     <Paper {...props} style={{ paddingLeft: 5, paddingRight: 5 }}>
       <Grid container spacing={0}>

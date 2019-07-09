@@ -33,7 +33,7 @@ export default function CustomerForm({
 
 CustomerForm.propTypes = {
   /** Addresses of the customer */
-  addresses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addresses: PropTypes.arrayOf(PropTypes.string),
   /** Initial value of email input */
   email: PropTypes.string,
   /** Initial value of firstName input */
@@ -49,6 +49,7 @@ CustomerForm.propTypes = {
 };
 
 CustomerForm.defaultProps = {
+  addresses: [],
   email: '',
   firstName: '',
   id: undefined,

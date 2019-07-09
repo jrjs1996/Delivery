@@ -29,7 +29,6 @@ export default function (state = initialState, action) {
         admins: updateItem(state.admins, action.payload, '_id'),
       };
     case CREATE_ADMIN:
-      console.log(action.payload);
       return {
         ...state,
         admins: [action.payload, ...state.admins],

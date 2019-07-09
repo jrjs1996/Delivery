@@ -72,7 +72,7 @@ export const customersMock = [
   {
     __v: 0,
     _id: '0',
-    addresses: [],
+    addresses: ['123 green st', '232 8th St E'],
     email: 'johnD@email.com',
     firstName: 'John',
     lastName: 'Davidson',
@@ -80,7 +80,7 @@ export const customersMock = [
   {
     __v: 0,
     _id: '1',
-    addresses: [],
+    addresses: ['488 5th Ave'],
     email: 'Bobby@email.com',
     firstName: 'Bob',
     lastName: 'Harris',

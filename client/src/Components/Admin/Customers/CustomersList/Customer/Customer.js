@@ -53,7 +53,7 @@ export default function Customer({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} justify="flex-end" style={{ textAlign: 'right' }}>
+        <Grid item xs={12} style={{ textAlign: 'right' }}>
           {onDelete ? (
             <Button
               variant="contained"
