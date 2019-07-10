@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_ORDER, FETCH_ORDERS, COMPLETE_ORDER } from './types';
+import { ADD_ORDER, FETCH_ORDERS, COMPLETE_ORDER, ERROR } from './types';
 import { setAuthHeader } from '../utils/token';
 
 export const fetchOrders = () => (dispatch) => {
@@ -11,13 +11,19 @@ export const fetchOrders = () => (dispatch) => {
   });
 };
 
-export const fetchOpenOrders = () => (dispatch) => {
-  axios.get('/api/orders/?toStage=3').then((res) => {
+export const fetchOpenOrders = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/orders/?toStage=3');
     dispatch({
       type: FETCH_ORDERS,
       payload: res.data,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to fetch orders',
+    });
+  }
 };
 
 export const createOrder = postData => (dispatch) => {

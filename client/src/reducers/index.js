@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import customerReducer from './customerReducer';
-import orderReducer from './orderReducer';
+
 import adminReducer from './adminReducer';
+import customerReducer from './customerReducer';
+import errorReducer from './errorReducer';
 import menuReducer from './menuReducer';
+import orderReducer from './orderReducer';
 
 export default combineReducers({
-  customers: customerReducer,
-  orders: orderReducer,
   admins: adminReducer,
+  customers: customerReducer,
+  error: errorReducer,
   menu: menuReducer,
+  orders: orderReducer,
 });

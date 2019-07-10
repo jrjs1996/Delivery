@@ -20,8 +20,8 @@ export function HomeComponent({
   orders,
   updateAction,
 }) {
-  useEffect(fetchAction, [fetchAction]);
 
+  useEffect(() => {fetchAction();}, [fetchAction]);
   return (
     <div className="Orders">
       {Object.entries(orders).map(([, o]) => (

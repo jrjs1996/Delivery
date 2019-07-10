@@ -9,6 +9,7 @@ import Admin from './Components/Admin/Admin';
 import AdminRoute from './Components/Admin/AdminRoute';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ErrorMessage from './Components/ErrorMessage/ErrorMessage';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <div className="App">
           <AdminRoute path="/admin" component={Admin} />
           <Route path="/login/" component={Login} />
+          <ErrorMessage message="asdfdsafsdafdsa" />
         </div>
       </Provider>
     </Router>
