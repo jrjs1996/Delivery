@@ -1,41 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { AdminPropType } from '../../../../propTypes';
-import { changeCurrentAdminPassword } from '../../../../actions/adminActions';
-import SettingPage from '../SettingPage/SettingPage';
-import SettingPageInput from '../SettingPage/SettingPageInput/SettingPageInput';
+import SettingPage from '../../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../../General/SettingPage/SettingPageInput/SettingPageInput';
 
 const onClick = (submitData, currentAdmin, action) => {
   const { newPassword, confirmNewPassword } = submitData;
   const { _id } = currentAdmin;
   if (newPassword !== confirmNewPassword) {
-    return 'Error: Passwords don\'t match!';
+    return "Error: Passwords don't match!";
   }
-  action(_id, newPassword);
+  action({ _id, password: newPassword });
   return 'Password Changed!';
 };
 
-export function ChangePasswordComponent({ currentAdmin, action }) {
+export default function ChangePassword({ currentAdmin, updateAction }) {
   return (
     <SettingPage
       title="Change Password"
-      onSubmit={submitData => onClick(submitData, currentAdmin, action)}
+      onSubmit={submitData => onClick(submitData, currentAdmin, updateAction)}
     >
-      <SettingPageInput required fullWidth name="newPassword" type="password" label="New Password" />
-      <SettingPageInput required fullWidth name="confirmNewPassword" type="password" label="Confirm New Password" />
+      <SettingPageInput
+        required
+        fullWidth
+        name="newPassword"
+        type="password"
+        label="New Password"
+      />
+      <SettingPageInput
+        required
+        fullWidth
+        name="confirmNewPassword"
+        type="password"
+        label="Confirm New Password"
+      />
     </SettingPage>
   );
 }
 
-ChangePasswordComponent.propTypes = {
-  action: PropTypes.func.isRequired,
+ChangePassword.propTypes = {
+  updateAction: PropTypes.func.isRequired,
   currentAdmin: AdminPropType.isRequired,
 };
-
-const mapStateToProps = state => ({
-  currentAdmin: state.admins.currentAdmin,
-});
-
-export default connect(mapStateToProps, { action: changeCurrentAdminPassword })(ChangePasswordComponent);

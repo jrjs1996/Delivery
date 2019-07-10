@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import { createOrder } from '../../../actions/orderActions';
 import MenuItemList from '../Menu/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menuActions';
-import SettingPage from '../Settings/SettingPage/SettingPage';
-import SettingPageInput from '../Settings/SettingPage/SettingPageInput/SettingPageInput';
-import SettingPageCheckBox from '../Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox';
-import SettingPageSelect from '../Settings/SettingPage/SettingPageSelect/SettingPageSelect';
+import SettingPage from '../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../General/SettingPage/SettingPageInput/SettingPageInput';
+import SettingPageCheckBox from '../../General/SettingPage/SettingPageCheckBox/SettingPageCheckBox';
+import SettingPageSelect from '../../General/SettingPage/SettingPageSelect/SettingPageSelect';
 import OrderItemList from './OrderItemList/OrderItemList';
 import './CreateOrder.css';
 
@@ -73,7 +73,8 @@ export function CreateOrderComponent({ createAction, fetchAction, menu }) {
           className="CreateOrderForm"
           clearOnSubmit
           title="Create Order"
-          onSubmit={formData => onSubmit(formData, orderItems, createAction, setOrderItems, setTotal)}
+          onSubmit={formData => onSubmit(formData, orderItems, createAction, setOrderItems, setTotal)
+          }
           onValueChange={manageState}
         >
           <SettingPageInput required fullWidth name="customerName" label="Customer Name" />

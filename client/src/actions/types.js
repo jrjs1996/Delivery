@@ -8,7 +8,7 @@ export const FETCH_ORDERS = 'FETCH_ORDER';
 export const COMPLETE_ORDER = 'COMPLETE_ORDER';
 export const GET_CUSTOMER = 'GET_CUSTOMER';
 
-export const LOGIN_ADMIN = 'LOGIN_ADMIN';
+export const UPDATE_CURRENT_ADMIN = 'UPDATE_CURRENT_ADMIN';
 export const FETCH_ADMINS = 'FETCH_ADMINS';
 export const UPDATE_ADMIN = 'UPDATE_ADMIN';
 export const CREATE_ADMIN = 'CREATE_ADMIN';

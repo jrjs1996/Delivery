@@ -13,7 +13,7 @@ import {
 } from '../../../../actions/menuActions';
 import { menuItemPropType } from '../../../../propTypes';
 
-import CrudPage from '../../../General/CrudPage';
+import CrudPage from '../../../General/CrudPage/CrudPage';
 import MenuItemForm from '../MenuItemForm/MenuItemForm';
 import MenuItemList from '../MenuItemList/MenuItemList';
 import './AdminMenu.css';

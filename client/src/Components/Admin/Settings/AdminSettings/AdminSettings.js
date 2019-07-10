@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import PropTypes from 'prop-types';
-import SettingsMenu from '../SettingsMenu/SettingsMenu';
-import SettingsMenuItem from '../SettingsMenu/SettingsMenuItem/SettingsMenuItem';
+import SettingsMenu from '../../../General/SettingsMenu/SettingsMenu';
+import SettingsMenuItem from '../../../General/SettingsMenu/SettingsMenuItem/SettingsMenuItem';
 
 export default function AdminSettings({ match, onClick }) {
   return (

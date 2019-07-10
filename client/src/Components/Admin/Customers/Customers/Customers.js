@@ -12,7 +12,7 @@ import {
 } from '../../../../actions/customerActions';
 import { CustomerPropType } from '../../../../propTypes';
 
-import CrudPage from '../../../General/CrudPage';
+import CrudPage from '../../../General/CrudPage/CrudPage';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import CustomersList from '../CustomersList/CustomerList';
 

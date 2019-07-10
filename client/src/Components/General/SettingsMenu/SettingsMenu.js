@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import { ChildrenPropType } from '../../../../propTypes';
+import { ChildrenPropType } from '../../../propTypes';
 
 export default function SettingsMenu({ children, title, onClick }) {
   return (

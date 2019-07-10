@@ -1,16 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SettingPage from '../../Settings/SettingPage/SettingPage';
-import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
-import InputList from '../../Settings/SettingPage/InputList/InputList';
+import SettingPage from '../../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../../General/SettingPage/SettingPageInput/SettingPageInput';
+import InputList from '../../../General/SettingPage/InputList/InputList';
 
 export default function CustomerForm({
-  addresses,
-  email,
-  firstName,
-  id,
-  lastName,
-  onSubmit,
+  addresses, email, firstName, id, lastName, onSubmit,
 }) {
   return (
     <SettingPage

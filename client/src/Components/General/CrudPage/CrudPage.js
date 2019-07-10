@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import ForwardBackButton from '../Admin/Menu/ForwardBackButton/ForwardBackButton';
+import ForwardBackButton from '../../Admin/Menu/ForwardBackButton/ForwardBackButton';
 
 export default function CrudPage({
   formPath,

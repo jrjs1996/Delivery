@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import shortid from 'shortid';
-import { ChildrenPropType } from '../../../../propTypes';
+import { ChildrenPropType } from '../../../propTypes';
 
 const onChange = (e, submitData, setSubmitData, onValueChange) => {
   let newSubmitData = Object.assign({}, submitData);

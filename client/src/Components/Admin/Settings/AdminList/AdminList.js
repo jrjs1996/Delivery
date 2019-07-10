@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 import AdminForm from './AdminForm/AdminForm';
 import { AdminPropType } from '../../../../propTypes';
-import { fetchAdmins, createAdmin, updateAdmin } from '../../../../actions/adminActions';
-import SettingList from '../SettingList/SettingList';
+import SettingList from '../../../General/SettingList/SettingList';
 
-function AdminList({
+export default function AdminList({
   admins,
-  fetchAction,
-  updateAction,
   createAction,
+  fetchAction,
+  history,
   match,
-  history
+  updateAction,
 }) {
   useEffect(() => {
     fetchAction();
@@ -67,13 +64,14 @@ function AdminList({
 AdminList.propTypes = {
   /** Admin objects to populate the list with. */
   admins: PropTypes.arrayOf(AdminPropType).isRequired,
+  /** Action to create an admin. */
+  createAction: PropTypes.func.isRequired,
   /** Action to call which fetches admins. */
-  fetchAdmins: PropTypes.func.isRequired,
+  fetchAction: PropTypes.func.isRequired,
+  /** Router history */
+  history: ReactRouterPropTypes.history.isRequired,
+  /** Match provided by route */
+  match: ReactRouterPropTypes.match.isRequired,
+  /** Action to update an order */
+  updateAction: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-  admins: state.admins.admins,
-});
-
-export { AdminList as AdminListComponent };
-export default connect(mapStateToProps, { fetchAction: fetchAdmins, updateAction: updateAdmin, createAction: createAdmin })(AdminList);

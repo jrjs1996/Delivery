@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../utils/token';
 import {
-  LOGIN_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN,
+  UPDATE_CURRENT_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN,
 } from './types';
 
 export const login = postData => async (dispatch) => {
@@ -9,7 +9,7 @@ export const login = postData => async (dispatch) => {
     const res = await axios.post('/api/admins/login/', postData);
     saveToken(res.data, true);
     dispatch({
-      type: LOGIN_ADMIN,
+      type: UPDATE_CURRENT_ADMIN,
       payload: {
         username: postData.username,
       },
@@ -20,24 +20,11 @@ export const login = postData => async (dispatch) => {
   }
 };
 
-export const changeCurrentAdminUsername = (id, newUsername) => async (dispatch) => {
+export const updateCurrentAdmin = putData => async (dispatch) => {
   try {
-    const res = await axios.put(`/api/admins/${id}`, { username: newUsername }, setAuthHeader());
+    const res = await axios.put(`/api/admins/${putData._id}`, putData, setAuthHeader());
     dispatch({
-      type: LOGIN_ADMIN,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-};
-
-export const changeCurrentAdminPassword = (id, newPassword) => async (dispatch) => {
-  try {
-    const res = await axios.put(`/api/admins/${id}`, { password: newPassword }, setAuthHeader());
-    dispatch({
-      type: LOGIN_ADMIN,
+      type: UPDATE_CURRENT_ADMIN,
       payload: res.data,
     });
   } catch (error) {
@@ -60,7 +47,7 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/admins/login/', setAuthHeader());
     dispatch({
-      type: LOGIN_ADMIN,
+      type: UPDATE_CURRENT_ADMIN,
       payload: res.data,
     });
   } catch (error) {

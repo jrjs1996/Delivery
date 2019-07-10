@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SettingPage from '../../SettingPage/SettingPage';
-import SettingPageInput from '../../SettingPage/SettingPageInput/SettingPageInput';
+import SettingPage from '../../../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../../../General/SettingPage/SettingPageInput/SettingPageInput';
 
-export default function AdminForm({
-  id,
-  onSubmit,
-  username,
-}) {
+export default function AdminForm({ id, onSubmit, username }) {
   return (
     <SettingPage
       title={id ? `Update Admin "${username}"` : 'Add Admin'}

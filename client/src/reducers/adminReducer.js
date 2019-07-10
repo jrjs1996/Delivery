@@ -1,8 +1,8 @@
 import {
-  LOGIN_ADMIN,
+  CREATE_ADMIN,
   FETCH_ADMINS,
   UPDATE_ADMIN,
-  CREATE_ADMIN,
+  UPDATE_CURRENT_ADMIN,
 } from '../actions/types';
 import { createItems, updateItem, insertItem } from './utils';
 
@@ -13,7 +13,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOGIN_ADMIN:
+    case UPDATE_CURRENT_ADMIN:
       return {
         ...state,
         currentAdmin: action.payload,
