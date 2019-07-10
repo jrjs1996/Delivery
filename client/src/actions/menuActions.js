@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { setAuthHeader } from '../utils/token';
 import {
-  FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM,
+  FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM, ERROR,
 } from './types';
 
 export const fetchMenu = () => async (dispatch) => {
@@ -13,7 +13,10 @@ export const fetchMenu = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to fetch menu',
+    });
   }
 };
 
@@ -25,20 +28,25 @@ export const addMenuItem = postData => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to add menu item',
+    });
   }
 };
 
 export const updateMenuItem = putData => async (dispatch) => {
   try {
     const res = await axios.put(`/api/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
-    console.log(res.data);
     dispatch({
       type: UPDATE_MENU_ITEM,
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update menu item',
+    });
   }
 };
 
@@ -50,7 +58,10 @@ export const deleteMenuItem = menuNumber => async (dispatch) => {
       payload: { menuNumber },
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to delete menu item',
+    });
   }
 };
 
@@ -67,6 +78,9 @@ export const uploadMenuItemImage = (id, file) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update menu item image.',
+    });
   }
 };
