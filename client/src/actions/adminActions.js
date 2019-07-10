@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../utils/token';
 import {
-  UPDATE_CURRENT_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN,
+  UPDATE_CURRENT_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN, ERROR,
 } from './types';
 
 export const login = postData => async (dispatch) => {
@@ -16,6 +16,10 @@ export const login = postData => async (dispatch) => {
     });
     return true;
   } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to log in',
+    });
     return false;
   }
 };
@@ -28,19 +32,27 @@ export const updateCurrentAdmin = putData => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
-    throw error;
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update current admin.',
+    });
   }
 };
 
-export const updateAdmin = putData => (dispatch) => {
-  axios.put(`/api/admins/${putData._id}`, putData, setAuthHeader()).then(() => {
+export const updateAdmin = putData => async (dispatch) => {
+  try {
+    await axios.put(`/api/admins/${putData._id}`, putData, setAuthHeader());
     const payload = putData;
     dispatch({
       type: UPDATE_ADMIN,
       payload,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update admin.',
+    });
+  }
 };
 
 export const getCurrentAdminInfo = () => async (dispatch) => {
@@ -51,32 +63,40 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to get current admin info.',
+    });
   }
 };
 
 export const fetchAdmins = () => async (dispatch) => {
-  const res = await axios.get('/api/admins/', setAuthHeader());
   try {
+    const res = await axios.get('/api/admins/', setAuthHeader());
     dispatch({
       type: FETCH_ADMINS,
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to fetch admins',
+    });
   }
 };
 
 export const createAdmin = postData => async (dispatch) => {
-  const res = await axios.post('/api/admins/', postData, setAuthHeader());
-  console.log(res);
   try {
+    const res = await axios.post('/api/admins/', postData, setAuthHeader());
     dispatch({
       type: CREATE_ADMIN,
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to add admin',
+    });
   }
 };
 
