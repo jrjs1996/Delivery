@@ -49,13 +49,19 @@ export const createOrder = postData => async (dispatch) => {
   }
 };
 
-export const updateOrder = (id, putData) => (dispatch) => {
-  axios.put(`/api/orders/${id}`, putData, setAuthHeader()).then(() => {
+export const updateOrder = (id, putData) => async (dispatch) => {
+  try {
+    await axios.put(`/api/orders/${id}`, putData, setAuthHeader());
     const payload = putData;
     payload._id = id;
     dispatch({
       type: COMPLETE_ORDER,
       payload,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update order.',
+    });
+  }
 };
