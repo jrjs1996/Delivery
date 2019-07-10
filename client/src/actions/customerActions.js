@@ -5,16 +5,23 @@ import {
   UPDATE_CUSTOMER,
   ADD_CUSTOMER,
   DELETE_CUSTOMER,
+  ERROR,
 } from './types';
 import { saveToken, setAuthHeader } from '../utils/token';
 
-export const fetchCustomers = () => (dispatch) => {
-  axios.get('/api/customers/', setAuthHeader()).then((res) => {
+export const fetchCustomers = () => async (dispatch) => {
+  try {
+    const res = axios.get('/api/customers/', setAuthHeader());
     dispatch({
       type: FETCH_CUSTOMERS,
       payload: res.data,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to fetch customers.',
+    });
+  }
 };
 
 export const addCustomer = postData => (dispatch) => {
