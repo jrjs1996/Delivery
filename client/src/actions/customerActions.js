@@ -39,10 +39,13 @@ export const addCustomer = postData => async (dispatch) => {
   }
 };
 
-export const signIn = postData => (dispatch) => {
-  axios.post('/api/customers/signin/', postData).then((res) => {
+export const signIn = postData => async (dispatch) => {
+  try {
+    const res = await axios.post('/api/customers/signin/', postData);
     saveToken(res.data);
-  });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getCustomer = userId => (dispatch) => {
@@ -54,14 +57,21 @@ export const getCustomer = userId => (dispatch) => {
   });
 };
 
-export const updateCustomer = putData => (dispatch) => {
-  axios.put(`/api/customers/${putData._id}`, putData, setAuthHeader()).then(() => {
+export const updateCustomer = putData => async (dispatch) => {
+  try {
+    await axios.put(`/api/customers/${putData._id}`, putData, setAuthHeader());
     const payload = putData;
     dispatch({
       type: UPDATE_CUSTOMER,
       payload,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update customer.',
+    });
+    throw error;
+  }
 };
 
 export const deleteCustomer = customerId => async (dispatch) => {

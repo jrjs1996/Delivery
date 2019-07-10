@@ -39,8 +39,12 @@ const renderCustomerForm = (c, addAction, updateAction, listPath, history, setMe
       id={c._id}
       lastName={c.lastName}
       onSubmit={(data) => {
-        updateAction(data);
-        return 'Customer Updated';
+        try {
+          updateAction(data);
+          return 'Customer Updated';
+        } catch (error) {
+          return '';
+        }
       }}
     />
   );
