@@ -68,9 +68,8 @@ export const updateCustomer = putData => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ERROR,
-      payload: 'Unable to update customer.',
+      payload: 'Unable to update customer',
     });
-    throw error;
   }
 };
 
@@ -82,6 +81,9 @@ export const deleteCustomer = customerId => async (dispatch) => {
       payload: { _id: customerId },
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to delete customer',
+    });
   }
 };
