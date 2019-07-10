@@ -11,7 +11,7 @@ import { saveToken, setAuthHeader } from '../utils/token';
 
 export const fetchCustomers = () => async (dispatch) => {
   try {
-    const res = axios.get('/api/customers/', setAuthHeader());
+    const res = await axios.get('/api/customers/', setAuthHeader());
     dispatch({
       type: FETCH_CUSTOMERS,
       payload: res.data,
@@ -24,13 +24,19 @@ export const fetchCustomers = () => async (dispatch) => {
   }
 };
 
-export const addCustomer = postData => (dispatch) => {
-  axios.post('/api/customers/', postData).then((res) => {
+export const addCustomer = postData => async (dispatch) => {
+  try {
+    const res = await axios.post('/api/customers/', postData);
     dispatch({
       type: ADD_CUSTOMER,
       payload: res.data,
     });
-  });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to add customer',
+    });
+  }
 };
 
 export const signIn = postData => (dispatch) => {
