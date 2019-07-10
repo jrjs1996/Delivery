@@ -25,6 +25,7 @@ export default function SettingList({
       {onAdd ? (
         <Button
           color="secondary"
+          id="addButton"
           onClick={onAdd}
           style={{ marginTop: 8 }}
           variant="contained"

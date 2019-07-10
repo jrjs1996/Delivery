@@ -18,8 +18,8 @@ import AdminSettings from './AdminSettings/AdminSettings';
 import ChangePassword from './ChangePassword/ChangePassword';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
 
-const renderBackButton = (pathname, history) => {
-  if (pathname !== '/admin/settings/') {
+const renderBackButton = (pathname, history, matchPath) => {
+  if (pathname !== matchPath) {
     return (
       <Button variant="contained" color="secondary" onClick={() => history.goBack()}>
         Back
@@ -44,7 +44,7 @@ export function SettingsComponent({
     <div className="Settings">
       <Grid container spacing={1}>
         <Grid item sm={3}>
-          {renderBackButton(location.pathname, history)}
+          {renderBackButton(location.pathname, history, match.path)}
         </Grid>
         <Grid item xs={12} sm={6}>
           <Route path={match.path} exact component={AdminSettings} />
