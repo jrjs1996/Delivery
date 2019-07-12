@@ -60,6 +60,26 @@ Array [
 ]
 `;
 
+exports[`Login Dispatches correct info when successful (Payload is provided username) 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "username": "TestUsername",
+    },
+    "type": "UPDATE_CURRENT_ADMIN",
+  },
+]
+`;
+
+exports[`Login Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to log in",
+    "type": "ERROR",
+  },
+]
+`;
+
 exports[`Update current admin Dispatches correct info when successful (Payload is res data) 1`] = `
 Array [
   Object {

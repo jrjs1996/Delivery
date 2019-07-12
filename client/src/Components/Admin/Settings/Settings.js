@@ -12,7 +12,7 @@ import {
   fetchAdmins,
   updateAdmin,
   updateCurrentAdmin,
-} from '../../../actions/adminActions/adminActions';
+} from '../../../actions/admin/admin';
 import AdminList from './AdminList/AdminList';
 import AdminSettings from './AdminSettings/AdminSettings';
 import ChangePassword from './ChangePassword/ChangePassword';

@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import * as adminActions from './adminActions';
+import * as adminActions from './admin';
 import * as actionTypes from '../types';
 import mockAxios from '../../../__mocks__/axios';
 
@@ -74,6 +74,30 @@ describe('Get current admin info', () => {
     expect(store.getActions()).toMatchSnapshot();
   });
 });
+
+describe('Login', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches correct info when successful (Payload is provided username)', async () => {
+    await adminActions.login({ username: 'TestUsername', password: 'TestPassword' })(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+
+  it('Dispatches error when unsuccessful', async () => {
+    mockAxios.post.mockImplementationOnce(() => {
+      throw new Error();
+    });
+    await adminActions.login({
+      username: 'TestUser',
+      password: 'TestPassword',
+    })(store.dispatch);
+
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 
 describe('Update current admin', () => {
   beforeEach(() => {
