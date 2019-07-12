@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create admin Dispatches correct info when successful 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "username": "TestUser",
+    },
+    "type": "CREATE_ADMIN",
+  },
+]
+`;
+
+exports[`Create admin Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to add admin",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch Admins Dispatches correct info when successful (Payload is res data) 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "FETCH_ADMINS",
+  },
+]
+`;
+
+exports[`Fetch Admins Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to fetch admins",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Get current admin info Dispatches correct info when successful (Payload is res data) 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "UPDATE_CURRENT_ADMIN",
+  },
+]
+`;
+
+exports[`Get current admin info Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to get current admin info.",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Update current admin Dispatches correct info when successful (Payload is res data) 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "UPDATE_CURRENT_ADMIN",
+  },
+]
+`;
+
+exports[`Update current admin Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to update current admin.",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`updateAdmin Dispatches correct info when successful (Payload is submitted data) 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "password": "TestPassword",
+      "username": "TestUser",
+    },
+    "type": "UPDATE_ADMIN",
+  },
+]
+`;
+
+exports[`updateAdmin Dispatches error when unsuccessful 1`] = `
+Array [
+  Object {
+    "payload": "Unable to update admin.",
+    "type": "ERROR",
+  },
+]
+`;

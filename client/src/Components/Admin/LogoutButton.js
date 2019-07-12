@@ -4,7 +4,7 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { logout } from '../../actions/adminActions';
+import { logout } from '../../actions/adminActions/adminActions';
 
 
 function LogoutButton({

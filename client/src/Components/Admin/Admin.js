@@ -19,7 +19,7 @@ import LogoutButton from './LogoutButton';
 import CreateOrder from './CreateOrder/CreateOrder';
 import Customers from './Customers/Customers/Customers';
 
-import { getCurrentAdminInfo } from '../../actions/adminActions';
+import { getCurrentAdminInfo } from '../../actions/adminActions/adminActions';
 
 import Home from './Home/Home/Home';
 import Settings from './Settings/Settings';

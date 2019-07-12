@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
-import { login } from '../../actions/adminActions';
+import { login } from '../../actions/adminActions/adminActions';
 import { isAuthed } from '../../utils/token';
 
 const onSubmit = async (loginAction, history, username, password) => {
