@@ -1,24 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import { setAuthHeader } from '../utils/token';
+import { setAuthHeader } from '../../utils/token';
 import {
   FETCH_MENU, ADD_MENU_ITEM, UPDATE_MENU_ITEM, DELETE_MENU_ITEM, ERROR,
-} from './types';
-
-export const fetchMenu = () => async (dispatch) => {
-  try {
-    const res = await axios.get('/api/menuitems/');
-    dispatch({
-      type: FETCH_MENU,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: 'Unable to fetch menu',
-    });
-  }
-};
+} from '../types';
 
 export const addMenuItem = postData => async (dispatch) => {
   try {
@@ -35,21 +20,6 @@ export const addMenuItem = postData => async (dispatch) => {
   }
 };
 
-export const updateMenuItem = putData => async (dispatch) => {
-  try {
-    const res = await axios.put(`/api/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
-    dispatch({
-      type: UPDATE_MENU_ITEM,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: 'Unable to update menu item',
-    });
-  }
-};
-
 export const deleteMenuItem = menuNumber => async (dispatch) => {
   try {
     await axios.delete(`/api/menuItems/${menuNumber}`, setAuthHeader());
@@ -61,6 +31,36 @@ export const deleteMenuItem = menuNumber => async (dispatch) => {
     dispatch({
       type: ERROR,
       payload: 'Unable to delete menu item',
+    });
+  }
+};
+
+export const fetchMenu = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/menuitems/');
+    dispatch({
+      type: FETCH_MENU,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to fetch menu',
+    });
+  }
+};
+
+export const updateMenuItem = putData => async (dispatch) => {
+  try {
+    const res = await axios.put(`/api/menuitems/${putData.menuNumber}`, putData, setAuthHeader());
+    dispatch({
+      type: UPDATE_MENU_ITEM,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to update menu item',
     });
   }
 };

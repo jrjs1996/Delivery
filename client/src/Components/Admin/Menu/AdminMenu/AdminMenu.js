@@ -10,7 +10,7 @@ import {
   fetchMenu,
   updateMenuItem,
   uploadMenuItemImage,
-} from '../../../../actions/menuActions';
+} from '../../../../actions/menu/menu';
 import { menuItemPropType } from '../../../../propTypes';
 
 import CrudPage from '../../../General/CrudPage/CrudPage';

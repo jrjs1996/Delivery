@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createOrder } from '../../../actions/orderActions';
 import MenuItemList from '../Menu/MenuItemList/MenuItemList';
-import { fetchMenu } from '../../../actions/menuActions';
+import { fetchMenu } from '../../../actions/menu/menu';
 import SettingPage from '../../General/SettingPage/SettingPage';
 import SettingPageInput from '../../General/SettingPage/SettingPageInput/SettingPageInput';
 import SettingPageCheckBox from '../../General/SettingPage/SettingPageCheckBox/SettingPageCheckBox';
