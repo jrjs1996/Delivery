@@ -1,5 +1,5 @@
 import { FETCH_ORDERS, ADD_ORDER, UPDATE_ORDER } from '../actions/types';
-import { createItems, insertItem, updateItem } from './utils';
+import { createItems, insertItem, updateItem } from './utils/utils';
 
 const initialState = {
   items: {},

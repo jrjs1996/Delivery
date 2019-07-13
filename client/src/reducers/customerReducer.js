@@ -5,7 +5,7 @@ import {
   GET_CUSTOMER,
   UPDATE_CUSTOMER,
 } from '../actions/types';
-import { updateItem, deleteItem, insertItem, createItems } from './utils';
+import { updateItem, deleteItem, insertItem, createItems } from './utils/utils';
 
 const initialState = {
   items: {},

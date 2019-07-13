@@ -4,7 +4,7 @@ import {
   UPDATE_ADMIN,
   UPDATE_CURRENT_ADMIN,
 } from '../actions/types';
-import { createItems, updateItem, insertItem } from './utils';
+import { createItems, updateItem, insertItem } from './utils/utils';
 
 const initialState = {
   currentAdmin: {},
