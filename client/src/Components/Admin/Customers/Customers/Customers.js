@@ -9,7 +9,7 @@ import {
   addCustomer,
   updateCustomer,
   deleteCustomer,
-} from '../../../../actions/customerActions';
+} from '../../../../actions/customer/customer';
 import { CustomerPropType } from '../../../../propTypes';
 
 import CrudPage from '../../../General/CrudPage/CrudPage';

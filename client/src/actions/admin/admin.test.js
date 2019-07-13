@@ -25,9 +25,7 @@ describe('Create admin', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.post.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.post);
     await adminActions.createAdmin({
       username: 'TestUser',
       password: 'TestPassword',
@@ -48,9 +46,7 @@ describe('Fetch Admins', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.get.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.get);
     await adminActions.fetchAdmins()(store.dispatch);
     expect(store.getActions()).toMatchSnapshot();
   });
@@ -67,9 +63,7 @@ describe('Get current admin info', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.get.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.get);
     await adminActions.getCurrentAdminInfo()(store.dispatch);
     expect(store.getActions()).toMatchSnapshot();
   });
@@ -86,9 +80,7 @@ describe('Login', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.post.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.post);
     await adminActions.login({
       username: 'TestUser',
       password: 'TestPassword',
@@ -114,9 +106,7 @@ describe('Update current admin', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.put.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.put);
     await adminActions.updateCurrentAdmin({
       username: 'TestUser',
       password: 'TestPassword',
@@ -141,9 +131,7 @@ describe('updateAdmin', () => {
   });
 
   it('Dispatches error when unsuccessful', async () => {
-    mockAxios.put.mockImplementationOnce(() => {
-      throw new Error();
-    });
+    mockAxios.giveError(mockAxios.put);
     await adminActions.updateAdmin({
       username: 'TestUser',
       password: 'TestPassword',
