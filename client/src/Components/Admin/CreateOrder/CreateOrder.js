@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createOrder } from '../../../actions/orderActions';
+import { createOrder } from '../../../actions/order/order';
 import MenuItemList from '../Menu/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menu/menu';
 import SettingPage from '../../General/SettingPage/SettingPage';

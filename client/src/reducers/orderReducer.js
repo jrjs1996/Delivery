@@ -1,4 +1,4 @@
-import { FETCH_ORDERS, ADD_ORDER, COMPLETE_ORDER } from '../actions/types';
+import { FETCH_ORDERS, ADD_ORDER, UPDATE_ORDER } from '../actions/types';
 import { createItems, insertItem, updateItem } from './utils';
 
 const initialState = {
@@ -18,8 +18,7 @@ export default function (state = initialState, action) {
         ...state,
         items: insertItem(state.items, action.payload, '_id'),
       };
-    case COMPLETE_ORDER:
-      console.log(action.payload);
+    case UPDATE_ORDER:
       return {
         ...state,
         items: updateItem(state.items, action.payload, '_id'),

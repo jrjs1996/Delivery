@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import shortid from 'shortid';
 
-import { fetchOpenOrders, updateOrder } from '../../../../actions/orderActions';
+import { fetchOpenOrders, updateOrder } from '../../../../actions/order/order';
 import { orderPropType } from '../../../../propTypes';
 
 import './Home.css';

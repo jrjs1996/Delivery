@@ -1,20 +1,20 @@
 import axios from 'axios';
 import {
-  ADD_ORDER, FETCH_ORDERS, COMPLETE_ORDER, ERROR,
-} from './types';
-import { setAuthHeader } from '../utils/token';
+  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ERROR,
+} from '../types';
+import { setAuthHeader } from '../../utils/token';
 
-export const fetchOrders = () => async (dispatch) => {
+export const createOrder = postData => async (dispatch) => {
   try {
-    const res = await axios.get('/api/orders/');
+    const res = await axios.post('/api/orders/', postData);
     dispatch({
-      type: FETCH_ORDERS,
+      type: ADD_ORDER,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: ERROR,
-      payload: 'Unable to fetch orders',
+      payload: 'Unable to create order',
     });
   }
 };
@@ -34,17 +34,17 @@ export const fetchOpenOrders = () => async (dispatch) => {
   }
 };
 
-export const createOrder = postData => async (dispatch) => {
+export const fetchOrders = () => async (dispatch) => {
   try {
-    const res = await axios.post('/api/orders/', postData);
+    const res = await axios.get('/api/orders/');
     dispatch({
-      type: ADD_ORDER,
+      type: FETCH_ORDERS,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: ERROR,
-      payload: 'Unable to create order',
+      payload: 'Unable to fetch orders',
     });
   }
 };
@@ -55,7 +55,7 @@ export const updateOrder = (id, putData) => async (dispatch) => {
     const payload = putData;
     payload._id = id;
     dispatch({
-      type: COMPLETE_ORDER,
+      type: UPDATE_ORDER,
       payload,
     });
   } catch (error) {
