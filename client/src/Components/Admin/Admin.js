@@ -21,14 +21,7 @@ import AdminMenu from './Menu/AdminMenu/AdminMenu';
 import Navigation from '../Navigation/Navigation';
 import { AdminPropType } from '../../propTypes';
 
-const drawerWidth = 240;
-
 const useStyles = makeStyles(theme => ({
-  appBar: {
-    [theme.breakpoints.up('lg')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
-  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(0),
@@ -37,15 +30,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   toolbar: theme.mixins.toolbar,
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('lg')]: {
-      display: 'none',
-    },
-  },
-  title: {
-    flexGrow: 1,
-  },
 }));
 
 export function AdminComponent({
@@ -57,7 +41,6 @@ export function AdminComponent({
     getInfo();
   }, [getInfo]);
   const { username } = currentAdmin;
-  console.log(match.path);
   return (
     <div className={classes.root}>
       <Navigation username={username} logout={logoutAction} history={history}>

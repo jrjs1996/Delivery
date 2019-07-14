@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
-import LogoutButton from './LogoutButton/LogoutButton';
+import AuthButton from './AuthButton/AuthButton';
 import SideMenu from './SideMenu/SideMenu';
 
 const drawerWidth = 240;
@@ -58,7 +58,7 @@ export default function Navigation({
           <Typography variant="h6" className={classes.title}>
             {username}
           </Typography>
-          <LogoutButton color="inherit" action={logout} history={history} />
+          <AuthButton color="inherit" loggedIn={username} logoutAction={logout} history={history} />
         </Toolbar>
       </AppBar>
       <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}>

@@ -71,7 +71,7 @@ describe('Admin.test', () => {
   });
 
   it('Renders Customers when at {match}/customers', () => {
-    component = mount(getPath('/customers/'));
+    component = mount(getPath('//customers/'));
     expect(component.find(Customers)).toHaveLength(1);
   });
 
@@ -81,12 +81,12 @@ describe('Admin.test', () => {
   });
 
   it('Renders menu when at {match}/menu', () => {
-    component = mount(getPath('/menu/'));
+    component = mount(getPath('//menu/'));
     expect(component.find(AdminMenu)).toHaveLength(1);
   });
 
   it('Renders settings when at {match}/settings', () => {
-    component = mount(getPath('/settings/'));
+    component = mount(getPath('//settings/'));
     expect(component.find(Settings)).toHaveLength(1);
   });
 });
