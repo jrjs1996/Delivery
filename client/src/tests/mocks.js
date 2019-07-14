@@ -1,4 +1,5 @@
-
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 // eslint-disable-next-line import/prefer-default-export
 export const menuItemsMock = [
@@ -12,7 +13,7 @@ export const menuItemsMock = [
      mayonnaise, mustard, relish, or 'special sauce'; and are frequently placed on sesame
     seed buns. A hamburger topped with cheese is called a cheeseburger.`,
     menuNumber: 1,
-    price: 10.50,
+    price: 10.5,
     revision: 0,
     title: 'Hamburger',
     __v: 0,
@@ -122,3 +123,19 @@ export const adminsMock = [
     username: 'SecondAdmin',
   },
 ];
+
+const mockStore = configureStore([thunk]);
+export const storeMock = mockStore({
+  orders: {
+    items: ordersMock,
+  },
+  customers: {
+    items: customersMock,
+  },
+  menu: {
+    items: menuItemsMock,
+  },
+  admins: {
+    admins: adminsMock,
+  },
+});

@@ -48,8 +48,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Admin({
-  currentAdmin, getInfo, history, logoutAction,
+export function AdminComponent({
+  currentAdmin, getInfo, history, logoutAction, match,
 }) {
   const classes = useStyles();
 
@@ -57,42 +57,44 @@ function Admin({
     getInfo();
   }, [getInfo]);
   const { username } = currentAdmin;
+  console.log(match.path);
   return (
     <div className={classes.root}>
       <Navigation username={username} logout={logoutAction} history={history}>
-        <SideMenuItem to="/admin/" text="Home">
+        <SideMenuItem to={match.path} text="Home">
           <HomeIcon />
         </SideMenuItem>
-        <SideMenuItem to="/admin/customers/" text="Customers">
+        <SideMenuItem to={`${match.path}customers/`} text="Customers">
           <PersonIcon />
         </SideMenuItem>
-        <SideMenuItem to="/admin/createorder/" text="Create Order">
+        <SideMenuItem to={`${match.path}createorder/`} text="Create Order">
           <ShoppingBasket />
         </SideMenuItem>
-        <SideMenuItem to="/admin/settings/" text="Settings">
+        <SideMenuItem to={`${match.path}settings/`} text="Settings">
           <SettingsIcon />
         </SideMenuItem>
-        <SideMenuItem to="/admin/menu/" text="Menu">
+        <SideMenuItem to={`${match.path}menu/`} text="Menu">
           <BookIcon />
         </SideMenuItem>
       </Navigation>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Route path="/admin/" exact component={Home} />
-        <Route path="/admin/createorder/" component={CreateOrder} />
-        <Route path="/admin/menu/" component={AdminMenu} />
-        <Route path="/admin/settings/" component={Settings} />
-        <Route path="/admin/customers/" component={Customers} />
+        <Route path={match.path} exact component={Home} />
+        <Route path={`${match.path}createorder/`} component={CreateOrder} />
+        <Route path={`${match.path}menu/`} component={AdminMenu} />
+        <Route path={`${match.path}settings/`} component={Settings} />
+        <Route path={`${match.path}customers/`} component={Customers} />
       </main>
     </div>
   );
 }
 
-Admin.propTypes = {
+AdminComponent.propTypes = {
   currentAdmin: AdminPropType.isRequired,
   getInfo: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
   logoutAction: PropTypes.func.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -102,4 +104,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getInfo: getCurrentAdminInfo, logoutAction: logout },
-)(Admin);
+)(AdminComponent);
