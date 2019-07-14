@@ -1,16 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { logout } from '../../actions/admin/admin';
 
 
-function LogoutButton({
+export default function LogoutButton({
   history,
   action,
-  staticContext,
   ...rest
 }) {
   return (
@@ -32,5 +28,3 @@ LogoutButton.propTypes = {
   action: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
 };
-
-export default withRouter(connect(null, { action: logout })(LogoutButton));
