@@ -64,26 +64,26 @@ export function AdminComponent({
         <SideMenuItem to={match.path} text="Home">
           <HomeIcon />
         </SideMenuItem>
-        <SideMenuItem to={`${match.path}customers/`} text="Customers">
+        <SideMenuItem to={`${match.path}/customers/`} text="Customers">
           <PersonIcon />
         </SideMenuItem>
-        <SideMenuItem to={`${match.path}createorder/`} text="Create Order">
+        <SideMenuItem to={`${match.path}/createorder/`} text="Create Order">
           <ShoppingBasket />
         </SideMenuItem>
-        <SideMenuItem to={`${match.path}settings/`} text="Settings">
+        <SideMenuItem to={`${match.path}/settings/`} text="Settings">
           <SettingsIcon />
         </SideMenuItem>
-        <SideMenuItem to={`${match.path}menu/`} text="Menu">
+        <SideMenuItem to={`${match.path}/menu/`} text="Menu">
           <BookIcon />
         </SideMenuItem>
       </Navigation>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Route path={match.path} exact component={Home} />
-        <Route path={`${match.path}createorder/`} component={CreateOrder} />
-        <Route path={`${match.path}menu/`} component={AdminMenu} />
-        <Route path={`${match.path}settings/`} component={Settings} />
-        <Route path={`${match.path}customers/`} component={Customers} />
+        <Route path={`${match.path}/createorder/`} component={CreateOrder} />
+        <Route path={`${match.path}/menu/`} component={AdminMenu} />
+        <Route path={`${match.path}/settings/`} component={Settings} />
+        <Route path={`${match.path}/customers/`} component={Customers} />
       </main>
     </div>
   );
