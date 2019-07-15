@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer reducer Adds customer when calling ADD_CUSTOMER 1`] = `
+Object {
+  "currentCustomer": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "addresses": Array [
+        "123 green st",
+        "232 8th St E",
+      ],
+      "email": "johnD@email.com",
+      "firstName": "John",
+      "lastName": "Davidson",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "addresses": Array [
+        "488 5th Ave",
+      ],
+      "email": "Bobby@email.com",
+      "firstName": "Bob",
+      "lastName": "Harris",
+    },
+  },
+}
+`;
+
+exports[`Customer reducer Initial state is empty 1`] = `
+Object {
+  "currentCustomer": Object {},
+  "items": Object {},
+}
+`;
+
+exports[`Customer reducer Populates items when calling FETCH_CUSTOMERS 1`] = `
+Object {
+  "currentCustomer": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "addresses": Array [
+        "123 green st",
+        "232 8th St E",
+      ],
+      "email": "johnD@email.com",
+      "firstName": "John",
+      "lastName": "Davidson",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "addresses": Array [
+        "488 5th Ave",
+      ],
+      "email": "Bobby@email.com",
+      "firstName": "Bob",
+      "lastName": "Harris",
+    },
+  },
+}
+`;
+
+exports[`Customer reducer Removes customer when calling DELETE_CUSTOMER 1`] = `
+Object {
+  "currentCustomer": undefined,
+  "items": Object {
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "addresses": Array [
+        "488 5th Ave",
+      ],
+      "email": "Bobby@email.com",
+      "firstName": "Bob",
+      "lastName": "Harris",
+    },
+  },
+}
+`;
+
+exports[`Customer reducer Returns given state when an action doesn't match 1`] = `
+Object {
+  "mockState": "MockState",
+}
+`;
+
+exports[`Customer reducer Updates current customer to be payload when calling UPDATE__CURRENT_CUSTOMER 1`] = `
+Object {
+  "currentCustomer": Object {
+    "name": "NewCurrentCustomer",
+  },
+  "items": undefined,
+}
+`;
+
+exports[`Customer reducer Updates given customer in items to be payload when calling UPDATE_CUSTOMER 1`] = `
+Object {
+  "currentCustomer": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "addresses": Array [
+        "123 green st",
+        "232 8th St E",
+      ],
+      "email": "johnD@email.com",
+      "firstName": "UPDATED INFO",
+      "lastName": "Davidson",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "addresses": Array [
+        "488 5th Ave",
+      ],
+      "email": "Bobby@email.com",
+      "firstName": "Bob",
+      "lastName": "Harris",
+    },
+  },
+}
+`;

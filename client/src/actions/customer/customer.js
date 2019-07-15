@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
   FETCH_CUSTOMERS,
-  GET_CUSTOMER,
+  UPDATE_CURRENT_CUSTOMER,
   UPDATE_CUSTOMER,
   ADD_CUSTOMER,
   DELETE_CUSTOMER,
@@ -57,7 +57,7 @@ export const fetchCustomers = () => async (dispatch) => {
 export const getCustomer = userId => (dispatch) => {
   axios.get('/api/customers/info/', setAuthHeader()).then((res) => {
     dispatch({
-      type: GET_CUSTOMER,
+      type: UPDATE_CURRENT_CUSTOMER,
       payload: res.data,
     });
   });
