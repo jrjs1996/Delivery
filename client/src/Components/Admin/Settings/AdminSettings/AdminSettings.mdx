@@ -1,0 +1,33 @@
+
+---
+name: AdminSettings
+menu: Components
+route: /Admin/Settings/AdminSettings/AdminSettings.mdx
+---
+import { useState } from 'react';
+import { MemoryRouter as Router, Route } from 'react-router-dom';
+import { Playground, Props } from 'docz';
+import AdminSettings from './AdminSettings';
+
+# Admin Settings
+
+Updated 09/07/2019
+
+Settings menu for admin.
+
+<Props of={AdminSettings} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+
+    return (
+      <div>
+        <p>{message}</p>
+        <Router initialEntries={['/']}>
+          <AdminSettings onClick={() => setMessage('Clicked!')} />
+        </Router>
+      </div>
+    )
+  }}
+</Playground>

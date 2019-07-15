@@ -26,26 +26,6 @@
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Admin.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Admin",
-          "methods": [],
-          "actualName": "Admin",
-          "props": {
-            "getCurrentAdminInfo": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src\\Components\\Admin\\AdminRoute.js",
       "value": [
         {
@@ -57,6 +37,26 @@
             "component": {
               "type": {
                 "name": "elementType"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Admin.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Admin",
+          "methods": [],
+          "actualName": "Admin",
+          "props": {
+            "getCurrentAdminInfo": {
+              "type": {
+                "name": "func"
               },
               "required": true,
               "description": ""
@@ -94,96 +94,40 @@
       ]
     },
     {
-      "key": "src\\Components\\General\\CrudPage.js",
+      "key": "src\\Components\\ErrorMessage\\ErrorMessage.js",
       "value": [
         {
           "description": "",
-          "displayName": "CrudPage",
+          "displayName": "ErrorMessage",
           "methods": [],
-          "actualName": "CrudPage",
+          "actualName": "ErrorMessage",
           "props": {
-            "formPath": {
+            "errorCount": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Total number of errors that have occured."
+            },
+            "message": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": "Path to display the form at."
-            },
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list with"
-            },
-            "listPath": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Path to display the list of items at"
-            },
-            "renderForm": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to render the form when at form path.\r\nThis function will be passed the selected item\r\nif an item is selected. Otherwise an empty object."
-            },
-            "renderList": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to render the list when at list path.\r\nWill be passed items and a function that sets the\r\npages selected item."
-            },
-            "showAdd": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If true, the add button will be shown when at\r\nlist page.",
-              "defaultValue": {
-                "value": "true",
-                "computed": false
-              }
-            },
-            "style": {
-              "type": {
-                "name": "objectOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": false,
-              "description": "Style of the page",
-              "defaultValue": {
-                "value": "{}",
-                "computed": false
-              }
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title to show at top of page",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "pathName": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Current browser location path."
+              "description": "Error message to display."
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\SideMenu\\SideMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SideMenu",
+          "methods": [],
+          "actualName": "SideMenu"
         }
       ]
     },
@@ -278,37 +222,18 @@
         {
           "description": "",
           "displayName": "SignUpForm",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "onSubmit",
-              "docblock": null,
-              "modifiers": [
-                "async"
-              ],
-              "params": [
-                {
-                  "name": "e",
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
+          "methods": [],
           "actualName": "SignUpForm",
           "props": {
-            "login": {
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "loginAction": {
               "type": {
                 "name": "func"
               },
@@ -336,17 +261,6 @@
               "description": ""
             }
           }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\SideMenu\\SideMenu.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SideMenu",
-          "methods": [],
-          "actualName": "SideMenu"
         }
       ]
     },
@@ -388,39 +302,26 @@
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Settings\\AdminSettings.js",
+      "key": "src\\Components\\Admin\\Settings\\Settings.js",
       "value": [
         {
           "description": "",
-          "displayName": "AdminSettings",
+          "displayName": "SettingsComponent",
           "methods": [],
-          "actualName": "AdminSettings",
+          "actualName": "SettingsComponent",
           "props": {
-            "onClick": {
+            "admins": {
               "type": {
-                "name": "func"
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "AdminPropType"
+                }
               },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\ChangePassword.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangePassword",
-          "methods": [],
-          "actualName": "ChangePassword",
-          "props": {
-            "changeCurrentAdminPassword": {
+              "required": true,
+              "description": ""
+            },
+            "createAction": {
               "type": {
                 "name": "func"
               },
@@ -434,20 +335,22 @@
               },
               "required": false,
               "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\Settings.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Settings",
-          "methods": [],
-          "actualName": "Settings",
-          "props": {
+            },
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
             "location": {
               "type": {
                 "name": "custom",
@@ -455,6 +358,288 @@
               },
               "required": false,
               "description": ""
+            },
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.match.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "updateCurrentAdminAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingList\\SettingList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingList",
+          "methods": [],
+          "actualName": "SettingList",
+          "props": {
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list."
+            },
+            "itemString": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Title to appear at top of list."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\CrudPage\\CrudPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CrudPage",
+          "methods": [],
+          "actualName": "CrudPage",
+          "props": {
+            "formPath": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Path to display the form at."
+            },
+            "items": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": true,
+              "description": "Items to populate the list with"
+            },
+            "listPath": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Path to display the list of items at"
+            },
+            "message": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Message to display at top of page",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "renderForm": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to render the form when at form path.\r\nThis function will be passed the selected item\r\nif an item is selected. Otherwise an empty object."
+            },
+            "renderList": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to render the list when at list path.\r\nWill be passed items and a function that sets the\r\npages selected item."
+            },
+            "showAdd": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true, the add button will be shown when at\r\nlist page.",
+              "defaultValue": {
+                "value": "true",
+                "computed": false
+              }
+            },
+            "style": {
+              "type": {
+                "name": "objectOf",
+                "value": {
+                  "name": "object"
+                }
+              },
+              "required": false,
+              "description": "Style of the page",
+              "defaultValue": {
+                "value": "{}",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title to show at top of page",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "pathName": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Current browser location path."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingPage\\SettingPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPage",
+          "methods": [],
+          "actualName": "SettingPage",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "SettingPageInputs for this setting page."
+            },
+            "clearOnSubmit": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true all fields will be cleared when the form is submitted.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
+            },
+            "onValueChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "An optional function that will be called with the new state\r\nof the setting page. The function should return the new state.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "submitText": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The text that will appear on the submit button.",
+              "defaultValue": {
+                "value": "'Submit'",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that will appear on top of page.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingsMenu\\SettingsMenu.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenu",
+          "methods": [],
+          "actualName": "SettingsMenu",
+          "props": {
+            "children": {
+              "type": {
+                "name": "custom",
+                "raw": "ChildrenPropType.isRequired"
+              },
+              "required": false,
+              "description": "Should all be SettingsMenuItems. Item in the menu."
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Title that appears at the top of the menu.",
+              "defaultValue": {
+                "value": "''",
+                "computed": false
+              }
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
             }
           }
         }
@@ -541,8 +726,12 @@
                   "name": "string"
                 }
               },
-              "required": true,
-              "description": "Addresses of the customer"
+              "required": false,
+              "description": "Addresses of the customer",
+              "defaultValue": {
+                "value": "[]",
+                "computed": false
+              }
             },
             "email": {
               "type": {
@@ -608,6 +797,46 @@
           "methods": [],
           "actualName": "CustomersComponent",
           "props": {
+            "addAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user submits the form to add\r\na customer."
+            },
+            "customers": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "CustomerPropType"
+                }
+              },
+              "required": true,
+              "description": "Customers to populate the list of customers with."
+            },
+            "deleteAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the user clicks on a customers delete button."
+            },
+            "fetchAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function that populates customers"
+            },
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": "History provided by route."
+            },
             "location": {
               "type": {
                 "name": "custom",
@@ -624,44 +853,73 @@
               "required": false,
               "description": "Match property provided by route"
             },
-            "customers": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "CustomerPropType"
-                }
-              },
-              "required": true,
-              "description": "Customers to populate the list of customers with."
-            },
-            "addAction": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the user submits the form to add\r\na customer."
-            },
             "updateAction": {
               "type": {
                 "name": "func"
               },
               "required": true,
               "description": "Function to be called when the user submits the form to update\r\na customer."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminList",
+          "methods": [],
+          "actualName": "AdminList",
+          "props": {
+            "admins": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "custom",
+                  "raw": "AdminPropType"
+                }
+              },
+              "required": true,
+              "description": "Admin objects to populate the list with."
             },
-            "deleteAction": {
+            "createAction": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": "Function to be called when the user clicks on a customers delete button."
+              "description": "Action to create an admin."
             },
             "fetchAction": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": "Function that populates customers"
+              "description": "Action to call which fetches admins."
+            },
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": "Router history"
+            },
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.match.isRequired"
+              },
+              "required": false,
+              "description": "Match provided by route"
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Action to update an order"
             }
           }
         }
@@ -757,6 +1015,94 @@
               },
               "required": true,
               "description": "Action that updates an order."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\AdminSettings\\AdminSettings.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminSettings",
+          "methods": [],
+          "actualName": "AdminSettings",
+          "props": {
+            "match": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.match.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "onClick": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\ChangePassword\\ChangePassword.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangePassword",
+          "methods": [],
+          "actualName": "ChangePassword",
+          "props": {
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\ChangeUsername\\ChangeUsername.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ChangeUsernameComponent",
+          "methods": [],
+          "actualName": "ChangeUsernameComponent",
+          "props": {
+            "currentAdmin": {
+              "type": {
+                "name": "custom",
+                "raw": "AdminPropType.isRequired"
+              },
+              "required": false,
+              "description": ""
+            },
+            "updateAction": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
           }
         }
@@ -934,6 +1280,14 @@
               },
               "required": true,
               "description": "Function that populates items"
+            },
+            "history": {
+              "type": {
+                "name": "custom",
+                "raw": "ReactRouterPropTypes.history.isRequired"
+              },
+              "required": false,
+              "description": "History property provided by route"
             },
             "items": {
               "type": {
@@ -1146,162 +1500,92 @@
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminList.js",
+      "key": "src\\Components\\General\\SettingList\\SettingListItem\\SettingListItem.js",
       "value": [
         {
           "description": "",
-          "displayName": "AdminList",
+          "displayName": "SettingListItem",
           "methods": [],
-          "actualName": "AdminList",
+          "actualName": "SettingListItem",
           "props": {
-            "admins": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "custom",
-                  "raw": "AdminPropType"
-                }
-              },
-              "required": true,
-              "description": "Admin objects to populate the list with."
-            },
-            "fetchAdmins": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Action to call which fetches admins."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\ChangeUsername\\ChangeUsername.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ChangeUsername",
-          "methods": [],
-          "actualName": "ChangeUsername",
-          "props": {
-            "changeCurrentAdminUsername": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            },
-            "currentAdmin": {
-              "type": {
-                "name": "custom",
-                "raw": "AdminPropType.isRequired"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingList\\SettingList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingList",
-          "methods": [],
-          "actualName": "SettingList",
-          "props": {
-            "items": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "object"
-                }
-              },
-              "required": true,
-              "description": "Items to populate the list."
-            },
-            "itemString": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function that takes an item and returns a string\r\nto represent the function in the list."
-            },
             "onClick": {
               "type": {
                 "name": "func"
               },
               "required": true,
-              "description": "Function to be called when an item is clicked on.\r\nFunction will receive the item."
+              "description": "Function to be called when the item is\r\nclicked on. Given by the SettingList this\r\nitem belongs to."
             },
-            "title": {
+            "text": {
               "type": {
                 "name": "string"
               },
               "required": true,
-              "description": "Title to appear at top of list."
+              "description": "Text representing the object this item represents.\r\nGiven by the SettingList this item belongs to."
             }
           }
         }
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPage.js",
+      "key": "src\\Components\\General\\SettingPage\\InputList\\InputList.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingPage",
+          "displayName": "InputList",
           "methods": [],
-          "actualName": "SettingPage",
+          "actualName": "InputList",
           "props": {
-            "children": {
+            "name": {
               "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
-              },
-              "required": false,
-              "description": "SettingPageInputs for this setting page."
-            },
-            "onSubmit": {
-              "type": {
-                "name": "func"
+                "name": "string"
               },
               "required": true,
-              "description": "Function to be called when the submit button is pressed.\r\nThis function will be given an object containing a property\r\nand value for each input in children."
+              "description": ""
             },
-            "onValueChange": {
+            "onChange": {
               "type": {
                 "name": "func"
               },
               "required": false,
-              "description": "An optional function that will be called with the new state\r\nof the setting page. The function should return the new state.",
+              "description": "",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
               "defaultValue": {
                 "value": "null",
                 "computed": false
               }
             },
-            "submitText": {
+            "value": {
               "type": {
-                "name": "string"
+                "name": "union",
+                "value": [
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "object"
+                    }
+                  },
+                  {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "string"
+                    }
+                  }
+                ]
               },
               "required": false,
-              "description": "The text that will appear on the submit button.",
+              "description": "",
               "defaultValue": {
-                "value": "'Submit'",
-                "computed": false
-              }
-            },
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Title that will appear on top of page.",
-              "defaultValue": {
-                "value": "''",
+                "value": "[]",
                 "computed": false
               }
             }
@@ -1310,39 +1594,266 @@
       ]
     },
     {
-      "key": "src\\Components\\Admin\\Settings\\SettingsMenu\\SettingsMenu.js",
+      "key": "src\\Components\\General\\SettingPage\\SettingPageInput\\SettingPageInput.js",
       "value": [
         {
           "description": "",
-          "displayName": "SettingsMenu",
+          "displayName": "SettingPageInput",
           "methods": [],
-          "actualName": "SettingsMenu",
+          "actualName": "SettingPageInput",
           "props": {
-            "children": {
+            "fullWidth": {
               "type": {
-                "name": "custom",
-                "raw": "ChildrenPropType.isRequired"
+                "name": "bool"
               },
               "required": false,
-              "description": "Should all be SettingsMenuItems. Item in the menu."
+              "description": "If true, the input will take up the full width of its container.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
             },
-            "title": {
+            "label": {
               "type": {
                 "name": "string"
               },
               "required": false,
-              "description": "Title that appears at the top of the menu.",
+              "description": "Label content to be displayed on the input.",
               "defaultValue": {
                 "value": "''",
                 "computed": false
               }
             },
+            "multiline": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true input will appear on multiple lines if long enough",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name used to reference the inputs value in onSubmit of the parent\r\nSettingPage component. All SettingPageInput children of a\r\nSettingPage must have a unique name."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Receives this prop from parent SettingPage component. Don't set manually.",
+              "defaultValue": {
+                "value": "undefined",
+                "computed": true
+              }
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": "If true the label is displayed as required.",
+              "defaultValue": {
+                "value": "false",
+                "computed": false
+              }
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "The type of the input element.",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "value": {
+              "type": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string"
+                  },
+                  {
+                    "name": "number"
+                  }
+                ]
+              },
+              "required": false,
+              "description": "Received this prop from parent SettingPage component. Don't set manually.",
+              "defaultValue": {
+                "value": "undefined",
+                "computed": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingPage\\SettingPageCheckBox\\SettingPageCheckBox.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPageCheckBox",
+          "methods": [],
+          "actualName": "SettingPageCheckBox",
+          "props": {
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Label for the check box"
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name used for check box value when page is submitted"
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Used by Setting Page, don't set manually",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "value": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": "Initial value of the check box."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingPage\\SettingPageSelect\\SettingPageSelect.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingPageSelect",
+          "methods": [],
+          "actualName": "SettingPageSelect",
+          "props": {
+            "getOptions": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Function to get options. The function is passed the\r\ncurrent state of the form with the values of all the form inputs.\r\nThis function should return an array of shape [[value, name]...]\r\nfor the options. If this prop is given the options prop will be ignored.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": "Name that will be used for the value when submitting."
+            },
+            "onChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": false,
+              "description": "Provided by Setting page, don't set manually.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "options": {
+              "type": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "array"
+                }
+              },
+              "required": false,
+              "description": "Array of shape [[value, name]...] that will be used to\r\npopulate the select list. This property will be ignored if\r\ngetOptions is provided.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "state": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "The state of the SettingPage. Provided by setting page,\r\ndon't set manually",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "value": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Initial value"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\General\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SettingsMenuItem",
+          "methods": [],
+          "actualName": "SettingsMenuItem",
+          "props": {
             "onClick": {
               "type": {
                 "name": "func"
               },
+              "required": false,
+              "description": "Prop provided by the parent. SettingsMenu\r\nDont set manually.",
+              "defaultValue": {
+                "value": "() => {}",
+                "computed": false
+              }
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
               "required": true,
-              "description": "Function that will be called when an item is clicked\r\non. Given the index of the item."
+              "description": "Text of the menu item."
+            },
+            "to": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "If provided the menu item will be a link to the\r\naddress specified in this prop.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
             }
           }
         }
@@ -1377,6 +1888,48 @@
               },
               "required": true,
               "description": "Function to be called when clicked on."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminForm\\AdminForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "AdminForm",
+          "methods": [],
+          "actualName": "AdminForm",
+          "props": {
+            "id": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Id of the user if modifying a user.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
+            },
+            "onSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": "Function to be called when the form is submitted. Is given\r\nan object with the username and password that was entered. As\r\nwell as the users id if modifying a user."
+            },
+            "username": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "Username of the user if modifying.",
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              }
             }
           }
         }
@@ -1425,6 +1978,13 @@
                 "value": "undefined",
                 "computed": true
               }
+            },
+            "index": {
+              "type": {
+                "name": "number"
+              },
+              "required": true,
+              "description": "Index of the customer in the customer list"
             },
             "lastName": {
               "type": {
@@ -1575,415 +2135,24 @@
           }
         }
       ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\AdminList\\AdminForm\\AdminForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "AdminForm",
-          "methods": [],
-          "actualName": "AdminForm",
-          "props": {
-            "id": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Id of the user if modifying a user.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "onSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the form is submitted. Is given\r\nan object with the username and password that was entered. As\r\nwell as the users id if modifying a user."
-            },
-            "username": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Username of the user if modifying.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingList\\SettingListItem\\SettingListItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingListItem",
-          "methods": [],
-          "actualName": "SettingListItem",
-          "props": {
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": "Function to be called when the item is\r\nclicked on. Given by the SettingList this\r\nitem belongs to."
-            },
-            "text": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Text representing the object this item represents.\r\nGiven by the SettingList this item belongs to."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingPage\\InputList\\InputList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "InputList",
-          "methods": [],
-          "actualName": "InputList",
-          "props": {
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "value": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "arrayOf",
-                    "value": {
-                      "name": "object"
-                    }
-                  },
-                  {
-                    "name": "arrayOf",
-                    "value": {
-                      "name": "string"
-                    }
-                  }
-                ]
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "[]",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageCheckBox\\SettingPageCheckBox.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPageCheckBox",
-          "methods": [],
-          "actualName": "SettingPageCheckBox",
-          "props": {
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Label for the check box"
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name used for check box value when page is submitted"
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Used by Setting Page, don't set manually",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "value": {
-              "type": {
-                "name": "bool"
-              },
-              "required": true,
-              "description": "Initial value of the check box."
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageInput\\SettingPageInput.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPageInput",
-          "methods": [],
-          "actualName": "SettingPageInput",
-          "props": {
-            "fullWidth": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If true, the input will take up the full width of its container.",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "Label content to be displayed on the input.",
-              "defaultValue": {
-                "value": "''",
-                "computed": false
-              }
-            },
-            "multiline": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If true input will appear on multiple lines if long enough",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name used to reference the inputs value in onSubmit of the parent\r\nSettingPage component. All SettingPageInput children of a\r\nSettingPage must have a unique name."
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Receives this prop from parent SettingPage component. Don't set manually.",
-              "defaultValue": {
-                "value": "undefined",
-                "computed": true
-              }
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "If true the label is displayed as required.",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "The type of the input element.",
-              "defaultValue": {
-                "value": "'text'",
-                "computed": false
-              }
-            },
-            "value": {
-              "type": {
-                "name": "union",
-                "value": [
-                  {
-                    "name": "string"
-                  },
-                  {
-                    "name": "number"
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Received this prop from parent SettingPage component. Don't set manually.",
-              "defaultValue": {
-                "value": "undefined",
-                "computed": true
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingPage\\SettingPageSelect\\SettingPageSelect.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingPageSelect",
-          "methods": [],
-          "actualName": "SettingPageSelect",
-          "props": {
-            "getOptions": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Function to get options. The function is passed the\r\ncurrent state of the form with the values of all the form inputs.\r\nThis function should return an array of shape [[value, name]...]\r\nfor the options. If this prop is given the options prop will be ignored.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Name that will be used for the value when submitting."
-            },
-            "onChange": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Provided by Setting page, don't set manually.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "options": {
-              "type": {
-                "name": "arrayOf",
-                "value": {
-                  "name": "array"
-                }
-              },
-              "required": false,
-              "description": "Array of shape [[value, name]...] that will be used to\r\npopulate the select list. This property will be ignored if\r\ngetOptions is provided.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "state": {
-              "type": {
-                "name": "object"
-              },
-              "required": false,
-              "description": "The state of the SettingPage. Provided by setting page,\r\ndon't set manually",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            },
-            "value": {
-              "type": {
-                "name": "number"
-              },
-              "required": true,
-              "description": "Initial value"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src\\Components\\Admin\\Settings\\SettingsMenu\\SettingsMenuItem\\SettingsMenuItem.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SettingsMenuItem",
-          "methods": [],
-          "actualName": "SettingsMenuItem",
-          "props": {
-            "onClick": {
-              "type": {
-                "name": "func"
-              },
-              "required": false,
-              "description": "Prop provided by the parent. SettingsMenu\r\nDont set manually.",
-              "defaultValue": {
-                "value": "() => {}",
-                "computed": false
-              }
-            },
-            "text": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": "Text of the menu item."
-            },
-            "to": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": "If provided the menu item will be a link to the\r\naddress specified in this prop.",
-              "defaultValue": {
-                "value": "null",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
     }
   ],
   "entries": [
     {
-      "key": "src/Components/General/CrudPage.mdx",
+      "key": "src/Components/ErrorMessage/ErrorMessage.mdx",
       "value": {
-        "name": "CrudPage",
+        "name": "ErrorMessage",
         "menu": "Components",
-        "route": "/General/CrudPage.mdx",
-        "id": "1f54fda052b6e9232a338c529622100b",
-        "filepath": "src/Components/General/CrudPage.mdx",
+        "route": "/ErrorMessage/ErrorMessage.mdx",
+        "id": "1c7279b651f53bdb52022d550059866f",
+        "filepath": "src/Components/ErrorMessage/ErrorMessage.mdx",
         "link": "",
-        "slug": "src-components-general-crud-page",
+        "slug": "src-components-error-message-error-message",
         "headings": [
           {
-            "slug": "crud-page",
+            "slug": "error-message",
             "depth": 1,
-            "value": "Crud Page"
+            "value": "Error Message"
           }
         ]
       }
@@ -2027,6 +2196,82 @@
       }
     },
     {
+      "key": "src/Components/General/CrudPage/CrudPage.mdx",
+      "value": {
+        "name": "CrudPage",
+        "menu": "Components",
+        "route": "/General/CrudPage.mdx",
+        "id": "acc591570a6c33ec2c1deba3500b82dc",
+        "filepath": "src/Components/General/CrudPage/CrudPage.mdx",
+        "link": "",
+        "slug": "src-components-general-crud-page-crud-page",
+        "headings": [
+          {
+            "slug": "crud-page",
+            "depth": 1,
+            "value": "Crud Page"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingList/SettingList.mdx",
+      "value": {
+        "name": "Setting List",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingList",
+        "id": "52f8255327c7096d566ca4e28a158700",
+        "filepath": "src/Components/General/SettingList/SettingList.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-list-setting-list",
+        "headings": [
+          {
+            "slug": "setting-list",
+            "depth": 1,
+            "value": "Setting List"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingPage/SettingPage.mdx",
+      "value": {
+        "name": "SettingPage",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingPage",
+        "id": "4c8b0476dbd569c78b081cec50f3ebd2",
+        "filepath": "src/Components/General/SettingPage/SettingPage.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-page-setting-page",
+        "headings": [
+          {
+            "slug": "setting-page",
+            "depth": 1,
+            "value": "Setting Page"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingsMenu/SettingsMenu.mdx",
+      "value": {
+        "name": "SettingsMenu",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingsMenu",
+        "id": "d7333c0e2a5d77933cc8d95d06e32cac",
+        "filepath": "src/Components/General/SettingsMenu/SettingsMenu.mdx",
+        "link": "",
+        "slug": "src-components-general-settings-menu-settings-menu",
+        "headings": [
+          {
+            "slug": "settings-menu",
+            "depth": 1,
+            "value": "Settings Menu"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/Components/SideMenu/SideMenuItem/SideMenuItem.mdx",
       "value": {
         "name": "SideMenuItem",
@@ -2046,25 +2291,6 @@
       }
     },
     {
-      "key": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
-      "value": {
-        "name": "OrderItemList",
-        "menu": "Components",
-        "route": "/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
-        "id": "42740af4929f3021d387691dd38325e1",
-        "filepath": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
-        "link": "",
-        "slug": "src-components-admin-create-order-order-item-list-order-item-list",
-        "headings": [
-          {
-            "slug": "order-item-list",
-            "depth": 1,
-            "value": "Order Item List"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/Components/Admin/Customers/CustomerForm/CustomerForm.mdx",
       "value": {
         "name": "CustomerForm",
@@ -2079,6 +2305,25 @@
             "slug": "customer-form",
             "depth": 1,
             "value": "Customer Form"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
+      "value": {
+        "name": "OrderItemList",
+        "menu": "Components",
+        "route": "/components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
+        "id": "42740af4929f3021d387691dd38325e1",
+        "filepath": "src/Components/Admin/CreateOrder/OrderItemList/OrderItemList.mdx",
+        "link": "",
+        "slug": "src-components-admin-create-order-order-item-list-order-item-list",
+        "headings": [
+          {
+            "slug": "order-item-list",
+            "depth": 1,
+            "value": "Order Item List"
           }
         ]
       }
@@ -2117,44 +2362,6 @@
             "slug": "customer-list",
             "depth": 1,
             "value": "Customer List"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Home/Home/Home.mdx",
-      "value": {
-        "name": "Home",
-        "menu": "Components",
-        "route": "/Admin/Home/Home/Home.mdx",
-        "id": "9eef6abb93f8b495e2dc4a2ca09f691c",
-        "filepath": "src/Components/Admin/Home/Home/Home.mdx",
-        "link": "",
-        "slug": "src-components-admin-home-home-home",
-        "headings": [
-          {
-            "slug": "admin-home",
-            "depth": 1,
-            "value": "Admin Home"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Home/Order/Order.mdx",
-      "value": {
-        "name": "Order",
-        "menu": "Components",
-        "route": "/Admin/Home/Order/Order.mdx",
-        "id": "ceeba4ba9539ae31dd311688fcd57194",
-        "filepath": "src/Components/Admin/Home/Order/Order.mdx",
-        "link": "",
-        "slug": "src-components-admin-home-order-order",
-        "headings": [
-          {
-            "slug": "order",
-            "depth": 1,
-            "value": "Order"
           }
         ]
       }
@@ -2255,58 +2462,172 @@
       }
     },
     {
-      "key": "src/Components/Admin/Settings/SettingList/SettingList.mdx",
+      "key": "src/Components/Admin/Settings/AdminSettings/AdminSettings.mdx",
       "value": {
-        "name": "Setting List",
+        "name": "AdminSettings",
         "menu": "Components",
-        "route": "/components/Admin/Settings/SettingList",
-        "id": "3bfa56e8a6575fe7792b48b007124a09",
-        "filepath": "src/Components/Admin/Settings/SettingList/SettingList.mdx",
+        "route": "/Admin/Settings/AdminSettings/AdminSettings.mdx",
+        "id": "dace937848b4e00acb1f9705d0c8ab27",
+        "filepath": "src/Components/Admin/Settings/AdminSettings/AdminSettings.mdx",
         "link": "",
-        "slug": "src-components-admin-settings-setting-list-setting-list",
+        "slug": "src-components-admin-settings-admin-settings-admin-settings",
         "headings": [
           {
-            "slug": "setting-list",
+            "slug": "admin-settings",
             "depth": 1,
-            "value": "Setting List"
+            "value": "Admin Settings"
           }
         ]
       }
     },
     {
-      "key": "src/Components/Admin/Settings/SettingPage/SettingPage.mdx",
+      "key": "src/Components/Admin/Settings/ChangePassword/ChangePassword.mdx",
       "value": {
-        "name": "SettingPage",
+        "name": "ChangePassword",
         "menu": "Components",
-        "route": "/components/Admin/Settings/SettingPage",
-        "id": "413c71ab8fcdc01dd0dd41868e7ef376",
-        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPage.mdx",
+        "route": "/Admin/Settings/ChangePassword/ChangePassword.mdx",
+        "id": "27c225d9d68f38c6a3d1e45120a17690",
+        "filepath": "src/Components/Admin/Settings/ChangePassword/ChangePassword.mdx",
         "link": "",
-        "slug": "src-components-admin-settings-setting-page-setting-page",
+        "slug": "src-components-admin-settings-change-password-change-password",
         "headings": [
           {
-            "slug": "setting-page",
+            "slug": "change-password",
             "depth": 1,
-            "value": "Setting Page"
+            "value": "Change Password"
           }
         ]
       }
     },
     {
-      "key": "src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+      "key": "src/Components/Admin/Home/Home/Home.mdx",
       "value": {
-        "name": "SettingsMenu",
+        "name": "Home",
         "menu": "Components",
-        "route": "/components/Admin/Settings/SettingsMenu",
-        "id": "06631241ece4c4d2cb2a43f88cb2d587",
-        "filepath": "src/Components/Admin/Settings/SettingsMenu/SettingsMenu.mdx",
+        "route": "/Admin/Home/Home/Home.mdx",
+        "id": "9eef6abb93f8b495e2dc4a2ca09f691c",
+        "filepath": "src/Components/Admin/Home/Home/Home.mdx",
         "link": "",
-        "slug": "src-components-admin-settings-settings-menu-settings-menu",
+        "slug": "src-components-admin-home-home-home",
         "headings": [
           {
-            "slug": "settings-menu",
+            "slug": "admin-home",
             "depth": 1,
-            "value": "Settings Menu"
+            "value": "Admin Home"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/Admin/Home/Order/Order.mdx",
+      "value": {
+        "name": "Order",
+        "menu": "Components",
+        "route": "/Admin/Home/Order/Order.mdx",
+        "id": "ceeba4ba9539ae31dd311688fcd57194",
+        "filepath": "src/Components/Admin/Home/Order/Order.mdx",
+        "link": "",
+        "slug": "src-components-admin-home-order-order",
+        "headings": [
+          {
+            "slug": "order",
+            "depth": 1,
+            "value": "Order"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingList/SettingListItem/SettingListItem.mdx",
+      "value": {
+        "name": "SettingListItem",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingList/SettingListItem",
+        "id": "5f61324780091e4107b5965b4d09ff98",
+        "filepath": "src/Components/General/SettingList/SettingListItem/SettingListItem.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-list-setting-list-item-setting-list-item",
+        "headings": [
+          {
+            "slug": "setting-list-settinglistitem",
+            "depth": 1,
+            "value": "Setting List SettingListItem"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+      "value": {
+        "name": "SettingPageCheckBox",
+        "menu": "Components",
+        "route": "/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+        "id": "4b3ca1f6d074005f489390de5cd75638",
+        "filepath": "src/Components/General/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-page-setting-page-check-box-setting-page-check-box",
+        "headings": [
+          {
+            "slug": "settingpagecheckbox",
+            "depth": 1,
+            "value": "SettingPageCheckBox"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingPage/SettingPageInput/SettingPageInput.mdx",
+      "value": {
+        "name": "SettingPageInput",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
+        "id": "791282f4d2e61cf6276b29a506a3925d",
+        "filepath": "src/Components/General/SettingPage/SettingPageInput/SettingPageInput.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-page-setting-page-input-setting-page-input",
+        "headings": [
+          {
+            "slug": "setting-page-input",
+            "depth": 1,
+            "value": "Setting Page Input"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
+      "value": {
+        "name": "SettingPageSelect",
+        "menu": "Components",
+        "route": "/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect",
+        "id": "d93c13bba5f182c896ff9da7a503b1ad",
+        "filepath": "src/Components/General/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
+        "link": "",
+        "slug": "src-components-general-setting-page-setting-page-select-setting-page-select",
+        "headings": [
+          {
+            "slug": "setting-page-select",
+            "depth": 1,
+            "value": "Setting Page Select"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/Components/General/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+      "value": {
+        "name": "SettingsMenuItem",
+        "menu": "Components",
+        "route": "/components/Admin/Settings/SettingsMenu/SettingsMenuItem",
+        "id": "73c66efb1a5d096ecd2208ddb88d8ca5",
+        "filepath": "src/Components/General/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
+        "link": "",
+        "slug": "src-components-general-settings-menu-settings-menu-item-settings-menu-item",
+        "headings": [
+          {
+            "slug": "settings-menu-item",
+            "depth": 1,
+            "value": "Settings Menu Item"
           }
         ]
       }
@@ -2341,25 +2662,6 @@
         "link": "",
         "slug": "src-components-admin-customers-customers-list-customer-customer",
         "headings": []
-      }
-    },
-    {
-      "key": "src/Components/Admin/Home/Order/Item/Item.mdx",
-      "value": {
-        "name": "Item",
-        "menu": "Components",
-        "route": "/Admin/Home/Order/Item/Item.mdx",
-        "id": "ad2b13d15de65bc283e88338ba01254b",
-        "filepath": "src/Components/Admin/Home/Order/Item/Item.mdx",
-        "link": "",
-        "slug": "src-components-admin-home-order-item-item",
-        "headings": [
-          {
-            "slug": "item",
-            "depth": 1,
-            "value": "Item"
-          }
-        ]
       }
     },
     {
@@ -2420,96 +2722,20 @@
       }
     },
     {
-      "key": "src/Components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+      "key": "src/Components/Admin/Home/Order/Item/Item.mdx",
       "value": {
-        "name": "SettingListItem",
+        "name": "Item",
         "menu": "Components",
-        "route": "/components/Admin/Settings/SettingList/SettingListItem",
-        "id": "88ba8fcc015c3d7a84b55bc1866728d3",
-        "filepath": "src/Components/Admin/Settings/SettingList/SettingListItem/SettingListItem.mdx",
+        "route": "/Admin/Home/Order/Item/Item.mdx",
+        "id": "ad2b13d15de65bc283e88338ba01254b",
+        "filepath": "src/Components/Admin/Home/Order/Item/Item.mdx",
         "link": "",
-        "slug": "src-components-admin-settings-setting-list-setting-list-item-setting-list-item",
+        "slug": "src-components-admin-home-order-item-item",
         "headings": [
           {
-            "slug": "setting-list-settinglistitem",
+            "slug": "item",
             "depth": 1,
-            "value": "Setting List SettingListItem"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
-      "value": {
-        "name": "SettingPageCheckBox",
-        "menu": "Components",
-        "route": "/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
-        "id": "bc8861216f3e2f1fed4b372d33fa51c8",
-        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageCheckBox/SettingPageCheckBox.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-setting-page-setting-page-check-box-setting-page-check-box",
-        "headings": [
-          {
-            "slug": "settingpagecheckbox",
-            "depth": 1,
-            "value": "SettingPageCheckBox"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
-      "value": {
-        "name": "SettingPageInput",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingPage/SettingPageInput",
-        "id": "ad9187781280fae15a57590443d179da",
-        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageInput/SettingPageInput.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-setting-page-setting-page-input-setting-page-input",
-        "headings": [
-          {
-            "slug": "setting-page-input",
-            "depth": 1,
-            "value": "Setting Page Input"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
-      "value": {
-        "name": "SettingPageSelect",
-        "menu": "Components",
-        "route": "/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect",
-        "id": "ff692a4f1d9e565d2c0cca67aa751755",
-        "filepath": "src/Components/Admin/Settings/SettingPage/SettingPageSelect/SettingPageSelect.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-setting-page-setting-page-select-setting-page-select",
-        "headings": [
-          {
-            "slug": "setting-page-select",
-            "depth": 1,
-            "value": "Setting Page Select"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
-      "value": {
-        "name": "SettingsMenuItem",
-        "menu": "Components",
-        "route": "/components/Admin/Settings/SettingsMenu/SettingsMenuItem",
-        "id": "96ce1e6e59e8fb05d44fb949d508ac61",
-        "filepath": "src/Components/Admin/Settings/SettingsMenu/SettingsMenuItem/SettingsMenuItem.mdx",
-        "link": "",
-        "slug": "src-components-admin-settings-settings-menu-settings-menu-item-settings-menu-item",
-        "headings": [
-          {
-            "slug": "settings-menu-item",
-            "depth": 1,
-            "value": "Settings Menu Item"
+            "value": "Item"
           }
         ]
       }

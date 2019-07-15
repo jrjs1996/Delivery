@@ -2,10 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Paper } from '@material-ui/core';
-import SettingPage from '../../Settings/SettingPage/SettingPage';
-import SettingPageInput from '../../Settings/SettingPage/SettingPageInput/SettingPageInput';
+import SettingPage from '../../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../../General/SettingPage/SettingPageInput/SettingPageInput';
 import ImageUpload from './ImageUpload/ImageUpload';
-
 
 export default function MenuItemForm({
   description,
@@ -31,12 +30,23 @@ export default function MenuItemForm({
         <SettingPageInput required fullWidth name="title" label="Title" value={title} />
         <SettingPageInput required fullWidth name="price" label="Price" value={price} />
         <SettingPageInput required fullWidth name="menuNumber" label="Number" value={menuNumber} />
-        <SettingPageInput required fullWidth name="description" multiline label="Description" value={description} />
+        <SettingPageInput
+          required
+          fullWidth
+          name="description"
+          multiline
+          label="Description"
+          value={description}
+        />
       </SettingPage>
       <Paper>
-        { image ? (
+        {image ? (
           <div>
-            <img src={`/uploads/${image}`} alt="Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img
+              src={`/uploads/${image}`}
+              alt="Item"
+              style={{ height: '100%', width: '100%', objectFit: 'contain' }}
+            />
             <br />
             <Button
               color="secondary"
@@ -47,7 +57,9 @@ export default function MenuItemForm({
               Delete Image
             </Button>
           </div>
-        ) : id ? <ImageUpload id={id} uploadImage={uploadImage} /> : null }
+        ) : id ? (
+          <ImageUpload id={id} uploadImage={uploadImage} />
+        ) : null}
       </Paper>
     </div>
   );

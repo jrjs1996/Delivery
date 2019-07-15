@@ -1,15 +1,25 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import ReactRouterPropTypes from 'react-router-prop-types';
 import { Button, Grid } from '@material-ui/core';
-import ChangeUsername from './ChangeUsername/ChangeUsername';
-import ChangePassword from './ChangePassword';
-import AdminSettings from './AdminSettings';
-import AdminList from './AdminList/AdminList';
-import './Settings.css';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
-const renderBackButton = (pathname, history) => {
-  if (pathname !== '/admin/settings/') {
+import './Settings.css';
+import { AdminPropType } from '../../../propTypes';
+import {
+  createAdmin,
+  fetchAdmins,
+  updateAdmin,
+  updateCurrentAdmin,
+} from '../../../actions/admin/admin';
+import AdminList from './AdminList/AdminList';
+import AdminSettings from './AdminSettings/AdminSettings';
+import ChangePassword from './ChangePassword/ChangePassword';
+import ChangeUsername from './ChangeUsername/ChangeUsername';
+
+const renderBackButton = (pathname, history, matchPath) => {
+  if (pathname !== matchPath) {
     return (
       <Button variant="contained" color="secondary" onClick={() => history.goBack()}>
         Back
@@ -19,18 +29,59 @@ const renderBackButton = (pathname, history) => {
   return null;
 };
 
-export default function Settings({ location, history }) {
+export function SettingsComponent({
+  admins,
+  createAction,
+  currentAdmin,
+  fetchAction,
+  history,
+  location,
+  match,
+  updateAction,
+  updateCurrentAdminAction,
+}) {
   return (
     <div className="Settings">
       <Grid container spacing={1}>
-        <Grid item  sm={3}>
-          {renderBackButton(location.pathname, history)}
+        <Grid item sm={3}>
+          {renderBackButton(location.pathname, history, match.path)}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Route path="/admin/settings/" exact component={AdminSettings} />
-          <Route path="/admin/settings/username/" component={ChangeUsername} />
-          <Route path="/admin/settings/password/" component={ChangePassword} />
-          <Route path="/admin/settings/admins/" component={AdminList} />
+          <Route path={match.path} exact component={AdminSettings} />
+          <Route
+            path={`${match.path}username/`}
+            render={props => (
+              <ChangeUsername
+                currentAdmin={currentAdmin}
+                updateAction={updateCurrentAdminAction}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path={`${match.path}password/`}
+            render={props => (
+              <ChangePassword
+                currentAdmin={currentAdmin}
+                updateAction={updateCurrentAdminAction}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path={`${match.path}admins/`}
+            render={props => (
+              <AdminList
+                admins={admins}
+                createAction={createAction}
+                fetchAction={fetchAction}
+                history={history}
+                match={match}
+                updateAction={updateAction}
+                {...props}
+              />
+            )}
+          />
         </Grid>
         <Grid item xs={12} sm={3} />
       </Grid>
@@ -38,6 +89,29 @@ export default function Settings({ location, history }) {
   );
 }
 
-Settings.propTypes = {
+SettingsComponent.propTypes = {
+  admins: PropTypes.arrayOf(AdminPropType).isRequired,
+  createAction: PropTypes.func.isRequired,
+  currentAdmin: AdminPropType.isRequired,
+  fetchAction: PropTypes.func.isRequired,
+  history: ReactRouterPropTypes.history.isRequired,
   location: ReactRouterPropTypes.location.isRequired,
+  match: ReactRouterPropTypes.match.isRequired,
+  updateAction: PropTypes.func.isRequired,
+  updateCurrentAdminAction: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  admins: state.admins.admins,
+  currentAdmin: state.admins.currentAdmin,
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    createAction: createAdmin,
+    fetchAction: fetchAdmins,
+    updateAction: updateAdmin,
+    updateCurrentAdminAction: updateCurrentAdmin,
+  },
+)(SettingsComponent);

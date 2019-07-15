@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import shortid from 'shortid';
 
-import { fetchOpenOrders, updateOrder } from '../../../../actions/orderActions';
+import { fetchOpenOrders, updateOrder } from '../../../../actions/order/order';
 import { orderPropType } from '../../../../propTypes';
 
 import './Home.css';
@@ -19,16 +20,16 @@ export function HomeComponent({
   orders,
   updateAction,
 }) {
-  useEffect(fetchAction, [fetchAction]);
 
+  useEffect(() => {fetchAction();}, [fetchAction]);
   return (
-    <div className="Customers">
-      {orders.map(o => (
+    <div className="Orders">
+      {Object.entries(orders).map(([, o]) => (
         <Order
           address={o.address}
           customerName={o.customerName}
           delivery={o.delivery}
-          id={o._id}
+          id={shortid.generate()}
           items={o.items}
           key={o._id}
           orderCreated={getDate(o.orderCreated)}

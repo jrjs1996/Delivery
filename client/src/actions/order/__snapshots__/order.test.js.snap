@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create order Dispatches ADD_ORDER with payload of response data on success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "ADD_ORDER",
+  },
+]
+`;
+
+exports[`Create order Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to create order",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch open orders Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to fetch orders",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch open orders Dispatches FETCH_ORDERS with response data on success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "FETCH_ORDER",
+  },
+]
+`;
+
+exports[`Fetch orders Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to fetch orders",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch orders Dispatches FETCH_ORDERS with response data on success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "FETCH_ORDER",
+  },
+]
+`;
+
+exports[`Update order Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to update order.",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Update order Dispatches UPDATE_ORDER with given id and putdata on success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "_id": 1234,
+      "mockPutData": "MockPutData",
+    },
+    "type": "UPDATE_ORDER",
+  },
+]
+`;

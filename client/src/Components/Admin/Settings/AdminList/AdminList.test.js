@@ -1,33 +1,29 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import { MemoryRouter as Router, Route } from 'react-router-dom';
-import { AdminListComponent } from './AdminList';
+import { adminsMock } from '../../../../tests/mocks';
+import AdminList from './AdminList';
 
 describe('AdminList', () => {
-  let admins = [];
-
-  const store = [
-    { username: 'First User', __v: 0, _id: '0' },
-    { username: 'Second User', __v: 0, _id: '1' },
-    { username: 'Third User', __v: 0, _id: '2' },
-  ];
-
-  const fetchAdmins = () => {
-    admins = store;
-  };
-
   let getByText;
+  let container;
+
+  let createAction = jest.fn();
+  let fetchAction = jest.fn();
+  let updateAction = jest.fn();
 
   beforeEach(() => {
-    ({ getByText } = render(
+    ({ getByText, container } = render(
       <Router initialEntries={['/']} initialIndex={0}>
         <Route
           path="/"
           render={props => (
-            <AdminListComponent
-              admins={admins}
-              fetchAdmins={fetchAdmins}
+            <AdminList
+              admins={adminsMock}
+              createAction={createAction}
+              fetchAction={fetchAction}
+              updateAction={updateAction}
               {...props}
             />
           )}
@@ -37,31 +33,25 @@ describe('AdminList', () => {
   });
 
   afterEach(() => {
-    admins = [];
     cleanup();
+    createAction = jest.fn();
+    fetchAction = jest.fn();
+    updateAction = jest.fn();
   });
 
-  it('Updates admins', () => {
-    expect(admins).toBe(store);
+  it('Shows list of admins initialluy', () => {
+    getByText('Edit Admins');
+    getByText(adminsMock[1].username);
+    getByText(adminsMock[1].username);
   });
 
-  it('Displays the items', () => {
-    ({ getByText } = render(
-      <Router initialEntries={['/']} initialIndex={0}>
-        <Route
-          path="/"
-          render={props => (
-            <AdminListComponent
-              admins={admins}
-              fetchAdmins={fetchAdmins}
-              {...props}
-            />
-          )}
-        />
-      </Router>,
-    ));
-    getByText('First User');
-    getByText('Second User');
-    getByText('Third User');
+  it('Goes to update admin when an admin is clicked on', () => {
+    fireEvent.click(getByText(adminsMock[0].username));
+    getByText(new RegExp('Update Admin*'));
+  });
+
+  it('Goes to add admin when add button is clicked on', () => {
+    fireEvent.click(container.querySelector('#addButton'));
+    getByText('Add Admin');
   });
 });

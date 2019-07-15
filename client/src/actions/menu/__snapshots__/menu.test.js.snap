@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add menu item Dispatches ADD_MENU_ITEM with payload of response data on success 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "ADD_MENU_ITEM",
+  },
+]
+`;
+
+exports[`Add menu item Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to add menu item",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Delete menu item Dispatches DELETE_MENU item with payload of given menu item number 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "menuNumber": 1234,
+    },
+    "type": "DELETE_MENU_ITEM",
+  },
+]
+`;
+
+exports[`Delete menu item Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to delete menu item",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch menu Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to fetch menu",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Fetch menu Dispatches FETCH_MENU with payload of response data 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "FETCH_MENU",
+  },
+]
+`;
+
+exports[`Update menu item Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to update menu item",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Update menu item Dispatches UPDATE_MENU_ITEM with payload of response data 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "UPDATE_MENU_ITEM",
+  },
+]
+`;
+
+exports[`Upload menu item image Dispatches ERROR on error 1`] = `
+Array [
+  Object {
+    "payload": "Unable to update menu item image.",
+    "type": "ERROR",
+  },
+]
+`;
+
+exports[`Upload menu item image Dispatches UPDATE_MENU_ITEM with payload of response data 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+    },
+    "type": "UPDATE_MENU_ITEM",
+  },
+]
+`;

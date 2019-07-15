@@ -2,31 +2,25 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
+import { DropzoneArea } from 'material-ui-dropzone';
 import ImageUpload from './ImageUpload';
 
-
 describe('ImageUpload.test', () => {
-  let getByText;
-
+  let component;
   let uploadImage = jest.fn();
 
-
   beforeEach(() => {
-    ({ getByText } = render(
-      <ImageUpload
-        id="TestId"
-        uploadImage={uploadImage}
-      />,
-    ));
+    component = create(<ImageUpload id="TestId" uploadImage={uploadImage} />);
   });
 
   afterEach(() => {
-    cleanup();
+    component = null;
     uploadImage = jest.fn();
   });
 
-  it('Calls uploadImage when upload button is clicked.', () => {
-    fireEvent.click(getByText('Upload'));
-    expect(uploadImage).toBeCalledWith('TestId', undefined);
+  it('Calls uploadImage on dropzone chagned.', () => {
+    const input = component.root.findByType(DropzoneArea);
+    input.props.onChange(['TestFile']);
+    expect(uploadImage).toBeCalledWith('TestId', 'TestFile');
   });
 });

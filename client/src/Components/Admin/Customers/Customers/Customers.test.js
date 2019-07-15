@@ -18,20 +18,19 @@ describe('Customers', () => {
       <Router initialEntries={['/']} initialIndex={0}>
         <Route
           path="/"
-          render={({ location, match }) => {
-            return (
-              <CustomersComponent
-                customers={customersMock}
-                addAction={addCustomer}
-                updateAction={updateCustomer}
-                deleteAction={deleteCustomer}
-                location={location}
-                match={match}
-                homePath="/"
-                fetchAction={() => {}}
-              />
-            );
-          }}
+          render={({ history, location, match }) => (
+            <CustomersComponent
+              addAction={addCustomer}
+              customers={customersMock}
+              deleteAction={deleteCustomer}
+              fetchAction={() => {}}
+              history={history}
+              homePath="/"
+              location={location}
+              match={match}
+              updateAction={updateCustomer}
+            />
+          )}
         />
       </Router>,
     ));
@@ -39,16 +38,25 @@ describe('Customers', () => {
 
   afterEach(() => {
     cleanup();
+    addCustomer = jest.fn();
+    updateCustomer = jest.fn();
+    deleteCustomer = jest.fn();
   });
 
   it('Displays list', () => {
-    getByText('johnD@email.com');
-    getByText('Bobby@email.com');
+    getByText(customersMock[0].email);
+    getByText(customersMock[1].email);
   });
 
   it('Goes to form when a customer in the list is clicked on.', () => {
-    fireEvent.click(getByText('johnD@email.com'));
+    fireEvent.click(getByText(customersMock[0].email));
     getByText('Submit');
+  });
+
+  it('Calls update action after clicking on customer, then submitting form', () => {
+    fireEvent.click(getByText('johnD@email.com'));
+    fireEvent.click(getByText('Submit'));
+    expect(updateCustomer).toBeCalled();
   });
 });
 
@@ -58,20 +66,18 @@ describe('Customers', () => {
       <Router initialEntries={['/form/']} initialIndex={0}>
         <Route
           path="/"
-          render={({ location, match }) => {
-            return (
-              <CustomersComponent
-                customers={customersMock}
-                addAction={addCustomer}
-                updateAction={updateCustomer}
-                deleteAction={deleteCustomer}
-                homePath="/"
-                location={location}
-                match={match}
-                fetchAction={() => {}}
-              />
-            );
-          }}
+          render={({ location, match, history }) => (
+            <CustomersComponent
+              addAction={addCustomer}
+              customers={customersMock}
+              deleteAction={deleteCustomer}
+              fetchAction={() => {}}
+              history={history}
+              location={location}
+              match={match}
+              updateAction={updateCustomer}
+            />
+          )}
         />
       </Router>,
     ));
@@ -83,5 +89,10 @@ describe('Customers', () => {
 
   it('Renders form when at form path', () => {
     getByText('Submit');
+  });
+
+  it('Calls add customer when on form without customer', () => {
+    fireEvent.click(getByText('Submit'));
+    expect(addCustomer).toBeCalled();
   });
 });

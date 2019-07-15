@@ -2,6 +2,9 @@ export const getToken = () => localStorage.getItem('jwt-token');
 export const getIsAdmin = () => localStorage.getItem('isAdmin');
 // TODO: Add docs for these functions
 
+/**
+ * Save the token and isAdmin in local storage.
+ */
 export const saveToken = (token, isAdmin) => {
   if (!token || !isAdmin) throw new Error('Token and isAdmin Required');
 
@@ -9,11 +12,15 @@ export const saveToken = (token, isAdmin) => {
   localStorage.setItem('isAdmin', isAdmin);
 };
 
+/** Removes the token and isAdmin from local storage */
 export const removeToken = () => {
   localStorage.removeItem('jwt-token');
   localStorage.removeItem('isAdmin');
 };
 
+/**
+ * Returns token
+ */
 export const getTokenInfo = () => {
   try {
     const token = getToken();
@@ -23,6 +30,7 @@ export const getTokenInfo = () => {
     }
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
 
@@ -44,7 +52,9 @@ export const isAuthed = () => {
   return false;
 };
 
-
+/**
+ * Sets authorziation header with the current users token.
+ */
 export const setAuthHeader = () => ({
   headers: { authorization: `Bearer ${getToken()}` },
 });

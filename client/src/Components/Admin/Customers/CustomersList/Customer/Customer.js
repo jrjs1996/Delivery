@@ -15,7 +15,7 @@ export default function Customer({
   onSelect,
 }) {
   return (
-    <Paper onClick={() => onSelect(index)} className="Customer">
+    <Paper onClick={() => onSelect(id)} className="Customer">
       <Grid container spacing={2}>
         <Grid item xs={12} lg={4}>
           <Grid container spacing={0}>
@@ -53,7 +53,7 @@ export default function Customer({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} justify="flex-end" style={{ textAlign: 'right' }}>
+        <Grid item xs={12} style={{ textAlign: 'right' }}>
           {onDelete ? (
             <Button
               variant="contained"

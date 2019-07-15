@@ -1,0 +1,41 @@
+
+---
+name: ErrorMessage
+menu: Components
+route: /ErrorMessage/ErrorMessage.mdx
+---
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { ErrorMessage } from './ErrorMessage';
+
+# Error Message
+
+Updated 10/07/2019
+
+Component for displaying error messages to the user.
+
+<Props of={ErrorMessage} />
+
+<Playground>
+  {() => {
+    const [message, setMessage] = useState('');
+    const [errorCount, setErrorCount] = useState(0);
+    return (
+      <div>
+      <button
+        onClick={() => {
+          const newCount = errorCount + 1;
+          setMessage(`Clicked ${newCount}`);
+          setErrorCount(newCount);
+        }}
+      >
+        Click Me
+      </button>
+      <ErrorMessage
+        message={message}
+        errorCount={errorCount}
+      />
+      </div>
+    );
+  }}
+</Playground>

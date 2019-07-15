@@ -1,23 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { AdminPropType } from '../../../../propTypes';
-import { changeCurrentAdminUsername } from '../../../../actions/adminActions';
-import SettingPage from '../SettingPage/SettingPage';
-import SettingPageInput from '../SettingPage/SettingPageInput/SettingPageInput';
+import SettingPage from '../../../General/SettingPage/SettingPage';
+import SettingPageInput from '../../../General/SettingPage/SettingPageInput/SettingPageInput';
 
 const onSubmit = (submitData, currentAdmin, action) => {
-  action(currentAdmin._id, submitData.newUsername);
+  action({ _id: currentAdmin._id, username: submitData.newUsername });
   return 'Username Updated';
 };
 
-export function ChangeUsernameComponent({ currentAdmin, changeCurrentAdminUsername: action }) {
+export default function ChangeUsernameComponent({ currentAdmin, updateAction }) {
   return (
     <SettingPage
       title="Change Username"
-      onSubmit={submitData => onSubmit(submitData, currentAdmin, action)}
+      onSubmit={submitData => onSubmit(submitData, currentAdmin, updateAction)}
     >
       <SettingPageInput required fullWidth name="newUsername" label="New Username" />
     </SettingPage>
@@ -25,12 +23,6 @@ export function ChangeUsernameComponent({ currentAdmin, changeCurrentAdminUserna
 }
 
 ChangeUsernameComponent.propTypes = {
-  changeCurrentAdminUsername: PropTypes.func.isRequired,
   currentAdmin: AdminPropType.isRequired,
+  updateAction: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-  currentAdmin: state.admins.currentAdmin,
-});
-
-export default connect(mapStateToProps, { changeCurrentAdminUsername })(ChangeUsernameComponent);
