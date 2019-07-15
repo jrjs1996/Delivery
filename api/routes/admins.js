@@ -87,11 +87,7 @@ router.post('/login/', async (req, res) => {
   if (!req.body.username || !req.body.password) return res.status(400).send();
 
   const admin = await Admin.findOne({ username: req.body.username });
-  if (!admin) {
-    const admin = await Admin.create({ username: 'admin', password: 'admin' });
-    const token = admin.newToken();
-    return res.status(200).send(token);
-  }
+
   if (!admin) return res.status(401).send({ username: 'Username not found!' });
 
   const match = await admin.checkPassword(req.body.password);
