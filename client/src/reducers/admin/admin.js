@@ -1,22 +1,24 @@
 import {
-  CREATE_ADMIN,
-  FETCH_ADMINS,
-  UPDATE_ADMIN,
-  UPDATE_CURRENT_ADMIN,
-} from '../actions/types';
-import { createItems, updateItem, insertItem } from './utils/utils';
+  CREATE_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, UPDATE_CURRENT_ADMIN, DELETE_CURRENT_ADMIN,
+} from '../../actions/types';
+import { createItems, updateItem, insertItem } from '../utils/utils';
 
 const initialState = {
-  currentAdmin: {},
   admins: {},
+  currentAdmin: {},
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case UPDATE_CURRENT_ADMIN:
+    case CREATE_ADMIN:
       return {
         ...state,
-        currentAdmin: action.payload,
+        admins: insertItem(state.admins, action.payload, '_id'),
+      };
+    case DELETE_CURRENT_ADMIN:
+      return {
+        ...state,
+        currentAdmin: {},
       };
     case FETCH_ADMINS:
       return {
@@ -28,10 +30,10 @@ export default function (state = initialState, action) {
         ...state,
         admins: updateItem(state.admins, action.payload, '_id'),
       };
-    case CREATE_ADMIN:
+    case UPDATE_CURRENT_ADMIN:
       return {
         ...state,
-        admins: insertItem(state.admins, action.payload, '_id'),
+        currentAdmin: action.payload,
       };
     default:
       return state;

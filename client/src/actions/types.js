@@ -3,6 +3,7 @@ export const CREATE_ADMIN = 'CREATE_ADMIN';
 export const FETCH_ADMINS = 'FETCH_ADMINS';
 export const UPDATE_ADMIN = 'UPDATE_ADMIN';
 export const UPDATE_CURRENT_ADMIN = 'UPDATE_CURRENT_ADMIN';
+export const DELETE_CURRENT_ADMIN = 'DELETE_CURRENT_ADMIN';
 
 // Customer
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';

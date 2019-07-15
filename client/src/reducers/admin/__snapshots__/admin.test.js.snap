@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin reducer Initial state is empty 1`] = `
+Object {
+  "admins": Object {},
+  "currentAdmin": Object {},
+}
+`;
+
+exports[`Admin reducer Inserts admin into admins when calling CREATE_ADMIN 1`] = `
+Object {
+  "admins": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "username": "FirstAdmin",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "username": "SecondAdmin",
+    },
+  },
+  "currentAdmin": undefined,
+}
+`;
+
+exports[`Admin reducer Populates admins when calling FETCH_ADMINS 1`] = `
+Object {
+  "admins": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "username": "FirstAdmin",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "username": "SecondAdmin",
+    },
+  },
+  "currentAdmin": Object {},
+}
+`;
+
+exports[`Admin reducer Removes the current admin when calling DELETE_CURRENT_ADMIN 1`] = `
+Object {
+  "admins": undefined,
+  "currentAdmin": Object {},
+}
+`;
+
+exports[`Admin reducer Returns given state when an action doesn't match 1`] = `
+Object {
+  "mockState": "MockState",
+}
+`;
+
+exports[`Admin reducer Updates current admin when calling UPDATE_CURRENT_ADMIN 1`] = `
+Object {
+  "admins": undefined,
+  "currentAdmin": Object {
+    "username": "UPDATED_INFO",
+  },
+}
+`;
+
+exports[`Admin reducer Updates given admin in admins when calling UPDATE_ADMIN 1`] = `
+Object {
+  "admins": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "username": "UPDATED_INFO",
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "username": "SecondAdmin",
+    },
+  },
+  "currentAdmin": undefined,
+}
+`;

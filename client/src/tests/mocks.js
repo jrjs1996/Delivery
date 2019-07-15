@@ -114,7 +114,7 @@ export const ordersMock = [
 export const adminsMock = [
   {
     __v: 0,
-    _id: '1',
+    _id: '0',
     username: 'FirstAdmin',
   },
   {
@@ -138,4 +138,9 @@ export const storeMock = mockStore({
   admins: {
     admins: adminsMock,
   },
+});
+
+export const createAction = (type, payload) => ({
+  payload,
+  type,
 });

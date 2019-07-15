@@ -6,16 +6,11 @@ import {
   UPDATE_CURRENT_CUSTOMER,
   UPDATE_CUSTOMER,
 } from '../../actions/types';
-import { customersMock } from '../../tests/mocks';
+import { customersMock, createAction } from '../../tests/mocks';
 
 const createState = (items, currentCustomer) => ({
   items,
   currentCustomer,
-});
-
-const createAction = (type, payload) => ({
-  payload,
-  type,
 });
 
 describe('Customer reducer', () => {

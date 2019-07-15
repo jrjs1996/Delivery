@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { saveToken, removeToken, setAuthHeader } from '../../utils/token';
 import {
-  UPDATE_CURRENT_ADMIN, FETCH_ADMINS, UPDATE_ADMIN, CREATE_ADMIN, ERROR,
+  UPDATE_CURRENT_ADMIN,
+  FETCH_ADMINS,
+  UPDATE_ADMIN,
+  CREATE_ADMIN,
+  ERROR,
+  DELETE_CURRENT_ADMIN,
 } from '../types';
 
 export const createAdmin = postData => async (dispatch) => {
@@ -69,8 +74,18 @@ export const login = postData => async (dispatch) => {
   }
 };
 
-export const logout = () => () => {
-  removeToken();
+export const logout = () => (dispatch) => {
+  try {
+    removeToken();
+    dispatch({
+      type: DELETE_CURRENT_ADMIN,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to log out.',
+    });
+  }
 };
 
 export const updateAdmin = putData => async (dispatch) => {
