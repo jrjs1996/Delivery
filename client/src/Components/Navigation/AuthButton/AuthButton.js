@@ -3,13 +3,8 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 
-
 export default function AuthButton({
-  history,
-  loggedIn,
-  loginAction,
-  logoutAction,
-  ...rest
+  history, loggedIn, loginAction, logoutAction,
 }) {
   if (loggedIn) {
     return (
@@ -18,6 +13,8 @@ export default function AuthButton({
           logoutAction();
           history.push('/');
         }}
+        variant="contained"
+        color="secondary"
       >
         Logout
       </Button>
@@ -29,6 +26,8 @@ export default function AuthButton({
         loginAction();
         history.push('/');
       }}
+      variant="contained"
+      color="secondary"
     >
       LogIn
     </Button>
