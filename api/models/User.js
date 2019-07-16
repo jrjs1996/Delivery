@@ -19,9 +19,9 @@ function AbstractUserSchema(rest) {
    * Whenenver a customer is saved and the password
    * has been modified. Save the password as a hash.
    */
-  this.pre('save', function(next) {
+  this.pre('save', function (next) {
     if (this.password && !this.isModified('password')) return next();
-    console.log(this)
+    console.log(this);
     bcrypt.hash(this.password, 8, (err, hash) => {
       if (err) return next(err);
       this.password = hash;
@@ -29,8 +29,8 @@ function AbstractUserSchema(rest) {
     });
   });
 
-  this.methods.checkPassword = function(password) {
-    const passwordHash = this.password; 
+  this.methods.checkPassword = function (password) {
+    const passwordHash = this.password;
     return new Promise((resolve, reject) => {
       bcrypt.compare(password, passwordHash, (err, same) => {
         if (err) return reject(err);
@@ -38,10 +38,11 @@ function AbstractUserSchema(rest) {
       });
     });
   };
-  this.methods.newToken = function() {
-    return jwt.sign({ _id: this._id }, 'secret', {
+  this.methods.newToken = function () {
+    this.token = jwt.sign({ _id: this._id }, 'secret', {
       expiresIn: '3h',
     });
+    return this.token;
   };
 }
 util.inherits(AbstractUserSchema, Schema);
