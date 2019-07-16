@@ -66,13 +66,16 @@ export const getCustomer = userId => (dispatch) => {
 export const login = postData => async (dispatch) => {
   try {
     const res = await axios.post('/api/customers/login/', postData);
-    saveToken(res.data.token);
+    saveToken(res.data.token, false);
     dispatch({
       type: UPDATE_CURRENT_CUSTOMER,
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    dispatch({
+      type: ERROR,
+      payload: error.toString(),
+    });
   }
 };
 

@@ -6,7 +6,7 @@ export const getIsAdmin = () => localStorage.getItem('isAdmin');
  * Save the token and isAdmin in local storage.
  */
 export const saveToken = (token, isAdmin) => {
-  if (!token || !isAdmin) throw new Error('Token and isAdmin Required');
+  if (!token || (undefined === isAdmin)) throw new Error('Token and isAdmin Required');
 
   localStorage.setItem('jwt-token', token);
   localStorage.setItem('isAdmin', isAdmin);

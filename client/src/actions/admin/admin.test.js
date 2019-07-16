@@ -74,10 +74,8 @@ describe('Login', () => {
     store.clearActions();
   });
 
-  it('Dispatches correct info when successful (Payload is provided username)', async () => {
-    mockAxios.post.mockImplementationOnce(() => {
-      return Promise.resolve({ status: 200, data: { mock: 'MockData', token: 'MockToken' } });
-    });
+  it('Dispatches correct info when successful (Payload is response data)', async () => {
+    mockAxios.post.mockImplementationOnce(() => Promise.resolve({ status: 200, data: { mock: 'MockData', token: 'MockToken' } }));
     await adminActions.login({ username: 'TestUsername', password: 'TestPassword' })(store.dispatch);
     expect(store.getActions()).toMatchSnapshot();
   });

@@ -56,6 +56,18 @@ describe('Fetch customers', () => {
   });
 });
 
+describe('Login', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches UPDATE_CURRENT_CUSTOMER with response data', async () => {
+    mockAxios.post.mockImplementationOnce(() => Promise.resolve({ status: 200, data: { mock: 'MockData', token: 'MockToken' } }));
+    await customerActions.login({ email: 'TestEmail', password: 'TestPassword' })(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 describe('Update customer', () => {
   beforeEach(() => {
     store.clearActions();

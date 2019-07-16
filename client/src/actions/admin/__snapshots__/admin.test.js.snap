@@ -60,7 +60,7 @@ Array [
 ]
 `;
 
-exports[`Login Dispatches correct info when successful (Payload is provided username) 1`] = `
+exports[`Login Dispatches correct info when successful (Payload is response data) 1`] = `
 Array [
   Object {
     "payload": Object {

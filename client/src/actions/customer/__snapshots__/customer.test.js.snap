@@ -60,6 +60,18 @@ Array [
 ]
 `;
 
+exports[`Login Dispatches UPDATE_CURRENT_CUSTOMER with response data 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "mock": "MockData",
+      "token": "MockToken",
+    },
+    "type": "UPDATE_CURRENT_CUSTOMER",
+  },
+]
+`;
+
 exports[`Update customer Dispatches UPDATE_CUSTOMER with given data 1`] = `
 Array [
   Object {
