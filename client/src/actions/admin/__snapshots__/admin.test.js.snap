@@ -64,7 +64,8 @@ exports[`Login Dispatches correct info when successful (Payload is provided user
 Array [
   Object {
     "payload": Object {
-      "username": "TestUsername",
+      "mock": "MockData",
+      "token": "MockToken",
     },
     "type": "UPDATE_CURRENT_ADMIN",
   },

@@ -57,12 +57,10 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
 export const login = postData => async (dispatch) => {
   try {
     const res = await axios.post('/api/admins/login/', postData);
-    saveToken(res.data, true);
+    saveToken(res.data.token, true);
     dispatch({
       type: UPDATE_CURRENT_ADMIN,
-      payload: {
-        username: postData.username,
-      },
+      payload: res.data,
     });
     return true;
   } catch (error) {

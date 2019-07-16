@@ -93,8 +93,9 @@ router.post('/login/', async (req, res) => {
   const match = await admin.checkPassword(req.body.password);
   if (!match) return res.status(401).send({ password: 'Password wrong!' });
 
-  const token = admin.newToken();
-  return res.status(200).send(token);
+  const resData = admin.toObject();
+  resData.token = admin.newToken();
+  return res.status(200).send(resData);
 });
 
 /**
