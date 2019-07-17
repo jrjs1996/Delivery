@@ -1,4 +1,4 @@
-import { ERROR } from '../actions/types';
+import { ERROR } from '../../actions/types';
 
 const initialState = {
   message: '',

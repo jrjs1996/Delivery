@@ -1,7 +1,7 @@
 import {
   ADD_MENU_ITEM, DELETE_MENU_ITEM, FETCH_MENU, UPDATE_MENU_ITEM,
-} from '../actions/types';
-import { createItems, insertItem, updateItem, deleteItem } from './utils/utils';
+} from '../../actions/types';
+import { createItems, insertItem, updateItem, deleteItem } from '../utils/utils';
 
 const initialState = {
   items: {},

@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 
 import adminReducer from './admin/admin';
 import customerReducer from './customer/customer';
-import errorReducer from './errorReducer';
-import menuReducer from './menuReducer';
-import orderReducer from './orderReducer';
+import errorReducer from './error/error';
+import menuReducer from './menu/menu';
+import orderReducer from './order/order';
 
 export default combineReducers({
   admins: adminReducer,

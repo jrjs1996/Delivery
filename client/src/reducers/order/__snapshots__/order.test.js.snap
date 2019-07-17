@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order reducer Adds given order when calling ADD_ORDER 1`] = `
+Object {
+  "currentOrder": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "address": "232 Blue St.",
+      "customerName": "Joe Green",
+      "delivery": true,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "0",
+          "archived": false,
+          "created": "Now",
+          "description": "A hamburger (short: burger) is a sandwich consisting of one or more cooked
+    patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The
+    patty may be pan fried, grilled, or flame broiled. Hamburgers are often served with
+     cheese, lettuce, tomato, onion, pickles, bacon, or chiles; condiments such as ketchup,
+     mayonnaise, mustard, relish, or 'special sauce'; and are frequently placed on sesame
+    seed buns. A hamburger topped with cheese is called a cheeseburger.",
+          "menuNumber": 1,
+          "price": 10.5,
+          "revision": 0,
+          "title": "Hamburger",
+        },
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 01 2019 23:57:40 GMT-060",
+      "stage": 0,
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "address": "322 Park St.",
+      "customerName": "John Anderson",
+      "delivery": false,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 02 2019 23:57:40 GMT-060",
+      "stage": 2,
+    },
+  },
+}
+`;
+
+exports[`Order reducer Initial state is empty 1`] = `
+Object {
+  "currentOrder": Object {},
+  "items": Object {},
+}
+`;
+
+exports[`Order reducer Populates orders when calling FETCH_ORDERS 1`] = `
+Object {
+  "currentOrder": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "address": "232 Blue St.",
+      "customerName": "Joe Green",
+      "delivery": true,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "0",
+          "archived": false,
+          "created": "Now",
+          "description": "A hamburger (short: burger) is a sandwich consisting of one or more cooked
+    patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The
+    patty may be pan fried, grilled, or flame broiled. Hamburgers are often served with
+     cheese, lettuce, tomato, onion, pickles, bacon, or chiles; condiments such as ketchup,
+     mayonnaise, mustard, relish, or 'special sauce'; and are frequently placed on sesame
+    seed buns. A hamburger topped with cheese is called a cheeseburger.",
+          "menuNumber": 1,
+          "price": 10.5,
+          "revision": 0,
+          "title": "Hamburger",
+        },
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 01 2019 23:57:40 GMT-060",
+      "stage": 0,
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "address": "322 Park St.",
+      "customerName": "John Anderson",
+      "delivery": false,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 02 2019 23:57:40 GMT-060",
+      "stage": 2,
+    },
+  },
+}
+`;
+
+exports[`Order reducer Returns given state when an action doesn't match 1`] = `
+Object {
+  "mockState": "MockState",
+}
+`;
+
+exports[`Order reducer Updates given order in items to be payload when calling UPDATE_ORDER 1`] = `
+Object {
+  "currentOrder": undefined,
+  "items": Object {
+    "0": Object {
+      "__v": 0,
+      "_id": "0",
+      "address": "UPDATED INFO",
+      "customerName": "Joe Green",
+      "delivery": true,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "0",
+          "archived": false,
+          "created": "Now",
+          "description": "A hamburger (short: burger) is a sandwich consisting of one or more cooked
+    patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The
+    patty may be pan fried, grilled, or flame broiled. Hamburgers are often served with
+     cheese, lettuce, tomato, onion, pickles, bacon, or chiles; condiments such as ketchup,
+     mayonnaise, mustard, relish, or 'special sauce'; and are frequently placed on sesame
+    seed buns. A hamburger topped with cheese is called a cheeseburger.",
+          "menuNumber": 1,
+          "price": 10.5,
+          "revision": 0,
+          "title": "Hamburger",
+        },
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 01 2019 23:57:40 GMT-060",
+      "stage": 0,
+    },
+    "1": Object {
+      "__v": 0,
+      "_id": "1",
+      "address": "322 Park St.",
+      "customerName": "John Anderson",
+      "delivery": false,
+      "items": Array [
+        Object {
+          "__v": 0,
+          "_id": "1",
+          "archived": false,
+          "created": "Now",
+          "description": "A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.
+    [1][2] However, different varieties of salad may contain virtually any type of ready-to-eat food.
+     Salads are typically served at room temperature or chilled, with notable exceptions such as south
+     German potato salad which is served warm.",
+          "menuNumber": 2,
+          "price": 8.25,
+          "revision": 0,
+          "title": "Salad",
+        },
+      ],
+      "orderCreated": "Mon Jul 02 2019 23:57:40 GMT-060",
+      "stage": 2,
+    },
+  },
+}
+`;
