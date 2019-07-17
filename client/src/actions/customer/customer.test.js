@@ -68,6 +68,17 @@ describe('Login', () => {
   });
 });
 
+describe('Logout', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches DELETE_CURRENT_CUSTOMER when successful', () => {
+    customerActions.logout()(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 describe('Update customer', () => {
   beforeEach(() => {
     store.clearActions();

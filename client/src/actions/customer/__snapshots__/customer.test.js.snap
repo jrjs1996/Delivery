@@ -72,6 +72,14 @@ Array [
 ]
 `;
 
+exports[`Logout Dispatches DELETE_CURRENT_CUSTOMER when successful 1`] = `
+Array [
+  Object {
+    "type": "DELETE_CURRENT_CUSTOMER",
+  },
+]
+`;
+
 exports[`Update customer Dispatches UPDATE_CUSTOMER with given data 1`] = `
 Array [
   Object {

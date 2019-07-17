@@ -1,13 +1,14 @@
 import axios from 'axios';
 import {
+  ADD_CUSTOMER,
+  DELETE_CURRENT_CUSTOMER,
+  DELETE_CUSTOMER,
+  ERROR,
   FETCH_CUSTOMERS,
   UPDATE_CURRENT_CUSTOMER,
   UPDATE_CUSTOMER,
-  ADD_CUSTOMER,
-  DELETE_CUSTOMER,
-  ERROR,
 } from '../types';
-import { saveToken, setAuthHeader } from '../../utils/token';
+import { saveToken, setAuthHeader, removeToken } from '../../utils/token';
 
 export const addCustomer = postData => async (dispatch) => {
   try {
@@ -78,6 +79,21 @@ export const login = postData => async (dispatch) => {
     });
   }
 };
+
+export const logout = () => (dispatch) => {
+  try {
+    removeToken();
+    dispatch({
+      type: DELETE_CURRENT_CUSTOMER,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Unable to log out.',
+    });
+  }
+};
+
 
 export const updateCustomer = putData => async (dispatch) => {
   try {
