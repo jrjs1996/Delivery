@@ -4,16 +4,13 @@ import shortid from 'shortid';
 import MenuItem from './MenuItem/MenuItem';
 
 export default function MenuItemList({
-  menu,
-  onSelect,
-  onDelete,
-  render,
   image,
+  menu,
+  onDelete,
+  onSelect,
+  render,
 }) {
   const menuItems = Object.entries(menu).map(([, i]) => {
-    if (!image) {
-      i.image = false;
-    }
     return (
       <MenuItem
         title={i.title}
@@ -25,7 +22,7 @@ export default function MenuItemList({
         _id={i._id}
         _key={i._id}
         key={shortid.generate()}
-        image={i.image}
+        image={image}
       />
     );
   });
