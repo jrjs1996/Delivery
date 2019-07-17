@@ -65,6 +65,9 @@ export function CustomerComponent({
         onClose={() => setLoginDialogOpen(false)}
         open={loginDialogOpen}
       />
+      <SideMenu
+        anchor="right"
+      />
     </div>
   );
 }
