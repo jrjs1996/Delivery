@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import ReactRouterPropTypes from 'react-router-prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
+
 import Navigation from '../Navigation/Navigation';
-import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
+import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
+import { CustomerPropType } from '../../propTypes';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -59,7 +61,11 @@ export function CustomerComponent({
 }
 
 CustomerComponent.propTypes = {
+  currentCustomer: CustomerPropType.isRequired,
+  getInfoAction: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
+  loginAction: PropTypes.func.isRequired,
+  logoutAction: PropTypes.func.isRequired,
   match: ReactRouterPropTypes.match.isRequired,
 };
 
