@@ -56,11 +56,21 @@ export const fetchCustomers = () => async (dispatch) => {
 };
 
 export const getCurrentCustomerInfo = () => async (dispatch) => {
-  const res = await axios.get('/api/customers/login/', setAuthHeader());
-  dispatch({
-    type: UPDATE_CURRENT_CUSTOMER,
-    payload: res.data,
-  });
+  try {
+    const res = await axios.get('/api/customers/login/', setAuthHeader());
+    dispatch({
+      type: UPDATE_CURRENT_CUSTOMER,
+      payload: res.data,
+    });
+  } catch (error) {
+    if (error.response.status === 401) {
+      console.log('h1h1');
+      removeToken();
+      return;
+    }
+    console.log('h1h1');
+    throw error;
+  }
 };
 
 export const getCustomer = userId => (dispatch) => {

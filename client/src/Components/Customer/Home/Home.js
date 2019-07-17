@@ -18,6 +18,7 @@ export function HomeComponent({
       <MenuItemList
         menu={menuItems}
         onSelect={() => console.log('onSelect')}
+        imageMode="onClick"
       />
     </div>
   );

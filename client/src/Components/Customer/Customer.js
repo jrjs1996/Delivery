@@ -12,6 +12,7 @@ import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/cu
 import { CustomerPropType } from '../../propTypes';
 import SideMenuItem from '../Navigation/SideMenu/SideMenuItem/SideMenuItem';
 import Home from './Home/Home';
+import SideMenu from '../Navigation/SideMenu/SideMenu';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -63,6 +64,9 @@ export function CustomerComponent({
         action={(email, password) => onLogin(email, password, loginAction, setLoginDialogOpen)}
         onClose={() => setLoginDialogOpen(false)}
         open={loginDialogOpen}
+      />
+      <SideMenu
+        anchor="right"
       />
     </div>
   );

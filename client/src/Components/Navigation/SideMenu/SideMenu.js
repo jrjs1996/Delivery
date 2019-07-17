@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       width: drawerWidth,
       flexShrink: 0,
+      zIndex: -1,
     },
   },
   drawerPaper: {
@@ -27,7 +29,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function SideMenu({ children, mobileOpen, setMobileOpen }) {
+function SideMenu({
+  anchor,
+  children,
+  mobileOpen,
+  setMobileOpen,
+}) {
   const classes = useStyles();
   return (
     <nav className={classes.drawer}>
@@ -37,7 +44,7 @@ function SideMenu({ children, mobileOpen, setMobileOpen }) {
           classes={{
             paper: classes.drawerPaper,
           }}
-          anchor="left"
+          anchor={anchor}
           open={mobileOpen}
           onClose={() => setMobileOpen(!mobileOpen)}
           ModalProps={{
@@ -56,6 +63,7 @@ function SideMenu({ children, mobileOpen, setMobileOpen }) {
           }}
           variant="permanent"
           open
+          anchor={anchor}
         >
           <Divider />
           <List>{children}</List>
@@ -65,5 +73,16 @@ function SideMenu({ children, mobileOpen, setMobileOpen }) {
     </nav>
   );
 }
+
+SideMenu.propTypes = {
+  anchor: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  mobileOpen: PropTypes.bool.isRequired,
+  setMobileOpen: PropTypes.func.isRequired,
+};
+
+SideMenu.defaultProps = {
+  anchor: 'left',
+};
 
 export default SideMenu;
