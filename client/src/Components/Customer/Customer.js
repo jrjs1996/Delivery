@@ -27,7 +27,6 @@ const onLogin = (email, password, loginAction, setLoginDialogOpen) => {
 export function CustomerComponent({
   history, match, loginAction, currentCustomer, logoutAction
 }) {
-  console.log(currentCustomer);
   const classes = useStyles();
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
@@ -60,4 +59,4 @@ const mapStateToProps = state => ({
   currentCustomer: state.customers.currentCustomer,
 });
 
-export default connect(mapStateToProps, { loginAction: login })(CustomerComponent);
+export default connect(mapStateToProps, { loginAction: login, logoutAction: logout })(CustomerComponent);

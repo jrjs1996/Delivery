@@ -1,5 +1,6 @@
 import {
   ADD_CUSTOMER,
+  DELETE_CURRENT_CUSTOMER,
   DELETE_CUSTOMER,
   FETCH_CUSTOMERS,
   UPDATE_CURRENT_CUSTOMER,
@@ -21,6 +22,11 @@ export default function (state = initialState, action) {
         ...state,
         items: insertItem(state.items, action.payload, '_id'),
       };
+    case DELETE_CURRENT_CUSTOMER:
+      return {
+        ...state,
+        currentCustomer: {},
+      }
     case DELETE_CUSTOMER:
       return {
         ...state,
