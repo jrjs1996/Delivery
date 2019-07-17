@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Navigation from '../Navigation/Navigation';
-import { login, logout } from '../../actions/customer/customer';
+import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 
 const useStyles = makeStyles(theme => ({
@@ -25,11 +25,19 @@ const onLogin = (email, password, loginAction, setLoginDialogOpen) => {
 };
 
 export function CustomerComponent({
-  history, match, loginAction, currentCustomer, logoutAction
+  currentCustomer,
+  getInfoAction,
+  history,
+  loginAction,
+  logoutAction,
+  match,
 }) {
+  useEffect(() => {
+    getInfoAction();
+  }, [getInfoAction]);
+
   const classes = useStyles();
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
-
   return (
     <div className={classes.root}>
       <Navigation
@@ -59,4 +67,11 @@ const mapStateToProps = state => ({
   currentCustomer: state.customers.currentCustomer,
 });
 
-export default connect(mapStateToProps, { loginAction: login, logoutAction: logout })(CustomerComponent);
+export default connect(
+  mapStateToProps,
+  {
+    getInfoAction: getCurrentCustomerInfo,
+    loginAction: login,
+    logoutAction: logout,
+  },
+)(CustomerComponent);

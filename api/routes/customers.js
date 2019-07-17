@@ -84,6 +84,15 @@ router.delete('/', async (req, res) => {
 });
 
 /**
+ * Returns the logged in customers info.
+ */
+router.get('/login/', (req, res) => {
+  console.log('asdfsdfdas');
+  if (req.customer == null) return res.sendStatus(401);
+  return res.send(req.customer);
+});
+
+/**
  * Gets the customer with the given id
  * Must be specified customer or admin
  */
@@ -128,14 +137,6 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     return res.sendStatus(500);
   }
-});
-
-/**
- * Returns the logged in customers info.
- */
-router.get('/login/', (req, res) => {
-  if (req.customer == null) return res.sendStatus(401);
-  return res.send(req.customer);
 });
 
 /**
