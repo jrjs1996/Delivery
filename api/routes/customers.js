@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
   try {
     const customers = await Customer.find(null, null, { sort: { firstName: 1 } });
-    console.log(customers)
+    console.log(customers);
     return res.send(customers);
   } catch (error) {
     return res.sendStatus(500);
@@ -128,6 +128,14 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     return res.sendStatus(500);
   }
+});
+
+/**
+ * Returns the logged in customers info.
+ */
+router.get('/login/', (req, res) => {
+  if (req.customer == null) return res.sendStatus(401);
+  return res.send(req.customer);
 });
 
 /**

@@ -55,6 +55,14 @@ export const fetchCustomers = () => async (dispatch) => {
   }
 };
 
+export const getCurrentCustomerInfo = () => async (dispatch) => {
+  const res = await axios.get('/api/customers/login/', setAuthHeader());
+  dispatch({
+    type: UPDATE_CURRENT_CUSTOMER,
+    payload: res.data,
+  });
+};
+
 export const getCustomer = userId => (dispatch) => {
   axios.get('/api/customers/info/', setAuthHeader()).then((res) => {
     dispatch({
@@ -93,7 +101,6 @@ export const logout = () => (dispatch) => {
     });
   }
 };
-
 
 export const updateCustomer = putData => async (dispatch) => {
   try {

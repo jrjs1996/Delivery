@@ -56,6 +56,17 @@ describe('Fetch customers', () => {
   });
 });
 
+describe('Get current customer info', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches UPDATE_CURRENT_CUSTOMER with response data on success', async () => {
+    await customerActions.getCurrentCustomerInfo()(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 describe('Login', () => {
   beforeEach(() => {
     store.clearActions();
