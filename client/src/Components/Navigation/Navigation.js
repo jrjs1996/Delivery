@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Navigation({
-  children, history, logout, username,
+  children, history, logout, login, username,
 }) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -58,7 +58,7 @@ export default function Navigation({
           <Typography variant="h6" className={classes.title}>
             {username}
           </Typography>
-          <AuthButton color="inherit" loggedIn={username} logoutAction={logout} history={history} />
+          <AuthButton color="inherit" loggedIn={username} loginAction={login} logoutAction={logout} history={history} />
         </Toolbar>
       </AppBar>
       <SideMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen}>
@@ -71,6 +71,7 @@ export default function Navigation({
 Navigation.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   history: ReactRouterPropTypes.history.isRequired,
+  login: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   username: PropTypes.string,
 };

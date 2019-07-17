@@ -27,7 +27,6 @@ export default function LoginDialog({ action, onClose, open }) {
           fullWidth
         />
         <TextField
-          autoFocus
           margin="dense"
           id="password"
           label="Password"
