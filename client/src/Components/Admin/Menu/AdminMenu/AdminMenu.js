@@ -50,7 +50,7 @@ const renderItemForm = (i, addAction, updateAction, uploadImage, listPath, histo
 
 const renderItemList = (items, setSelectedItem, deleteAction, formPath) => (
   <MenuItemList
-    image
+    imageMode="always"
     menu={items}
     onSelect={setSelectedItem}
     onDelete={deleteAction}

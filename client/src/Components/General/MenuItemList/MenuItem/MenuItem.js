@@ -1,40 +1,44 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-
 export default function MenuItem({
   title,
   description,
   number,
   image,
+  imageMode,
   price,
   onSelect,
   onDelete,
   _id,
 }) {
+  const [displayImage, setdisplayImage] = useState(false);
+
+  const showImage = image && (imageMode === 'always' || (imageMode === 'onClick' && displayImage));
   return (
     <Paper
       className="MenuItem"
-      onClick={() => onSelect({
-        title,
-        description,
-        menuNumber: number,
-        price,
-        image,
-        _id,
-      })}
+      onClick={() => {
+        if (imageMode === 'onClick') {
+          setdisplayImage(!displayImage);
+        } else {
+          onSelect({
+            _id, description, image, menuNumber: number, price, title,
+          });
+        }
+      }}
     >
       <Grid container spacing={1}>
         <Grid item xs={2} sm={1}>
           <Paper>
             <Typography variant="h6" gutterBottom>
               {number}
-            </Typography>           
+            </Typography>
           </Paper>
         </Grid>
         <Grid item style={{ textAlign: 'left' }} xs={10} sm={9}>
@@ -51,20 +55,24 @@ export default function MenuItem({
           </Paper>
         </Grid>
         <Grid item style={{ textAlign: 'left' }} xs={12}>
-          <Typography style={{wordWrap: 'break-word', fontSize: 'large'}} gutterBottom>
+          <Typography style={{ wordWrap: 'break-word', fontSize: 'large' }} gutterBottom>
             {description}
           </Typography>
         </Grid>
       </Grid>
-      { image ? (
+      {showImage ? (
         <Grid container spacing={0}>
           <Grid item xs={12}>
-            <img src={`/uploads/${image}`} alt="Menu Item" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+            <img
+              src={`/uploads/${image}`}
+              alt="Menu Item"
+              style={{ height: '100%', width: '100%', objectFit: 'contain' }}
+            />
           </Grid>
         </Grid>
-      ) : null }
+      ) : null}
       <Grid container spacing={1} justify="flex-end" style={{ paddingTop: 5, paddingRight: 0 }}>
-        { onDelete ? (
+        {onDelete ? (
           <Grid item xs={4} md={2}>
             <Button
               variant="contained"
@@ -75,10 +83,10 @@ export default function MenuItem({
                 onDelete(number);
               }}
             >
-            Delete
+              Delete
             </Button>
           </Grid>
-        ) : null }
+        ) : null}
       </Grid>
     </Paper>
   );
@@ -87,6 +95,10 @@ export default function MenuItem({
 MenuItem.propTypes = {
   /** Description of the menu item. */
   description: PropTypes.string.isRequired,
+  /** Image to display */
+  image: PropTypes.string.isRequired,
+  /** How to display the image */
+  imageMode: PropTypes.string,
   /** Number on the menu */
   number: PropTypes.number.isRequired,
   /** Price of the item */
@@ -99,6 +111,10 @@ MenuItem.propTypes = {
   /** Function to be called when the delete button
    * is clicked. */
   onDelete: PropTypes.func,
+};
+
+MenuItem.defaultProps = {
+  imageMode: 'off',
 };
 
 MenuItem.defaultProps = {

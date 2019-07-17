@@ -4,28 +4,27 @@ import shortid from 'shortid';
 import MenuItem from './MenuItem/MenuItem';
 
 export default function MenuItemList({
-  image,
+  imageMode,
   menu,
   onDelete,
   onSelect,
   render,
 }) {
-  const menuItems = Object.entries(menu).map(([, i]) => {
-    return (
-      <MenuItem
-        title={i.title}
-        price={i.price}
-        description={i.description}
-        number={i.menuNumber}
-        onSelect={() => onSelect(i.menuNumber)}
-        onDelete={onDelete}
-        _id={i._id}
-        _key={i._id}
-        key={shortid.generate()}
-        image={image}
-      />
-    );
-  });
+  const menuItems = Object.entries(menu).map(([, i]) => (
+    <MenuItem
+      title={i.title}
+      price={i.price}
+      description={i.description}
+      number={i.menuNumber}
+      onSelect={() => onSelect(i.menuNumber)}
+      onDelete={onDelete}
+      _id={i._id}
+      _key={i._id}
+      key={shortid.generate()}
+      image={i.image}
+      imageMode={imageMode}
+    />
+  ));
 
   return (
     <div className="MenuItemList">
@@ -49,12 +48,12 @@ MenuItemList.propTypes = {
    * the menu item. Could be used to wrap the items in links
    * for example. */
   render: PropTypes.func,
-  image: PropTypes.bool,
+  imageMode: PropTypes.string,
 };
 
 MenuItemList.defaultProps = {
   onSelect: null,
   onDelete: null,
   render: null,
-  image: false,
+  imageMode: 'off',
 };
