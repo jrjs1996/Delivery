@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
+// !! When modifying make sure to test with all modes
+// Make sure to check sizes are being effected in the different modes.
+
 export default function MenuItem({
   title,
   description,
@@ -27,6 +30,7 @@ export default function MenuItem({
         if (imageMode === 'onClick') {
           setdisplayImage(!displayImage);
         } else {
+          if (imageMode === 'onClick') return;
           onSelect({
             _id, description, image, menuNumber: number, price, title,
           });
@@ -54,11 +58,26 @@ export default function MenuItem({
             </Typography>
           </Paper>
         </Grid>
-        <Grid item style={{ textAlign: 'left' }} xs={12}>
+        <Grid item style={{ textAlign: 'left' }} xs={imageMode === 'onClick' ? 10 : 12}>
           <Typography style={{ wordWrap: 'break-word', fontSize: 'large' }} gutterBottom>
             {description}
           </Typography>
         </Grid>
+        { imageMode === 'onClick' ? (
+          <Grid item xs={2}>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onSelect();
+              }}
+              variant="contained"
+              color="secondary"
+            >
+              Select
+            </Button>
+          </Grid>
+        ) : null}
       </Grid>
       {showImage ? (
         <Grid container spacing={0}>

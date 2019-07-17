@@ -28,7 +28,7 @@ export const getTokenInfo = () => {
       const payload = window.atob(token.split('.')[1]);
       return JSON.parse(payload);
     }
-    throw new Error('Unable to get token.');
+    return null;
   } catch (error) {
     console.error(error);
     throw error;
