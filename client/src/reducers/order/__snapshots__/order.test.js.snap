@@ -211,6 +211,42 @@ Object {
 }
 `;
 
+exports[`Order reducer REMOVE_FROM_CURRENT_ORDER item count when
+      removing an item from order and count is > 1 1`] = `
+Object {
+  "currentOrder": Object {
+    "0": Object {
+      "count": 1,
+      "item": Object {
+        "__v": 0,
+        "_id": "0",
+        "archived": false,
+        "created": "Now",
+        "description": "A hamburger (short: burger) is a sandwich consisting of one or more cooked
+    patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The
+    patty may be pan fried, grilled, or flame broiled. Hamburgers are often served with
+     cheese, lettuce, tomato, onion, pickles, bacon, or chiles; condiments such as ketchup,
+     mayonnaise, mustard, relish, or 'special sauce'; and are frequently placed on sesame
+    seed buns. A hamburger topped with cheese is called a cheeseburger.",
+        "menuNumber": 1,
+        "price": 10.5,
+        "revision": 0,
+        "title": "Hamburger",
+      },
+    },
+  },
+  "items": undefined,
+}
+`;
+
+exports[`Order reducer REMOVE_FROM_CURRENT_ORDER removes item when
+      removing an item from order and count is <= 1 1`] = `
+Object {
+  "currentOrder": Object {},
+  "items": undefined,
+}
+`;
+
 exports[`Order reducer Returns given state when an action doesn't match 1`] = `
 Object {
   "mockState": "MockState",

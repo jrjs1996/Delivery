@@ -1,6 +1,11 @@
 import orderReducer from './order';
 import {
-  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ADD_CUSTOMER, ADD_TO_CURRENT_ORDER,
+  ADD_ORDER,
+  FETCH_ORDERS,
+  UPDATE_ORDER,
+  ADD_CUSTOMER,
+  ADD_TO_CURRENT_ORDER,
+  REMOVE_FROM_CURRENT_ORDER,
 } from '../../actions/types';
 import { ordersMock, createAction, menuItemsMock } from '../../tests/mocks';
 
@@ -49,6 +54,32 @@ describe('Order reducer', () => {
   it('Populates orders when calling FETCH_ORDERS', () => {
     const action = createAction(FETCH_ORDERS, ordersMock);
     expect(orderReducer(createState(), action)).toMatchSnapshot();
+  });
+
+  it(`REMOVE_FROM_CURRENT_ORDER item count when
+      removing an item from order and count is > 1`, () => {
+    const initialCurrentOrder = {
+      [menuItemsMock[0]._id]: {
+        item: menuItemsMock[0],
+        count: 2,
+      },
+    };
+    const state = createState(undefined, initialCurrentOrder);
+    const action = createAction(REMOVE_FROM_CURRENT_ORDER, menuItemsMock[0]._id);
+    expect(orderReducer(state, action)).toMatchSnapshot();
+  });
+
+  it(`REMOVE_FROM_CURRENT_ORDER removes item when
+      removing an item from order and count is <= 1`, () => {
+    const initialCurrentOrder = {
+      [menuItemsMock[0]._id]: {
+        item: menuItemsMock[0],
+        count: 1,
+      },
+    };
+    const state = createState(undefined, initialCurrentOrder);
+    const action = createAction(REMOVE_FROM_CURRENT_ORDER, menuItemsMock[0]._id);
+    expect(orderReducer(state, action)).toMatchSnapshot();
   });
 
   it('Updates given order in items to be payload when calling UPDATE_ORDER', () => {
