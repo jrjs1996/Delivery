@@ -24,5 +24,6 @@ export const UPDATE_MENU_ITEM = 'UPDATE_MENU_ITEM';
 
 // Order
 export const ADD_ORDER = 'ADD_ORDER';
+export const ADD_TO_CURRENT_ORDER = 'ADD_TO_CURRENT_ORDER';
 export const FETCH_ORDERS = 'FETCH_ORDER';
 export const UPDATE_ORDER = 'UPDATE_ORDER';
