@@ -47,6 +47,10 @@ export const getCurrentAdminInfo = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
+    if (error.response.status === 401) {
+      removeToken();
+      return;
+    }
     dispatch({
       type: ERROR,
       payload: 'Unable to get current admin info.',

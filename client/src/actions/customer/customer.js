@@ -64,11 +64,9 @@ export const getCurrentCustomerInfo = () => async (dispatch) => {
     });
   } catch (error) {
     if (error.response.status === 401) {
-      console.log('h1h1');
       removeToken();
       return;
     }
-    console.log('h1h1');
     throw error;
   }
 };
