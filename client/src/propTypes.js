@@ -20,7 +20,7 @@ export const CustomerPropType = PropTypes.shape({
   lastName: PropTypes.string.isRequired,
 });
 
-export const menuItemPropType = PropTypes.shape({
+export const MenuItemPropType = PropTypes.shape({
   archived: PropTypes.bool,
   created: PropTypes.string,
   description: PropTypes.string,
@@ -32,7 +32,7 @@ export const menuItemPropType = PropTypes.shape({
   _id: PropTypes.string,
 });
 
-export const menuItemFormPropType = PropTypes.shape({
+export const MenuItemFormPropType = PropTypes.shape({
   archived: PropTypes.bool,
   created: PropTypes.string,
   description: PropTypes.string,
@@ -44,7 +44,7 @@ export const menuItemFormPropType = PropTypes.shape({
   _id: PropTypes.string,
 });
 
-export const orderPropType = PropTypes.shape({
+export const OrderPropType = PropTypes.shape({
   customer: PropTypes.string,
   stage: PropTypes.number.isRequired,
   address: PropTypes.string.isRequired,
@@ -52,5 +52,5 @@ export const orderPropType = PropTypes.shape({
   orderCompleted: PropTypes.string,
   delivery: PropTypes.bool.isRequired,
   customerName: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(menuItemPropType),
+  items: PropTypes.arrayOf(MenuItemPropType),
 });

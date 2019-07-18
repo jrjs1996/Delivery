@@ -11,7 +11,7 @@ import {
   updateMenuItem,
   uploadMenuItemImage,
 } from '../../../../actions/menu/menu';
-import { menuItemPropType } from '../../../../propTypes';
+import { MenuItemPropType } from '../../../../propTypes';
 
 import CrudPage from '../../../General/CrudPage/CrudPage';
 import MenuItemForm from '../MenuItemForm/MenuItemForm';
@@ -106,7 +106,7 @@ AdminMenuComponent.propTypes = {
   /** History property provided by route */
   history: ReactRouterPropTypes.history.isRequired,
   /** Items to populate the list of menu with. */
-  items: PropTypes.arrayOf(menuItemPropType).isRequired,
+  items: PropTypes.arrayOf(MenuItemPropType).isRequired,
   /** Location proptype provided by route.
    * Don't provide manually. */
   location: ReactRouterPropTypes.location.isRequired,

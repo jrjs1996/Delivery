@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MenuItemList from '../../General/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menu/menu';
-import { menuItemPropType, orderPropType } from '../../../propTypes';
+import { MenuItemPropType, OrderPropType } from '../../../propTypes';
 import { addToCurrentOrder } from '../../../actions/order/order';
 
 export function HomeComponent({
@@ -29,7 +29,7 @@ export function HomeComponent({
 HomeComponent.propTypes = {
   addToOrderAction: PropTypes.func.isRequired,
   fetchAction: PropTypes.func.isRequired,
-  menuItems: PropTypes.arrayOf(menuItemPropType).isRequired,
+  menuItems: PropTypes.arrayOf(MenuItemPropType).isRequired,
 };
 
 const mapStateToProps = state => ({

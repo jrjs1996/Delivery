@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import shortid from 'shortid';
 
 import { fetchOpenOrders, updateOrder } from '../../../../actions/order/order';
-import { orderPropType } from '../../../../propTypes';
+import { OrderPropType } from '../../../../propTypes';
 
 import './Home.css';
 import Order from '../Order/Order';
@@ -46,7 +46,7 @@ HomeComponent.propTypes = {
    * the orders. */
   fetchAction: PropTypes.func.isRequired,
   /** The orders to populate the page with. */
-  orders: PropTypes.arrayOf(orderPropType).isRequired,
+  orders: PropTypes.arrayOf(OrderPropType).isRequired,
   /** Action that updates an order. */
   updateAction: PropTypes.func.isRequired,
 };

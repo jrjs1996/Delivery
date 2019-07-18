@@ -9,7 +9,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
-import { CustomerPropType, orderPropType } from '../../propTypes';
+import { CustomerPropType, OrderPropType } from '../../propTypes';
 import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
 import SideMenu from '../Navigation/SidePanel/SidePanel';
@@ -80,7 +80,7 @@ export function CustomerComponent({
 
 CustomerComponent.propTypes = {
   currentCustomer: CustomerPropType.isRequired,
-  currentOrder: orderPropType.isRequired,
+  currentOrder: OrderPropType.isRequired,
   getInfoAction: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
   loginAction: PropTypes.func.isRequired,

@@ -3,7 +3,7 @@ import React from 'react';
 import shortid from 'shortid';
 import { Grid } from '@material-ui/core';
 import OrderItem from './OrderItem/OrderItem';
-import { menuItemPropType } from '../../../../propTypes';
+import { MenuItemPropType } from '../../../../propTypes';
 
 export default function OrderItemList({ orderItems, onClick }) {
   return (
@@ -23,7 +23,7 @@ export default function OrderItemList({ orderItems, onClick }) {
 
 OrderItemList.propTypes = {
   /** Array of items to display */
-  orderItems: PropTypes.arrayOf(menuItemPropType).isRequired,
+  orderItems: PropTypes.arrayOf(MenuItemPropType).isRequired,
   /** Function that is called with the index of the item that
    * was clicked on. */
   onClick: PropTypes.func.isRequired,

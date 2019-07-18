@@ -12,7 +12,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import { menuItemPropType } from '../../../../propTypes';
+import { MenuItemPropType } from '../../../../propTypes';
 
 import Item from './Item/Item';
 
@@ -121,7 +121,7 @@ Order.propTypes = {
   /** Id of the order */
   id: PropTypes.string.isRequired,
   /** The menu items that belong to the order */
-  items: PropTypes.arrayOf(menuItemPropType).isRequired,
+  items: PropTypes.arrayOf(MenuItemPropType).isRequired,
   /** The date the order was created. */
   orderCreated: PropTypes.string.isRequired,
   /** The stage of the order */
