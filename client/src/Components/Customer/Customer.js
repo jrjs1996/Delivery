@@ -10,9 +10,9 @@ import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
 import { CustomerPropType, orderPropType } from '../../propTypes';
-import SideMenuItem from '../Navigation/SideMenu/SideMenuItem/SideMenuItem';
+import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
-import SideMenu from '../Navigation/SideMenu/SideMenu';
+import SideMenu from '../Navigation/SidePanel/SidePanel';
 import { addToCurrentOrder } from '../../actions/order/order';
 
 const useStyles = makeStyles(theme => ({

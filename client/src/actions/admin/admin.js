@@ -41,7 +41,7 @@ export const fetchAdmins = () => async (dispatch) => {
 
 export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
-    if(!getToken()) return;
+    if(!getToken()) return; 
     const res = await axios.get('/api/admins/login/', setAuthHeader());
     dispatch({
       type: UPDATE_CURRENT_ADMIN,

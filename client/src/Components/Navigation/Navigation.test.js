@@ -4,7 +4,7 @@ import { StaticRouter as Router, Route } from 'react-router-dom';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
 import HomeIcon from '@material-ui/icons/Home';
-import SideMenuItem from './SideMenu/SideMenuItem/SideMenuItem';
+import SideMenuItem from './SidePanel/SidePanelItem/SidePanelItem';
 import Navigation from './Navigation';
 
 describe('Navigation.test', () => {

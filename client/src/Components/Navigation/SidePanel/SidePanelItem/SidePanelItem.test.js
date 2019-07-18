@@ -4,7 +4,7 @@ import { render, cleanup } from '@testing-library/react';
 import { Router, Link, BrowserRouter } from 'react-router-dom';
 import PersonIcon from '@material-ui/icons/Person';
 
-import SideMenuItem from './SideMenuItem';
+import SidePanelItem from './SidePanelItem';
 
 
 describe('Side Menu Item', () => {
@@ -12,12 +12,12 @@ describe('Side Menu Item', () => {
 
   const sideMenuItem = (
     <Router history={new BrowserRouter().history}>
-      <SideMenuItem
+      <SidePanelItem
         to="/test"
         text="Test Item"
       >
         <PersonIcon />
-      </SideMenuItem>
+      </SidePanelItem>
     </Router>
   );
 

@@ -9,7 +9,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import BookIcon from '@material-ui/icons/Book';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import SideMenuItem from '../Navigation/SideMenu/SideMenuItem/SideMenuItem';
+import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import CreateOrder from './CreateOrder/CreateOrder';
 import Customers from './Customers/Customers/Customers';
 
