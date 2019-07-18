@@ -23,6 +23,17 @@ describe('Create order', () => {
   });
 });
 
+describe('Delete Current Order', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches DELETE_CURRENT_ORDER', () => {
+    orderActions.deleteCurrentOrder()(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 describe('Fetch open orders', () => {
   beforeEach(() => {
     store.clearActions();

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ERROR,
+  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ERROR, DELETE_CURRENT_ORDER,
 } from '../types';
 import { setAuthHeader } from '../../utils/token';
 
@@ -17,6 +17,12 @@ export const createOrder = postData => async (dispatch) => {
       payload: 'Unable to create order',
     });
   }
+};
+
+export const deleteCurrentOrder = () => (dispatch) => {
+  dispatch({
+    type: DELETE_CURRENT_ORDER,
+  });
 };
 
 export const fetchOpenOrders = () => async (dispatch) => {

@@ -20,6 +20,14 @@ Array [
 ]
 `;
 
+exports[`Delete Current Order Dispatches DELETE_CURRENT_ORDER 1`] = `
+Array [
+  Object {
+    "type": "DELETE_CURRENT_ORDER",
+  },
+]
+`;
+
 exports[`Fetch open orders Dispatches ERROR on error 1`] = `
 Array [
   Object {
