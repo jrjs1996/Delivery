@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ERROR, DELETE_CURRENT_ORDER, ADD_TO_CURRENT_ORDER,
+  ADD_ORDER, FETCH_ORDERS, UPDATE_ORDER, ERROR, DELETE_CURRENT_ORDER, ADD_TO_CURRENT_ORDER, REMOVE_FROM_CURRENT_ORDER,
 } from '../types';
 import { setAuthHeader } from '../../utils/token';
 
@@ -60,6 +60,13 @@ export const fetchOrders = () => async (dispatch) => {
       payload: 'Unable to fetch orders',
     });
   }
+};
+
+export const removeFromCurrentOrder = id => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_CURRENT_ORDER,
+    payload: id,
+  });
 };
 
 export const updateOrder = (id, putData) => async (dispatch) => {

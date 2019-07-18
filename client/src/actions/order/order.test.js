@@ -80,6 +80,17 @@ describe('Fetch orders', () => {
   });
 });
 
+describe('Remove from current order', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches REMOVE_FROM_CURRENT_ORDER with the given id', () => {
+    orderActions.removeFromCurrentOrder('TestId')(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
+
 describe('Update order', () => {
   beforeEach(() => {
     store.clearActions();

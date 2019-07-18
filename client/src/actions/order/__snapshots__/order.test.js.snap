@@ -92,6 +92,15 @@ Array [
 ]
 `;
 
+exports[`Remove from current order Dispatches REMOVE_FROM_CURRENT_ORDER with the given id 1`] = `
+Array [
+  Object {
+    "payload": "TestId",
+    "type": "REMOVE_FROM_CURRENT_ORDER",
+  },
+]
+`;
+
 exports[`Update order Dispatches ERROR on error 1`] = `
 Array [
   Object {
