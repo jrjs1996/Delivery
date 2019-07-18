@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MenuItemList from '../../General/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menu/menu';
-import { menuItemPropType } from '../../../propTypes';
+import { menuItemPropType, orderPropType } from '../../../propTypes';
+import { addToCurrentOrder } from '../../../actions/order/order';
 
 export function HomeComponent({
+  addToOrderAction,
   fetchAction,
   menuItems,
 }) {
@@ -17,7 +19,7 @@ export function HomeComponent({
     <div>
       <MenuItemList
         menu={menuItems}
-        onSelect={() => console.log('onSelect')}
+        onSelect={i => addToOrderAction(menuItems[i])}
         imageMode="onClick"
       />
     </div>
@@ -25,12 +27,17 @@ export function HomeComponent({
 }
 
 HomeComponent.propTypes = {
+  addToOrderAction: PropTypes.func.isRequired,
   fetchAction: PropTypes.func.isRequired,
   menuItems: PropTypes.arrayOf(menuItemPropType).isRequired,
 };
 
 const mapStateToProps = state => ({
   menuItems: state.menu.items,
+  currentOrder: state.orders.currentOrder,
 });
 
-export default connect(mapStateToProps, { fetchAction: fetchMenu })(HomeComponent);
+export default connect(mapStateToProps, {
+  addToOrderAction: addToCurrentOrder,
+  fetchAction: fetchMenu,
+})(HomeComponent);

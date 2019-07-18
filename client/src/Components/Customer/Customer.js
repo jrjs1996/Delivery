@@ -9,10 +9,11 @@ import HomeIcon from '@material-ui/icons/Home';
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
-import { CustomerPropType } from '../../propTypes';
+import { CustomerPropType, orderPropType } from '../../propTypes';
 import SideMenuItem from '../Navigation/SideMenu/SideMenuItem/SideMenuItem';
 import Home from './Home/Home';
 import SideMenu from '../Navigation/SideMenu/SideMenu';
+import { addToCurrentOrder } from '../../actions/order/order';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -32,6 +33,7 @@ const onLogin = (email, password, loginAction, setLoginDialogOpen) => {
 
 export function CustomerComponent({
   currentCustomer,
+  currentOrder,
   getInfoAction,
   history,
   loginAction,
@@ -67,13 +69,18 @@ export function CustomerComponent({
       />
       <SideMenu
         anchor="right"
-      />
+      >
+        {Object.keys(currentOrder).map(id => (
+          <SideMenuItem text={`${currentOrder[id].item.title} $${currentOrder[id].item.price} x ${currentOrder[id].count}`} />
+        ))}
+      </SideMenu>
     </div>
   );
 }
 
 CustomerComponent.propTypes = {
   currentCustomer: CustomerPropType.isRequired,
+  currentOrder: orderPropType.isRequired,
   getInfoAction: PropTypes.func.isRequired,
   history: ReactRouterPropTypes.history.isRequired,
   loginAction: PropTypes.func.isRequired,
@@ -83,11 +90,13 @@ CustomerComponent.propTypes = {
 
 const mapStateToProps = state => ({
   currentCustomer: state.customers.currentCustomer,
+  currentOrder: state.orders.currentOrder,
 });
 
 export default connect(
   mapStateToProps,
   {
+    addToOrderAction: addToCurrentOrder,
     getInfoAction: getCurrentCustomerInfo,
     loginAction: login,
     logoutAction: logout,
