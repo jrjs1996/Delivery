@@ -65,6 +65,7 @@ function SideMenu({
           open
           anchor={anchor}
         >
+          <div className={classes.toolbar} />
           <Divider />
           <List>{children}</List>
           <Divider />
