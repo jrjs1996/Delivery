@@ -8,9 +8,14 @@ import {
 } from '../../actions/types';
 import { createItems, insertItem, updateItem } from '../utils/utils';
 
+const initialCurrentOrder = {
+  items: {},
+  total: 0,
+}
+
 const initialState = {
   items: {},
-  currentOrder: {},
+  currentOrder: initialCurrentOrder,
 };
 
 const addToCurrentOrder = (currentOrder, item) => {
@@ -50,7 +55,10 @@ export default function (state = initialState, action) {
     case ADD_TO_CURRENT_ORDER:
       return {
         ...state,
-        currentOrder: addToCurrentOrder(state.currentOrder, action.payload),
+        currentOrder: {
+          items: addToCurrentOrder(state.currentOrder.items, action.payload),
+          total: state.currentOrder.total + action.payload.price
+        }
       };
     case DELETE_CURRENT_ORDER:
       return {
@@ -70,7 +78,10 @@ export default function (state = initialState, action) {
     case REMOVE_FROM_CURRENT_ORDER:
       return {
         ...state,
-        currentOrder: removeFromCurrentOrder(state.currentOrder, action.payload),
+        currentOrder: {
+          items: removeFromCurrentOrder(state.currentOrder.items, action.payload),
+          total: state.currentOrder.total - action.payload.price,
+        }
       };
     default:
       return state;

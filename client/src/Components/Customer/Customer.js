@@ -70,9 +70,10 @@ export function CustomerComponent({
       <SideMenu
         anchor="right"
       >
-        {Object.keys(currentOrder).map(id => (
-          <SideMenuItem text={`${currentOrder[id].item.title} $${currentOrder[id].item.price} x ${currentOrder[id].count}`} />
+        {Object.keys(currentOrder.items).map(id => (
+          <SideMenuItem text={`${currentOrder.items[id].item.title} $${currentOrder.items[id].item.price} x ${currentOrder.items[id].count}`} />
         ))}
+        <SideMenuItem text={`Total: $${currentOrder.total}`}/>
       </SideMenu>
     </div>
   );
