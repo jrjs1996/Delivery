@@ -1,5 +1,10 @@
 import {
-  FETCH_ORDERS, ADD_ORDER, UPDATE_ORDER, ADD_TO_CURRENT_ORDER, REMOVE_FROM_CURRENT_ORDER, DELETE_CURRENT_ORDER,
+  FETCH_ORDERS,
+  ADD_ORDER,
+  UPDATE_ORDER,
+  ADD_TO_CURRENT_ORDER,
+  REMOVE_FROM_CURRENT_ORDER,
+  DELETE_CURRENT_ORDER,
 } from '../../actions/types';
 import { createItems, insertItem, updateItem } from '../utils/utils';
 
@@ -42,6 +47,11 @@ export default function (state = initialState, action) {
         ...state,
         items: insertItem(state.items, action.payload, '_id'),
       };
+    case ADD_TO_CURRENT_ORDER:
+      return {
+        ...state,
+        currentOrder: addToCurrentOrder(state.currentOrder, action.payload),
+      };
     case DELETE_CURRENT_ORDER:
       return {
         ...state,
@@ -51,11 +61,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: createItems(action.payload, '_id'),
-      };
-    case ADD_TO_CURRENT_ORDER:
-      return {
-        ...state,
-        currentOrder: addToCurrentOrder(state.currentOrder, action.payload),
       };
     case UPDATE_ORDER:
       return {

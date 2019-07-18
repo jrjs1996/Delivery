@@ -2,9 +2,21 @@ import configureStore from 'redux-mock-store';
 import * as orderActions from './order';
 import * as actionTypes from '../types';
 import mockAxios from '../../../__mocks__/axios';
+import { menuItemsMock } from '../../tests/mocks';
 
 const mockStore = configureStore();
 const store = mockStore();
+
+describe('Add to current order', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('Dispatches ADD_TO_CURRENT_ORDER with item as payload', () => {
+    orderActions.addToCurrentOrder(menuItemsMock[0])(store.dispatch);
+    expect(store.getActions()).toMatchSnapshot();
+  });
+});
 
 describe('Create order', () => {
   beforeEach(() => {
