@@ -8,7 +8,7 @@ import {
   UPDATE_CURRENT_CUSTOMER,
   UPDATE_CUSTOMER,
 } from '../types';
-import { saveToken, setAuthHeader, removeToken } from '../../utils/token';
+import { saveToken, setAuthHeader, removeToken, getToken } from '../../utils/token';
 
 export const addCustomer = postData => async (dispatch) => {
   try {
@@ -57,6 +57,7 @@ export const fetchCustomers = () => async (dispatch) => {
 
 export const getCurrentCustomerInfo = () => async (dispatch) => {
   try {
+    if (!getToken()) return;
     const res = await axios.get('/api/customers/login/', setAuthHeader());
     dispatch({
       type: UPDATE_CURRENT_CUSTOMER,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { saveToken, removeToken, setAuthHeader } from '../../utils/token';
+import { saveToken, removeToken, setAuthHeader, getToken } from '../../utils/token';
 import {
   UPDATE_CURRENT_ADMIN,
   FETCH_ADMINS,
@@ -41,6 +41,7 @@ export const fetchAdmins = () => async (dispatch) => {
 
 export const getCurrentAdminInfo = () => async (dispatch) => {
   try {
+    if(!getToken()) return;
     const res = await axios.get('/api/admins/login/', setAuthHeader());
     dispatch({
       type: UPDATE_CURRENT_ADMIN,
