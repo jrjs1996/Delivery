@@ -6,6 +6,7 @@ import {
   ADD_CUSTOMER,
   ADD_TO_CURRENT_ORDER,
   REMOVE_FROM_CURRENT_ORDER,
+  DELETE_CURRENT_ORDER,
 } from '../../actions/types';
 import { ordersMock, createAction, menuItemsMock } from '../../tests/mocks';
 
@@ -48,6 +49,18 @@ describe('Order reducer', () => {
     };
     const state = createState(undefined, initialCurrentOrder);
     const action = createAction(ADD_TO_CURRENT_ORDER, menuItemsMock[0]);
+    expect(orderReducer(state, action)).toMatchSnapshot();
+  });
+
+  it('Current order is empty after calling DELETE _CURRENT_ORDER', () => {
+    const initialCurrentOrder = {
+      [menuItemsMock[0]._id]: {
+        item: menuItemsMock[0],
+        count: 1,
+      },
+    };
+    const state = createState(undefined, initialCurrentOrder);
+    const action = createAction(DELETE_CURRENT_ORDER, menuItemsMock[0]);
     expect(orderReducer(state, action)).toMatchSnapshot();
   });
 

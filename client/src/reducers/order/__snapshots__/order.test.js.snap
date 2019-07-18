@@ -130,6 +130,13 @@ Object {
 }
 `;
 
+exports[`Order reducer Current order is empty after calling DELETE _CURRENT_ORDER 1`] = `
+Object {
+  "currentOrder": Object {},
+  "items": undefined,
+}
+`;
+
 exports[`Order reducer Initial state is empty 1`] = `
 Object {
   "currentOrder": Object {},
