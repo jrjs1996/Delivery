@@ -62,10 +62,10 @@ export const fetchOrders = () => async (dispatch) => {
   }
 };
 
-export const removeFromCurrentOrder = id => (dispatch) => {
+export const removeFromCurrentOrder = menuNumber => (dispatch) => {
   dispatch({
     type: REMOVE_FROM_CURRENT_ORDER,
-    payload: id,
+    payload: menuNumber,
   });
 };
 

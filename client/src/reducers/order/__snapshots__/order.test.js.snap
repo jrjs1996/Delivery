@@ -78,7 +78,7 @@ exports[`Order reducer Adds item to current order with a count of 1 when current
       is empty and calling ADD_TO_CURRENT_ORDER 1`] = `
 Object {
   "currentOrder": Object {
-    "0": Object {
+    "1": Object {
       "count": 1,
       "item": Object {
         "__v": 0,
@@ -106,7 +106,7 @@ exports[`Order reducer Adds to the items count when calling ADD_TO_CURRENT_ORDER
       item is already in the order 1`] = `
 Object {
   "currentOrder": Object {
-    "0": Object {
+    "1": Object {
       "count": 2,
       "item": Object {
         "__v": 0,

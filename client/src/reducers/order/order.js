@@ -16,26 +16,26 @@ const initialState = {
 const addToCurrentOrder = (currentOrder, item) => {
   const newOrder = { ...currentOrder };
   // If the item is already in the order add 1 to count
-  if (newOrder[item._id]) {
-    newOrder[item._id].count += 1;
+  if (newOrder[item.menuNumber]) {
+    newOrder[item.menuNumber].count += 1;
     return newOrder;
   }
   // Otherwise add it to the order
-  newOrder[item._id] = {
+  newOrder[item.menuNumber] = {
     item,
     count: 1,
   };
   return newOrder;
 };
 
-const removeFromCurrentOrder = (currentOrder, itemId) => {
+const removeFromCurrentOrder = (currentOrder, menuNumber) => {
   const newOrder = { ...currentOrder };
-  if (!newOrder[itemId]) return newOrder;
+  if (!newOrder[menuNumber]) return newOrder;
 
-  newOrder[itemId].count -= 1;
+  newOrder[menuNumber].count -= 1;
   // If count is less than 1 remove it from the order
-  if (newOrder[itemId].count < 1) {
-    delete newOrder[itemId];
+  if (newOrder[menuNumber].count < 1) {
+    delete newOrder[menuNumber];
   }
   return newOrder;
 };

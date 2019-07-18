@@ -3,7 +3,6 @@ import {
   ADD_ORDER,
   FETCH_ORDERS,
   UPDATE_ORDER,
-  ADD_CUSTOMER,
   ADD_TO_CURRENT_ORDER,
   REMOVE_FROM_CURRENT_ORDER,
   DELETE_CURRENT_ORDER,
@@ -42,7 +41,7 @@ describe('Order reducer', () => {
   it(`Adds to the items count when calling ADD_TO_CURRENT_ORDER and the
       item is already in the order`, () => {
     const initialCurrentOrder = {
-      [menuItemsMock[0]._id]: {
+      [menuItemsMock[0].menuNumber]: {
         item: menuItemsMock[0],
         count: 1,
       },
