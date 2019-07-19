@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import HomeIcon from '@material-ui/icons/Home';
 
+import SidePanelMenuItem from '../Navigation/SidePanel/SidePanelMenuItem/SidePanelMenuItem';
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
@@ -13,7 +14,7 @@ import { CustomerPropType, OrderPropType } from '../../propTypes';
 import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
 import SideMenu from '../Navigation/SidePanel/SidePanel';
-import { addToCurrentOrder } from '../../actions/order/order';
+import { addToCurrentOrder, removeFromCurrentOrder } from '../../actions/order/order';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -32,6 +33,7 @@ const onLogin = (email, password, loginAction, setLoginDialogOpen) => {
 };
 
 export function CustomerComponent({
+  addToOrderAction,
   currentCustomer,
   currentOrder,
   getInfoAction,
@@ -39,6 +41,7 @@ export function CustomerComponent({
   loginAction,
   logoutAction,
   match,
+  removeFromCurrentOrderAction,
 }) {
   useEffect(() => {
     getInfoAction();
@@ -71,15 +74,23 @@ export function CustomerComponent({
         anchor="right"
       >
         {Object.keys(currentOrder.items).map(id => (
-          <SideMenuItem text={`${currentOrder.items[id].item.title} $${currentOrder.items[id].item.price} x ${currentOrder.items[id].count}`} />
+          <SidePanelMenuItem
+            title={currentOrder.items[id].item.title}
+            price={currentOrder.items[id].item.price}
+            count={currentOrder.items[id].count}
+            onAdd={number => addToOrderAction(currentOrder.items[number].item)}
+            onRemove={removeFromCurrentOrderAction}
+            menuNumber={currentOrder.items[id].item.menuNumber}
+          />
         ))}
-        <SideMenuItem text={`Total: $${currentOrder.total}`}/>
+        <SideMenuItem text={`Total: $${currentOrder.total}`} />
       </SideMenu>
     </div>
   );
 }
 
 CustomerComponent.propTypes = {
+  addToOrderAction: PropTypes.func.isRequired,
   currentCustomer: CustomerPropType.isRequired,
   currentOrder: OrderPropType.isRequired,
   getInfoAction: PropTypes.func.isRequired,
@@ -101,5 +112,6 @@ export default connect(
     getInfoAction: getCurrentCustomerInfo,
     loginAction: login,
     logoutAction: logout,
+    removeFromCurrentOrderAction: removeFromCurrentOrder,
   },
 )(CustomerComponent);

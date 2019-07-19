@@ -20,7 +20,7 @@ export default function MenuItemList({
       onDelete={onDelete}
       _id={i._id}
       _key={i._id}
-      key={shortid.generate()}
+      key={i._id}
       image={i.image}
       imageMode={imageMode}
     />

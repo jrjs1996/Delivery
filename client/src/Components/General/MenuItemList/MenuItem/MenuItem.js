@@ -30,7 +30,6 @@ export default function MenuItem({
         if (imageMode === 'onClick') {
           setdisplayImage(!displayImage);
         } else {
-          if (imageMode === 'onClick') return;
           onSelect({
             _id, description, image, menuNumber: number, price, title,
           });
@@ -67,7 +66,6 @@ export default function MenuItem({
           <Grid item xs={2}>
             <Button
               onClick={(e) => {
-                e.preventDefault();
                 e.stopPropagation();
                 onSelect();
               }}

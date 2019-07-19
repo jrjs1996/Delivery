@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  console.log(state.errorCount)
   switch (action.type) {
     case ERROR:
       return {

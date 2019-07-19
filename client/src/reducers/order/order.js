@@ -11,7 +11,7 @@ import { createItems, insertItem, updateItem } from '../utils/utils';
 const initialCurrentOrder = {
   items: {},
   total: 0,
-}
+};
 
 const initialState = {
   items: {},
@@ -57,8 +57,8 @@ export default function (state = initialState, action) {
         ...state,
         currentOrder: {
           items: addToCurrentOrder(state.currentOrder.items, action.payload),
-          total: state.currentOrder.total + action.payload.price
-        }
+          total: state.currentOrder.total + action.payload.price,
+        },
       };
     case DELETE_CURRENT_ORDER:
       return {
@@ -80,8 +80,8 @@ export default function (state = initialState, action) {
         ...state,
         currentOrder: {
           items: removeFromCurrentOrder(state.currentOrder.items, action.payload),
-          total: state.currentOrder.total - action.payload.price,
-        }
+          total: state.currentOrder.total - state.currentOrder.items[action.payload].item.price,
+        },
       };
     default:
       return state;

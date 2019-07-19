@@ -5,10 +5,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function SideMenuItem(props) {
-  const { to } = props;
-  const { children } = props;
-  const { text } = props;
+function SideMenuItem({
+  to,
+  children,
+  text,
+}) {
   return (
     <Link to={to} style={{ color: '#191f19', textDecoration: 'None' }}>
       <ListItem button key={to}>
