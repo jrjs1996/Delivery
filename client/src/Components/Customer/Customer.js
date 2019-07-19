@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import HomeIcon from '@material-ui/icons/Home';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
@@ -14,6 +15,8 @@ import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
 import { addToCurrentOrder, removeFromCurrentOrder } from '../../actions/order/order';
 import CurrentOrderSidePanel from './CurrentOrderSidePanel/CurrentOrderSidePanel';
+import Settings from './Settings/Settings';
+
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -45,6 +48,7 @@ export function CustomerComponent({
 
   const classes = useStyles();
   const [loginDialogOpen, setLoginDialogOpen] = useState(false);
+
   return (
     <div className={classes.root}>
       <Navigation
@@ -56,10 +60,18 @@ export function CustomerComponent({
         <SideMenuItem to={match.path} text="Home">
           <HomeIcon />
         </SideMenuItem>
+        {
+          currentCustomer._id ? (
+            <SideMenuItem to={`${match.path}settings/`} text="Settings">
+              <SettingsIcon />
+            </SideMenuItem>
+          ) : null
+        }
       </Navigation>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Route path={match.path} exact component={Home} />
+        <Route path={`${match.path}settings/`} component={Settings} />
       </main>
       <LoginDialog
         action={(email, password) => onLogin(email, password, loginAction, setLoginDialogOpen)}

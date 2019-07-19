@@ -17,6 +17,8 @@ import AdminList from './AdminList/AdminList';
 import AdminSettings from './AdminSettings/AdminSettings';
 import ChangePassword from './ChangePassword/ChangePassword';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
+import Settings from '../../General/Settings/Settings';
+import SettingsItem from '../../General/Settings/SettingsItem';
 
 const renderBackButton = (pathname, history, matchPath) => {
   if (pathname !== matchPath) {
@@ -41,51 +43,44 @@ export function SettingsComponent({
   updateCurrentAdminAction,
 }) {
   return (
-    <div className="Settings">
-      <Grid container spacing={1}>
-        <Grid item sm={3}>
-          {renderBackButton(location.pathname, history, match.path)}
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Route path={match.path} exact component={AdminSettings} />
-          <Route
-            path={`${match.path}username/`}
-            render={props => (
-              <ChangeUsername
-                currentAdmin={currentAdmin}
-                updateAction={updateCurrentAdminAction}
-                {...props}
-              />
-            )}
-          />
-          <Route
-            path={`${match.path}password/`}
-            render={props => (
-              <ChangePassword
-                currentAdmin={currentAdmin}
-                updateAction={updateCurrentAdminAction}
-                {...props}
-              />
-            )}
-          />
-          <Route
-            path={`${match.path}admins/`}
-            render={props => (
-              <AdminList
-                admins={admins}
-                createAction={createAction}
-                fetchAction={fetchAction}
-                history={history}
-                match={match}
-                updateAction={updateAction}
-                {...props}
-              />
-            )}
-          />
-        </Grid>
-        <Grid item xs={12} sm={3} />
-      </Grid>
-    </div>
+    <Settings
+      history={history}
+      location={location}
+      match={match}
+      title="Settings"
+    >
+      <SettingsItem
+        path="username/"
+        text="Change Username"
+      >
+        <ChangeUsername
+          currentAdmin={currentAdmin}
+          updateAction={updateCurrentAdminAction}
+        />
+      </SettingsItem>
+      <SettingsItem
+        path="password/"
+        text="Change Password"
+      >
+        <ChangePassword
+          currentAdmin={currentAdmin}
+          updateAction={updateCurrentAdminAction}
+        />
+      </SettingsItem>
+      <SettingsItem
+        path="admins/"
+        text="Edit Admins"
+      >
+        <AdminList
+          admins={admins}
+          createAction={createAction}
+          fetchAction={fetchAction}
+          history={history}
+          match={match}
+          updateAction={updateAction}
+        />
+      </SettingsItem>
+    </Settings>
   );
 }
 

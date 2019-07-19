@@ -31,9 +31,10 @@ SettingsMenu.propTypes = {
   title: PropTypes.string,
   /** Function that will be called when an item is clicked
    * on. Given the index of the item. */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 SettingsMenu.defaultProps = {
   title: '',
+  onClick: () => {},
 };
