@@ -10,10 +10,9 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
 import { login, logout, getCurrentCustomerInfo } from '../../actions/customer/customer';
-import { CustomerPropType, OrderPropType } from '../../propTypes';
+import { CustomerPropType } from '../../propTypes';
 import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
-import { addToCurrentOrder, removeFromCurrentOrder } from '../../actions/order/order';
 import CurrentOrderSidePanel from './CurrentOrderSidePanel/CurrentOrderSidePanel';
 import Settings from './Settings/Settings';
 
