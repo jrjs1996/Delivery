@@ -1,6 +1,5 @@
 import { Button, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
@@ -14,7 +13,6 @@ import {
   updateCurrentAdmin,
 } from '../../../actions/admin/admin';
 import AdminList from './AdminList/AdminList';
-import AdminSettings from './AdminSettings/AdminSettings';
 import ChangePassword from './ChangePassword/ChangePassword';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
 import Settings from '../../General/Settings/Settings';
