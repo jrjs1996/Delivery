@@ -9,6 +9,7 @@ export default function CustomerForm({
 }) {
   return (
     <SettingPage
+      className="CustomerForm"
       title={id ? 'Update Customer' : 'Add Customer'}
       onSubmit={(data) => {
         if (id) {
