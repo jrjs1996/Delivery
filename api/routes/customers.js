@@ -18,7 +18,7 @@ const Customer = require('../models/Customer');
  * with the specified id.
  * @param {*} req The request to check.
  */
-const adminOrSpecifiedCustomer = req => req.admin != null || (req.customer != null && req.customer.id === req.params.id);
+const adminOrSpecifiedCustomer = req => req.admin != null || (req.customer != null && req.customer._id.toString() === req.params.id);
 
 /**
  * Retreives all customers.
@@ -112,12 +112,14 @@ router.get('/:id', async (req, res) => {
  * Must be specified customer or admin
  */
 router.put('/:id', async (req, res) => {
-  console.log(req.body);
   if (!adminOrSpecifiedCustomer(req)) return res.sendStatus(401);
 
   try {
-    await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
-    return res.sendStatus(200);
+    const newCustomer = await Customer.findOne({ _id: req.params.id });
+    Object.assign(newCustomer, req.body);
+    newCustomer.save();
+    delete newCustomer.password;
+    return res.send(newCustomer);
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { AdminPropType } from '../../../../propTypes';
-import SettingPage from '../../../General/SettingPage/SettingPage';
-import SettingPageInput from '../../../General/SettingPage/SettingPageInput/SettingPageInput';
+import { AdminPropType, CustomerPropType } from '../../../propTypes';
+import SettingPage from '../SettingPage/SettingPage';
+import SettingPageInput from '../SettingPage/SettingPageInput/SettingPageInput';
 
-const onClick = (submitData, currentAdmin, action) => {
+const onClick = (submitData, currentUser, action) => {
   const { newPassword, confirmNewPassword } = submitData;
-  const { _id } = currentAdmin;
+  const { _id } = currentUser;
   if (newPassword !== confirmNewPassword) {
     return "Error: Passwords don't match!";
   }
@@ -15,11 +15,11 @@ const onClick = (submitData, currentAdmin, action) => {
   return 'Password Changed!';
 };
 
-export default function ChangePassword({ currentAdmin, updateAction }) {
+export default function ChangePassword({ currentUser, updateAction }) {
   return (
     <SettingPage
       title="Change Password"
-      onSubmit={submitData => onClick(submitData, currentAdmin, updateAction)}
+      onSubmit={submitData => onClick(submitData, currentUser, updateAction)}
     >
       <SettingPageInput
         required
@@ -41,5 +41,8 @@ export default function ChangePassword({ currentAdmin, updateAction }) {
 
 ChangePassword.propTypes = {
   updateAction: PropTypes.func.isRequired,
-  currentAdmin: AdminPropType.isRequired,
+  currentUser: PropTypes.oneOfType([
+    AdminPropType,
+    CustomerPropType,
+  ]).isRequired,
 };

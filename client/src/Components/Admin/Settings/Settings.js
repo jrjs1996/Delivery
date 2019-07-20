@@ -13,21 +13,10 @@ import {
   updateCurrentAdmin,
 } from '../../../actions/admin/admin';
 import AdminList from './AdminList/AdminList';
-import ChangePassword from './ChangePassword/ChangePassword';
+import ChangePassword from '../../General/ChangePassword/ChangePassword';
 import ChangeUsername from './ChangeUsername/ChangeUsername';
 import Settings from '../../General/Settings/Settings';
 import SettingsItem from '../../General/Settings/SettingsItem';
-
-const renderBackButton = (pathname, history, matchPath) => {
-  if (pathname !== matchPath) {
-    return (
-      <Button variant="contained" color="secondary" onClick={() => history.goBack()}>
-        Back
-      </Button>
-    );
-  }
-  return null;
-};
 
 export function SettingsComponent({
   admins,

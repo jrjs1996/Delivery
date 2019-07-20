@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import 'jest-dom/extend-expect';
-import { adminsMock } from '../../../../tests/mocks';
+import { adminsMock } from '../../../tests/mocks';
 import { ChangePasswordComponent } from './ChangePassword';
 
 describe('ChangePassword.test', () => {

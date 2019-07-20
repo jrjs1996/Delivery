@@ -125,7 +125,6 @@ router.put('/:id', async (req, res) => {
     Object.assign(newAdmin, req.body);
     newAdmin.save();
     delete newAdmin.password;
-    delete newAdmin.__v;
     return res.send(newAdmin);
   } catch (error) {
     console.log(error);
