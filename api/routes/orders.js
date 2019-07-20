@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const Order = require('../models/Order');
+const MenuItem = require('../models/MenuItem');
 
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
@@ -47,9 +48,12 @@ router.get('/', async (req, res) => {
   if (stageQuery) query.stage = stageQuery;
   try {
     const orders = await Order.find(query, null, { sort: { orderCreated: -1 } })
-      .populate('customer').populate('items').exec();
+      .populate('customer')
+      .populate('items')
+      .exec();
     return res.send(orders);
   } catch (error) {
+    console.log(error);
     return res.sendStatus(500);
   }
 });
@@ -63,10 +67,15 @@ router.get('/', async (req, res) => {
  * Adds the specified order.
  */
 router.post('/', async (req, res) => {
-  const orderParams = req.body;
-  console.log(orderParams);
   try {
+    const orderParams = req.body;
+    for (let i = 0; i < orderParams.items.length; i += 1) {
+      const item = orderParams.items[i];
+      item[0] = await MenuItem.findById(item[0]);
+      item[0] = item[0]._id;
+    }
     const order = new Order(orderParams);
+    console.log(order);
     const result = order.save();
     res.send(result);
   } catch (error) {
@@ -99,9 +108,12 @@ router.get('/:orderId', async (req, res) => {
     const order = await Order.findOne({ _id: req.params.orderId });
 
     // If the user is an admin or the customer who has made the order
-    if (res.admin
-      || (req.customer && order.customer
-        && order.customer._id.toString() === req.customer._id.toString())) {
+    if (
+      res.admin
+      || (req.customer
+        && order.customer
+        && order.customer._id.toString() === req.customer._id.toString())
+    ) {
       return res.send(order);
     }
     return res.sendStatus(401);
@@ -111,12 +123,11 @@ router.get('/:orderId', async (req, res) => {
 });
 
 router.put('/:orderId', async (req, res) => {
-  console.log(req.body)
   if (req.admin == null) return res.sendStatus(401);
   try {
     let order = await Order.findOne({ _id: req.params.orderId });
     order = Object.assign(order, req.body);
-    order.save()
+    order.save();
     return res.send(200, order);
   } catch (error) {
     return res.sendStatus(500);
