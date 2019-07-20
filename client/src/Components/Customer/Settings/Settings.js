@@ -8,6 +8,7 @@ import Settings from '../../General/Settings/Settings';
 import SettingsItem from '../../General/Settings/SettingsItem';
 import ChangePassword from '../../General/ChangePassword/ChangePassword';
 import { updateCustomer } from '../../../actions/customer/customer';
+import EditInfo from './EditInfo';
 
 export function SettingsComponent({
   currentCustomer,
@@ -18,6 +19,8 @@ export function SettingsComponent({
     <Settings {...rest}>
       <SettingsItem
         text="Change Password"
+        match={rest.match}
+        path="password/"
       >
         <ChangePassword
           currentUser={currentCustomer}
@@ -26,7 +29,17 @@ export function SettingsComponent({
       </SettingsItem>
       <SettingsItem
         text="Change Info"
-      />
+        match={rest.match}
+        path="changeinfo/"
+      >
+        <EditInfo
+          addresses={currentCustomer.addresses}
+          firstName={currentCustomer.firstName}
+          id={currentCustomer._id}
+          lastName={currentCustomer.lastName}
+          onSubmit={updateCustomerAction}
+        />
+      </SettingsItem>
       <SettingsItem
         text="Manage Addresses"
       />
