@@ -17,14 +17,20 @@ export const addToCurrentOrder = item => (dispatch) => {
   });
 };
 
-export const createOrder = postData => async (dispatch) => {
+export const createOrder = (currentOrder, orderInfo = {}) => async (dispatch) => {
   try {
-    const res = await axios.post('/api/orders/', postData);
+    const postData = Object.assign(orderInfo);
+    postData.items = Object.keys(currentOrder.items).map(i => [
+      currentOrder.items[i].item._id,
+      currentOrder.items[i].count,
+    ]);
+    const res = await axios.post('/api/orders/', orderInfo);
     dispatch({
       type: ADD_ORDER,
       payload: res.data,
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: ERROR,
       payload: 'Unable to create order',

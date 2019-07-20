@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography, Grid } from '@material-ui/core';
 
-export default function OrderItem({ title, price, onClick }) {
+export default function OrderItem({ count, title, price, onClick }) {
   return (
     <Paper
       onClick={onClick}
@@ -18,6 +18,8 @@ export default function OrderItem({ title, price, onClick }) {
           <Typography variant="h6">
             $
             {price}
+            x
+            {count}
           </Typography>
         </Grid>
       </Grid>

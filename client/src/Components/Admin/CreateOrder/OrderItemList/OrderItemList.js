@@ -5,15 +5,16 @@ import { Grid } from '@material-ui/core';
 import OrderItem from './OrderItem/OrderItem';
 import { MenuItemPropType } from '../../../../propTypes';
 
-export default function OrderItemList({ orderItems, onClick }) {
+export default function OrderItemList({ order, onClick }) {
   return (
     <div>
-      {orderItems.map((i, index) => (
+      {Object.keys(order.items).map((i, index) => (
         <Grid item xs={12} key={shortid.generate()}>
           <OrderItem
-            title={i.title}
-            price={i.price}
-            onClick={() => onClick(index)}
+            title={order.items[i].item.title}
+            price={order.items[i].item.price}
+            count={order.items[i].count}
+            onClick={() => onClick(i)}
           />
         </Grid>
       ))}

@@ -3,7 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createOrder } from '../../../actions/order/order';
+import {
+  createOrder,
+  addToCurrentOrder,
+  removeFromCurrentOrder,
+} from '../../../actions/order/order';
 import MenuItemList from '../../General/MenuItemList/MenuItemList';
 import { fetchMenu } from '../../../actions/menu/menu';
 import SettingPage from '../../General/SettingPage/SettingPage';
@@ -12,32 +16,6 @@ import SettingPageCheckBox from '../../General/SettingPage/SettingPageCheckBox/S
 import SettingPageSelect from '../../General/SettingPage/SettingPageSelect/SettingPageSelect';
 import OrderItemList from './OrderItemList/OrderItemList';
 import './CreateOrder.css';
-
-const onSubmit = (formData, items, createAction, setOrderItems, setTotal) => {
-  const order = formData;
-  order.items = items.map(i => i._id);
-  createAction(order);
-  setOrderItems([]);
-  setTotal(0);
-  return 'Order Created';
-};
-
-const addItem = (item, menu, items, setItems, total, setTotal) => {
-  const newItem = menu[item];
-  const newItems = items.slice();
-  newItems.push(newItem);
-  const newTotal = total + newItem.price;
-  setItems(newItems);
-  setTotal(newTotal);
-};
-
-const removeItem = (index, items, setItems, total, setTotal) => {
-  const newItems = items.slice();
-  const newTotal = total - items[index].price;
-  newItems.splice(index, 1);
-  setItems(newItems);
-  setTotal(newTotal);
-};
 
 const getOptions = (state) => {
   const options = [[0, 'Submitted'], [1, 'Preparing'], [4, 'Completed'], [5, 'Cancelled']];
@@ -58,10 +36,14 @@ const manageState = (state) => {
   return state;
 };
 
-export function CreateOrderComponent({ createAction, fetchAction, menu }) {
-  const [orderItems, setOrderItems] = useState([]);
-  const [total, setTotal] = useState(0);
-
+export function CreateOrderComponent({
+  addAction,
+  createAction,
+  currentOrder,
+  removeAction,
+  fetchAction,
+  menu,
+}) {
   useEffect(() => {
     fetchAction();
   }, [fetchAction]);
@@ -73,8 +55,10 @@ export function CreateOrderComponent({ createAction, fetchAction, menu }) {
           className="CreateOrderForm"
           clearOnSubmit
           title="Create Order"
-          onSubmit={formData => onSubmit(formData, orderItems, createAction, setOrderItems, setTotal)
-          }
+          onSubmit={(formData) => {
+            createAction(currentOrder, formData);
+            return 'ok';
+          }}
           onValueChange={manageState}
         >
           <SettingPageInput required fullWidth name="customerName" label="Customer Name" />
@@ -84,19 +68,13 @@ export function CreateOrderComponent({ createAction, fetchAction, menu }) {
         </SettingPage>
         <Paper>
           <Paper>
-            <Typography variant="h3">{`$${total}`}</Typography>
+            <Typography variant="h3">{`$${currentOrder.total}`}</Typography>
             <br />
           </Paper>
-          <OrderItemList
-            orderItems={orderItems}
-            onClick={index => removeItem(index, orderItems, setOrderItems, total, setTotal)}
-          />
+          <OrderItemList order={currentOrder} onClick={removeAction} />
         </Paper>
       </Paper>
-      <MenuItemList
-        menu={menu}
-        onSelect={i => addItem(i, menu, orderItems, setOrderItems, total, setTotal)}
-      />
+      <MenuItemList menu={menu} onSelect={i => addAction(menu[i])} />
     </div>
   );
 }
@@ -109,12 +87,15 @@ CreateOrderComponent.propTypes = {
 
 const mapStateToProps = state => ({
   menu: state.menu.items,
+  currentOrder: state.orders.currentOrder,
 });
 
 export default connect(
   mapStateToProps,
   {
+    addAction: addToCurrentOrder,
     createAction: createOrder,
+    removeAction: removeFromCurrentOrder,
     fetchAction: fetchMenu,
   },
 )(CreateOrderComponent);
