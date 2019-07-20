@@ -77,7 +77,7 @@ export function CustomerComponent({
         onClose={() => setLoginDialogOpen(false)}
         open={loginDialogOpen}
       />
-      <CurrentOrderSidePanel />
+      <CurrentOrderSidePanel hideOnEmpty />
     </div>
   );
 }
