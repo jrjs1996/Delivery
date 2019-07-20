@@ -28,8 +28,8 @@ const OrderSchema = new Schema({
   customerName: { type: String, required: true },
   items: {
     type: [{
-      type: Schema.Types.Array,
-      ref: 'MenuItem',
+      type: Schema.Types.ObjectId,
+      ref: 'OrderItem',
     }],
     validate: [minItems, 'Orders must have at least one item'],
   },

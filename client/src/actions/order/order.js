@@ -20,11 +20,11 @@ export const addToCurrentOrder = item => (dispatch) => {
 export const createOrder = (currentOrder, orderInfo = {}) => async (dispatch) => {
   try {
     const postData = Object.assign(orderInfo);
-    postData.items = Object.keys(currentOrder.items).map(i => [
-      currentOrder.items[i].item._id,
-      currentOrder.items[i].count,
-    ]);
-    const res = await axios.post('/api/orders/', orderInfo);
+    postData.items = {};
+    Object.keys(currentOrder.items).forEach((i) => {
+      postData.items[i] = currentOrder.items[i].count;
+    });
+    const res = await axios.post('/api/orders/', postData);
     dispatch({
       type: ADD_ORDER,
       payload: res.data,

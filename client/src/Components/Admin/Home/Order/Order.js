@@ -40,7 +40,6 @@ export default function Order({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-
   return (
     <Paper
       onClick={() => setExpand(!expand)}
@@ -98,10 +97,10 @@ export default function Order({
           </Button>
         </Grid>
         <Grid item xs={12}>
-          {expand && items.length ? (
+          {expand && Object.keys(items).length ? (
             <div style={{ paddingTop: 12, paddingBottom: 14 }}>
-              {items.map(i => (
-                <Item title={i.title} key={shortid.generate()} menuNumber={i.menuNumber} />
+              {Object.keys(items).map(i => (
+                <Item title={items[i].item.title} key={shortid.generate()} menuNumber={items[i].item.menuNumber} />
               ))}
             </div>
           ) : null}

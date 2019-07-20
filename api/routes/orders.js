@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
 const MenuItem = require('../models/MenuItem');
+const OrderItem = require('../models/OrderItem');
 
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
@@ -49,9 +50,25 @@ router.get('/', async (req, res) => {
   try {
     const orders = await Order.find(query, null, { sort: { orderCreated: -1 } })
       .populate('customer')
-      .populate('items')
+      .populate({
+        path: 'items',
+        populate: {
+          path: 'item',
+        },
+      })
       .exec();
-    return res.send(orders);
+    const responseData = [];
+    orders.forEach((order) => {
+      const items = {};
+      order.items.forEach((item) => {
+        items[item.item.menuNumber] = item;
+      });
+      order = order.toObject();
+      order.items = items;
+      responseData.push(order)
+    });
+
+    return res.send(responseData);
   } catch (error) {
     console.log(error);
     return res.sendStatus(500);
@@ -69,16 +86,20 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const orderParams = req.body;
-    for (let i = 0; i < orderParams.items.length; i += 1) {
-      const item = orderParams.items[i];
-      item[0] = await MenuItem.findById(item[0]);
-      item[0] = item[0]._id;
-    }
+    const itemsToFind = Object.keys(orderParams.items);
+    // TODO: Does what if it doesn't find all items
+    const menuItems = await MenuItem.find({
+      menuNumber: {
+        $in: itemsToFind,
+      },
+      archived: false,
+    }).exec();
+    orderParams.items = await OrderItem.create(menuItems.map(m => ({ item: m, count: orderParams.items[m.menuNumber] })));
     const order = new Order(orderParams);
-    console.log(order);
     const result = order.save();
     res.send(result);
   } catch (error) {
+    console.log(error);
     res.sendStatus(500);
   }
 });
