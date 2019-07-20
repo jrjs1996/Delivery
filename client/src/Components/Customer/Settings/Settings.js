@@ -1,14 +1,13 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import ReactRouterPropTypes from 'react-router-prop-types';
 import PropTypes from 'prop-types';
-import SettingsMenu from '../../General/SettingsMenu/SettingsMenu';
-import SettingsMenuItem from '../../General/SettingsMenu/SettingsMenuItem/SettingsMenuItem';
+import React from 'react';
+
+import { CustomerPropType } from '../../../propTypes';
+import { updateCustomer } from '../../../actions/customer/customer';
+import ChangePassword from '../../General/ChangePassword/ChangePassword';
+import EditInfo from './EditInfo';
 import Settings from '../../General/Settings/Settings';
 import SettingsItem from '../../General/Settings/SettingsItem';
-import ChangePassword from '../../General/ChangePassword/ChangePassword';
-import { updateCustomer } from '../../../actions/customer/customer';
-import EditInfo from './EditInfo';
 
 export function SettingsComponent({
   currentCustomer,
@@ -40,15 +39,19 @@ export function SettingsComponent({
           onSubmit={updateCustomerAction}
         />
       </SettingsItem>
-      <SettingsItem
-        text="Manage Addresses"
-      />
     </Settings>
   );
 }
+
+SettingsComponent.propTypes = {
+  currentCustomer: CustomerPropType.isRequired,
+  updateCustomerAction: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   currentCustomer: state.customers.currentCustomer,
 });
 
-export default connect(mapStateToProps, { updateCustomerAction: updateCustomer})(SettingsComponent);
+export default connect(mapStateToProps, {
+  updateCustomerAction: updateCustomer,
+})(SettingsComponent);
