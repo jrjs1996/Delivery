@@ -3,12 +3,12 @@ import React from 'react';
 import shortid from 'shortid';
 import { Grid } from '@material-ui/core';
 import OrderItem from './OrderItem/OrderItem';
-import { MenuItemPropType } from '../../../../propTypes';
+import { OrderPropType } from '../../../../propTypes';
 
 export default function OrderItemList({ order, onClick }) {
   return (
     <div>
-      {Object.keys(order.items).map((i, index) => (
+      {Object.keys(order.items).map(i => (
         <Grid item xs={12} key={shortid.generate()}>
           <OrderItem
             title={order.items[i].item.title}
@@ -24,8 +24,12 @@ export default function OrderItemList({ order, onClick }) {
 
 OrderItemList.propTypes = {
   /** Array of items to display */
-  orderItems: PropTypes.arrayOf(MenuItemPropType).isRequired,
+  order: OrderPropType.isRequired,
   /** Function that is called with the index of the item that
    * was clicked on. */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+};
+
+OrderItemList.defaultProps = {
+  onClick: () => {},
 };
