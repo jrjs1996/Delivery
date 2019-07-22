@@ -41,10 +41,11 @@ const getDateQuery = (req) => {
  * Gets list of all orders.
  */
 router.get('/', async (req, res) => {
-  // if (req.admin == null) return res.sendStatus(401);
+  if (req.admin == null && req.customer == null) return res.sendStatus(401);
   const dateQuery = getDateQuery(req);
   const stageQuery = getStageQuery(req);
   const query = {};
+  if (req.customer) query.customer = req.customer._id;
   if (dateQuery) query.orderCreated = dateQuery;
   if (stageQuery) query.stage = stageQuery;
   try {
@@ -151,6 +152,7 @@ router.put('/:orderId', async (req, res) => {
     order.save();
     return res.send(200, order);
   } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 });

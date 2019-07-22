@@ -1,43 +1,24 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import shortid from 'shortid';
 
 import { fetchOpenOrders, updateOrder } from '../../../../actions/order/order';
 import { OrderPropType } from '../../../../propTypes';
 
 import './Home.css';
-import Order from '../Order/Order';
-
-
-const getDate = (date) => {
-  const d = new Date(date);
-  return d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: 'numeric' });
-};
+import OrderList from '../../../General/OrderList/OrderList';
 
 export function HomeComponent({
   fetchAction,
   orders,
   updateAction,
 }) {
-
-  useEffect(() => {fetchAction();}, [fetchAction]);
+  useEffect(() => { fetchAction(); }, [fetchAction]);
   return (
-    <div className="Orders">
-      {Object.entries(orders).map(([, o]) => (
-        <Order
-          address={o.address}
-          customerName={o.customerName}
-          delivery={o.delivery}
-          id={shortid.generate()}
-          items={o.items}
-          key={o._id}
-          orderCreated={getDate(o.orderCreated)}
-          stage={o.stage}
-          updateAction={updateAction}
-        />
-      ))}
-    </div>
+    <OrderList
+      orders={orders}
+      updateAction={updateAction}
+    />
   );
 }
 

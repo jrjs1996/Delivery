@@ -46,7 +46,7 @@ export const deleteCurrentOrder = () => (dispatch) => {
 
 export const fetchOpenOrders = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/orders/?toStage=3');
+    const res = await axios.get('/api/orders/?toStage=3', setAuthHeader());
     dispatch({
       type: FETCH_ORDERS,
       payload: res.data,
@@ -61,7 +61,7 @@ export const fetchOpenOrders = () => async (dispatch) => {
 
 export const fetchOrders = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/orders/');
+    const res = await axios.get('/api/orders/', setAuthHeader());
     dispatch({
       type: FETCH_ORDERS,
       payload: res.data,

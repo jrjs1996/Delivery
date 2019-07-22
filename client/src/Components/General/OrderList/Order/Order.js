@@ -71,7 +71,7 @@ export default function Order({
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} lg={10}>
+        <Grid item xs={12} lg={updateAction ? 10 : 12}>
           <Stepper activeStep={stage} style={{ padding: 0 }}>
             {steps.map(s => (
               <Step key={s}>
@@ -84,18 +84,20 @@ export default function Order({
             ))}
           </Stepper>
         </Grid>
-        <Grid item xs={12} lg={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={() => {
-              updateAction(id, { stage: stage + 1 });
-            }}
-          >
-            Next
-          </Button>
-        </Grid>
+        { updateAction ? (
+          <Grid item xs={12} lg={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              onClick={() => {
+                updateAction(id, { stage: stage + 1 });
+              }}
+            >
+              Next
+            </Button>
+          </Grid>
+        ) : null}      
         <Grid item xs={12}>
           {expand && Object.keys(items).length ? (
             <div style={{ paddingTop: 12, paddingBottom: 14 }}>

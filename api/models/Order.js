@@ -36,7 +36,7 @@ const OrderSchema = new Schema({
 });
 
 OrderSchema.pre('validate', async function (next) {
-  if (!this.customer) return next();
+  if (this._id || !this.customer) return next();
   if (this.customerName) {
     throw Error('cannot create order with both customer and customer name.'
     + 'If a customer is provided their current name will be used.');

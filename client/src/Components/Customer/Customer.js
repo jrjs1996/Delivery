@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import HomeIcon from '@material-ui/icons/Home';
 import SettingsIcon from '@material-ui/icons/Settings';
+import ReorderIcon from '@material-ui/icons/Reorder';
 
 import Navigation from '../Navigation/Navigation';
 import LoginDialog from '../Login/LoginDialog/LoginDialog';
@@ -15,7 +16,7 @@ import SideMenuItem from '../Navigation/SidePanel/SidePanelItem/SidePanelItem';
 import Home from './Home/Home';
 import CurrentOrderSidePanel from './CurrentOrderSidePanel/CurrentOrderSidePanel';
 import Settings from './Settings/Settings';
-
+import Orders from './Orders/Orders';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -59,18 +60,22 @@ export function CustomerComponent({
         <SideMenuItem to={match.path} text="Home">
           <HomeIcon />
         </SideMenuItem>
-        {
-          currentCustomer._id ? (
+        {currentCustomer._id ? (
+          <div>
             <SideMenuItem to={`${match.path}settings/`} text="Settings">
               <SettingsIcon />
             </SideMenuItem>
-          ) : null
-        }
+            <SideMenuItem to={`${match.path}orders/`} text="Orders">
+              <ReorderIcon />
+            </SideMenuItem>
+          </div>
+        ) : null}
       </Navigation>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Route path={match.path} exact component={Home} />
         <Route path={`${match.path}settings/`} component={Settings} />
+        <Route path={`${match.path}orders/`} component={Orders} />
       </main>
       <LoginDialog
         action={(email, password) => onLogin(email, password, loginAction, setLoginDialogOpen)}
