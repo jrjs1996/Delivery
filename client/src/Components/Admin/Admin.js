@@ -20,6 +20,7 @@ import Settings from './Settings/Settings';
 import AdminMenu from './Menu/AdminMenu/AdminMenu';
 import Navigation from '../Navigation/Navigation';
 import { AdminPropType } from '../../propTypes';
+import EditPost from './EditPost/EditPost';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -59,6 +60,7 @@ export function AdminComponent({
         <SideMenuItem to={`${match.path}/menu/`} text="Menu">
           <BookIcon />
         </SideMenuItem>
+        <SideMenuItem to={`${match.path}/editpost/`} text="Edit Post" />
       </Navigation>
       <main className={classes.content}>
         <div className={classes.toolbar} />
@@ -67,6 +69,7 @@ export function AdminComponent({
         <Route path={`${match.path}/menu/`} component={AdminMenu} />
         <Route path={`${match.path}/settings/`} component={Settings} />
         <Route path={`${match.path}/customers/`} component={Customers} />
+        <Route path={`${match.path}/editpost/`} component={EditPost} />
       </main>
     </div>
   );

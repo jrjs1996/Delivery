@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const Admin = require('../models/Admin');
+const { upload } = require('./utils');
 
 // TODO: List API points should have the ability to
 // specify 'from' and 'to' in query strings.
@@ -96,6 +97,14 @@ router.post('/login/', async (req, res) => {
   const resData = admin.toObject();
   resData.token = admin.newToken();
   return res.status(200).send(resData);
+});
+
+/**
+ * For handling general image uploads.
+ * Returns the url of the image.
+ */
+router.post('/image', upload.single('image'), async (req, res) => {
+  return res.sendStatus(200);
 });
 
 /**

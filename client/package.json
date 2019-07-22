@@ -12,6 +12,8 @@
     "docz": "^1.2.0",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^1.2.0",
+    "draft-js": "^0.11.0",
+    "draftjs-to-html": "^0.8.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint-plugin-react-hooks": "^1.6.0",
@@ -24,6 +26,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-draft-wysiwyg": "^1.13.2",
     "react-mock-router": "^1.0.15",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
@@ -35,7 +38,8 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.14",
-    "typeface-roboto": "0.0.54"
+    "typeface-roboto": "0.0.54",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
