@@ -22,7 +22,7 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "material-ui-dropzone": "^2.3.5",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "mockgoose": "^8.0.2",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.14",
